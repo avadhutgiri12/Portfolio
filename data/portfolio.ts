@@ -33,9 +33,9 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: "01",
     num: "01",
-    title: "LUNAR",
-    subtitle: "FINTECH ASSET ENGINE",
-    category: "FINTECH DASHBOARD & WEB PLATFORM",
+    title: "StoreWay",
+    subtitle: "E-Store",
+    category: "E-commerce & Web Platform",
     sideText: "HIGH SPEED & PRECISION ARCHITECTURE",
     year: "2025",
     role: "Lead Product Designer",
@@ -52,7 +52,7 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: "02",
     num: "02",
-    title: "NEXORA",
+    title: "House Price Prediction System",
     subtitle: "MODULAR SAAS SUITE",
     category: "PRODUCT WEBSITE & ECOSYSTEM",
     sideText: "BETTER PRODUCTS FASTER & STREAMLINED",
