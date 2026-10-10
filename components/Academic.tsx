@@ -220,6 +220,7 @@ export default function Academic() {
         md:px-12
         lg:py-36
       "
+      
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >

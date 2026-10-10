@@ -23,7 +23,7 @@ export default function Home() {
       <main className="relative z-10">
 
        
-          <SectionStack>
+          
           <Hero />
           <About />
           <WhatIDo />
@@ -32,7 +32,7 @@ export default function Home() {
           <Experience />
           <Academic />
           <Contact />
-        </SectionStack>
+        
 
         <div className="relative z-50">
           <Footer />
