@@ -11,8 +11,8 @@ const education = [
   {
     period: "2023 — 2027",
     degree: "Bachelor's Degree in Computer Science",
-    institution: "Your College / University",
-    location: "India",
+    institution: "Chhatrapati ShivajiRaje Mahavidyalya, Udgir",
+    location: "Udgir,Latur, India",
 
     description:
       "Pursuing Computer Science with a strong interest in Machine Learning, Artificial Intelligence, software development, and modern web technologies.",
@@ -67,7 +67,7 @@ const education = [
   {
     period: "2021 — 2023",
     degree: "Higher Secondary Education",
-    institution: "Your School / Junior College",
+    institution: "Chhatrapati ShiavjiRaje Mahavidyalaya Junior College, Udgir",
     location: "India",
 
     description:
@@ -76,54 +76,31 @@ const education = [
     focusAreas: [
       "Mathematics",
       "Physics",
+      "Chemistry",
       "Computer Science",
-      "Programming",
       "Problem Solving",
     ],
 
     academicProjects: [
-      {
-        title: "Student Management System",
-        category: "PYTHON",
-      },
-      {
-        title: "Data Analysis Project",
-        category: "DATA SCIENCE",
-      },
-      {
-        title: "Web Development Project",
-        category: "WEB",
-      },
+      
     ],
 
     academicDevelopment: [
-      "Programming Fundamentals",
+      "Basic Mathematics",
       "Logical Thinking",
       "Team Collaboration",
-      "Technical Presentation",
     ],
 
     certifications: [
-      {
-        name: "Web Development Certificate",
-        issuer: "Example Institute",
-        year: "2023",
-        file: "/certificates/web-development-certificate.pdf",
-      },
-      {
-        name: "Computer Fundamentals Certificate",
-        issuer: "Example Organization",
-        year: "2023",
-        file: "/certificates/computer-fundamentals.pdf",
-      },
+      
     ],
   },
 
   {
     period: "2020 — 2021",
     degree: "Secondary School Education",
-    institution: "Your School",
-    location: "India",
+    institution: "Vidyavardhini High School, Udgir",
+    location: "Udgir, Latur, India",
 
     description:
       "Completed secondary school education while developing an early interest in computers, mathematics, technology, and problem solving.",
@@ -131,36 +108,21 @@ const education = [
     focusAreas: [
       "Mathematics",
       "Science",
-      "Computer Fundamentals",
       "Logical Reasoning",
       "Technology",
     ],
 
     academicProjects: [
-      {
-        title: "Science Exhibition Project",
-        category: "SCIENCE",
-      },
-      {
-        title: "Basic Programming Project",
-        category: "PROGRAMMING",
-      },
+      
     ],
 
     academicDevelopment: [
       "Problem Solving",
-      "Creative Thinking",
-      "Research",
       "Communication",
     ],
 
     certifications: [
-      {
-        name: "Computer Basics Certificate",
-        issuer: "Example Organization",
-        year: "2021",
-        file: "/certificates/computer-basics.pdf",
-      },
+      
     ],
   },
 ];
