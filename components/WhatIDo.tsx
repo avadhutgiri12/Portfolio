@@ -1,7 +1,5 @@
 "use client";
 
-import CarouselStacked from "@/components/ui/carousel-07";
-
 const SERVICES = [
   {
     id: 1,
@@ -64,34 +62,6 @@ const SERVICES = [
     tag: "DATA & DATABASE",
   },
 ];
-
-// Map SERVICES data to Slide format for the carousel
-const slides = SERVICES.map((service) => ({
-  image: getServiceImage(service.title),
-  title: service.title,
-  description: service.description,
-  badge: service.tag,
-}));
-
-// Helper function to get appropriate image for each service
-function getServiceImage(title: string): string {
-  const imageMap: Record<string, string> = {
-    "BUILDING WEBSITES":
-      "https://cdn.21st.dev/assets/mirror/c1/c1e7bf149d430fd5bd5aa6dd3aaebb771fbc95b3a7cd303851ed585fd838a7b9.webp",
-    "UI / UX DESIGN":
-      "https://cdn.21st.dev/assets/mirror/fa/fac14e3cb2b67d40c5f3a2a0e212d0c60c1fd0aff588e59bc80883e4aceb4eee.webp",
-    "MODEL TRAINING":
-      "https://cdn.21st.dev/assets/mirror/c1/c1e7bf149d430fd5bd5aa6dd3aaebb771fbc95b3a7cd303851ed585fd838a7b9.webp",
-    "MODEL DEVELOPMENT":
-      "https://cdn.21st.dev/assets/mirror/b4/b49b413f935303df7e05362b3530028b05c913cc039b44e25e491f12f9ba0015.webp",
-    "AI AUTOMATION":
-      "https://cdn.21st.dev/assets/mirror/84/84c0ff283758085418b1cd942706a764ffa0bf5a06312b415fc441fec23d22d6.webp",
-    "DATA SOLUTIONS":
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80", // Database image
-  };
-
-  return imageMap[title] || "https://via.placeholder.com/400x300";
-}
 
 export default function WhatIDo() {
   return (
@@ -246,10 +216,72 @@ export default function WhatIDo() {
         </div>
 
         {/* ========================================= */}
-        {/* NEW CAROUSEL */}
+        {/* SERVICE GRID */}
         {/* ========================================= */}
 
-        <CarouselStacked slides={slides} />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {SERVICES.map((service) => (
+            <div
+              key={service.id}
+              className="
+                group
+                relative
+                flex
+                flex-col
+                justify-between
+                h-full
+                border
+                border-white/10
+                bg-[#0b0b0b]
+                p-6
+                transition-all
+                duration-500
+                hover:-translate-y-1
+                hover:border-emerald-400/40
+                hover:bg-emerald-400/[0.025]
+              "
+            >
+              {/* Service Number */}
+              <div className="mb-4 flex items-start">
+                <p className="font-mono text-[24px] tracking-[0.1em] text-emerald-400">
+                  {service.number}
+                </p>
+              </div>
+
+              {/* Service Title */}
+              <h3 className="mb-2 text-xl font-semibold leading-[0.9] tracking-tight text-white">
+                {service.title}
+              </h3>
+
+              {/* Service Category */}
+              <p className="mb-3 font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-400">
+                {service.category}
+              </p>
+
+              {/* Service Description */}
+              <p className="flex-1 mb-4 text-sm leading-7 text-neutral-500">
+                {service.description}
+              </p>
+
+              {/* Service Tag/Badge */}
+              <div className="mt-2">
+                <span className="
+                  font-mono
+                  text-[8px]
+                  uppercase
+                  tracking-[0.2em]
+                  text-neutral-600
+                  bg-emerald-500/[0.1]
+                  px-3
+                  py-1
+                  rounded
+                ">
+                  {service.tag}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
 
         {/* ========================================= */}
         {/* MOBILE INSTRUCTION */}

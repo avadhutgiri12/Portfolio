@@ -21,6 +21,11 @@ export interface Project {
   description: string;
   impact: string;
   tags: string[];
+  // New fields for enhanced project showcase
+  videoUrl?: string;
+  liveSiteUrl?: string;
+  repositoryUrl?: string;
+  status?: string;
 }
 
 export interface Skill {
@@ -47,6 +52,10 @@ export const PROJECTS_DATA: Project[] = [
     impact:
       "+140% trading velocity, $420M quarterly volume transacted with zero UI latency bottlenecks.",
     tags: ["Fintech", "SaaS", "Dark Mode UI", "High Density"],
+    videoUrl: "",
+    liveSiteUrl: "",
+    repositoryUrl: "",
+    status: "Live",
   },
 
   {
@@ -66,6 +75,10 @@ export const PROJECTS_DATA: Project[] = [
     impact:
       "Raised $12M Series A following the launch of the brand identity and interactive design system.",
     tags: ["Design System", "B2B SaaS", "Component Library"],
+    videoUrl: "",
+    liveSiteUrl: "",
+    repositoryUrl: "",
+    status: "Live",
   },
 
   {
@@ -85,6 +98,10 @@ export const PROJECTS_DATA: Project[] = [
     impact:
       "Recognized as Awwwards Site of the Month with over 650,000 unique international monthly readers.",
     tags: ["Editorial", "Art Direction", "Sound & Motion", "Streetwear"],
+    videoUrl: "",
+    liveSiteUrl: "",
+    repositoryUrl: "",
+    status: "Live",
   },
 
   {
@@ -104,6 +121,10 @@ export const PROJECTS_DATA: Project[] = [
     impact:
       "Adopted by 85,000+ active beta testers with a 94% 30-day retention index.",
     tags: ["Mobile UX", "Wearables", "Haptic Design", "iOS"],
+    videoUrl: "",
+    liveSiteUrl: "",
+    repositoryUrl: "",
+    status: "Live",
   },
 
   {
@@ -123,7 +144,11 @@ export const PROJECTS_DATA: Project[] = [
     impact:
       "Filed 2 interface patents on ambient gaze prediction and contextual radial menus.",
     tags: ["Spatial UI", "VisionOS", "R&D", "Experimental"],
-  },
+    videoUrl: "",
+    liveSiteUrl: "",
+    repositoryUrl: "",
+    status: "Live",
+  }
 ];
 
 export const SKILLS_DATA: Skill[] = [

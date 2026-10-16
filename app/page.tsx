@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ProjectCarousel from "@/components/ProjectCarousel";
+import ProjectShowcase from "@/components/ProjectShowcase";
 import Skills from "@/components/Skills";
 import Metrics from "@/components/Metrics";
 import Contact from "@/components/Contact";
@@ -27,7 +27,7 @@ export default function Home() {
           <Hero />
           <About />
           <WhatIDo />
-          <ProjectCarousel />
+          <ProjectShowcase />
           <Skills />
           <Experience />
           <Academic />
