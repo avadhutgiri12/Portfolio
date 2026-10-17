@@ -35,15 +35,19 @@ const SKILL_GROUPS = [
 
 function SkillWheel({
   group,
-  index,
   tint,
+  activeIndex,
+  held,
+  onSelect,
+  onHold,
 }: {
   group: (typeof SKILL_GROUPS)[number];
-  index: number;
   tint: string;
+  activeIndex: number;
+  held: boolean;
+  onSelect: (skillIndex: number) => void;
+  onHold: (held: boolean) => void;
 }) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [held, setHeld] = useState(false);
   const [live, setLive] = useState(false);
 
   const wheelRef = useRef<HTMLDivElement>(null);
@@ -70,18 +74,6 @@ function SkillWheel({
 
     return () => observer.disconnect();
   }, []);
-
-  useEffect(() => {
-    if (!live || held || !motionOn() || total < 2) {
-      return;
-    }
-
-    const interval = window.setInterval(() => {
-      setActiveIndex((previous) => (previous + 1) % total);
-    }, STEP_MS);
-
-    return () => window.clearInterval(interval);
-  }, [live, held, total]);
 
   return (
     <div
@@ -311,7 +303,7 @@ export default function Skills() {
               CAPABILITIES / 003
             </p>
 
-            <h2 className="text-6xl font-bold leading-[0.82] tracking-[-0.06em] text-white md:text-8xl lg:text-[9rem]">
+            <h2 className="text-4xl font-bold leading-[0.82] tracking-[-0.06em] text-white md:text-8xl lg:text-[9rem]">
               TECHNICAL
               <br />
               <span className="text-neutral-700">EXPERTISE</span>
@@ -337,8 +329,8 @@ export default function Skills() {
             <SkillWheel
               key={group.group}
               group={group}
-              wheelIndex={wheelIndex}
               activeIndex={activeIndexes[wheelIndex]}
+              held={heldWheels[wheelIndex]}
               tint={TINTS[wheelIndex % TINTS.length]}
               onSelect={(skillIndex) => selectSkill(wheelIndex, skillIndex)}
               onHold={(held) => holdWheel(wheelIndex, held)}
