@@ -5,6 +5,9 @@
   --foreground: #ffffff;
   --mouse-x: 50vw;
   --mouse-y: 50vh;
+  --gutter: 1rem;
+  --color-line-soft: rgba(255, 255, 255, 0.1);
+  --color-amber: #fbbf24;
 }
 
 * {
@@ -22,11 +25,11 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
 ::selection {
   background: rgba(16, 185, 129, 0.35);
   color: white;
 }
-
 
 
 /* ================================
@@ -44,10 +47,6 @@ body {
 
 
 /* GRID BACKGROUND */
-:root {
-  --mouse-x: 50vw;
-  --mouse-y: 50vh;
-}
 
 /* ================================
    DOT BACKGROUND

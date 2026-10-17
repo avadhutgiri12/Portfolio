@@ -294,7 +294,7 @@ export default function Skills() {
               CAPABILITIES / 003
             </p>
 
-            <h2 className="text-4xl font-bold leading-[0.82] tracking-[-0.06em] text-white md:text-8xl lg:text-[9rem]">
+            <h2 className="text-6xl font-bold leading-[0.82] tracking-[-0.06em] text-white md:text-4xl lg:text-[6rem]">
               TECHNICAL
               <br />
               <span className="text-neutral-700">EXPERTISE</span>
