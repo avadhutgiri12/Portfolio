@@ -132,6 +132,12 @@ body {
   font-style: normal;
 }
 
+.jetbrains-mono {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
 /* Blinking animation for status indicator */
 @keyframes blink {
   0%, 50% { opacity: 1; }

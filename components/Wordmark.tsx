@@ -32,7 +32,7 @@ export default function Wordmark({ text }: { text: string }) {
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className="
-          text-xl
+          text-4xl
           font-black
           tracking-tighter
           text-white
@@ -45,7 +45,7 @@ export default function Wordmark({ text }: { text: string }) {
       >
         A<span className="text-emerald-400">/</span>G 
       </button>
-      <span className="text-xl font-black"> Avadhut</span>
+      <span className="text-4xl font-black "> Avadhut</span>
       
     </div>
   );

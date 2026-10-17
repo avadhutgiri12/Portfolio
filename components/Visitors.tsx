@@ -85,11 +85,11 @@ export default function Visitors() {
         }`}
         aria-hidden="true"
       />{" "}
-      <span className="visit-counter-num text-[24px] font-bold text-emerald-400">
+      <span className="visit-counter-num text-[32px] font-bold text-emerald-400">
         {" "}
         {shown.toLocaleString()}{" "}
       </span>{" "}
-      <span className="visit-counter-label ml-2 text-[16px] text-white">
+      <span className="visit-counter-label ml-2 text-[16px] text-white jetbrains-mono">
         {" "}
         visits, and counting{" "}
       </span>{" "}
