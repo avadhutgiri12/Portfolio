@@ -210,15 +210,6 @@ function SkillWheel({
             );
           })}
         </div>
-
-        {/* Wheel footer */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-3 z-20 flex justify-between font-mono text-[9px] tracking-widest text-neutral-600">
-          <span>SKILL INDEX</span>
-          <span>
-            {String(activeIndex + 1).padStart(2, "0")} /{" "}
-            {String(total).padStart(2, "0")}
-          </span>
-        </div>
       </div>
     </div>
   );
