@@ -10,7 +10,6 @@ import {
 } from "@/data/skills";
 
 import { motionOn } from "@/lib/motion";
-import { Section, SectionHead } from "./ui";
 
 const STEP_MS = 2200;
 
@@ -93,7 +92,7 @@ function SkillWheel({
       onFocusCapture={() => setHeld(true)}
       onBlurCapture={() => setHeld(false)}
     >
-      <div className="mb-5 flex items-center justify-between gap-3">
+      <div className=" items-center justify-between gap-1">
         <span
           className="font-mono text-[10px] tracking-[0.3em]"
           style={{ color: tint }}
@@ -101,7 +100,7 @@ function SkillWheel({
           {group.n}
         </span>
 
-        <span className="font-mono text-[10px] tracking-[0.2em] text-neutral-500">
+        <span className="font-mono text-[10px] tracking-[0.2em] pl-2">
           {group.group}
         </span>
       </div>
@@ -178,10 +177,10 @@ function SkillWheel({
                 }}
                 aria-hidden={distance !== 0}
               >
-                <div className="flex items-center justify-center gap-3">
+                <div className="flex items-center justify-center gap-1">
                   {/* Active skill indicator */}
                   <span
-                    className="h-1.5 w-1.5 shrink-0 rounded-full transition-opacity duration-500"
+                    className="h-1.2 w-1.2 shrink-0 rounded-full transition-opacity duration-500"
                     style={{
                       backgroundColor: tint,
                       opacity: distance === 0 ? 1 : 0,
@@ -239,8 +238,7 @@ function SkillWheel({
 
 export default function Skills() {
   return (
-    <Section id="skills" className="overflow-hidden text-white">
-      <SectionHead label="SKILLS" index="03" right="TECHNICAL EXPERTISE" />
+    <section id="skills" className="overflow-hidden text-white">
 
       <div className="mx-auto max-w-7xl">
         {/* Header */}
@@ -271,7 +269,7 @@ export default function Skills() {
         </div>
 
         {/* Three independent skill wheels */}
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-5 lg:gap-8">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-1 lg:gap-2">
           {SKILL_GROUPS.map((group, index) => (
             <SkillWheel
               key={group.group}
@@ -281,42 +279,8 @@ export default function Skills() {
             />
           ))}
         </div>
-
-        {/* Existing bottom information */}
-        <div className="mt-16 grid border-t border-white/10 md:grid-cols-3">
-          <div className="border-b border-white/10 py-5 md:border-b-0 md:border-r md:pr-8">
-            <span className="font-mono text-[9px] tracking-[0.2em] text-neutral-700">
-              MACHINE LEARNING
-            </span>
-
-            <p className="mt-2 text-sm leading-6 text-neutral-500">
-              Python · NumPy · Pandas · EDA · Scikit-learn · PyTorch ·
-              TensorFlow · Model Development
-            </p>
-          </div>
-
-          <div className="border-b border-white/10 py-5 md:border-b-0 md:border-r md:px-8">
-            <span className="font-mono text-[9px] tracking-[0.2em] text-neutral-700">
-              WEB DEVELOPMENT
-            </span>
-
-            <p className="mt-2 text-sm leading-6 text-neutral-500">
-              React · Next.js · React Native · Expo
-            </p>
-          </div>
-
-          <div className="py-5 md:pl-8">
-            <span className="font-mono text-[9px] tracking-[0.2em] text-neutral-700">
-              TOOLS & BACKEND
-            </span>
-
-            <p className="mt-2 text-sm leading-6 text-neutral-500">
-              Git · GitHub · Colab · MySQL · Firebase
-            </p>
-          </div>
-        </div>
       </div>
-    </Section>
+    </section>
   );
 }
 
