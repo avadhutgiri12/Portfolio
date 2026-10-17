@@ -1,3 +1,41 @@
+export type Skill = {
+  name: string;
+};
+
+export const FRONTEND_SKILLS: Skill[] = [
+  { name: "React" },
+  { name: "Next.js" },
+  { name: "TypeScript" },
+  { name: "JavaScript" },
+  { name: "Tailwind CSS" },
+  { name: "HTML" },
+  { name: "CSS" },
+  { name: "Framer Motion" }
+];
+
+export const BACKEND_SKILLS: Skill[] = [
+  { name: "Node.js" },
+  { name: "Python" },
+  { name: "Firebase" },
+  { name: "MySQL" },
+  { name: "MongoDB" },
+  { name: "REST API" },
+  { name: "Express.js" },
+  { name: "Django" }
+];
+
+export const TOOLING_SKILLS: Skill[] = [
+  { name: "GSAP" },
+  { name: "Git" },
+  { name: "GitHub" },
+  { name: "Vercel" },
+  { name: "VS Code" },
+  { name: "Figma" },
+  { name: "Docker" },
+  { name: "Webpack" }
+];
+
+// Optional: Keep the original SKILLS_DATA for backward compatibility if needed elsewhere
 export type SkillCategory = {
   id: string;
   number: string;
