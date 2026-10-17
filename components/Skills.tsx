@@ -87,10 +87,6 @@ function SkillWheel({
     <div
       className="skill-wheel-column min-w-0"
       style={{ "--skill-tint": tint } as React.CSSProperties}
-      onPointerEnter={() => setHeld(true)}
-      onPointerLeave={() => setHeld(false)}
-      onFocusCapture={() => setHeld(true)}
-      onBlurCapture={() => setHeld(false)}
     >
       <div className=" items-center justify-between gap-1">
         <span
@@ -237,9 +233,76 @@ function SkillWheel({
 }
 
 export default function Skills() {
+  const [activeIndexes, setActiveIndexes] = useState<number[]>(() =>
+    SKILL_GROUPS.map(() => 0)
+  );
+  const [heldWheels, setHeldWheels] = useState<boolean[]>(() =>
+    SKILL_GROUPS.map(() => false)
+  );
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Pause automatic rotation when the section is off-screen.
+  useEffect(() => {
+    const element = document.getElementById("skills");
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        rootMargin: "10% 0px",
+      }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Automatically rotate all wheels simultaneously.
+  useEffect(() => {
+    if (!isVisible || !motionOn()) return;
+
+    const interval = window.setInterval(() => {
+      setActiveIndexes((previous) =>
+        previous.map((index, wheelIndex) => {
+          const group = SKILL_GROUPS[wheelIndex];
+          const total = group.items.length;
+
+          // Don't rotate if wheel is being held or has less than 2 items
+          if (heldWheels[wheelIndex] || total < 2) {
+            return index;
+          }
+
+          return (index + 1) % total;
+        })
+      );
+    }, STEP_MS);
+
+    return () => window.clearInterval(interval);
+  }, [isVisible, heldWheels]);
+
+  // Select a skill and place it in the center.
+  const selectSkill = (groupIndex: number, skillIndex: number) => {
+    setActiveIndexes((previous) =>
+      previous.map((index, i) =>
+        i === groupIndex ? skillIndex : index
+      )
+    );
+  };
+
+  // Hold or release an individual wheel.
+  const holdWheel = (groupIndex: number, held: boolean) => {
+    setHeldWheels((previous) =>
+      previous.map((value, i) =>
+        i === groupIndex ? held : value
+      )
+    );
+  };
+
   return (
     <section id="skills" className="overflow-hidden text-white">
-
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-16 mt-12 flex flex-col justify-between gap-8 md:mb-20 md:flex-row md:items-end">
@@ -268,14 +331,17 @@ export default function Skills() {
           </div>
         </div>
 
-        {/* Three independent skill wheels */}
+        {/* Three synchronized skill wheels */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-1 lg:gap-2">
-          {SKILL_GROUPS.map((group, index) => (
+          {SKILL_GROUPS.map((group, wheelIndex) => (
             <SkillWheel
               key={group.group}
               group={group}
-              index={index}
-              tint={TINTS[index % TINTS.length]}
+              wheelIndex={wheelIndex}
+              activeIndex={activeIndexes[wheelIndex]}
+              tint={TINTS[wheelIndex % TINTS.length]}
+              onSelect={(skillIndex) => selectSkill(wheelIndex, skillIndex)}
+              onHold={(held) => holdWheel(wheelIndex, held)}
             />
           ))}
         </div>
