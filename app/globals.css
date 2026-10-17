@@ -189,3 +189,32 @@ body {
 
   will-change: transform, opacity;
 } */
+
+/* scroll wheel section skills */
+/* 3D perspective for the skill wheel */
+.skill-wheel {
+  perspective: 1000px;
+  perspective-origin: center center;
+  isolation: isolate;
+}
+
+/* Preserve depth when rotating skill items */
+.skill-wheel-stage {
+  transform-style: preserve-3d;
+  transform-origin: center center;
+}
+
+/* Each item participates in the 3D scene */
+.skill-wheel-item {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, opacity, filter;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .skill-wheel-item {
+    transition-duration: 0ms !important;
+    animation: none !important;
+  }
+}
