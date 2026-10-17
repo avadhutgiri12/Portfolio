@@ -134,28 +134,29 @@ export default function ProjectShowcase() {
 
           {/* Mobile: Stacked Layout with Grid Format for List */}
           <div className="md:hidden">
-            {/* Project List (Mobile - Grid format) */}
+            {/* Project List (Mobile - Button format) */}
             <div className="mb-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="work-tabs flex flex-wrap gap-3">
                 {PROJECTS_DATA.map((project, index) => (
-                  <div
+                  <button
                     key={project.id}
                     onClick={() => setSelectedIndex(index)}
                     className={`
-                      flex items-center gap-3 px-4 py-3 rounded-lg border border-neutral-700/50
+                      work-tab flex items-center gap-3 px-4 py-3 rounded-lg border border-neutral-700/50
                       cursor-pointer
                       transition-all duration-200
                       ${index === selectedIndex
-                        ? 'bg-neutral-700/50 border-emerald-400/50'
+                        ? 'bg-emerald-500 text-white font-bold border-emerald-500'
                         : 'hover:bg-neutral-700/30 hover:border-emerald-400/30'}
                     `}
                   >
-                    <div className="flex items-center">
-                      <span className="font-mono text-[9px] tracking-[0.2em] ${index === selectedIndex ? 'text-emerald-400' : 'text-neutral-200'}">
-                        {project.title}
-                      </span>
-                    </div>
-                  </div>
+                    <span className="work-tab-n font-mono text-[9px] tracking-[0.2em] ${index === selectedIndex ? 'text-white font-bold' : 'text-neutral-200'}">
+                      {project.num.padStart(2, "0")}
+                    </span>
+                    <span className="work-tab-t font-mono text-[9px] tracking-[0.2em] ${index === selectedIndex ? 'text-white font-bold' : 'text-neutral-200'}">
+                      {project.title}
+                    </span>
+                  </button>
                 ))}
               </div>
             </div>

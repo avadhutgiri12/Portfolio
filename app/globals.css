@@ -28,6 +28,7 @@ body {
 }
 
 
+
 /* ================================
    CUSTOM SCROLLBAR
 ================================ */
@@ -39,6 +40,7 @@ body {
 ::-webkit-scrollbar-track {
   background: #080808;
 }
+
 
 
 /* GRID BACKGROUND */
@@ -140,6 +142,7 @@ body {
 .animate-blink {
   animation: blink 1s ease-in-out infinite;
 }
+
 /* ================================
    ID CARD SWING ANIMATION
 ================================ */
@@ -148,19 +151,15 @@ body {
   0% {
     transform: rotate(2deg);
   }
-
   25% {
     transform: rotate(-3deg);
   }
-
   50% {
     transform: rotate(3deg);
   }
-
   75% {
     transform: rotate(-2deg);
   }
-
   100% {
     transform: rotate(2deg);
   }
@@ -217,4 +216,20 @@ body {
     transition-duration: 0ms !important;
     animation: none !important;
   }
+}
+.work-tab {
+  @apply flex items-center gap-3 px-4 py-3 rounded-lg border border-neutral-700/50 cursor-pointer transition-all duration-200;
+}
+
+
+.work-tab {
+  @apply flex items-center gap-3 px-4 py-3 rounded-lg border border-neutral-700/50 cursor-pointer transition-all duration-200;
+}
+
+.work-tab-n {
+  @apply font-mono text-[9px] tracking-[0.2em];
+}
+
+.work-tab-t {
+  @apply font-mono text-[9px] tracking-[0.2em];
 }
