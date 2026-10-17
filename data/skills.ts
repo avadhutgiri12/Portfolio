@@ -1,58 +1,36 @@
-export type SkillCategory = {
-  id: string;
-  number: string;
-  title: string;
-  accentColor: string;
-  skills: string[];
-};
+export interface SkillItem {
+  name: string;
+  category: 'FRONTEND' | 'BACKEND' | 'TOOLING';
+}
 
-export const SKILLS_DATA: SkillCategory[] = [
-  {
-    id: "frontend",
-    number: "01",
-    title: "Frontend",
-    accentColor: "#C65335", // Warm orange/rust for frontend
-    skills: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "JavaScript",
-      "Tailwind CSS",
-      "HTML",
-      "CSS",
-      "Framer Motion"
-    ]
-  },
-  {
-    id: "backend",
-    number: "02",
-    title: "Backend",
-    accentColor: "#87996D", // Muted green for backend
-    skills: [
-      "Node.js",
-      "Python",
-      "Firebase",
-      "MySQL",
-      "MongoDB",
-      "REST API",
-      "Express.js",
-      "Django"
-    ]
-  },
-  {
-    id: "tooling",
-    number: "03",
-    title: "Tooling",
-    accentColor: "#6686A4", // Muted blue for tooling
-    skills: [
-      "GSAP",
-      "Git",
-      "GitHub",
-      "Vercel",
-      "VS Code",
-      "Figma",
-      "Docker",
-      "Webpack"
-    ]
-  }
+export const FRONTEND_SKILLS: SkillItem[] = [
+  { name: "React", category: "FRONTEND" },
+  { name: "Next.js", category: "FRONTEND" },
+  { name: "React Native / Expo", category: "FRONTEND" },
+];
+
+export const BACKEND_SKILLS: SkillItem[] = [
+  { name: "Firebase", category: "BACKEND" },
+  { name: "MySQL", category: "BACKEND" },
+  { name: "Google Colab", category: "BACKEND" },
+];
+
+export const TOOLING_SKILLS: SkillItem[] = [
+  { name: "Python", category: "TOOLING" },
+  { name: "Machine Learning", category: "TOOLING" },
+  { name: "EDA", category: "TOOLING" },
+  { name: "NumPy", category: "TOOLING" },
+  { name: "Scikit-learn", category: "TOOLING" },
+  { name: "PyTorch", category: "TOOLING" },
+  { name: "TensorFlow", category: "TOOLING" },
+  { name: "Pandas", category: "TOOLING" },
+  { name: "Model Development", category: "TOOLING" },
+  { name: "Git", category: "TOOLING" },
+  { name: "GitHub", category: "TOOLING" },
+];
+
+export const ALL_SKILLS = [
+  ...FRONTEND_SKILLS,
+  ...BACKEND_SKILLS,
+  ...TOOLING_SKILLS,
 ];
