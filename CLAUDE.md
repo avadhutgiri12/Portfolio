@@ -107,3 +107,4 @@ Based on git history:
 12. When adding new font variations, use `next/font/google` for optimization and add corresponding CSS class in globals.css
 13. For interactive components, consider accessibility (ARIA labels, keyboard navigation)
 14. Leverage existing utility classes and patterns rather than reinventing
+15. Maintain consistency in interactive patterns (hover effects, transitions, active states) across components for a cohesive user experience

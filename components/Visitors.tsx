@@ -85,7 +85,7 @@ export default function Visitors() {
         }`}
         aria-hidden="true"
       />{" "}
-      <span className="visit-counter-num text-[32px] font-bold text-emerald-400">
+      <span className="visit-counter-num text-[32px] font-bold bebas-neue text-emerald-400">
         {" "}
         {shown.toLocaleString()}{" "}
       </span>{" "}

@@ -38,9 +38,9 @@ export default function Hero() {
         {/* Text on Bottom (Mobile) / Left Side (Desktop) */}
         <div className="flex-1 flex flex-col justify-center items-start md:absolute mt-3 md:left-1/5 md:top-[-5] md:h-full md:w-1/2 md:items-start md:text-left px-6 md:px-0">
           <p className="text-white mb-2 frijole-regular text-[clamp(1rem,5vw,3rem)] ml-3 md:text-4xl md:ml-0">I am </p>
-          <h1 className="text-9xl font-bold text-red-700 mb-1 frijole-regular text-[clamp(3.5rem,8vw,7rem)] md:text-9xl md:mb-4">Avadhut</h1>
-          <p className="text-white text-2xl frijole-regular text-[clamp(0.8rem,4vw,2rem)] ml-[150px] md:text-2xl md:ml-[450px]">ML-Enthusiast</p>
-          <div className="mt-6 md:mt-8 ">
+          <h1 className="text-9xl font-bold text-red-700 mb-1 frijole-regular text-[clamp(4rem,8vw,9rem)] md:text-9xl md:mb-4">Avadhut</h1>
+          <p className="text-white text-2xl frijole-regular text-[clamp(0.8rem,4vw,2rem)] ml-[180px] md:text-2xl md:ml-[450px]">ML-Enthusiast</p>
+          <div className="mt-6 md:mt-8 ml-18 md:ml-0">
             <Button />
           </div>
         </div>

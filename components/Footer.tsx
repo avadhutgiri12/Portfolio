@@ -5,6 +5,7 @@ import { profile } from "@/lib/content";
 import Visitors from "./Visitors";
 import Wordmark from "./Wordmark";
 import { Reveal } from "./ui";
+import { openMail } from "./KineticContact";
 
 /** Every page, including the ones the nav bar leaves out. */
 const pages = [
@@ -18,25 +19,48 @@ const pages = [
 /** The signature every page ends on — the wordmark, then the visit count. */
 export default function Footer() {
   return (
-    <div className="relative px-[var(--gutter)] pb-25 sm:pb-15">
-          <Wordmark text={profile.name.split(" ")[0].slice(1)} />
+        <footer className="kin-wrap kin-foot">
+                  <div className="kin-foot-lead">
+                    <h2>
+                      We’ll be glad to
+                      <br />
+                      collaborate with you.
+                    </h2>
+                    <button
+                      className="footer-email-button"
+                      onClick={openMail}
+                    >
+                      Email me
+                    </button>
+                    <p className="kin-copy">© Avadhut Giri 2026</p>
+                    <Visitors />
+                  </div>
 
-      <Reveal>
-        <footer className="mt-14 sm:mt-14 border-t border-[var(--color-line-soft)] pt-5">
-          <nav aria-label="Pages" className="mb-5 flex flex-wrap gap-x-6 gap-y-3 jetbrains-mono">
-            {pages.map((p) => (
-              <Link
-              key={p.href}
-              href={p.href}
-              className="label py-1 transition-colors hover:!text-emerald-400"
-              >
-                {p.label}
-              </Link> 
-            ))}
-          </nav>
-            <Visitors />
-        </footer>
-      </Reveal>
-    </div>
+                  <nav className="kin-foot-col" aria-label="Pages">
+                    <h3>Pages</h3>
+                    <Link href="/work">Work</Link>
+                    <Link href="/hire">Services</Link>
+                    <Link href="/notes">Episode notes</Link>
+                    <Link href="/library">Library</Link>
+                    <Link href="/contact">Contact</Link>
+                  </nav>
+
+                  <div className="kin-foot-col">
+                    <h3>Contact</h3>
+                    <a href="mailto:avadhutgiri143@gmail.com">
+                      avadhutgiri143@gmail.com
+                    </a>
+                    <p>Taking new projects</p>
+                    <p>Remote or on-site</p>
+                  </div>
+
+                  <div className="kin-foot-col">
+                    <h3>Elsewhere</h3>
+                    <a href="https://github.com/Raiwadeom" target="_blank" rel="noreferrer">
+                      GitHub
+                    </a>
+                  </div>
+                </footer>
+
   );
 }
