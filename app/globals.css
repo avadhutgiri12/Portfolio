@@ -138,6 +138,12 @@ body {
   font-style: normal;
 }
 
+.frijole-regular {
+  font-family: var(--font-frijole), system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
 /* Blinking animation for status indicator */
 @keyframes blink {
   0%, 50% { opacity: 1; }
@@ -237,4 +243,80 @@ body {
 
 .work-tab-t {
   @apply font-mono text-[9px] tracking-[0.2em];
+}
+
+/* ================================
+   MOVING YELLOW GRID PATTERN
+================================ */
+
+/* Container for the grid pattern */
+.grid-pattern-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* The actual moving grid pattern */
+.grid-pattern {
+  position: absolute;
+  inset: 0;
+  width: 200%;
+  height: 200%;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: moveGrid 25s linear infinite;
+  top: -50%;
+  left: -50%;
+}
+
+@keyframes moveGrid {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-50px, 0);
+  }
+}
+
+/* Hero Grid Pattern - Bright Yellow Dots, Right-to-Left Movement */
+.hero-grid-pattern-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-grid-pattern {
+  position: absolute;
+  inset: 0;
+  width: 200%;
+  height: 200%;
+  /* Yellow dot pattern - similar to MouseGrid's dots-base but yellow */
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 0,0.7) 1px, transparent 1.5px),
+    radial-gradient(circle, rgb(228, 228, 0,0.7) 1px, transparent 1.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px; /* Staggered pattern for better distribution */
+  animation: moveHeroGridRightToLeft 12s linear infinite;
+}
+
+@keyframes moveHeroGridRightToLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20px); /* Move left by exactly one pattern width (20px) */
+  }
+}
+
+/* Optional: Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .hero-grid-pattern {
+    animation: none;
+    transform: translateX(0);
+  }
 }

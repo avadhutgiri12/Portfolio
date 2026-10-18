@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import Link from "next/link";
 import {
   ArrowUpRight,
   FolderKanban,
@@ -13,31 +15,33 @@ const mobileNavItems = [
   {
     id: "home",
     label: "Home",
-    targetId: "home",
+    href: "/",
     icon: Home,
   },
   {
     id: "projects",
     label: "Projects",
-    targetId: "showcase",
+    href: "/work",
     icon: FolderKanban,
   },
   {
     id: "academic",
     label: "Academic",
-    targetId: "academic",
+    href: "/academics",
     icon: GraduationCap,
   },
   {
     id: "contact",
     label: "Contact",
-    targetId: "contact",
+    href: "/contact",
     icon: Mail,
   },
 ];
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
+  const router = useRouter();
+  const pathname = usePathname();
 
   /*
    * =========================================
@@ -79,75 +83,17 @@ export default function Navbar() {
    */
 
   useEffect(() => {
-    const sections = [
-      "home",
-      "showcase",
-      "academic",
-      "contact",
-    ];
-
-    const handleScroll = () => {
-      /*
-       * Don't allow the scroll detector to interfere
-       * while the user is manually navigating.
-       */
-
-      if (isNavigating.current) return;
-
-      /*
-       * Always keep Home active near the top.
-       */
-
-      if (window.scrollY < 150) {
-        setActiveSection("home");
-        return;
-      }
-
-      const scrollPosition =
-        window.scrollY + window.innerHeight * 0.35;
-
-      /*
-       * Find the section currently closest to the
-       * active area of the viewport.
-       */
-
-      let currentSection = "home";
-
-      for (const sectionId of sections) {
-        const section =
-          document.getElementById(sectionId);
-
-        if (!section) continue;
-
-        if (section.offsetTop <= scrollPosition) {
-          currentSection = sectionId;
-        }
-      }
-
-      /*
-       * Convert actual section ID into navbar ID.
-       */
-
-      if (currentSection === "showcase") {
-        setActiveSection("projects");
-      } else {
-        setActiveSection(currentSection);
-      }
+    // Map pathnames to active section IDs
+    const pathToSection: Record<string, string> = {
+      "/": "home",
+      "/work": "projects",
+      "/academics": "academic",
+      "/contact": "contact",
     };
 
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-
-    handleScroll();
-
-    return () => {
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
-    };
-  }, []);
+    const activeSection = pathToSection[pathname] || "home";
+    setActiveSection(activeSection);
+  }, [pathname]);
 
   /*
    * =========================================
@@ -157,7 +103,7 @@ export default function Navbar() {
 
   const handleMobileNavigation = (
     id: string,
-    targetId: string
+    href: string
   ) => {
     /*
      * Lock section detection.
@@ -172,51 +118,22 @@ export default function Navbar() {
     setActiveSection(id);
 
     /*
-     * Find the actual section.
+     * Navigate to the page.
      */
 
-    const target =
-      document.getElementById(targetId);
-
-    if (!target) {
-      console.error(
-        `Navigation target #${targetId} was not found.`
-      );
-
-      isNavigating.current = false;
-
-      return;
-    }
+    router.push(href);
 
     /*
-     * Calculate the exact scroll position.
-     */
-
-    const navbarOffset = 20;
-
-    const targetPosition =
-      target.getBoundingClientRect().top +
-      window.scrollY -
-      navbarOffset;
-
-    /*
-     * Smoothly scroll to section.
-     */
-
-    window.scrollTo({
-      top: targetPosition,
-      behavior: "smooth",
-    });
-
-    /*
-     * Wait for smooth scrolling to finish.
-     * Then allow automatic section detection again.
+     * Wait for navigation to happen.
+     * Note: This timeout is conservative; in practice,
+     * the navigation will happen before this timeout completes.
      */
 
     setTimeout(() => {
       isNavigating.current = false;
 
-      setActiveSection(id);
+      // Active section will be set by the pathname listener
+      // when the new page loads
     }, 1000);
   };
 
@@ -246,7 +163,8 @@ export default function Navbar() {
           {/* LOGO */}
           {/* ========================================= */}
 
-          <button
+          <Link
+            href="/"
             onClick={scrollToTop}
             className="
               text-xl
@@ -259,7 +177,7 @@ export default function Navbar() {
             aria-label="Go to home"
           >
             A<span className="text-emerald-400">/</span>G
-          </button>
+          </Link>
 
           {/* ========================================= */}
           {/* DESKTOP NAVIGATION */}
@@ -278,8 +196,8 @@ export default function Navbar() {
 
             {/* Projects */}
 
-            <a
-              href="#showcase"
+            <Link
+              href="/work"
               className="
                 text-neutral-400
                 transition
@@ -287,12 +205,12 @@ export default function Navbar() {
               "
             >
               PROJECTS
-            </a>
+            </Link>
 
             {/* Academic */}
 
-            <a
-              href="#academic"
+            <Link
+              href="/academics"
               className="
                 text-neutral-400
                 transition
@@ -300,12 +218,12 @@ export default function Navbar() {
               "
             >
               ACADEMIC
-            </a>
+            </Link>
 
             {/* Contact */}
 
-            <a
-              href="#contact"
+            <Link
+              href="/contact"
               className="
                 flex
                 items-center
@@ -318,7 +236,7 @@ export default function Navbar() {
               CONNECT
 
               <ArrowUpRight size={12} />
-            </a>
+            </Link>
 
           </div>
 
@@ -363,16 +281,16 @@ export default function Navbar() {
           fixed
           bottom-5
           left-1/2
-          z-[100]
+          z-100
           flex
           w-[calc(100%-32px)]
-          max-w-[390px]
+          max-w-97.5
           -translate-x-1/2
           items-center
           justify-between
           rounded-full
           border
-          border-white/[0.08]
+          border-white/8
           bg-[#151515]/95
           px-2
           py-2
@@ -396,7 +314,7 @@ export default function Navbar() {
               onClick={() =>
                 handleMobileNavigation(
                   item.id,
-                  item.targetId
+                  item.href
                 )
               }
               aria-label={item.label}
