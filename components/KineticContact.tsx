@@ -154,7 +154,7 @@ function KineticForm() {
         <input name="website" tabIndex={-1} autoComplete="off" />
       </label>
 
-    <button type="submit" className="kin-submit " disabled={state.kind === "sending"}>
+    <button type="submit" className="kin-submit border-[1.5px] border-black" disabled={state.kind === "sending"}>
         {state.kind === "sending" ? "Sending…" : "Start now"}
       </button>
       <p className="kin-form-note" aria-live="polite" style={{ color: "#ff4a14" }}>
