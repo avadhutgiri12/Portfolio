@@ -2,9 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import Link from "next/link";
 import {
-  ArrowUpRight,
   FolderKanban,
   GraduationCap,
   Home,
@@ -140,136 +138,112 @@ export default function Navbar() {
   return (
     <>
       {/* ========================================= */}
-      {/* DESKTOP NAVBAR */}
+      {/* DESKTOP FLOATING DOCK NAVBAR (LEFT VERTICAL) */}
       {/* ========================================= */}
 
       <nav
         className="
           fixed
-          left-0
-          top-0
+          left-5
+          top-1/2
+          -translate-y-1/2
           z-50
           hidden
-          w-full
-          px-6
-          py-6
           md:block
-          md:px-10
+          flex
+          flex-col
+          items-center
+          gap-4
+          px-2
+          py-4
+          rounded-full
+          border
+          border-white/8
+          bg-[#151515]/95
+          shadow-[0_15px_50px_rgba(0,0,0,0.55)]
+          backdrop-blur-xl
         "
+        aria-label="Desktop navigation"
       >
-        <div className="flex items-center justify-between">
+        {mobileNavItems.map((item) => {
+          const Icon = item.icon;
+          const isActive = activeSection === item.id;
 
-          {/* ========================================= */}
-          {/* LOGO */}
-          {/* ========================================= */}
-
-          <Link
-            href="/"
-            onClick={scrollToTop}
-            className="
-              text-xl
-              font-black
-              tracking-tighter
-              text-white
-              transition
-              hover:text-emerald-400
-            "
-            aria-label="Go to home"
-          >
-            A<span className="text-emerald-400">/</span>G
-          </Link>
-
-          {/* ========================================= */}
-          {/* DESKTOP NAVIGATION */}
-          {/* ========================================= */}
-
-          <div
-            className="
-              flex
-              items-center
-              gap-8
-              text-xs
-              font-mono
-              tracking-widest
-            "
-          >
-
-            {/* Projects */}
-
-            <Link
-              href="/work"
+          return (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => handleMobileNavigation(item.id, item.href)}
+              aria-label={item.label}
+              aria-current={isActive ? "page" : undefined}
               className="
-                text-neutral-400
-                transition
-                hover:text-white
-              "
-            >
-              PROJECTS
-            </Link>
-
-            {/* Academic */}
-
-            <Link
-              href="/academics"
-              className="
-                text-neutral-400
-                transition
-                hover:text-white
-              "
-            >
-              ACADEMIC
-            </Link>
-
-            {/* Contact */}
-
-            <Link
-              href="/contact"
-              className="
+                relative
                 flex
+                h-12
+                w-12
                 items-center
-                gap-1
-                text-neutral-400
-                transition
-                hover:text-white
+                justify-center
+                rounded-full
+                transition-all
+                duration-300
+                hover:scale-110
+                cursor-pointer
               "
             >
-              CONNECT
+              {/* Active white circle */}
+              <span
+                className={`
+                  absolute
+                  inset-0
+                  rounded-full
+                  transition-all
+                  duration-500
+                  ease-[cubic-bezier(0.22,1,0.36,1)]
+                  ${isActive ? "scale-100 bg-white opacity-100" : "scale-50 bg-white opacity-0"}
+                `}
+              />
 
-              <ArrowUpRight size={12} />
-            </Link>
+              {/* Icon */}
+              <Icon
+                size={20}
+                strokeWidth={1.8}
+                className={`
+                  relative
+                  z-10
+                  transition-all
+                  duration-300
+                  ${isActive ? "text-[#151515]" : "text-white/80"}
+                  hover:text-white
+                `}
+              />
 
-          </div>
-
-          {/* ========================================= */}
-          {/* STATUS */}
-          {/* ========================================= */}
-
-          <div className="text-right">
-
-            <p
-              className="
-                text-[10px]
-                font-mono
-                tracking-widest
-                text-neutral-500
-              "
-            >
-              PORTFOLIO
-            </p>
-
-            <p
-              className="
+              {/* Tooltip */}
+              <div className={`
+                absolute
+                left-14
+                -translate-y-1/2
+                top-1/2
+                px-3
+                py-1
                 text-xs
                 font-mono
-                text-emerald-400
-              "
-            >
-              2026
-            </p>
-
-          </div>
-
-        </div>
+                tracking-widest
+                bg-white/90
+                text-[#151515]
+                rounded-full
+                opacity-0
+                transition-all
+                duration-300
+                pointer-events-none
+                whitespace-nowrap
+                hover:opacity-100
+                ${isActive ? "scale-100" : "scale-95"}
+              `}>
+                {item.label}
+              </div>
+            </button>
+          );
+        })}
       </nav>
 
       {/* ========================================= */}

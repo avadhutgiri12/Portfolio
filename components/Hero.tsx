@@ -31,7 +31,7 @@ export default function Hero() {
           <img
             src="/profile.png"
             alt="Avadhut Giri"
-            className="w-[415px] usernone max-w-[140vw] h-[415px] md:h-full md:w-[50vw] md:max-w-none -translate-x-15 md:-translate-x-[-850px] md:-translate-y-[-20px]"
+            className="w-[450px] usernone max-w-[140vw] h-[450px] md:h-full md:w-[50vw] md:max-w-none -translate-x-15 md:-translate-x-[-850px] md:-translate-y-[-20px]"
           />
         </div>
 
@@ -40,7 +40,7 @@ export default function Hero() {
           <p className="text-white mb-2 frijole-regular text-[clamp(1rem,5vw,3rem)] ml-3 md:text-4xl md:ml-0">I am </p>
           <h1 className="text-9xl font-bold text-red-700 mb-1 frijole-regular text-[clamp(3.5rem,8vw,7rem)] md:text-9xl md:mb-4">Avadhut</h1>
           <p className="text-white text-2xl frijole-regular text-[clamp(0.8rem,4vw,2rem)] ml-[150px] md:text-2xl md:ml-[450px]">ML-Enthusiast</p>
-          <div className="mt-6 md:mt-8 ml-16">
+          <div className="mt-6 md:mt-8 ">
             <Button />
           </div>
         </div>

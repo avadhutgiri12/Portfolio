@@ -10,7 +10,7 @@ return ( <button
    className="group inline-flex items-center gap-4 rounded-full
               bg-[#000000] py-2 pl-6 pr-2 text-sm font-medium
               text-white transition-all duration-300
-              hover:bg-black cursor-pointer"
+              hover:bg-black cursor-pointer "
     onClick={() =>
     document.getElementById("about")?.scrollIntoView({
       behavior: "smooth",

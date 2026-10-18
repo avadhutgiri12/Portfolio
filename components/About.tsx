@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import SmoothScroll from "./SmoothScroll";
 
 const technologies = [
   "Next.js / React",
