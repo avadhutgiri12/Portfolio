@@ -282,40 +282,36 @@ body {
   }
 }
 
-/* Hero Grid Pattern - Bright Yellow Dots, Right-to-Left Movement */
-.hero-grid-pattern-container {
+
+/* Hero Ghost Text - Moving PORTFOLIO Text */
+.hero-ghost {
   position: absolute;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
+  user-select: none;
+  z-index: 20;
 }
 
-.hero-grid-pattern {
-  position: absolute;
-  inset: 0;
-  width: 200%;
-  height: 200%;
-  /* Yellow dot pattern - similar to MouseGrid's dots-base but yellow */
-  background-image:
-    radial-gradient(circle, rgba(255, 255, 0,0.7) 1px, transparent 1.5px),
-    radial-gradient(circle, rgb(228, 228, 0,0.7) 1px, transparent 1.5px);
-  background-size: 20px 20px;
-  background-position: 0 0, 10px 10px; /* Staggered pattern for better distribution */
-  animation: moveHeroGridRightToLeft 12s linear infinite;
+.hero-ghost-track {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  animation: portfolio-marquee 25s linear infinite;
 }
 
-@keyframes moveHeroGridRightToLeft {
-  0% {
+@keyframes portfolio-marquee {
+  from {
     transform: translateX(0);
   }
-  100% {
-    transform: translateX(-20px); /* Move left by exactly one pattern width (20px) */
+  to {
+    transform: translateX(-50%);
   }
 }
 
-/* Optional: Reduced motion preference */
+/* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
-  .hero-grid-pattern {
+  .hero-ghost-track {
     animation: none;
     transform: translateX(0);
   }
