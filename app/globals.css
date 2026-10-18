@@ -282,6 +282,9 @@ body {
   }
 }
 
+.usernone{
+  user-select: none;
+}
 
 /* Hero Ghost Text - Moving PORTFOLIO Text */
 .hero-ghost {
@@ -290,7 +293,6 @@ body {
   overflow: hidden;
   pointer-events: none;
   user-select: none;
-  z-index: 20;
 }
 
 .hero-ghost-track {

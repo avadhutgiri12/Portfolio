@@ -23,23 +23,27 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Text on Left Side - Centered */}
-      <div className="absolute left-1/5 top-[-5] h-full w-1/2 flex flex-col justify-center">
-        <p className="text-white mb-2 frijole-regular text-4xl ml-3">I am </p>
-        <h1 className="text-9xl font-bold text-red-700 mb-2 frijole-regular">Avadhut</h1>
-        <p className="text-white text-2xl frijole-regular ml-[450px]">ML-Enthusiast</p>
-        <div className="mt-6">
-          <Button />
-        </div>
-      </div>
+      {/* Responsive Container */}
+      <div className="relative flex flex-col md:flex-row">
 
-      {/* Image on Right Side - Increased Size */}
-      <div className="absolute right-0 h-full w-1/2 z-20">
-        <img
-          src="/profile.png"
-          alt="Avadhut Giri"
-          className="h-screen w-auto max-w-none -translate-x-1"
-        />
+        {/* Image on Top (Mobile) / Right Side (Desktop) */}
+        <div className="flex-1 min-h-40 md:w-2/5 md:min-h-full  flex md:flex-col">
+          <img
+            src="/profile.png"
+            alt="Avadhut Giri"
+            className="w-[415px] usernone max-w-[140vw] h-[415px] md:h-full md:w-[50vw] md:max-w-none -translate-x-15 md:-translate-x-[-850px] md:-translate-y-[-20px]"
+          />
+        </div>
+
+        {/* Text on Bottom (Mobile) / Left Side (Desktop) */}
+        <div className="flex-1 flex flex-col justify-center items-start md:absolute mt-3 md:left-1/5 md:top-[-5] md:h-full md:w-1/2 md:items-start md:text-left px-6 md:px-0">
+          <p className="text-white mb-2 frijole-regular text-[clamp(1rem,5vw,3rem)] ml-3 md:text-4xl md:ml-0">I am </p>
+          <h1 className="text-9xl font-bold text-red-700 mb-1 frijole-regular text-[clamp(3.5rem,8vw,7rem)] md:text-9xl md:mb-4">Avadhut</h1>
+          <p className="text-white text-2xl frijole-regular text-[clamp(0.8rem,4vw,2rem)] ml-[150px] md:text-2xl md:ml-[450px]">ML-Enthusiast</p>
+          <div className="mt-6 md:mt-8 ml-16">
+            <Button />
+          </div>
+        </div>
       </div>
     </section>
   );

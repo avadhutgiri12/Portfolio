@@ -194,7 +194,7 @@ export default function About() {
                 "
               >
                <Image
-  src="/profile.png"
+  src="/aboutIMG.png"
   alt="Avadhut Giri"
   fill
   className="object-contain scale-[1.7] translate-y-[40%]"
