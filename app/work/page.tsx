@@ -1,3 +1,4 @@
+
 import ProjectShowcase from "@/components/ProjectShowcase";
 import Skills from "@/components/Skills";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -10,6 +11,7 @@ export default function WorkPage() {
       <WorkCarousel />
       <ProjectShowcase />
       <Skills />
+      
     </>
   );
 }

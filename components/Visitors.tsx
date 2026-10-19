@@ -81,15 +81,15 @@ export default function Visitors() {
       {" "}
       <div
         className={`mr-2 h-2.5 w-2.5 rounded-full ${
-          blinkState ? "bg-emerald-400 animate-blink" : "bg-emerald-400/20"
+          blinkState ? "bg-[#fe4c17] animate-blink" : "bg-[#fe4c17]/20"
         }`}
         aria-hidden="true"
       />{" "}
-      <span className="visit-counter-num text-[32px] font-bold bebas-neue text-emerald-400">
+      <span className="visit-counter-num text-[32px] font-bold bebas-neue text-[#fe4c17]">
         {" "}
         {shown.toLocaleString()}{" "}
       </span>{" "}
-      <span className="visit-counter-label ml-2 text-[16px] text-white jetbrains-mono">
+      <span className="visit-counter-label ml-2 text-[16px] text-black/80 mt-2 jetbrains-mono">
         {" "}
         visits, and counting{" "}
       </span>{" "}

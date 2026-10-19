@@ -978,8 +978,8 @@
 /* Footer email button styling */
 .footer-email-button {
   background: transparent;
-  border: 2px solid white;
-  color: white;
+  border: 2px solid black;
+  color: black;
   padding: 8px 16px;
   font-size: 14px;
   font-weight: 500;
@@ -992,7 +992,8 @@
 
 .footer-email-button:hover {
   transform: scale(1.05) translateY(2px);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0);
+  color: white;
 }
 
 .footer-email-button:active {
@@ -1049,3 +1050,4 @@
   background: rgba(107, 114, 128, 0.1);
   border-color: rgba(107, 114, 128, 0.8);
 }
+

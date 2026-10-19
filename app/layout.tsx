@@ -3,6 +3,7 @@ import { Bebas_Neue, JetBrains_Mono, Frijole, Roboto } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MouseGrid from "@/components/MouseGrid";
+import KineticContact from "@/components/KineticContact";
 import "./globals.css";
 
 const bebasNeue = Bebas_Neue({
@@ -68,7 +69,11 @@ export default function RootLayout({
         </div>
 
         {/* Footer */}
-        <Footer />
+        <KineticContact
+        lead="Let's talk|About your next project"
+        liveLabel="View my work"
+      />
+      <Footer />
       </body>
     </html>
   );

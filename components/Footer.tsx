@@ -1,23 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { profile } from "@/lib/content";
 import Visitors from "./Visitors";
 import { openMail } from "./KineticContact";
-
-/** Every page, including the ones the nav bar leaves out. */
-const pages = [
-  { label: "Work", href: "/work" },
-  { label: "Services", href: "/hire" },
-  { label: "Episode notes", href: "/notes" },
-  { label: "Contact", href: "/contact" },
-  { label: "Library", href: "/library" },
-];
 
 /** The signature every page ends on — the wordmark, then the visit count. */
 export default function Footer() {
   return (
-        <footer className="kin-wrap kin-foot">
+        <footer className=" kin-foot kin kin-light">
+          <div className=" px-20">
                   <div className="kin-foot-lead">
                     <h2>
                       We’ll be glad to
@@ -32,6 +23,7 @@ export default function Footer() {
                     </button>
                     <p className="kin-copy">© Avadhut Giri 2026</p>
                     <Visitors />
+                  </div>
                   </div>
 
                   <nav className="kin-foot-col" aria-label="Pages">
@@ -58,6 +50,7 @@ export default function Footer() {
                       GitHub
                     </a>
                   </div>
+          
                 </footer>
 
   );
