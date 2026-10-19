@@ -33,7 +33,7 @@ export default function KineticContact({
 }) {
   const lines = lead.split("|");
   return (
-      <section className="kin-light" id="contact">
+      <section className=" kin-light" id="contact">
         <div className="kin-wrap kin-cta">
           <div className="kin-cta-copy">
             <span className="kin-mark" aria-hidden>

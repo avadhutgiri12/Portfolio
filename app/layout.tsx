@@ -24,6 +24,8 @@ const frijole = Frijole({
   weight: "400",
   subsets: ["latin"],
 });
+
+
 export const metadata: Metadata = {
   title: "Avadhut Giri | Machine Learning Enthusiast",
   description:

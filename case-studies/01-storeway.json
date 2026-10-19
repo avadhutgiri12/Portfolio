@@ -1,0 +1,41 @@
+{
+  "id": "01",
+  "num": "01",
+  "title": "StoreWay",
+  "subtitle": "E-Store",
+  "category": "E-commerce & Web Platform",
+  "sideText": "HIGH SPEED & PRECISION ARCHITECTURE",
+  "year": "2025",
+  "role": "Lead Product Designer",
+  "tools": ["Figma", "React", "Design Systems", "Data Viz", "adf"],
+  "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+  "description": "An institutional multi-currency liquidity terminal offering instantaneous ledger synchronisation, real-time yield analytics, and ultra-low latency transaction tracing for next-gen hedge funds.",
+  "impact": "+140% trading velocity, $420M quarterly volume transacted with zero UI latency bottlenecks.",
+  "tags": ["Fintech", "SaaS", "Dark Mode UI", "High Density"],
+  "videoUrl": "",
+  "liveSiteUrl": "https://www.google.com",
+  "repositoryUrl": "",
+  "status": "Live",
+  "extra": {
+    "howItWorks": [
+      {
+        "title": "Instantaneous Processing",
+        "description": "Ultra-low latency transaction tracing and real-time yield analytics"
+      },
+      {
+        "title": "Modular Architecture",
+        "description": "High-speed & precision architecture for scalable deployments"
+      }
+    ],
+    "metrics": [
+      {
+        "label": "Trading Velocity Improvement",
+        "value": "+140%"
+      },
+      {
+        "label": "Quarterly Transaction Volume",
+        "value": "$420M"
+      }
+    ]
+  }
+}

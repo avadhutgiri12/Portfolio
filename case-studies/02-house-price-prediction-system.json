@@ -1,0 +1,41 @@
+{
+  "id": "02",
+  "num": "02",
+  "title": "House Price Prediction System",
+  "subtitle": "MODULAR SAAS SUITE",
+  "category": "PRODUCT WEBSITE & ECOSYSTEM",
+  "sideText": "BETTER PRODUCTS FASTER & STREAMLINED",
+  "year": "2025",
+  "role": "UI/UX & Brand Director",
+  "tools": ["Framer", "Three.js", "Tailwind", "Design Tokens"],
+  "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+  "description": "A marketing ecosystem and modular software suite engineered to help enterprise engineering organizations deploy micro-frontends with drag-and-drop resilience.",
+  "impact": "Raised $12M Series A following the launch of the brand identity and interactive design system.",
+  "tags": ["Design System", "B2B SaaS", "Component Library"],
+  "videoUrl": "",
+  "liveSiteUrl": "",
+  "repositoryUrl": "",
+  "status": "Live",
+  "extra": {
+    "howItWorks": [
+      {
+        "title": "Micro-frontend Deployment",
+        "description": "Drag-and-drop resilience for enterprise micro-frontends"
+      },
+      {
+        "title": "Modular Ecosystem",
+        "description": "Streamlined product deployment for engineering organizations"
+      }
+    ],
+    "metrics": [
+      {
+        "label": "Series A Funding",
+        "value": "$12M"
+      },
+      {
+        "label": "Brand Identity Launch",
+        "value": "Completed"
+      }
+    ]
+  }
+}

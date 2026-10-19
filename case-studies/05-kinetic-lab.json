@@ -1,0 +1,41 @@
+{
+  "id": "05",
+  "num": "05",
+  "title": "KINETIC LAB",
+  "subtitle": "COMPUTATIONAL SPATIAL UI",
+  "category": "XR & SPATIAL INTERACTION SUITE",
+  "sideText": "INTERSECTION OF HUMAN INTENT & CODE",
+  "year": "2026",
+  "role": "XR Prototyper & Researcher",
+  "tools": ["Unity", "VisionOS", "Gesture Rigging", "Shader Graph"],
+  "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
+  "description": "Spatial computing interface research exploring mid-air gesture precision, gaze-driven contextual panels, and minimum eye-fatigue typographic palettes in mixed reality environments.",
+  "impact": "Filed 2 interface patents on ambient gaze prediction and contextual radial menus.",
+  "tags": ["Spatial UI", "VisionOS", "R&D", "Experimental"],
+  "videoUrl": "",
+  "liveSiteUrl": "",
+  "repositoryUrl": "",
+  "status": "Live",
+  "extra": {
+    "howItWorks": [
+      {
+        "title": "Mid-air Gesture Precision",
+        "description": "Exploring gesture precision in spatial computing"
+      },
+      {
+        "title": "Gaze-driven Contextual Panels",
+        "description": "Contextual panels driven by gaze tracking"
+      }
+    ],
+    "metrics": [
+      {
+        "label": "Interface Patents Filed",
+        "value": "2"
+      },
+      {
+        "label": "Research Areas",
+        "value": "Ambient Gaze Prediction, Contextual Radial Menus"
+      }
+    ]
+  }
+}

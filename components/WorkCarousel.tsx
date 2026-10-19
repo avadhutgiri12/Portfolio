@@ -17,6 +17,7 @@ function motionOn() {
 
 export default function WorkCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const router = useRouter();
 
   const carouselRef = useRef<HTMLElement>(null);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
@@ -248,8 +249,7 @@ export default function WorkCarousel() {
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-|-$/g, "");
 
-    useRouter;
-    window.location.href = `/work/${slug}`;
+    router.push(`/work/${slug}`);
   };
 
   if (totalProjects === 0) {
