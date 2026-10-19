@@ -120,31 +120,6 @@ export default function WhatIDo() {
             ">
               WHAT I DO / 002
             </p>
-
-            <h2 className="
-              max-w-5xl
-              text-5xl
-              font-bold
-              leading-[0.85]
-              tracking-[-0.05em]
-              text-white
-              sm:text-6xl
-              sm:leading-[0.82]
-              sm:tracking-[-0.06em]
-              md:text-7xl
-              lg:text-[7rem]
-            ">
-              BUILDING
-              <br />
-
-              <span className="text-neutral-700">
-                IDEAS
-              </span>
-
-              <br />
-
-              INTO REALITY.
-            </h2>
           </div>
 
           <div className="flex items-end">
@@ -153,54 +128,25 @@ export default function WhatIDo() {
               border-white/10
               pl-6
             ">
-              <p className="
-                font-mono
-                text-[9px]
-                uppercase
-                tracking-[0.25em]
-                text-neutral-600
-              ">
-                SERVICES
-              </p>
+              {/* Counter (hidden on mobile, visible on desktop) */}
+              <div className="hidden text-right sm:block">
+                <p className="font-mono text-xs text-neutral-500">
+                  01 / 06
+                </p>
 
-              <p className="
-                mt-5
-                text-sm
-                leading-7
-                text-neutral-500
-              ">
-                I combine design, development,
-                machine learning, and AI to build
-                digital experiences and intelligent
-                solutions.
-              </p>
-
-              <div className="
-                mt-7
-                h-px
-                w-16
-                bg-emerald-400/50
-              " />
+                <p
+                  className="
+                    mt-2
+                    font-mono
+                    text-[8px]
+                    tracking-[0.2em]
+                    text-neutral-600
+                  "
+                >
+                  AUTO PLAY · 3 SEC
+                </p>
+              </div>
             </div>
-          </div>
-
-          {/* Counter (hidden on mobile, visible on desktop) */}
-          <div className="hidden text-right sm:block">
-            <p className="font-mono text-xs text-neutral-500">
-              01 / 06
-            </p>
-
-            <p
-              className="
-                mt-2
-                font-mono
-                text-[8px]
-                tracking-[0.2em]
-                text-neutral-600
-              "
-            >
-              AUTO PLAY · 3 SEC
-            </p>
           </div>
         </div>
 
