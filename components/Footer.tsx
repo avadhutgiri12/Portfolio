@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { profile } from "@/lib/content";
 import Visitors from "./Visitors";
-import Wordmark from "./Wordmark";
-import { Reveal } from "./ui";
 import { openMail } from "./KineticContact";
 
 /** Every page, including the ones the nav bar leaves out. */
