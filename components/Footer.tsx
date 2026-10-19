@@ -8,8 +8,8 @@ import { openMail } from "./KineticContact";
 export default function Footer() {
   return (
         <footer className=" kin-foot kin kin-light">
-          <div className=" px-20">
-                  <div className="kin-foot-lead">
+        
+                  <div className="kin-foot-lead ml-8 md:ml-25">
                     <h2>
                       We’ll be glad to
                       <br />
@@ -24,9 +24,9 @@ export default function Footer() {
                     <p className="kin-copy">© Avadhut Giri 2026</p>
                     <Visitors />
                   </div>
-                  </div>
+                  
 
-                  <nav className="kin-foot-col" aria-label="Pages">
+                  <nav className="kin-foot-col ml-8" aria-label="Pages">
                     <h3>Pages</h3>
                     <Link href="/work">Work</Link>
                     <Link href="/hire">Services</Link>
@@ -44,7 +44,7 @@ export default function Footer() {
                     <p>Remote or on-site</p>
                   </div>
 
-                  <div className="kin-foot-col">
+                  <div className="kin-foot-col ml-8 ">
                     <h3>Elsewhere</h3>
                     <a href="https://github.com/Raiwadeom" target="_blank" rel="noreferrer">
                       GitHub

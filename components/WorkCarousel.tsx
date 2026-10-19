@@ -581,157 +581,131 @@ export default function WorkCarousel() {
 
           {/* Navigation and action buttons */}
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-            {/* Previous */}
-            <button
-              type="button"
-              onClick={goToPrevious}
-              className="
-                flex
-                h-12
-                w-12
-                shrink-0
-                items-center
-                justify-center
-                rounded-full
-                border
-                border-white/20
-                bg-white/[0.07]
-                text-emerald-400
-                transition-all
-                duration-200
-                cursor-pointer
-                hover:border-white/40
-                hover:bg-white/[0.14]
-                hover:text-white
-                focus-visible:outline-none
-                focus-visible:ring-2
-                focus-visible:ring-emerald-400
-              "
-              aria-label="Previous project"
-            >
-              <ChevronLeft size={21} />
-            </button>
 
-            {/* Case study */}
-            <button
-              type="button"
-              onClick={openCaseStudy}
-              className="
-                inline-flex
-                min-h-12
-                items-center
-                justify-center
-                gap-2
-                rounded-full
-                bg-white
-                cursor-pointer
-                px-5
-                py-3
-                text-sm
-                font-medium
-                text-black
-                transition-all
-                duration-200
-                hover:-translate-y-0.5
-                hover:bg-neutral-200
-                focus-visible:outline-none
-                focus-visible:ring-2
-                focus-visible:ring-emerald-400
-                sm:px-6
-              "
-            >
-              Open case study
-              <span aria-hidden="true">→</span>
-            </button>
+  {/* Previous */}
+  <button
+    type="button"
+    onClick={goToPrevious}
+    className="
+      order-2 sm:order-1
+      flex h-12 w-12 shrink-0
+      items-center justify-center
+      rounded-full
+      border border-white/20
+      bg-white/[0.07]
+      text-emerald-400
+      cursor-pointer
+      transition-all duration-200
+      hover:border-white/40
+      hover:bg-white/[0.14]
+      hover:text-white
+      focus-visible:outline-none
+      focus-visible:ring-2
+      focus-visible:ring-emerald-400
+    "
+    aria-label="Previous project"
+  >
+    <ChevronLeft size={21} />
+  </button>
 
-            {/* Live project */}
-            {activeProject.liveSiteUrl ? (
-              <a
-                href={activeProject.liveSiteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  inline-flex
-                  min-h-12
-                  items-center
-                  justify-center
-                  gap-2
-                  rounded-full
-                  border
-                  border-white/20
-                  bg-white/[0.07]
-                  px-5
-                  py-3
-                  text-sm
-                  font-medium
-                  text-white
-                  transition-all
-                  duration-200
-                  hover:border-white/40
-                  hover:bg-white/[0.14]
-                  focus-visible:outline-none
-                  focus-visible:ring-2
-                  focus-visible:ring-emerald-400
-                  sm:px-6
-                "
-              >
-                Visit live
-                <Link2 size={15} />
-              </a>
-            ) : (
-              <span
-                aria-disabled="true"
-                className="
-                  inline-flex
-                  min-h-12
-                  items-center
-                  justify-center
-                  gap-2
-                  rounded-full
-                  border
-                  border-white/10
-                  px-5
-                  py-3
-                  text-sm
-                  text-neutral-500
-                  sm:px-6
-                "
-              >
-                No live link
-              </span>
-            )}
+  {/* Case study */}
+  <button
+    type="button"
+    onClick={openCaseStudy}
+    className="
+      order-1 sm:order-2
+      inline-flex min-h-12
+      items-center justify-center gap-2
+      rounded-full
+      bg-white
+      cursor-pointer
+      px-5 py-3
+      text-sm font-medium text-black
+      transition-all duration-200
+      hover:-translate-y-0.5
+      hover:bg-neutral-200
+      focus-visible:outline-none
+      focus-visible:ring-2
+      focus-visible:ring-emerald-400
+      sm:px-6
+    "
+  >
+    Open case study
+    <span aria-hidden="true">→</span>
+  </button>
 
-            {/* Next */}
-            <button
-              type="button"
-              onClick={goToNext}
-              className="
-                flex
-                h-12
-                w-12
-                shrink-0
-                items-center
-                justify-center
-                rounded-full
-                border
-                cursor-pointer
-                border-white/20
-                bg-white/[0.07]
-                text-emerald-400
-                transition-all
-                duration-200
-                hover:border-white/40
-                hover:bg-white/[0.14]
-                hover:text-white
-                focus-visible:outline-none
-                focus-visible:ring-2
-                focus-visible:ring-emerald-400
-              "
-              aria-label="Next project"
-            >
-              <ChevronRight size={21} />
-            </button>
-          </div>
+  {/* Live project */}
+  {activeProject.liveSiteUrl ? (
+    <a
+      href={activeProject.liveSiteUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        order-1 sm:order-3
+        inline-flex min-h-12
+        items-center justify-center gap-2
+        rounded-full
+        border border-white/20
+        bg-white/[0.07]
+        px-10 py-3
+        text-sm font-medium text-white
+        transition-all duration-200
+        hover:border-white/40
+        hover:bg-white/[0.14]
+        focus-visible:outline-none
+        focus-visible:ring-2
+        focus-visible:ring-emerald-400
+        sm:px-6
+      "
+    >
+      Visit live
+      <Link2 size={15} />
+    </a>
+  ) : (
+    <span
+      aria-disabled="true"
+      className="
+        order-1 sm:order-3
+        inline-flex min-h-12
+        items-center justify-center gap-2
+        rounded-full
+        border border-white/10
+        px-10 py-3
+        text-sm text-neutral-500
+        sm:px-6
+      "
+    >
+      No live link
+    </span>
+  )}
+
+  {/* Next */}
+  <button
+    type="button"
+    onClick={goToNext}
+    className="
+      order-2 sm:order-4
+      flex h-12 w-12 shrink-0
+      items-center justify-center
+      rounded-full
+      border border-white/20
+      bg-white/[0.07]
+      text-emerald-400
+      cursor-pointer
+      transition-all duration-200
+      hover:border-white/40
+      hover:bg-white/[0.14]
+      hover:text-white
+      focus-visible:outline-none
+      focus-visible:ring-2
+      focus-visible:ring-emerald-400
+    "
+    aria-label="Next project"
+  >
+    <ChevronRight size={21} />
+  </button>
+
+</div>
 
           {/* Pagination */}
           {totalProjects > 1 && (
