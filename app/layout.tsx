@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, JetBrains_Mono, Frijole } from "next/font/google";
+import { Bebas_Neue, JetBrains_Mono, Frijole, Roboto } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MouseGrid from "@/components/MouseGrid";
@@ -25,6 +25,13 @@ const frijole = Frijole({
   subsets: ["latin"],
 });
 
+// Roboto font for project names
+const roboto = Roboto({
+  variable: "--font-roboto",
+  weight: "400",
+  subsets: ["latin"],
+});
+
 
 export const metadata: Metadata = {
   title: "Avadhut Giri | Machine Learning Enthusiast",
@@ -45,7 +52,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
         />
       </head>
-      <body className={`${bebasNeue.variable} ${jetBrainsMono.variable} ${frijole.variable}`}>
+      <body className={`${bebasNeue.variable} ${jetBrainsMono.variable} ${frijole.variable} ${roboto.variable}`}>
         {/* Dark background */}
         <div className="relative bg-[#080808]">
           {/* Background mouse effect */}

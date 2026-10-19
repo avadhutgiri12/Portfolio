@@ -12,9 +12,9 @@
   "description": "An institutional multi-currency liquidity terminal offering instantaneous ledger synchronisation, real-time yield analytics, and ultra-low latency transaction tracing for next-gen hedge funds.",
   "impact": "+140% trading velocity, $420M quarterly volume transacted with zero UI latency bottlenecks.",
   "tags": ["Fintech", "SaaS", "Dark Mode UI", "High Density"],
-  "videoUrl": "",
+  "videoUrl": "/videos/storeway.mp4",
   "liveSiteUrl": "https://www.google.com",
-  "repositoryUrl": "",
+  "repositoryUrl": "https://github.com/avadhutgiri12/StoreWay",
   "status": "Live",
   "extra": {
     "howItWorks": [

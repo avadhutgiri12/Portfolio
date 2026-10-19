@@ -46,9 +46,9 @@ export const PROJECT_DATA: Project[] = [
     impact:
       "+140% trading velocity, $420M quarterly volume transacted with zero UI latency bottlenecks.",
     tags: ["Fintech", "SaaS", "Dark Mode UI", "High Density"],
-    videoUrl: "",
+    videoUrl: "/videos/storeway.mp4",
     liveSiteUrl: "https://www.google.com",
-    repositoryUrl: "",
+    repositoryUrl: "https://github.com/avadhutgiri12/StoreWay",
     status: "Live",
   },
 

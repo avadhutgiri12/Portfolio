@@ -3,13 +3,26 @@ import { PROJECT_DATA } from "@/data/ProjectData";
 import {
   ChevronLeft,
   ChevronRight,
-  Link2,
-  PlayCircle,
-  Zap,
-  Layout,
+  ArrowUpRight,
 } from "lucide-react";
 import Link from "next/link";
 import Overlays from "@/components/Overlays";
+
+// Import case study JSON files for howItWorks data
+import storewayData from "@/case-studies/01-storeway.json";
+import housePriceData from "@/case-studies/02-house-price-prediction-system.json";
+import urbanCultureData from "@/case-studies/03-urban-culture.json";
+import auroraData from "@/case-studies/04-aurora.json";
+import kineticLabData from "@/case-studies/05-kinetic-lab.json";
+
+// Map of project IDs to their corresponding JSON data
+const caseStudyMap: Record<string, any> = {
+  "01": storewayData,
+  "02": housePriceData,
+  "03": urbanCultureData,
+  "04": auroraData,
+  "05": kineticLabData,
+};
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -86,7 +99,7 @@ export default async function WorkCaseStudy({ params }: PageProps) {
       <Overlays />
       {/* Background glow */}{/* Cinematic black background with orange ambient glow */}
 <div
-  className="pointer-events-none absolute inset-0 -z-0"
+  className="pointer-events-none absolute inset-0 z-0"
   style={{
     background: `
       radial-gradient(
@@ -108,28 +121,30 @@ export default async function WorkCaseStudy({ params }: PageProps) {
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 py-12">
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-25">
           {/* Back to work and project number on same line */}
           <div className="flex items-center justify-between mb-4">
             <Link
               href="/#work"
-              className="flex items-center gap-2 text-[#fe4c12] transition-colors hover:text-white"
+              className="flex items-center gap-2 text-sm text-white transition-colors hover:text-[#fe4c12]"
             >
               <ChevronLeft size={20} />
-              Back to Work
+              All work
             </Link>
-            <div className="text-2xl font-bold">{project.num}</div>
+            <div className="text-sm font-bold text-white/50">
+              {project.num} / {PROJECT_DATA.length.toString().padStart(2, '0')}
+            </div>
           </div>
 
-          {/* Project name on next line with Bebas Neue font */}
-          <h1 className="text-9xl font-bold tracking-tight bebas-neue">
-            {project.title}
-          </h1>
+          {/* Project name on next line with Roboto font */}
         </div>
 
         {/* Project introduction */}
-        <div className="mb-8">
-          <p className="mb-4 text-lg leading-relaxed text-gray-300">
+          <h1 className="text-9xl mb-4 font-bold tracking-tight roboto">
+            {project.title}
+          </h1>
+        <div className="mb-8 w-2xl">
+          <p className="mb-4 leading-relaxed text-white/70">
             {project.description}
           </p>
 
@@ -139,10 +154,10 @@ export default async function WorkCaseStudy({ params }: PageProps) {
                 href={project.liveSiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-lg border border-[#fe4c12]/50 bg-[#fe4c12]/20 px-6 py-3 text-[#fe4c12] transition-all hover:bg-[#fe4c12]/30 hover:text-white"
+                className="flex items-center gap-2 rounded-full border border-transparent bg-[#fd4b16] px-6 py-3 text-white transition-all duration-200 hover:-translate-y-0.5"
               >
                 Visit Live
-                <Link2 size={20} />
+                <ArrowUpRight size={20} />
               </a>
             )}
 
@@ -151,108 +166,123 @@ export default async function WorkCaseStudy({ params }: PageProps) {
                 href={project.repositoryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-lg border border-[#fe4c12]/50 bg-[#fe4c12]/20 px-6 py-3 text-[#fe4c12] transition-all hover:bg-[#fe4c12]/30 hover:text-white"
+                className="flex items-center gap-2 rounded-full border border-transparent bg-white px-6 py-3 text-black transition-all duration-200"
               >
-                View Code
-                <Link2 size={20} />
+                Code
+                <ArrowUpRight size={20} />
               </a>
             )}
           </div>
         </div>
 
         {/* Project video */}
-        {project.videoUrl && (
-          <div className="mb-12">
-            <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-gray-900">
-              <video
-                src={project.videoUrl}
-                controls
-                playsInline
-                className="h-full w-full object-contain"
-              >
-                Your browser does not support video playback.
-              </video>
+        {/* Project UI Showcase */}
+{(project.videoUrl || project.image) && (
+  <div className="mb-16 mt-12">
+    {/* Browser Window */}
+    <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#e9e4d6] shadow-[0_25px_100px_rgba(0,0,0,0.4)]">
 
-              <PlayCircle
-                size={40}
-                className="pointer-events-none absolute right-4 top-4 text-[#fe4c12]"
-              />
-            </div>
-          </div>
+      {/* Browser Header */}
+      <div className="flex h-8 items-center gap-2 bg-[#e9e4d6] px-4 sm:h-10 sm:px-6">
+
+        {/* Browser Controls */}
+        <div className="flex items-center gap-1.5">
+          <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
+          <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
+          <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
+        </div>
+
+        {/* Website Address */}
+        <div className="ml-3 truncate font-mono text-[9px] tracking-[0.15em] text-[#817967] sm:text-[10px]">
+          WWW.{project.title.toUpperCase().replace(/\s+/g, "")}.COM
+        </div>
+      </div>
+
+      {/* Website Preview */}
+      <div className="relative aspect-16/10 overflow-hidden bg-white sm:aspect-video">
+
+        {project.videoUrl ? (
+          <video
+            src={project.videoUrl}
+            loop
+            playsInline
+            preload="metadata"
+            poster={project.image}
+            className="h-full w-full object-cover object-top"
+          >
+            Your browser does not support video playback.
+          </video>
+        ) : (
+          <img
+            src={project.image}
+            alt={`${project.title} project preview`}
+            className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+          />
         )}
+
+      </div>
+    </div>
+  </div>
+)}
 
         {/* Project impact */}
         <div className="mb-10">
-          <h2 className="mb-4 text-2xl font-semibold text-[#fe4c12]">
+          <h2 className="mb-4 text-3xl font-semibold text-white roboto w-4xl">
             What it does
           </h2>
 
-          <p className="leading-relaxed text-gray-300">
+          <p className="leading-relaxed text-white/70">
             {project.impact}
           </p>
         </div>
 
-        {/* Key features */}
-        <div className="mb-10">
-          <h2 className="mb-4 text-2xl font-semibold text-[#fe4c12]">
-            Key Features
+          <div className="flex gap-2">
+          {/* Key features */}
+          <div className="w-[40%]">
+            <h2 className="mb-2 text-[14px] font-semibold text-[#fe4c12] roboto leading-tight">
+              Key Features
+            </h2>
+
+            <div className="space-y-2">
+              {project.tags.map((tag, index) => (
+                <div key={index} className="border-b border-white/10 pb-2 last:border-b-0 last:pb-0">
+                  <span className="text-gray-300 leading-tight">{tag}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        {/* How it works */}
+        <div className="w-[60%]">
+          <h2 className="mb-2 text-[14px] font-semibold text-[#fe4c12] roboto leading-tight">
+            How it works
           </h2>
 
-          <div className="space-y-3">
-            {project.tags.map((tag) => (
-              <div key={tag} className="flex items-center gap-3">
-                <div className="h-3 w-3 rounded bg-[#fe4c12]" />
-                <span className="text-gray-300">{tag}</span>
+          <div className="space-y-2">
+            {caseStudyMap[project.id]?.extra?.howItWorks?.map((item: any, index: number) => (
+              <div key={index} className="flex items-start gap-2 border-b border-white/10 pb-2 last:border-b-0 last:pb-0">
+                <div className="mt-0.5 shrink-0">
+                  {index + 1}.
+                </div>
+
+                <div>
+                  <h3 className="mb-1 font-semibold text-gray-100 roboto">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-sm text-gray-400 leading-tight">
+                    {item.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
-
-        {/* How it works */}
-        <div className="mb-10">
-          <h2 className="mb-4 text-2xl font-semibold text-[#fe4c12]">
-            How it works
-          </h2>
-
-          <div className="space-y-4">
-            <div className="flex items-start gap-4">
-              <Zap size={24} className="mt-1 shrink-0 text-[#fe4c12]" />
-
-              <div>
-                <h3 className="mb-1 font-semibold text-gray-100">
-                  Instantaneous Processing
-                </h3>
-
-                <p className="text-sm text-gray-400">
-                  Real-time processing and efficient data handling
-                  tailored to the project's requirements.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <Layout
-                size={24}
-                className="mt-1 shrink-0 text-[#fe4c12]"
-              />
-
-              <div>
-                <h3 className="mb-1 font-semibold text-gray-100">
-                  Modular Architecture
-                </h3>
-
-                <p className="text-sm text-gray-400">
-                  A structured architecture designed for maintainability
-                  and scalability.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Tools */}
         <div className="mb-12">
-          <h2 className="mb-4 text-2xl font-semibold text-[#fe4c12]">
+          <h2 className="mb-4 text-2xl font-semibold text-[#fe4c12] roboto">
             Tools Used
           </h2>
 
@@ -286,7 +316,7 @@ export default async function WorkCaseStudy({ params }: PageProps) {
                   Previous Project
                 </p>
 
-                <h3 className="break-words font-semibold text-white">
+                <h3 className="wrap-break-word font-semibold text-white roboto">
                   {prevProject.title}
                 </h3>
               </div>
@@ -302,7 +332,7 @@ export default async function WorkCaseStudy({ params }: PageProps) {
                   Next Project
                 </p>
 
-                <h3 className="break-words font-semibold text-white">
+                <h3 className="wrap-break-word font-semibold text-white roboto">
                   {nextProject.title}
                 </h3>
               </div>

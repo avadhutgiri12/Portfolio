@@ -1,0 +1,170 @@
+{
+  "app/api/github/route.ts": {
+    "mtime": 1790327889.626213,
+    "seen": 1791962198.7019212,
+    "ast_hash": "839edf04e11576db2271473604f1d6d8",
+    "semantic_hash": "839edf04e11576db2271473604f1d6d8"
+  },
+  "app/layout.tsx": {
+    "mtime": 1790792694.732012,
+    "seen": 1791962198.7019286,
+    "ast_hash": "075baf51869c50303e0ebaf5b864ab47",
+    "semantic_hash": "075baf51869c50303e0ebaf5b864ab47"
+  },
+  "app/page.tsx": {
+    "mtime": 1791634005.2640276,
+    "seen": 1791962198.7019317,
+    "ast_hash": "21e2b0d51ec9ed0c193b70fbda1a605f",
+    "semantic_hash": "21e2b0d51ec9ed0c193b70fbda1a605f"
+  },
+  "components/About.tsx": {
+    "mtime": 1790792694.7330134,
+    "seen": 1791962198.7019331,
+    "ast_hash": "8a31cd7a0af06778f74cec19afe86022",
+    "semantic_hash": "8a31cd7a0af06778f74cec19afe86022"
+  },
+  "components/Academic.tsx": {
+    "mtime": 1791636886.78993,
+    "seen": 1791962198.7019343,
+    "ast_hash": "ce1c6afcf53f1a5aa00dd4174e146c82",
+    "semantic_hash": "ce1c6afcf53f1a5aa00dd4174e146c82"
+  },
+  "components/Contact.tsx": {
+    "mtime": 1791636305.9414275,
+    "seen": 1791962198.7019355,
+    "ast_hash": "8b08c743bb0ad7c3f17953e2275b3b67",
+    "semantic_hash": "8b08c743bb0ad7c3f17953e2275b3b67"
+  },
+  "components/Experience.tsx": {
+    "mtime": 1790792694.735013,
+    "seen": 1791962198.701937,
+    "ast_hash": "b14308ca13f36f7e755523a6eafcf135",
+    "semantic_hash": "b14308ca13f36f7e755523a6eafcf135"
+  },
+  "components/Footer.tsx": {
+    "mtime": 1790354073.4188356,
+    "seen": 1791962198.701938,
+    "ast_hash": "4597d90b5223678536017beb8ac2635d",
+    "semantic_hash": "4597d90b5223678536017beb8ac2635d"
+  },
+  "components/Hero.tsx": {
+    "mtime": 1790792694.7360127,
+    "seen": 1791962198.701939,
+    "ast_hash": "0ab98e04ccdc5b3ad186fdd4f25b9efd",
+    "semantic_hash": "0ab98e04ccdc5b3ad186fdd4f25b9efd"
+  },
+  "components/Metrics.tsx": {
+    "mtime": 1790792694.7360127,
+    "seen": 1791962198.7019405,
+    "ast_hash": "cb352b795562c6ef96eb2a6a890dd8f4",
+    "semantic_hash": "cb352b795562c6ef96eb2a6a890dd8f4"
+  },
+  "components/MouseGrid.tsx": {
+    "mtime": 1790260623.697333,
+    "seen": 1791962198.7019417,
+    "ast_hash": "38483556fb4fec0e47a15e14247ba7b1",
+    "semantic_hash": "38483556fb4fec0e47a15e14247ba7b1"
+  },
+  "components/Navbar.tsx": {
+    "mtime": 1791636336.3476806,
+    "seen": 1791962198.7019432,
+    "ast_hash": "ad301d832c3ee8c3d099c298ae82aae8",
+    "semantic_hash": "ad301d832c3ee8c3d099c298ae82aae8"
+  },
+  "components/ProjectCarousel.tsx": {
+    "mtime": 1791634005.266046,
+    "seen": 1791962198.7019444,
+    "ast_hash": "1a7d44dc0219e27b3aa1eca709a4f1bf",
+    "semantic_hash": "1a7d44dc0219e27b3aa1eca709a4f1bf"
+  },
+  "components/ProjectModal.tsx": {
+    "mtime": 1790792694.7370121,
+    "seen": 1791962198.7019453,
+    "ast_hash": "acca245041834e0077189ea31d6cf7b9",
+    "semantic_hash": "acca245041834e0077189ea31d6cf7b9"
+  },
+  "components/Reveal.tsx": {
+    "mtime": 1790252530.4045494,
+    "seen": 1791962198.7019463,
+    "ast_hash": "bdb66eed97cfe818b09281b16fdd8c3c",
+    "semantic_hash": "bdb66eed97cfe818b09281b16fdd8c3c"
+  },
+  "components/SectionScroll.tsx": {
+    "mtime": 1790418908.325946,
+    "seen": 1791962198.7019477,
+    "ast_hash": "7fbe5b2a5ef902de4204afe80d0d4c74",
+    "semantic_hash": "7fbe5b2a5ef902de4204afe80d0d4c74"
+  },
+  "components/SectionStack.tsx": {
+    "mtime": 1790418908.3299441,
+    "seen": 1791962198.7019486,
+    "ast_hash": "14bf43274dc3cb7bc7bbcbecdfdaed4b",
+    "semantic_hash": "14bf43274dc3cb7bc7bbcbecdfdaed4b"
+  },
+  "components/Skills.tsx": {
+    "mtime": 1790792694.7370121,
+    "seen": 1791962198.7019496,
+    "ast_hash": "aba3d2afa2995b4a56063aa0e9707619",
+    "semantic_hash": "aba3d2afa2995b4a56063aa0e9707619"
+  },
+  "components/WhatIDo.tsx": {
+    "mtime": 1791634005.266046,
+    "seen": 1791962198.701951,
+    "ast_hash": "840e71bfddb68dc49fe8e9e7cfb29bdb",
+    "semantic_hash": "840e71bfddb68dc49fe8e9e7cfb29bdb"
+  },
+  "components/ui/badge.tsx": {
+    "mtime": 1791634005.2671616,
+    "seen": 1791962198.701952,
+    "ast_hash": "cc1b5d3b89440dbf14c054397edf8a7f",
+    "semantic_hash": "cc1b5d3b89440dbf14c054397edf8a7f"
+  },
+  "components/ui/carousel-07.tsx": {
+    "mtime": 1791634005.2681756,
+    "seen": 1791962198.7019532,
+    "ast_hash": "16c1db6748a6be2bd24c4cf19fbffed7",
+    "semantic_hash": "16c1db6748a6be2bd24c4cf19fbffed7"
+  },
+  "data/portfolio.ts": {
+    "mtime": 1790423351.1528618,
+    "seen": 1791962198.7019546,
+    "ast_hash": "4a76d22744c55eeaf05889b612748a18",
+    "semantic_hash": "4a76d22744c55eeaf05889b612748a18"
+  },
+  "eslint.config.mjs": {
+    "mtime": 1790171012.25673,
+    "seen": 1791962198.701956,
+    "ast_hash": "dfa1f5f6a7037bf39dc510f30b180002",
+    "semantic_hash": "dfa1f5f6a7037bf39dc510f30b180002"
+  },
+  "lib/utils.ts": {
+    "mtime": 1791634005.2691772,
+    "seen": 1791962198.7019575,
+    "ast_hash": "9f7c9bc640a4f095be6f5d14600028ce",
+    "semantic_hash": "9f7c9bc640a4f095be6f5d14600028ce"
+  },
+  "next.config.ts": {
+    "mtime": 1790171012.3492768,
+    "seen": 1791962198.7019587,
+    "ast_hash": "9b77af189a21a7a64e4bd7a426f64176",
+    "semantic_hash": "9b77af189a21a7a64e4bd7a426f64176"
+  },
+  "package.json": {
+    "mtime": 1791636296.2703807,
+    "seen": 1791962198.7019596,
+    "ast_hash": "867be8fbcb20e9d119a3a4da6c1f0f67",
+    "semantic_hash": "867be8fbcb20e9d119a3a4da6c1f0f67"
+  },
+  "postcss.config.mjs": {
+    "mtime": 1790171012.270727,
+    "seen": 1791962198.7019615,
+    "ast_hash": "239f3ebf717465dc636818a1a619398d",
+    "semantic_hash": "239f3ebf717465dc636818a1a619398d"
+  },
+  "tsconfig.json": {
+    "mtime": 1790247444.0144618,
+    "seen": 1791962198.7019627,
+    "ast_hash": "02fc19ad21338c2ab820a70136310db4",
+    "semantic_hash": "02fc19ad21338c2ab820a70136310db4"
+  }
+}
