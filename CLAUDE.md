@@ -35,24 +35,24 @@ This is a Next.js 16.3.6 portfolio website for Avadhut Giri, a Computer Science 
   - About - Personal background information
   - WhatIDo - Services/offerings summary
   - ProjectCarousel - Interactive 3D carousel showcasing projects with GSAP animations
+  - VerticalCylinderCarousel - Premium 3D cylinder carousel for services display
   - Skills - Technical skills visualization with radial progress bars
   - Experience - Work/professional experience timeline
   - Academic - Education timeline with auto-rotating cards (modified recently)
   - Contact - Contact form and information
-  - Footer - Site footer
+  - Footer - Site footer (updated with 5rem side padding and styled email button)
   - MouseGrid - Background interactive mouse-following effect using CSS variables
   - SectionStack - Layout wrapper for sections with consistent padding
 
 ### Data Layer
-- Static data stored in `/data/portfolio.ts`:
-  - `PROJECTS_DATA` - Array of project objects with enhanced fields:
-    - Basic info: id, title, subtitle, category, year, role, tools, image
-    - Content: description, impact, sideText
-    - Links: videoUrl, liveSiteUrl, repositoryUrl (optional)
-    - Metadata: tags, status
-  - `SKILLS_DATA` - Skill proficiency metrics with name, percentage (0-100), and Lucide icon
-  - `METRICS_DATA` - Achievement statistics for counter animations
-- When adding new data, follow the existing TypeScript interfaces in the same file.
+- Static project data stored in:
+  - `/data/ProjectData.ts` - Main project information (used for core project data)
+  - `/case-studies/` directory - JSON files with enhanced project data including:
+    - Basic project info (title, image, etc.)
+    - Enhanced "howItWorks" arrays with step-by-step explanations
+    - Metrics data for achievement counters
+- When adding new projects, create a JSON file in `/case-studies/` following the existing format
+- Skill and metrics data remains in `/data/ProjectData.ts`
 
 ### Styling Approach
 - Tailwind CSS v4 for utility-first styling
@@ -70,6 +70,7 @@ This is a Next.js 16.3.6 portfolio website for Avadhut Giri, a Computer Science 
 - Lucide React for consistent iconography (imported individually per component)
 - Framer Motion-inspired animations implemented with CSS transitions and `useEffect`; also uses `motion` library (framer motion) and `gsap` for advanced animations (ProjectCarousel)
 - Interactive 3D carousel with mouse wheel, touch, and click support (ProjectCarousel component)
+- Premium 3D cylinder carousel with CSS 3D transforms (VerticalCylinderCarousel component)
 - Modal project viewers for detailed project information (accessed from ProjectCarousel)
 - Responsive design with mobile-optimized bottom navigation
 - Custom mouse-tracking background effects using CSS variables (MouseGrid component)
@@ -77,24 +78,33 @@ This is a Next.js 16.3.6 portfolio website for Avadhut Giri, a Computer Science 
 - Font optimization using `next/font` (Geist font family for base, plus custom fonts: Bebas Neue, JetBrains Mono, Frijole)
 - Utility libraries: `class-variance-authority` and `clsx` for variant styling, `tailwind-merge` for merging Tailwind classes
 
-### File Conventions
+### Special Features
+- Work directory (`/app/work/[slug]/`) uses dynamic routing for individual project case studies
+- Case study data is fetched from JSON files in `/case-studies/` based on project ID
+- Video elements in case studies have been simplified to show images only (video tags removed)
+- Footer email button styled with black border/text and hover effects (black background/white text)
+
+## File Conventions
 - Component files use `.tsx` extension
 - "use client" directive at top of interactive components
 - Tailwind classes organized with consistent ordering (flex/grid first, positioning, spacing, sizing, typography, effects)
 - Animation states managed with `useState`/`useEffect` hooks
-- Data fetched from local TypeScript files rather than external APIs
+- Data fetched from local TypeScript/JSON files rather than external APIs
 - Image optimization using Next.js Image concept (though using regular `img` with external URLs in this case for flexibility)
 
-## Recent Changes
-Based on git history:
-- Modified Academic component to enhance education timeline visualization
-- Added Frijole font to Hero section text for distinctive typography
-- Fixed production issues (likely related to deployment or runtime errors)
-- Enhanced project data structure with optional fields for video, live site, and repository links
+## Recent Changes (Oct 2026)
+- Simplified video case study display to show images only (removed video tags)
+- Enhanced footer with 5rem left/right padding and styled email button
+- Updated project data to use JSON files in `/case-studies/` for enriched content
+- Improved "How it works" section to display dynamic data from case study JSONs
+- Adjusted section widths: Key Features (40%), How it Works (60%)
+- Standardized subheading font size to 14px
+- Added VerticalCylinderCarousel component for premium 3D services display
+- Updated WhatIDo section to use the new 3D cylinder carousel
 
 ## Best Practices for This Codebase
 1. When adding new sections, follow the existing component pattern in `/components`
-2. Add new data to `/data/portfolio.ts` using the existing TypeScript interfaces
+2. For new projects, create a JSON file in `/case-studies/` following the existing format
 3. Maintain the dark theme with emerald accents (#080808 background)
 4. Keep interactive elements performant by using `requestAnimationFrame` where appropriate (note: current implementations use CSS transitions and `useEffect`)
 5. Follow the existing animation patterns using CSS transitions and transform properties
@@ -108,3 +118,4 @@ Based on git history:
 13. For interactive components, consider accessibility (ARIA labels, keyboard navigation)
 14. Leverage existing utility classes and patterns rather than reinventing
 15. Maintain consistency in interactive patterns (hover effects, transitions, active states) across components for a cohesive user experience
+16. For 3D effects, understand the CSS 3D coordinate system and use `transform-style: preserve-3d` and `perspective` properties correctly

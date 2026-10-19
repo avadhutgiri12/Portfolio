@@ -2,39 +2,59 @@
   "id": "02",
   "num": "02",
   "title": "House Price Prediction System",
-  "subtitle": "MODULAR SAAS SUITE",
-  "category": "PRODUCT WEBSITE & ECOSYSTEM",
-  "sideText": "BETTER PRODUCTS FASTER & STREAMLINED",
+  "subtitle": "MACHINE LEARNING & PREDICTIVE ANALYTICS",
+  "category": "MACHINE LEARNING & DATA SCIENCE",
+  "sideText": "TURN HOUSING DATA INTO INTELLIGENT PREDICTIONS",
   "year": "2025",
-  "role": "UI/UX & Brand Director",
-  "tools": ["Framer", "Three.js", "Tailwind", "Design Tokens"],
-  "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-  "description": "A marketing ecosystem and modular software suite engineered to help enterprise engineering organizations deploy micro-frontends with drag-and-drop resilience.",
-  "impact": "Raised $12M Series A following the launch of the brand identity and interactive design system.",
-  "tags": ["Design System", "B2B SaaS", "Component Library"],
+  "role": "Machine Learning Developer",
+  "tools": [
+    "Python",
+    "Scikit-learn",
+    "Pandas",
+    "NumPy",
+    "Streamlit",
+    "Joblib"
+  ],
+  "image": "/house-price-prediction.png",
+  "description": "A machine learning-based house price prediction system that analyzes housing features and estimates property values using regression algorithms. The project includes data preprocessing, feature engineering, model training, and evaluation to transform raw housing data into meaningful predictions.",
+  "impact": "Developed an end-to-end machine learning pipeline using the California Housing Dataset, comparing regression models and evaluating predictive performance through RMSE and cross-validation.",
+  "tags": [
+    "Machine Learning",
+    "Regression",
+    "Data Analysis",
+    "Predictive Analytics"
+  ],
   "videoUrl": "",
   "liveSiteUrl": "",
   "repositoryUrl": "",
-  "status": "Live",
+  "status": "Local",
   "extra": {
     "howItWorks": [
       {
-        "title": "Micro-frontend Deployment",
-        "description": "Drag-and-drop resilience for enterprise micro-frontends"
+        "title": "Data Preprocessing",
+        "description": "Cleans housing data, handles missing values, engineers useful features, and prepares numerical and categorical inputs for machine learning."
       },
       {
-        "title": "Modular Ecosystem",
-        "description": "Streamlined product deployment for engineering organizations"
+        "title": "Model Training",
+        "description": "Trains and compares regression algorithms, including Linear Regression, Decision Tree, and Random Forest, to estimate house values."
+      },
+      {
+        "title": "Price Prediction",
+        "description": "Processes housing features through the trained machine learning pipeline to generate an estimated property value."
       }
     ],
     "metrics": [
       {
-        "label": "Series A Funding",
-        "value": "$12M"
+        "label": "Dataset",
+        "value": "California Housing"
       },
       {
-        "label": "Brand Identity Launch",
-        "value": "Completed"
+        "label": "Training Records",
+        "value": "20,640"
+      },
+      {
+        "label": "Evaluation",
+        "value": "RMSE & Cross-Validation"
       }
     ]
   }

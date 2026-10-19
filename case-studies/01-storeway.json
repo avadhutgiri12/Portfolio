@@ -2,39 +2,47 @@
   "id": "01",
   "num": "01",
   "title": "StoreWay",
-  "subtitle": "E-Store",
+  "subtitle": "Hyperlocal Retail Platform",
   "category": "E-commerce & Web Platform",
-  "sideText": "HIGH SPEED & PRECISION ARCHITECTURE",
+  "sideText": "DISTRIBUTED RETAIL & OCR ARCHITECTURE",
   "year": "2025",
-  "role": "Lead Product Designer",
-  "tools": ["Figma", "React", "Design Systems", "Data Viz", "adf"],
-  "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
-  "description": "An institutional multi-currency liquidity terminal offering instantaneous ledger synchronisation, real-time yield analytics, and ultra-low latency transaction tracing for next-gen hedge funds.",
-  "impact": "+140% trading velocity, $420M quarterly volume transacted with zero UI latency bottlenecks.",
-  "tags": ["Fintech", "SaaS", "Dark Mode UI", "High Density"],
-  "videoUrl": "/videos/storeway.mp4",
+  "role": "Lead Product Designer & Developer",
+  "tools": ["Next.js", "React", "Firebase", "Google Maps API", "OCR", "Tailwind CSS"],
+  "image": "/images/storeway.gif",
+  "description": "A hyperlocal digital commerce platform that empowers neighborhood retailers to digitize their storefronts, automate catalog creation via AI-driven invoice OCR, and fulfill local orders without centralized warehouse dependencies.",
+  "impact": "85% reduction in merchant onboarding time and enabled sub-30-minute localized delivery across pilot retail clusters.",
+  "tags": ["Hyperlocal", "Retail Tech", "OCR AI", "Geospatial", "Full Stack"],
+  "videoUrl": "storeway.mp4",
   "liveSiteUrl": "https://www.google.com",
   "repositoryUrl": "https://github.com/avadhutgiri12/StoreWay",
   "status": "Live",
   "extra": {
     "howItWorks": [
       {
-        "title": "Instantaneous Processing",
-        "description": "Ultra-low latency transaction tracing and real-time yield analytics"
+        "title": "AI Invoice Ingestion",
+        "description": "OCR extracts SKU names, prices, and quantities directly from paper wholesaler receipts to populate inventory instantly."
       },
       {
-        "title": "Modular Architecture",
-        "description": "High-speed & precision architecture for scalable deployments"
+        "title": "Geospatial Storefront Discovery",
+        "description": "Google Maps API connects buyers with nearby stores within walking or biking radius for immediate pickup and direct delivery."
+      },
+      {
+        "title": "Real-Time Merchant Hub",
+        "description": "Firebase-backed real-time synchronization for localized order dispatch, inventory deduction, and daily sales metrics."
       }
     ],
     "metrics": [
       {
-        "label": "Trading Velocity Improvement",
-        "value": "+140%"
+        "label": "Catalog Onboarding Speed",
+        "value": "85% Faster"
       },
       {
-        "label": "Quarterly Transaction Volume",
-        "value": "$420M"
+        "label": "Average Fulfillment Window",
+        "value": "< 30 Mins"
+      },
+      {
+        "label": "Warehouse Dependency",
+        "value": "0%"
       }
     ]
   }

@@ -11,17 +11,15 @@ import Overlays from "@/components/Overlays";
 // Import case study JSON files for howItWorks data
 import storewayData from "@/case-studies/01-storeway.json";
 import housePriceData from "@/case-studies/02-house-price-prediction-system.json";
-import urbanCultureData from "@/case-studies/03-urban-culture.json";
-import auroraData from "@/case-studies/04-aurora.json";
-import kineticLabData from "@/case-studies/05-kinetic-lab.json";
+import faceDetectionData from "@/case-studies/03-face-detection.json";
+import fallDetectionData from "@/case-studies/04-fall-detection.json";
 
 // Map of project IDs to their corresponding JSON data
 const caseStudyMap: Record<string, any> = {
   "01": storewayData,
   "02": housePriceData,
-  "03": urbanCultureData,
-  "04": auroraData,
-  "05": kineticLabData,
+  "03": faceDetectionData,
+  "04": fallDetectionData,
 };
 
 type PageProps = {
@@ -140,7 +138,7 @@ export default async function WorkCaseStudy({ params }: PageProps) {
         </div>
 
         {/* Project introduction */}
-          <h1 className="md:text-9xl text-6xl mb-4 font-bold tracking-tight roboto">
+          <h1 className="md:text-8xl text-6xl mb-4 font-bold tracking-tight roboto">
             {project.title}
           </h1>
         <div className="mb-8 md:w-2xl w-vw">
@@ -199,28 +197,31 @@ export default async function WorkCaseStudy({ params }: PageProps) {
       </div>
 
       {/* Website Preview */}
-      <div className="relative aspect-16/10 overflow-hidden bg-white sm:aspect-video">
+      {/* Website Preview */}
+<div className="relative aspect-16/10 overflow-hidden bg-white sm:aspect-video">
+  {(() => {
+    // Fetch image from case study JSON file
+    const imageSrc = caseStudyMap[project.id]?.image;
 
-        {project.videoUrl ? (
-          <video
-            src={project.videoUrl}
-            loop
-            playsInline
-            preload="metadata"
-            poster={project.image}
-            className="h-full w-full object-cover object-top"
-          >
-            Your browser does not support video playback.
-          </video>
-        ) : (
-          <img
-            src={project.image}
-            alt={`${project.title} project preview`}
-            className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
-          />
-        )}
+    if (!imageSrc) {
+      return (
+        <div className="flex h-full w-full items-center justify-center bg-neutral-900 text-neutral-400">
+          Project preview unavailable
+        </div>
+      );
+    }
 
-      </div>
+    return (
+      <img
+        key={imageSrc}
+        src={imageSrc}
+        alt={`${project.title} project preview`}
+        loading="eager"
+        className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+      />
+    );
+  })()}
+</div>
     </div>
   </div>
 )}

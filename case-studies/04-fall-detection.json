@@ -1,0 +1,55 @@
+{
+  "id": "04",
+  "num": "04",
+  "title": "AI-Powered Fall Detection System",
+  "subtitle": "INTELLIGENT SAFETY MONITORING",
+  "category": "COMPUTER VISION & AUTOMATED ALERTS",
+  "sideText": "DETECT FALLS. SEND ALERTS. SUPPORT SAFETY.",
+  "year": "2025",
+  "role": "Machine Learning Developer",
+  "tools": ["Python", "YOLO", "OpenCV", "Computer Vision", "Email Automation"],
+  "image": "/fall-detection.png",
+  "description": "An intelligent fall detection system designed to identify when a person falls and automatically send an email notification. The project combines automated fall detection with email alerts to demonstrate how computer vision can support safety monitoring.",
+  "impact": "Implemented a fall detection workflow that identifies potential falls and triggers email notifications, combining visual analysis with automated communication.",
+  "tags": [
+    "Fall Detection",
+    "Computer Vision",
+    "YOLO",
+    "Email Automation",
+    "AI Safety"
+  ],
+  "videoUrl": "",
+  "liveSiteUrl": "",
+  "repositoryUrl": "",
+  "status": "Local",
+  "extra": {
+    "howItWorks": [
+      {
+        "title": "Person Monitoring",
+        "description": "Analyzes visual input to monitor a person and collect the information needed by the fall detection system."
+      },
+      {
+        "title": "Fall Detection",
+        "description": "Processes the visual input to determine whether a person has fallen using the implemented detection logic."
+      },
+      {
+        "title": "Automated Email Alerts",
+        "description": "Sends an email notification when the system detects a potential fall, helping communicate the event to the intended recipient."
+      }
+    ],
+    "metrics": [
+      {
+        "label": "Primary Function",
+        "value": "Fall Detection"
+      },
+      {
+        "label": "Alert System",
+        "value": "Email Notifications"
+      },
+      {
+        "label": "Application",
+        "value": "Safety Monitoring"
+      }
+    ]
+  }
+}
