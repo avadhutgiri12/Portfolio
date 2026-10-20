@@ -1,5 +1,6 @@
 "use client";
 import Button from "./Button";
+import HeroButtton from "./ui/HeroButton";
 
 export default function Hero() {
   return (
@@ -42,6 +43,7 @@ export default function Hero() {
           <p className="text-white text-2xl frijole-regular text-[clamp(0.8rem,4vw,2rem)] ml-[180px] md:text-2xl md:ml-[450px]">ML-Enthusiast</p>
           <div className="mt-6 md:mt-8 ml-22 md:ml-0">
             <Button />
+            <HeroButtton />
           </div>
         </div>
       </div>

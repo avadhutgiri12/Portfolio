@@ -1,59 +1,80 @@
 {
   "communities": {
     "0": [
-      "app_page",
-      "app_page_home",
-      "components_about_about",
-      "components_academic",
-      "components_academic_academic",
-      "components_academic_education",
-      "components_contact",
-      "components_contact_contact",
-      "components_experience_experience",
-      "components_experience_experience_fetchgithubdata",
+      "app_contact_page",
+      "app_contact_page_contactpage",
+      "app_globals",
+      "app_layout",
+      "app_layout_bebasneue",
+      "app_layout_frijole",
+      "app_layout_jetbrainsmono",
+      "app_layout_metadata",
+      "app_layout_roboto",
+      "app_layout_rootlayout",
+      "components_contactform",
+      "components_contactform_state",
       "components_footer",
       "components_footer_footer",
-      "components_hero",
-      "components_hero_hero",
+      "components_kineticcontact",
+      "components_kineticcontact_kineticcontact",
+      "components_kineticcontact_kineticform",
+      "components_kineticcontact_kineticform_onsubmit",
+      "components_kineticcontact_openmail",
+      "components_kineticcontact_state",
       "components_mousegrid",
       "components_mousegrid_mousegrid",
       "components_navbar",
       "components_navbar_mobilenavitems",
       "components_navbar_navbar",
-      "components_skills",
-      "components_skills_skillnode",
-      "components_skills_skills",
-      "components_skills_smallskill",
-      "components_whatido_whatido",
-      "ref_lucide_react"
+      "components_reveal",
+      "components_reveal_reveal",
+      "components_visitors",
+      "components_visitors_visitors",
+      "components_wordmark",
+      "components_wordmark_wordmark",
+      "lib_content",
+      "lib_content_hire",
+      "lib_content_profile",
+      "lib_content_visitors",
+      "lib_motion",
+      "lib_motion_motion_key",
+      "lib_motion_motionon",
+      "lib_motion_setmotion",
+      "ref_react"
     ],
     "1": [
-      "components_ui_badge",
-      "components_ui_badge_badge",
-      "components_ui_badge_badgeprops",
-      "components_ui_badge_badgevariants",
-      "components_ui_carousel_07",
-      "components_ui_carousel_07_card",
-      "components_ui_carousel_07_cardprops",
-      "components_ui_carousel_07_carouselconfig",
-      "components_ui_carousel_07_carouselstacked",
-      "components_ui_carousel_07_carouselstackedprops",
-      "components_ui_carousel_07_getcarouselconfig",
-      "components_ui_carousel_07_slide",
-      "components_whatido",
-      "components_whatido_getserviceimage",
-      "components_whatido_services",
-      "components_whatido_slides",
-      "lib_utils",
-      "lib_utils_cn",
-      "ref_class_variance_authority",
-      "ref_clsx",
-      "ref_motion",
-      "ref_tailwind_merge"
+      "app_academics_page",
+      "app_academics_page_academicspage",
+      "app_hire_page",
+      "app_hire_page_hirepage",
+      "components_about",
+      "components_about_highlights",
+      "components_about_technologies",
+      "components_academic",
+      "components_academic_academic",
+      "components_academic_education",
+      "components_experience",
+      "components_experience_contributionday",
+      "components_experience_contributionweek",
+      "components_experience_emptygithubdata",
+      "components_experience_experience",
+      "components_experience_experience_fetchgithubdata",
+      "components_experience_githubdata",
+      "components_experience_pastwork",
+      "components_smoothscroll",
+      "components_smoothscroll_smoothscroll",
+      "lib_smooth",
+      "lib_smooth_scrolltoid",
+      "lib_smooth_scrolltotop",
+      "lib_smooth_setlenis",
+      "ref_gsap",
+      "ref_lenis"
     ],
     "2": [
       "eslint_config",
       "eslint_config_eslintconfig",
+      "lib_utils",
+      "lib_utils_cn",
       "package",
       "package_name",
       "package_private",
@@ -63,10 +84,13 @@
       "package_scripts_lint",
       "package_scripts_start",
       "package_version",
+      "ref_class_variance_authority",
+      "ref_clsx",
       "ref_eslint",
       "ref_eslint_config_next",
-      "ref_gsap",
+      "ref_motion",
       "ref_react_dom",
+      "ref_tailwind_merge",
       "ref_tailwindcss",
       "ref_tailwindcss_postcss",
       "ref_types_node",
@@ -75,6 +99,49 @@
       "ref_typescript"
     ],
     "3": [
+      "claude_plans_i_want_to_build_fluttering_sundae",
+      "claude_plans_i_want_to_build_fluttering_sundae_1_component_structure",
+      "claude_plans_i_want_to_build_fluttering_sundae_2_key_features_to_implement",
+      "claude_plans_i_want_to_build_fluttering_sundae_3_data_usage",
+      "claude_plans_i_want_to_build_fluttering_sundae_4_integration_points",
+      "claude_plans_i_want_to_build_fluttering_sundae_5_files_to_modify_create",
+      "claude_plans_i_want_to_build_fluttering_sundae_6_styling_approach",
+      "claude_plans_i_want_to_build_fluttering_sundae_7_animation_specifications",
+      "claude_plans_i_want_to_build_fluttering_sundae_8_verification_plan",
+      "claude_plans_i_want_to_build_fluttering_sundae_component_props",
+      "claude_plans_i_want_to_build_fluttering_sundae_context",
+      "claude_plans_i_want_to_build_fluttering_sundae_data_flow",
+      "claude_plans_i_want_to_build_fluttering_sundae_dependencies",
+      "claude_plans_i_want_to_build_fluttering_sundae_details",
+      "claude_plans_i_want_to_build_fluttering_sundae_files_structure_after_implementation",
+      "claude_plans_i_want_to_build_fluttering_sundae_implementation_approach",
+      "claude_plans_i_want_to_build_fluttering_sundae_internal_state",
+      "claude_plans_i_want_to_build_fluttering_sundae_key_sections",
+      "claude_plans_i_want_to_build_fluttering_sundae_plan_create_workcarousel_component",
+      "claude_plans_i_want_to_build_fluttering_sundae_specific_implementation_notes"
+    ],
+    "4": [
+      "app_work_slug_page",
+      "app_work_slug_page_casestudymap",
+      "app_work_slug_page_createslug",
+      "app_work_slug_page_generatemetadata",
+      "app_work_slug_page_generatestaticparams",
+      "app_work_slug_page_pageprops",
+      "app_work_slug_page_workcasestudy",
+      "case_studies_01_storeway",
+      "case_studies_02_house_price_prediction_system",
+      "case_studies_03_face_detection",
+      "case_studies_04_fall_detection",
+      "components_contact",
+      "components_contact_contact",
+      "components_overlays",
+      "components_overlays_overlays",
+      "data_projectdata",
+      "data_projectdata_project",
+      "data_projectdata_project_data",
+      "ref_lucide_react"
+    ],
+    "5": [
       "tsconfig",
       "tsconfig_compileroptions",
       "tsconfig_compileroptions_allowjs",
@@ -95,58 +162,104 @@
       "tsconfig_exclude",
       "tsconfig_include"
     ],
-    "4": [
-      "components_experience",
-      "components_experience_contributionday",
-      "components_experience_contributionweek",
-      "components_experience_emptygithubdata",
-      "components_experience_githubdata",
-      "components_experience_pastwork",
-      "components_reveal",
-      "components_reveal_reveal",
-      "components_sectionscroll",
-      "components_sectionscroll_sectionscroll",
-      "components_sectionscroll_sectionscrollprops",
-      "components_sectionstack",
-      "components_sectionstack_sectionstack",
-      "components_sectionstack_sectionstackprops",
-      "ref_react"
-    ],
-    "5": [
-      "app_api_github_route",
-      "app_api_github_route_get",
-      "app_globals",
-      "app_layout",
-      "app_layout_bebasneue",
-      "app_layout_metadata",
-      "app_layout_rootlayout",
-      "components_about",
-      "components_about_highlights",
-      "components_about_technologies",
-      "next_config",
-      "next_config_nextconfig",
-      "ref_next"
-    ],
     "6": [
-      "components_metrics",
-      "components_metrics_metrics",
-      "components_projectcarousel",
-      "components_projectcarousel_projectcarousel",
-      "components_projectmodal",
-      "components_projectmodal_projectmodal",
-      "components_projectmodal_projectmodalprops",
-      "data_portfolio",
-      "data_portfolio_metrics_data",
-      "data_portfolio_project",
-      "data_portfolio_projects_data",
-      "data_portfolio_skill",
-      "data_portfolio_skills_data"
+      "app_carousel",
+      "app_kinetic",
+      "app_page",
+      "app_page_home",
+      "components_about_about",
+      "components_button",
+      "components_button_button",
+      "components_hero",
+      "components_hero_hero",
+      "components_ui_herobutton",
+      "components_ui_herobutton_herobuttton",
+      "components_verticalcylindercarousel",
+      "components_verticalcylindercarousel_carouselitem",
+      "components_verticalcylindercarousel_verticalcylindercarousel",
+      "components_verticalcylindercarousel_verticalcylindercarouselprops",
+      "components_whatido",
+      "components_whatido_services",
+      "components_whatido_whatido"
     ],
     "7": [
+      "memory_skills_update_plan",
+      "memory_skills_update_plan_1_create_data_skills_ts",
+      "memory_skills_update_plan_2_update_skills_component_components_skills_tsx",
+      "memory_skills_update_plan_3_mobile_responsiveness",
+      "memory_skills_update_plan_3d_vertical_scroll_wheel_effect",
+      "memory_skills_update_plan_4_integration",
+      "memory_skills_update_plan_context",
+      "memory_skills_update_plan_current_implementation_analysis",
+      "memory_skills_update_plan_dependencies",
+      "memory_skills_update_plan_files_to_modify",
+      "memory_skills_update_plan_header_changes",
+      "memory_skills_update_plan_implementation_approach",
+      "memory_skills_update_plan_required_changes",
+      "memory_skills_update_plan_risks_considerations",
+      "memory_skills_update_plan_skills_section_update_plan",
+      "memory_skills_update_plan_styling",
+      "memory_skills_update_plan_three_section_layout",
+      "memory_skills_update_plan_verification"
+    ],
+    "8": [
+      "app_api_github_route",
+      "app_api_github_route_get",
+      "app_bussiness_biz_module",
+      "app_bussiness_page",
+      "app_bussiness_page_anton",
+      "app_bussiness_page_businesspage",
+      "app_bussiness_page_metadata",
+      "components_biznav",
+      "components_biznav_biznav",
+      "components_contactform_contactform",
+      "components_contactform_contactform_onsubmit",
+      "next_config",
+      "next_config_nextconfig",
+      "ref_app_business_biz_module_css",
+      "ref_lib_notes_config",
+      "ref_next"
+    ],
+    "9": [
+      "app_work_page",
+      "app_work_page_workpage",
+      "components_skills",
+      "components_skills_skill_groups",
+      "components_skills_skills",
+      "components_skills_skillwheel",
+      "components_skills_tints",
+      "components_workcarousel",
+      "components_workcarousel_motionon",
+      "components_workcarousel_workcarousel",
+      "data_skills",
+      "data_skills_backend_skills",
+      "data_skills_frontend_skills",
+      "data_skills_skill",
+      "data_skills_skillcategory",
+      "data_skills_tooling_skills"
+    ],
+    "10": [
+      "claude",
+      "claude_app_router_next_js_13",
+      "claude_best_practices_for_this_codebase",
+      "claude_claude_md",
+      "claude_code_structure",
+      "claude_component_architecture",
+      "claude_data_layer",
+      "claude_development_commands",
+      "claude_environment_variables",
+      "claude_file_conventions",
+      "claude_key_technical_features",
+      "claude_overview",
+      "claude_recent_changes",
+      "claude_styling_approach"
+    ],
+    "11": [
       "package_dependencies",
       "package_dependencies_class_variance_authority",
       "package_dependencies_clsx",
       "package_dependencies_gsap",
+      "package_dependencies_lenis",
       "package_dependencies_lucide_react",
       "package_dependencies_motion",
       "package_dependencies_next",
@@ -154,7 +267,7 @@
       "package_dependencies_react_dom",
       "package_dependencies_tailwind_merge"
     ],
-    "8": [
+    "12": [
       "package_devdependencies",
       "package_devdependencies_eslint",
       "package_devdependencies_eslint_config_next",
@@ -165,22 +278,48 @@
       "package_devdependencies_types_react_dom",
       "package_devdependencies_typescript"
     ],
-    "9": [
+    "13": [
+      "components_metrics",
+      "components_metrics_metrics",
+      "data_portfolio",
+      "data_portfolio_metrics_data",
+      "data_portfolio_project",
+      "data_portfolio_skill",
+      "data_portfolio_skills_data"
+    ],
+    "14": [
+      "readme",
+      "readme_deploy_on_vercel",
+      "readme_getting_started",
+      "readme_learn_more"
+    ],
+    "15": [
+      "agents",
+      "agents_this_is_not_the_next_js_you_know"
+    ],
+    "16": [
       "postcss_config",
       "postcss_config_config"
     ]
   },
   "cohesion": {
-    "0": 0.15666666666666668,
-    "1": 0.14285714285714285,
-    "2": 0.1,
-    "3": 0.10526315789473684,
-    "4": 0.13333333333333333,
-    "5": 0.15384615384615385,
-    "6": 0.2564102564102564,
-    "7": 0.2,
-    "8": 0.2222222222222222,
-    "9": 1.0
+    "0": 0.0858974358974359,
+    "1": 0.1076923076923077,
+    "2": 0.08307692307692308,
+    "3": 0.1,
+    "4": 0.14619883040935672,
+    "5": 0.10526315789473684,
+    "6": 0.1830065359477124,
+    "7": 0.1111111111111111,
+    "8": 0.15833333333333333,
+    "9": 0.2,
+    "10": 0.14285714285714285,
+    "11": 0.18181818181818182,
+    "12": 0.2222222222222222,
+    "13": 0.3333333333333333,
+    "14": 0.5,
+    "15": 1.0,
+    "16": 1.0
   },
   "gods": [
     {
@@ -189,14 +328,19 @@
       "degree": 16
     },
     {
-      "id": "app_page_home",
-      "label": "Home()",
-      "degree": 12
-    },
-    {
       "id": "ref_react",
       "label": "react",
-      "degree": 11
+      "degree": 15
+    },
+    {
+      "id": "components_smoothscroll_smoothscroll",
+      "label": "SmoothScroll()",
+      "degree": 14
+    },
+    {
+      "id": "ref_next",
+      "label": "next",
+      "degree": 13
     },
     {
       "id": "ref_lucide_react",
@@ -204,128 +348,123 @@
       "degree": 10
     },
     {
-      "id": "components_skills_skills",
-      "label": "Skills",
-      "degree": 5
+      "id": "claude_plans_i_want_to_build_fluttering_sundae_implementation_approach",
+      "label": "Implementation Approach",
+      "degree": 9
     },
     {
-      "id": "components_ui_badge_badge",
-      "label": "Badge()",
-      "degree": 5
+      "id": "memory_skills_update_plan_skills_section_update_plan",
+      "label": "Skills Section Update Plan",
+      "degree": 8
     },
     {
-      "id": "components_ui_carousel_07_carouselstacked",
-      "label": "CarouselStacked()",
-      "degree": 5
+      "id": "components_kineticcontact_kineticcontact",
+      "label": "KineticContact()",
+      "degree": 7
     },
     {
-      "id": "lib_utils_cn",
-      "label": "cn()",
-      "degree": 5
+      "id": "lib_motion_motionon",
+      "label": "motionOn()",
+      "degree": 7
     },
     {
-      "id": "package_scripts",
-      "label": "scripts",
-      "degree": 5
-    },
-    {
-      "id": "ref_next",
-      "label": "next",
-      "degree": 5
+      "id": "claude_code_structure",
+      "label": "Code Structure",
+      "degree": 7
     }
   ],
   "surprises": [
     {
-      "source": "Home()",
-      "target": "ProjectCarousel()",
+      "source": "RootLayout()",
+      "target": "MouseGrid()",
       "source_files": [
-        "app/page.tsx",
-        "components/ProjectCarousel.tsx"
+        "app/layout.tsx",
+        "components/MouseGrid.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; peripheral node `MouseGrid()` unexpectedly reaches hub `RootLayout()`"
+    },
+    {
+      "source": "ContactPage()",
+      "target": "SmoothScroll()",
+      "source_files": [
+        "app/contact/page.tsx",
+        "components/SmoothScroll.tsx"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "connects across different repos/directories; bridges separate communities"
     },
     {
-      "source": "ProjectModalProps",
-      "target": "Project",
+      "source": "Skills()",
+      "target": "motionOn()",
       "source_files": [
-        "components/ProjectModal.tsx",
-        "data/portfolio.ts"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "references",
-      "why": "connects across different repos/directories"
-    },
-    {
-      "source": "Home()",
-      "target": "About()",
-      "source_files": [
-        "app/page.tsx",
-        "components/About.tsx"
+        "components/Skills.tsx",
+        "lib/motion.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "connects across different repos/directories"
+      "why": "connects across different repos/directories; bridges separate communities"
     },
     {
-      "source": "Home()",
-      "target": "Academic()",
+      "source": "SmoothScroll()",
+      "target": "motionOn()",
       "source_files": [
-        "app/page.tsx",
-        "components/Academic.tsx"
+        "components/SmoothScroll.tsx",
+        "lib/motion.ts"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "connects across different repos/directories"
+      "why": "connects across different repos/directories; bridges separate communities"
     },
     {
       "source": "Home()",
-      "target": "Contact()",
+      "target": "SmoothScroll()",
       "source_files": [
         "app/page.tsx",
-        "components/Contact.tsx"
+        "components/SmoothScroll.tsx"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "connects across different repos/directories"
+      "why": "connects across different repos/directories; bridges separate communities"
     }
   ],
   "questions": [
     {
       "type": "bridge_node",
-      "question": "Why does `react` connect `Experience Section` to `Core Pages`, `UI Components`, `Project Config`, `Project Data`?",
-      "why": "High betweenness centrality (0.207) - this node is a cross-community bridge."
+      "question": "Why does `react` connect `KineticContact.tsx` to `SmoothScroll.tsx`, `package.json`, `app/page.tsx`, `Skills.tsx`?",
+      "why": "High betweenness centrality (0.155) - this node is a cross-community bridge."
     },
     {
       "type": "isolated_nodes",
-      "question": "What connects `gsap`, `react-dom`, `tailwindcss` to the rest of the system?",
-      "why": "8 weakly-connected nodes found - possible documentation gaps or missing edges."
+      "question": "What connects `class-variance-authority`, `motion`, `react-dom` to the rest of the system?",
+      "why": "9 weakly-connected nodes found - possible documentation gaps or missing edges."
     },
     {
       "type": "low_cohesion",
-      "question": "Should `UI Components` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected."
+      "question": "Should `KineticContact.tsx` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.0858974358974359 - nodes in this community are weakly interconnected."
     },
     {
       "type": "bridge_node",
-      "question": "Why does `lucide-react` connect `Core Pages` to `Project Config`, `Experience Section`, `Project Data`?",
-      "why": "High betweenness centrality (0.141) - this node is a cross-community bridge."
+      "question": "Why does `next` connect `bussiness/page.tsx` to `KineticContact.tsx`, `SmoothScroll.tsx`, `package.json`, `[slug]/page.tsx`, `app/page.tsx`, `Skills.tsx`?",
+      "why": "High betweenness centrality (0.132) - this node is a cross-community bridge."
     },
     {
       "type": "low_cohesion",
-      "question": "Should `Project Config` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.1 - nodes in this community are weakly interconnected."
+      "question": "Should `SmoothScroll.tsx` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.1076923076923077 - nodes in this community are weakly interconnected."
     },
     {
       "type": "bridge_node",
-      "question": "Why does `next` connect `Next Config` to `Project Config`?",
-      "why": "High betweenness centrality (0.118) - this node is a cross-community bridge."
+      "question": "Why does `lucide-react` connect `[slug]/page.tsx` to `KineticContact.tsx`, `SmoothScroll.tsx`, `package.json`, `app/page.tsx`, `Skills.tsx`, `portfolio.ts`?",
+      "why": "High betweenness centrality (0.089) - this node is a cross-community bridge."
     },
     {
       "type": "low_cohesion",
-      "question": "Should `TS Config` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected."
+      "question": "Should `package.json` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08307692307692308 - nodes in this community are weakly interconnected."
     }
   ]
 }
