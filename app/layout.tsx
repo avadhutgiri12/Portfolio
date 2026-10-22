@@ -49,6 +49,7 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
         />
+        <meta name="google-site-verification" content="9CorpDMbkw5HmmTywHa56cpCJXPJ4C3LrJUSFNcrRLA" />
       </head>
       <body className={`${bebasNeue.variable} ${jetBrainsMono.variable} ${frijole.variable} ${roboto.variable}`}>
         {/* Dark background */}
