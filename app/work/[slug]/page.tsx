@@ -175,7 +175,7 @@ export default async function WorkCaseStudy({ params }: PageProps) {
 
         {/* Project video */}
         {/* Project UI Showcase */}
-{(project.videoUrl || project.image) && (
+{project.image && (
   <div className="mb-16 mt-12">
     {/* Browser Window */}
     <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#e9e4d6] shadow-[0_25px_100px_rgba(0,0,0,0.4)]">

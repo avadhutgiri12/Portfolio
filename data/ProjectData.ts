@@ -22,11 +22,59 @@ export interface Project {
   impact: string;
   tags: string[];
   // New fields for enhanced project showcase
-  videoUrl?: string;
   liveSiteUrl?: string;
   repositoryUrl?: string;
   status?: string;
 }
+
+export interface Skill {
+  name: string;
+  percent: number;
+  icon: LucideIcon;
+}
+
+export const SKILLS_DATA: Skill[] = [
+  {
+    name: "USER RESEARCH & ETHNOGRAPHY",
+    percent: 92,
+    icon: Target,
+  },
+  {
+    name: "UI / UX DESIGN & PROTOTYPING",
+    percent: 98,
+    icon: PenTool,
+  },
+  {
+    name: "DESIGN SYSTEMS & ARCHITECTURE",
+    percent: 95,
+    icon: Hexagon,
+  },
+  {
+    name: "COMPLEX DATA VISUALIZATION",
+    percent: 88,
+    icon: Box,
+  },
+  {
+    name: "INTERACTION & MOTION DESIGN",
+    percent: 90,
+    icon: Layout,
+  },
+];
+
+export const METRICS_DATA = [
+  {
+    num: "5+",
+    label: "YEARS OF INDUSTRY EXP",
+  },
+  {
+    num: "42+",
+    label: "COMPLETED SHIPMENTS",
+  },
+  {
+    num: "28+",
+    label: "CLIENTS & VENTURES",
+  },
+];
 
 export const PROJECT_DATA: Project[] = [
   {
@@ -58,109 +106,102 @@ export const PROJECT_DATA: Project[] = [
       "Geospatial UI",
       "Distributed Logistics",
     ],
-    videoUrl: "",
-    liveSiteUrl: "https://storeway.vercel.app", // Update with your actual deployment URL
+    liveSiteUrl: "https://homeworthh.vercel.app/",
     repositoryUrl: "https://github.com/avadhutgiri12/StoreWay",
     status: "Live",
   },
-{
-  id: "02",
-  num: "02",
-  title: "HomeWorth",
-  subtitle: "MACHINE LEARNING & PREDICTIVE ANALYTICS",
-  category: "MACHINE LEARNING & WEB APPLICATION",
-  sideText: "PREDICT PROPERTY VALUES WITH MACHINE LEARNING",
-  year: "2025",
-  role: "ML Engineer & Developer",
-  tools: [
-    "Python",
-    "Scikit-learn",
-    "Pandas",
-    "NumPy",
-    "Streamlit",
-    "Joblib",
-  ],
-  image: "images/housepricepredictio.png",
-  description:
-    "A machine learning-based house price prediction system that analyzes housing data and applies predictive modeling to estimate property values. The project explores data preprocessing, feature engineering, model training, and evaluation to build a complete predictive analytics workflow.",
-  impact:
-    "Developed an end-to-end machine learning pipeline using the California Housing Dataset, comparing regression models and evaluating their predictive performance through RMSE and cross-validation.",
-  tags: [
-    "Machine Learning",
-    "Regression",
-    "Data Analysis",
-    "Predictive Analytics",
-  ],
-  videoUrl: "",
-  liveSiteUrl: "https://homeworthh.vercel.app/",
-  repositoryUrl: "https://github.com/avadhutgiri12/HousePricePrediction",
-  status: "Live",
-},
-
   {
-  id: "03",
-  num: "03",
-  title: "Real-Time Face Detection System",
-  subtitle: "AI-POWERED COMPUTER VISION",
-  category: "COMPUTER VISION & DEEP LEARNING",
-  sideText: "SEEING THE WORLD THROUGH COMPUTER VISION",
-  year: "2025",
-  role: "Machine Learning Developer",
-  tools: [
-    "Python",
-    "YOLO",
-    "OpenCV",
-    "Computer Vision",
-  ],
-  image: "images/face-detection.png",
-  description:
-    "An AI-powered face detection system built using the YOLO object detection model. The system analyzes visual input, identifies faces, and draws bounding boxes around detected faces, demonstrating the practical application of deep learning and computer vision.",
-  impact:
-    "Implemented a YOLO-based face detection pipeline capable of locating faces in visual input and displaying detection results with bounding boxes.",
-  tags: [
-    "YOLO",
-    "Face Detection",
-    "Deep Learning",
-    "Computer Vision",
-  ],
-  videoUrl: "",
-  liveSiteUrl: "",
-  repositoryUrl: "",
-  status: "Local",
-},
-
+    id: "02",
+    num: "02",
+    title: "HomeWorth",
+    subtitle: "MACHINE LEARNING & PREDICTIVE ANALYTICS",
+    category: "MACHINE LEARNING & WEB APPLICATION",
+    sideText: "PREDICT PROPERTY VALUES WITH MACHINE LEARNING",
+    year: "2025",
+    role: "ML Engineer & Developer",
+    tools: [
+      "Python",
+      "Scikit-learn",
+      "Pandas",
+      "NumPy",
+      "Streamlit",
+      "Joblib",
+    ],
+    image: "images/housepricepredictio.png",
+    description:
+      "A machine learning-based house price prediction system that analyzes housing data and applies predictive modeling to estimate property values. The project explores data preprocessing, feature engineering, model training, and evaluation to build a complete predictive analytics workflow.",
+    impact:
+      "Developed an end-to-end machine learning pipeline using the California Housing Dataset, comparing regression models and evaluating their predictive performance through RMSE and cross-validation.",
+    tags: [
+      "Machine Learning",
+      "Regression",
+      "Data Analysis",
+      "Predictive Analytics",
+    ],
+    liveSiteUrl: "https://homeworthh.vercel.app/",
+    repositoryUrl: "https://github.com/avadhutgiri12/HousePricePrediction",
+    status: "Live",
+  },
   {
-  id: "04",
-  num: "04",
-  title: "AI-Powered Fall Detection System",
-  subtitle: "INTELLIGENT MONITORING & ALERTS",
-  category: "COMPUTER VISION & AI SAFETY",
-  sideText: "DETECT FALLS FASTER. ENABLE TIMELY ALERTS.",
-  year: "2025",
-  role: "Machine Learning Developer",
-  tools: [
-    "Python",
-    "YOLO",
-    "OpenCV",
-    "Computer Vision",
-    "Email Automation",
-  ],
-  image: "images/fallDetection.png",
-  description:
-    "An AI-powered fall detection system designed to identify when a person falls and automatically send an email alert. By combining computer vision with automated notifications, the system demonstrates how AI can support safety monitoring and help communicate potential emergencies.",
-  impact:
-    "Implemented an automated fall detection workflow that identifies potential falls and triggers email notifications, demonstrating the integration of computer vision and alert automation.",
-  tags: [
-    "Fall Detection",
-    "YOLO",
-    "Computer Vision",
-    "Email Automation",
-    "AI Safety",
-  ],
-  videoUrl: "",
-  liveSiteUrl: "",
-  repositoryUrl: "",
-  status: "Local",
-},
-
+    id: "03",
+    num: "03",
+    title: "Real-Time Face Detection System",
+    subtitle: "AI-POWERED COMPUTER VISION",
+    category: "COMPUTER VISION & DEEP LEARNING",
+    sideText: "SEEING THE WORLD THROUGH COMPUTER VISION",
+    year: "2025",
+    role: "Machine Learning Developer",
+    tools: [
+      "Python",
+      "YOLO",
+      "OpenCV",
+      "Computer Vision",
+    ],
+    image: "images/face-detection.png",
+    description:
+      "An AI-powered face detection system built using the YOLO object detection model. The system analyzes visual input, identifies faces, and draws bounding boxes around detected faces, demonstrating the practical application of deep learning and computer vision.",
+    impact:
+      "Implemented a YOLO-based face detection pipeline capable of locating faces in visual input and displaying detection results with bounding boxes.",
+    tags: [
+      "YOLO",
+      "Face Detection",
+      "Deep Learning",
+      "Computer Vision",
+    ],
+    liveSiteUrl: "https://homeworthh.vercel.app/",
+    repositoryUrl: "https://github.com/avadhutgiri12/HousePricePrediction",
+    status: "Local",
+  },
+  {
+    id: "04",
+    num: "04",
+    title: "AI-Powered Fall Detection System",
+    subtitle: "INTELLIGENT MONITORING & ALERTS",
+    category: "COMPUTER VISION & AI SAFETY",
+    sideText: "DETECT FALLS FASTER. ENABLE TIMELY ALERTS.",
+    year: "2025",
+    role: "Machine Learning Developer",
+    tools: [
+      "Python",
+      "YOLO",
+      "OpenCV",
+      "Computer Vision",
+      "Email Automation",
+    ],
+    image: "images/fallDetection.png",
+    description:
+      "An AI-powered fall detection system designed to identify when a person falls and automatically send an email alert. By combining computer vision with automated notifications, the system demonstrates how AI can support safety monitoring and help communicate potential emergencies.",
+    impact:
+      "Implemented an automated fall detection workflow that identifies potential falls and triggers email notifications, demonstrating the integration of computer vision and alert automation.",
+    tags: [
+      "Fall Detection",
+      "YOLO",
+      "Computer Vision",
+      "Email Automation",
+      "AI Safety",
+    ],
+    liveSiteUrl: "https://homeworthh.vercel.app/",
+    repositoryUrl: "https://github.com/avadhutgiri12/HousePricePrediction",
+    status: "Local",
+  },
 ];
