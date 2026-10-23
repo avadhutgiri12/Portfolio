@@ -175,56 +175,70 @@ export default async function WorkCaseStudy({ params }: PageProps) {
 
         {/* Project video */}
         {/* Project UI Showcase */}
-{project.image && (
-  <div className="mb-16 mt-12">
-    {/* Browser Window */}
-    <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#e9e4d6] shadow-[0_25px_100px_rgba(0,0,0,0.4)]">
+{(() => {
+    const videoSrc = caseStudyMap[project.id]?.videoUrl;
 
-      {/* Browser Header */}
-      <div className="flex h-8 items-center gap-2 bg-[#e9e4d6] px-4 sm:h-10 sm:px-6">
-
-        {/* Browser Controls */}
-        <div className="flex items-center gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
-          <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
-          <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
-        </div>
-
-        {/* Website Address */}
-        <div className="ml-3 truncate font-mono text-[9px] tracking-[0.15em] text-[#817967] sm:text-[10px]">
-          WWW.{project.title.toUpperCase().replace(/\s+/g, "")}.COM
-        </div>
-      </div>
-
-      {/* Website Preview */}
-      {/* Website Preview */}
-<div className="relative aspect-16/10 overflow-hidden bg-white sm:aspect-video">
-  {(() => {
-    // Fetch image from case study JSON file
-    const imageSrc = caseStudyMap[project.id]?.image;
-
-    if (!imageSrc) {
+    if (!videoSrc) {
       return (
-        <div className="flex h-full w-full items-center justify-center bg-neutral-900 text-neutral-400">
-          Project preview unavailable
+        <div className="mb-16 mt-12">
+          <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#e9e4d6] shadow-[0_25px_100px_rgba(0,0,0,0.4)]">
+            <div className="flex h-8 items-center gap-2 bg-[#e9e4d6] px-4 sm:h-10 sm:px-6">
+              <div className="flex items-center gap-1.5">
+                <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
+                <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
+                <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
+              </div>
+              <div className="ml-3 truncate font-mono text-[9px] tracking-[0.15em] text-[#817967] sm:text-[10px]">
+                WWW.{project.title.toUpperCase().replace(/\s+/g, "")}.COM
+              </div>
+            </div>
+            <div className="relative aspect-16/10 overflow-hidden bg-white sm:aspect-video">
+              <div className="flex h-full w-full items-center justify-center bg-neutral-900 text-neutral-400">
+                Project preview unavailable
+              </div>
+            </div>
+          </div>
         </div>
       );
     }
 
     return (
-      <img
-        key={imageSrc}
-        src={imageSrc}
-        alt={`${project.title} project preview`}
-        loading="eager"
-        className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
-      />
+      <div className="mb-16 mt-12">
+        {/* Browser Window */}
+        <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#e9e4d6] shadow-[0_25px_100px_rgba(0,0,0,0.4)]">
+
+          {/* Browser Header */}
+          <div className="flex h-8 items-center gap-2 bg-[#e9e4d6] px-4 sm:h-10 sm:px-6">
+
+            {/* Browser Controls */}
+            <div className="flex items-center gap-1.5">
+              <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
+              <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
+              <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
+            </div>
+
+            {/* Website Address */}
+            <div className="ml-3 truncate font-mono text-[9px] tracking-[0.15em] text-[#817967] sm:text-[10px]">
+              WWW.{project.title.toUpperCase().replace(/\s+/g, "")}.COM
+            </div>
+          </div>
+
+          {/* Video Preview */}
+          <div className="relative aspect-16/10 overflow-hidden bg-black sm:aspect-video">
+            <video
+              key={videoSrc}
+              src={videoSrc}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+            />
+          </div>
+        </div>
+      </div>
     );
   })()}
-</div>
-    </div>
-  </div>
-)}
 
         {/* Project impact */}
         <div className="mb-10">

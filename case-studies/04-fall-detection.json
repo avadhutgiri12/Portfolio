@@ -8,7 +8,6 @@
   "year": "2025",
   "role": "Machine Learning Developer",
   "tools": ["Python", "YOLO", "OpenCV", "Computer Vision", "Email Automation"],
-  "image": "/fall-detection.png",
   "description": "An intelligent fall detection system designed to identify when a person falls and automatically send an email notification. The project combines automated fall detection with email alerts to demonstrate how computer vision can support safety monitoring.",
   "impact": "Implemented a fall detection workflow that identifies potential falls and triggers email notifications, combining visual analysis with automated communication.",
   "tags": [
@@ -18,7 +17,7 @@
     "Email Automation",
     "AI Safety"
   ],
-  "videoUrl": "",
+  "videoUrl": "/videos/fall-detection.mp4",
   "liveSiteUrl": "",
   "repositoryUrl": "",
   "status": "Local",

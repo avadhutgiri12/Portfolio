@@ -127,7 +127,7 @@ export const PROJECT_DATA: Project[] = [
       "Streamlit",
       "Joblib",
     ],
-    image: "images/housepricepredictio.png",
+    image: "images/house-price-prediction.jpeg",
     description:
       "A machine learning-based house price prediction system that analyzes housing data and applies predictive modeling to estimate property values. The project explores data preprocessing, feature engineering, model training, and evaluation to build a complete predictive analytics workflow.",
     impact:
@@ -157,7 +157,7 @@ export const PROJECT_DATA: Project[] = [
       "OpenCV",
       "Computer Vision",
     ],
-    image: "images/face-detection.png",
+    image: "images/ai-face-detection.jpeg",
     description:
       "An AI-powered face detection system built using the YOLO object detection model. The system analyzes visual input, identifies faces, and draws bounding boxes around detected faces, demonstrating the practical application of deep learning and computer vision.",
     impact:
@@ -188,7 +188,7 @@ export const PROJECT_DATA: Project[] = [
       "Computer Vision",
       "Email Automation",
     ],
-    image: "images/fallDetection.png",
+    image: "images/fall-detection.jpeg",
     description:
       "An AI-powered fall detection system designed to identify when a person falls and automatically send an email alert. By combining computer vision with automated notifications, the system demonstrates how AI can support safety monitoring and help communicate potential emergencies.",
     impact:

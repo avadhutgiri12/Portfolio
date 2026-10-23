@@ -15,7 +15,7 @@
     "Streamlit",
     "Joblib"
   ],
-  "image": "/house-price-prediction.png",
+  "videoUrl": "/videos/home-worth.mp4",
   "description": "A machine learning-based house price prediction system that analyzes housing features and estimates property values using regression algorithms. The project includes data preprocessing, feature engineering, model training, and evaluation to transform raw housing data into meaningful predictions.",
   "impact": "Developed an end-to-end machine learning pipeline using the California Housing Dataset, comparing regression models and evaluating predictive performance through RMSE and cross-validation.",
   "tags": [
@@ -24,7 +24,6 @@
     "Data Analysis",
     "Predictive Analytics"
   ],
-  "videoUrl": "",
   "liveSiteUrl": "https://homeworthh.vercel.app/",
   "repositoryUrl": "https://github.com/avadhutgiri12/HousePricePrediction",
   "status": "Local",

@@ -8,6 +8,7 @@ import { gsap } from "gsap";
 
 const CARD_OFFSET = 300;
 const ANIMATION_DURATION = 0.8;
+const AUTO_ROTATE_INTERVAL = 2000; // 2 seconds
 
 function motionOn() {
   if (typeof window === "undefined") return false;
@@ -22,6 +23,11 @@ export default function WorkCarousel() {
   const carouselRef = useRef<HTMLElement>(null);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
   const backgroundRef = useRef<HTMLDivElement>(null);
+
+  // Auto-rotation refs
+  const autoRotateIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const isPausedRef = useRef(false);
+  const focusCountRef = useRef(0);
 
   const projects = PROJECT_DATA;
   const totalProjects = projects.length;
@@ -82,6 +88,56 @@ export default function WorkCarousel() {
     },
     [totalProjects]
   );
+
+  // Auto-rotation functions
+  const startAutoRotate = useCallback(() => {
+    if (!motionOn() || totalProjects <= 1) return;
+
+    if (autoRotateIntervalRef.current) {
+      clearInterval(autoRotateIntervalRef.current);
+    }
+
+    autoRotateIntervalRef.current = setInterval(() => {
+      if (!isPausedRef.current) {
+        goToNext();
+      }
+    }, AUTO_ROTATE_INTERVAL);
+  }, [goToNext, totalProjects]);
+
+  const stopAutoRotate = useCallback(() => {
+    if (autoRotateIntervalRef.current) {
+      clearInterval(autoRotateIntervalRef.current);
+      autoRotateIntervalRef.current = null;
+    }
+  }, []);
+
+  const handlePause = useCallback(() => {
+    isPausedRef.current = true;
+  }, []);
+
+  const handleResume = useCallback(() => {
+    isPausedRef.current = false;
+  }, []);
+
+  const handleFocus = useCallback(() => {
+    focusCountRef.current += 1;
+    if (focusCountRef.current > 0) {
+      isPausedRef.current = true;
+    }
+  }, []);
+
+  const handleBlur = useCallback(() => {
+    focusCountRef.current = Math.max(0, focusCountRef.current - 1);
+    if (focusCountRef.current === 0) {
+      isPausedRef.current = false;
+    }
+  }, []);
+
+  // Auto-rotation lifecycle
+  useEffect(() => {
+    startAutoRotate();
+    return () => stopAutoRotate();
+  }, [startAutoRotate, stopAutoRotate]);
 
   // Animate the carousel cards.
   // Animate carousel cards without vertical jumping.
@@ -269,6 +325,10 @@ export default function WorkCarousel() {
         text-white
         outline-none
       "
+      onMouseEnter={handlePause}
+      onMouseLeave={handleResume}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
     >
       {/* Ambient background */}
       <div
