@@ -382,3 +382,109 @@
 .footer a {
   color: var(--ink);
 }
+
+/* ───────── floating social links ───────── */
+.floatingSocial {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  pointer-events: none;
+}
+
+.floatingLink {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow:
+    6px 6px 0 var(--ink),
+    0 0 0 4px var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s,
+    background 0.3s,
+    border-color 0.3s;
+  animation: float 3s ease-in-out infinite;
+}
+
+.floatingLink:nth-child(1) {
+  animation-delay: 0s;
+}
+.floatingLink:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.floatingLink:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.floatingLink:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+.floatingLink:hover {
+  transform: translateY(-8px) scale(1.1);
+  box-shadow:
+    10px 10px 0 var(--ink),
+    0 0 0 4px var(--paper),
+    0 12px 32px rgba(0, 0, 0, 0.15);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.floatingLink:hover .floatingIcon {
+  color: #fff;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.floatingIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--icon-color, var(--ink));
+  transition: color 0.3s, filter 0.3s;
+  flex-shrink: 0;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 760px) {
+  .floatingSocial {
+    bottom: 20px;
+    right: 20px;
+  }
+  .floatingLink {
+    width: 48px;
+    height: 48px;
+  }
+  .floatingIcon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floatingLink {
+    animation: none;
+  }
+  .floatingLink:hover {
+    transform: translateY(-4px) scale(1.05);
+  }
+}

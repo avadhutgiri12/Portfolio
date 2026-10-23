@@ -2,67 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
-    <loc>https://avadhutgiri.vercel.app/</loc>
+    <loc>https://avadhutgiri.in/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Work listing page -->
   <url>
-    <loc>https://avadhutgiri.vercel.app/work</loc>
+    <loc>https://avadhutgiri.in/work</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Contact page -->
   <url>
-    <loc>https://avadhutgiri.vercel.app/contact</loc>
+    <loc>https://avadhutgiri.in/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Hire page -->
   <url>
-    <loc>https://avadhutgiri.vercel.app/hire</loc>
+    <loc>https://avadhutgiri.in/hire</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Academics page -->
   <url>
-    <loc>https://avadhutgiri.vercel.app/academics</loc>
+    <loc>https://avadhutgiri.in/academics</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Business page -->
   <url>
-    <loc>https://avadhutgiri.vercel.app/business</loc>
+    <loc>https://avadhutgiri.in/business</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
+  <!-- Free Notes page -->
+  <url>
+    <loc>https://avadhutgiri.in/notes</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Project case studies (dynamic routes) -->
   <url>
-    <loc>https://avadhutgiri.vercel.app/work/storeway</loc>
+    <loc>https://avadhutgiri.in/work/storeway</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://avadhutgiri.vercel.app/work/house-price-prediction-system</loc>
+    <loc>https://avadhutgiri.in/work/house-price-prediction-system</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://avadhutgiri.vercel.app/work/real-time-face-detection-system</loc>
+    <loc>https://avadhutgiri.in/work/real-time-face-detection-system</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://avadhutgiri.vercel.app/work/ai-powered-fall-detection-system</loc>
+    <loc>https://avadhutgiri.in/work/ai-powered-fall-detection-system</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

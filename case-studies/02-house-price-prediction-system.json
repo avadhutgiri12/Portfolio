@@ -1,7 +1,7 @@
 {
   "id": "02",
   "num": "02",
-  "title": "House Price Prediction System",
+  "title": "HomeWorth",
   "subtitle": "MACHINE LEARNING & PREDICTIVE ANALYTICS",
   "category": "MACHINE LEARNING & DATA SCIENCE",
   "sideText": "TURN HOUSING DATA INTO INTELLIGENT PREDICTIONS",
@@ -25,8 +25,8 @@
     "Predictive Analytics"
   ],
   "videoUrl": "",
-  "liveSiteUrl": "",
-  "repositoryUrl": "",
+  "liveSiteUrl": "https://homeworthh.vercel.app/",
+  "repositoryUrl": "https://github.com/avadhutgiri12/HousePricePrediction",
   "status": "Local",
   "extra": {
     "howItWorks": [

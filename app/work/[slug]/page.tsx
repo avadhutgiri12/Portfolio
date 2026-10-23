@@ -138,7 +138,7 @@ export default async function WorkCaseStudy({ params }: PageProps) {
         </div>
 
         {/* Project introduction */}
-          <h1 className="md:text-8xl text-6xl mb-4 font-bold tracking-tight roboto">
+          <h1 className="md:text-8xl font-light text-6xl mb-4 font-bold tracking-tight roboto">
             {project.title}
           </h1>
         <div className="mb-8 md:w-2xl w-vw">

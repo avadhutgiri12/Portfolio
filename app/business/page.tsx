@@ -12,6 +12,8 @@ import {
   notes,
   series,
 } from "@/lib/notes.config";
+import { socialLinks } from "@/data/portfolio";
+import FloatingSocial from "./FloatingSocial";
 import styles from "./biz.module.css";
 
 const anton = Anton({
@@ -156,6 +158,8 @@ export default function BusinessPage() {
         <span>© techie.addy 2026</span>
         <Link href="/">← Back to portfolio</Link>
       </footer>
+
+      <FloatingSocial socialLinks={socialLinks} />
     </div>
   );
 }

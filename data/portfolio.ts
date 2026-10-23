@@ -6,6 +6,7 @@ import {
   Layout,
   LucideIcon,
 } from "lucide-react";
+import { socialLinks } from "./socialIcons";
 
 export interface Project {
   id: string;
@@ -76,3 +77,5 @@ export const METRICS_DATA = [
     label: "CLIENTS & VENTURES",
   },
 ];
+
+export { socialLinks };

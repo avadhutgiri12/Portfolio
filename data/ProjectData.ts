@@ -66,7 +66,7 @@ export const PROJECT_DATA: Project[] = [
 {
   id: "02",
   num: "02",
-  title: "House Price Prediction System",
+  title: "HomeWorth",
   subtitle: "MACHINE LEARNING & PREDICTIVE ANALYTICS",
   category: "MACHINE LEARNING & WEB APPLICATION",
   sideText: "PREDICT PROPERTY VALUES WITH MACHINE LEARNING",
@@ -92,7 +92,7 @@ export const PROJECT_DATA: Project[] = [
     "Predictive Analytics",
   ],
   videoUrl: "",
-  liveSiteUrl: "",
+  liveSiteUrl: "https://homeworthh.vercel.app/",
   repositoryUrl: "https://github.com/avadhutgiri12/HousePricePrediction",
   status: "Live",
 },
