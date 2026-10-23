@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, JetBrains_Mono, Frijole, Roboto } from "next/font/google";
 import MouseGrid from "@/components/MouseGrid";
+import LoaderWrapper from "@/components/LoaderWrapper";
 import "./globals.css";
+import "./loader.css";
 
 const bebasNeue = Bebas_Neue({
   variable: "--font-bebas-neue",
@@ -179,6 +181,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${bebasNeue.variable} ${jetBrainsMono.variable} ${frijole.variable} ${roboto.variable}`}>
+        {/* Full-screen loader - renders first, before any content */}
+        <LoaderWrapper />
+
         {/* Dark background */}
         <div className="relative bg-[#080808]">
           {/* Background mouse effect */}
