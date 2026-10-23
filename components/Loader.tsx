@@ -313,6 +313,15 @@ export default function Loader({
     [handleEnter]
   );
 
+  // Clean up scroll lock when loader becomes hidden.
+  // This effect runs when state changes to "hidden" and restores scrolling.
+  useEffect(() => {
+    if (state === "hidden") {
+      document.documentElement.classList.remove("loader-active");
+      document.body.style.overflow = "";
+    }
+  }, [state]);
+
   // If hidden, render nothing.
   if (state === "hidden") {
     return null;
