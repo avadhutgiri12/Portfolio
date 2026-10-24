@@ -198,6 +198,7 @@ export default function About() {
   src="/aboutIMG.png"
   alt="Avadhut Giri"
   fill
+  sizes="(max-width: 1024px) 100vw, 290px"
   className="object-contain scale-[1.7] translate-y-[40%]"
 />
 

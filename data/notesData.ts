@@ -9,14 +9,23 @@ export interface Note {
 
 export const NOTES: Note[] = [
   {
-    slug: "building-with-ai",
-    tag: "Guide",
-    title: "Building with AI: A Practical Guide",
-    description:
-      "A comprehensive guide to integrating AI into your web applications, covering APIs, prompt engineering, and production deployment patterns.",
-    downloadUrl: "/notes/Building_with_AI.pdf",
-    date: "2026-01-15",
-  },
+  slug: "data-science-roadmap",
+  tag: "Roadmap",
+  title: "Data Science Roadmap 2026: From Zero to Job-Ready",
+  description:
+    "A 6-step, ~6-month roadmap covering Python, statistics, SQL and Pandas, data visualization, machine learning and portfolio projects, with free resources and a mini project for every step.",
+  downloadUrl: "/notes/Data_Science_Roadmap_2026.pdf",
+  date: "2026-10-25",
+},
+{
+  slug: "github-guide",
+  tag: "Guide",
+  title: "GitHub for Beginners: Git, Branches and Pull Requests",
+  description:
+    "A beginner-friendly guide to Git and GitHub covering repositories, commits, branches, pull requests and merging, with the commands and workflow you need to start contributing.",
+  downloadUrl: "/notes/GitHub_Guide.pdf",
+  date: "2026-10-25",
+},
 ];
 
 export const notesSeries = {
