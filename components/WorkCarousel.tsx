@@ -47,6 +47,22 @@ export default function WorkCarousel() {
       ];
     }
 
+    if (totalProjects === 2) {
+      // With 2 projects, show both, but mark the active one correctly
+      return [
+        {
+          project: projects[activeIndex],
+          position: "active" as const,
+          index: activeIndex,
+        },
+        {
+          project: projects[(activeIndex + 1) % 2],
+          position: "next" as const,
+          index: (activeIndex + 1) % 2,
+        },
+      ];
+    }
+
     const previousIndex = (activeIndex - 1 + totalProjects) % totalProjects;
 
     const nextIndex = (activeIndex + 1) % totalProjects;

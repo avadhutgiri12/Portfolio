@@ -6,6 +6,7 @@ import { motionOn } from "@/lib/motion";
 
 const SEEN = "avadhut-visited";
 const BASE_COUNT = 100;
+const CACHE = "avadhut-visit-count";
 
 export default function Visitors() {
   const [count, setCount] = useState<number | null>(null);
@@ -32,25 +33,55 @@ export default function Visitors() {
       /* private mode — count the visit, it is the honest default */
     }
 
-    const base = `https://abacus.jasoncameron.dev/${counted ? "get" : "hit"}/${
+    let cancelled = false;
+
+    // Show the last known count right away so the footer never reads 0.
+    let cached = 0;
+    try {
+      cached = Number(localStorage.getItem(CACHE)) || 0;
+    } catch {
+      /* storage unavailable */
+    }
+    if (cached > 0) {
+      void Promise.resolve().then(() => {
+        if (!cancelled) setCount((c) => c ?? cached);
+      });
+    }
+
+    const url = `https://abacus.jasoncameron.dev/${counted ? "get" : "hit"}/${
       visitors.namespace
     }/${visitors.key}`;
+    const getUrl = `https://abacus.jasoncameron.dev/get/${visitors.namespace}/${visitors.key}`;
 
-    fetch(base)
-      .then((r) => (r.ok ? r.json() : null))
-      .then((d) => {
-        if (typeof d?.value !== "number") return;
-        // Add base count of 100 to the fetched count
-        setCount(d.value + BASE_COUNT);
+    // The free counter API sometimes hangs for 15s+, so time out and retry.
+    const load = async (target: string, attempt: number): Promise<void> => {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 5000);
+      try {
+        const r = await fetch(target, { signal: ctrl.signal, cache: "no-store" });
+        const d = r.ok ? await r.json() : null;
+        if (typeof d?.value !== "number") throw new Error("bad response");
+        if (cancelled) return;
+        const total = d.value + BASE_COUNT;
+        setCount(total);
         try {
           sessionStorage.setItem(SEEN, "1");
+          localStorage.setItem(CACHE, String(total));
         } catch {
           /* nothing to do — the count is already shown */
         }
-      })
-      .catch(() => {
-        /* leave the row out rather than show a broken number */
-      });
+      } catch {
+        // A timed-out "hit" may still have counted, so retry with "get".
+        if (!cancelled && attempt < 2) await load(getUrl, attempt + 1);
+      } finally {
+        clearTimeout(timer);
+      }
+    };
+
+    void load(url, 0);
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   /* count up to the real number rather than just popping it in */
@@ -74,7 +105,8 @@ export default function Visitors() {
     };
   }, [count]);
 
-  // if (count === null) return null;
+  // Hide the number until a real count arrives instead of showing 0.
+  if (count === null) return null;
 
   return (
     <span className="visit-counter inline-flex items-center">

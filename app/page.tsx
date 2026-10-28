@@ -7,10 +7,12 @@ import KineticContact from "@/components/KineticContact";
 import SmoothScroll from "@/components/SmoothScroll";
 import WhatIDo from "@/components/WhatIDo";
 import Footer from "@/components/Footer";
+import LoaderWrapper from "@/components/LoaderWrapper";
 
 export default function Home() {
   return (
     <>
+      <LoaderWrapper />
       <Navbar />
     <SmoothScroll />
       <Hero />
@@ -22,7 +24,7 @@ export default function Home() {
         liveLabel="View my work"
       />
       <Footer />
-      
+
     </>
   );
 }
