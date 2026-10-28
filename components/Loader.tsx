@@ -1,346 +1,587 @@
 
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 type LoaderState = "loading" | "readyToEnter" | "exiting" | "hidden";
 
 interface LoaderProps {
+  /** Minimum time (ms) to show loader before allowing transition to readyToEnter */
   minDisplayTime?: number;
+  /** Maximum time (ms) before forcing completion even if assets aren't ready */
   maxWaitTime?: number;
 }
 
 export default function Loader({
   minDisplayTime = 900,
-  maxWaitTime = 30000,
+  maxWaitTime = 3500,
 }: LoaderProps) {
   const [state, setState] = useState<LoaderState>("loading");
   const [progress, setProgress] = useState(0);
 
-  const startTimeRef = useRef<number>(0);
+  // Always display whole-number percentages.
+  const displayProgress = Math.floor(progress);
+
+  // Text inversion has its own timeline, separate from the red wipe.
+  const textProgress = Math.max(
+    0,
+    Math.min(100, ((progress - 40) / 20) * 100)
+  );
+
+  const startTimeRef = useRef<number>(Date.now());
   const rafIdRef = useRef<number | null>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const maxTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const progressIntervalRef = useRef<ReturnType<typeof setInterval> | null>(
+  const enterTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const animationTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
     null
   );
 
+  const isExitingRef = useRef(false);
+  const enteredRef = useRef(false);
+  const progressRef = useRef(0);
+  const stateRef = useRef<LoaderState>("loading");
   const mountedRef = useRef(false);
   const assetsReadyRef = useRef(false);
+  const minTimePassedRef = useRef(false);
   const finishStartedRef = useRef(false);
 
+  // Keep state ref synchronized.
+  useEffect(() => {
+    stateRef.current = state;
+  }, [state]);
+
   /**
-   * Wait for images inside the Home page only.
-   *
-   * The Home page must have:
-   * <main data-home-page>...</main>
+   * Wait for the Home page container to appear.
+   * The Home page must use: <main data-home-page>
    */
-  const checkAssetsReady = useCallback(async (): Promise<void> => {
-    // Wait until the Home page container is mounted.
-    const waitForHomePage = async (): Promise<HTMLElement | null> => {
+  const waitForHomePage = useCallback(
+    (): Promise<HTMLElement | null> => {
       const existing = document.querySelector<HTMLElement>(
         "[data-home-page]"
       );
 
-      if (existing) return existing;
+      if (existing) {
+        return Promise.resolve(existing);
+      }
 
-      // Home content may not have mounted yet.
-      return new Promise<HTMLElement | null>((resolve) => {
-        let finished = false;
+      return new Promise((resolve) => {
+        let settled = false;
+        let observer: MutationObserver | null = null;
 
-        const observer = new MutationObserver(() => {
-          const homePage = document.querySelector<HTMLElement>(
+        const cleanup = () => {
+          observer?.disconnect();
+          clearTimeout(timer);
+        };
+
+        const finish = (element: HTMLElement | null) => {
+          if (settled) return;
+
+          settled = true;
+          cleanup();
+          resolve(element);
+        };
+
+        const findHomePage = () => {
+          const element = document.querySelector<HTMLElement>(
             "[data-home-page]"
           );
 
-          if (homePage && !finished) {
-            finished = true;
-            observer.disconnect();
-            clearTimeout(fallbackTimer);
-            resolve(homePage);
-          }
-        });
+          if (element) finish(element);
+        };
+
+        const timer = setTimeout(() => {
+          finish(
+            document.querySelector<HTMLElement>("[data-home-page]")
+          );
+        }, maxWaitTime);
+
+        observer = new MutationObserver(findHomePage);
 
         observer.observe(document.documentElement, {
           childList: true,
           subtree: true,
         });
 
-        const fallbackTimer = setTimeout(() => {
-          if (!finished) {
-            finished = true;
-            observer.disconnect();
-
-            resolve(
-              document.querySelector<HTMLElement>("[data-home-page]")
-            );
-          }
-        }, maxWaitTime);
+        findHomePage();
       });
-    };
+    },
+    [maxWaitTime]
+  );
 
+  /**
+   * Wait for images inside the Home page only.
+   */
+  const checkAssetsReady = useCallback(async (): Promise<boolean> => {
     const homePage = await waitForHomePage();
 
-    if (!homePage) {
-      // No Home page container was found.
-      return;
+    if (!homePage || !mountedRef.current) {
+      return false;
     }
 
-    // Wait for fonts.
-    if (document.fonts?.ready) {
-      await document.fonts.ready;
-    }
+    // Wait for fonts, with a timeout so a slow font cannot block indefinitely.
+    const fontsReady = document.fonts?.ready
+      ? Promise.race([
+          document.fonts.ready.then(() => true).catch(() => true),
+          new Promise<boolean>((resolve) =>
+            setTimeout(() => resolve(true), 1200)
+          ),
+        ])
+      : Promise.resolve(true);
 
-    // Collect only Home page images.
-    const waitForImage = (img: HTMLImageElement): Promise<void> => {
-      return new Promise((resolve) => {
+    const waitForImage = (img: HTMLImageElement): Promise<void> =>
+      new Promise((resolve) => {
         if (img.complete) {
           resolve();
           return;
         }
 
-        const handleComplete = () => {
+        let settled = false;
+
+        const cleanup = () => {
           img.removeEventListener("load", handleComplete);
           img.removeEventListener("error", handleComplete);
+        };
+
+        const handleComplete = () => {
+          if (settled) return;
+
+          settled = true;
+          cleanup();
           resolve();
         };
 
-        img.addEventListener("load", handleComplete, { once: true });
-        img.addEventListener("error", handleComplete, { once: true });
+        img.addEventListener("load", handleComplete);
+        img.addEventListener("error", handleComplete);
+
+        // Check again in case the image completed while listeners were added.
+        if (img.complete) {
+          handleComplete();
+        }
       });
-    };
 
-    const images = Array.from(
-      homePage.querySelectorAll<HTMLImageElement>("img")
-    );
+    /**
+     * Track images already present and newly inserted into the Home page.
+     */
+    const waitForHomeImages = (): Promise<void> =>
+      new Promise((resolve) => {
+        let settled = false;
+        let quietTimer: ReturnType<typeof setTimeout> | null = null;
+        let activeBatch = Promise.resolve();
 
-    await Promise.all(images.map(waitForImage));
-  }, [maxWaitTime]);
+        const observer = new MutationObserver((records) => {
+          const newImages: HTMLImageElement[] = [];
+
+          for (const record of records) {
+            for (const node of Array.from(record.addedNodes)) {
+              if (!(node instanceof Element)) continue;
+
+              if (node instanceof HTMLImageElement) {
+                newImages.push(node);
+              }
+
+              newImages.push(
+                ...Array.from(
+                  node.querySelectorAll<HTMLImageElement>("img")
+                )
+              );
+            }
+          }
+
+          if (newImages.length > 0) {
+            trackImages(newImages);
+          }
+        });
+
+        const finish = () => {
+          if (settled) return;
+
+          settled = true;
+          observer.disconnect();
+
+          if (quietTimer !== null) {
+            clearTimeout(quietTimer);
+          }
+
+          resolve();
+        };
+
+        const scheduleQuietCheck = () => {
+          if (quietTimer !== null) {
+            clearTimeout(quietTimer);
+          }
+
+          quietTimer = setTimeout(() => {
+            const pendingImages = Array.from(
+              homePage.querySelectorAll<HTMLImageElement>("img")
+            ).filter((img) => !img.complete);
+
+            if (pendingImages.length > 0) {
+              trackImages(pendingImages);
+              return;
+            }
+
+            finish();
+          }, 100);
+        };
+
+        const trackImages = (images: HTMLImageElement[]) => {
+          if (settled || images.length === 0) return;
+
+          activeBatch = activeBatch.then(async () => {
+            await Promise.all(images.map(waitForImage));
+
+            if (!settled) {
+              scheduleQuietCheck();
+            }
+          });
+        };
+
+        observer.observe(homePage, {
+          childList: true,
+          subtree: true,
+        });
+
+        trackImages(
+          Array.from(homePage.querySelectorAll<HTMLImageElement>("img"))
+        );
+
+        // Also handles a Home page with no images.
+        scheduleQuietCheck();
+      });
+
+    await Promise.all([fontsReady, waitForHomeImages()]);
+
+    return mountedRef.current;
+  }, [waitForHomePage]);
 
   /**
-   * Animate the progress number smoothly.
+   * Animate progress from its current value to the requested target.
+   * Keep precise values internally; round only the displayed percentage.
    */
   const animateProgress = useCallback(
-    (target: number, duration: number, onComplete?: () => void) => {
+    (targetProgress: number, duration: number) => {
       if (rafIdRef.current !== null) {
         cancelAnimationFrame(rafIdRef.current);
+        rafIdRef.current = null;
       }
 
-      const startProgress = progress;
+      const startProgress = progressRef.current;
       const startTime = performance.now();
-      const difference = target - startProgress;
+      const safeDuration = Math.max(1, duration);
 
       const tick = (now: number) => {
         if (!mountedRef.current) return;
 
         const elapsed = now - startTime;
-        const ratio = Math.min(elapsed / duration, 1);
+        const t = Math.min(elapsed / safeDuration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
 
-        // Ease-out curve.
-        const eased = 1 - Math.pow(1 - ratio, 3);
-        const nextProgress = startProgress + difference * eased;
+        const nextProgress =
+          startProgress + (targetProgress - startProgress) * eased;
 
-        setProgress(Math.min(100, Math.max(0, nextProgress)));
+        progressRef.current = nextProgress;
+        setProgress(nextProgress);
 
-        if (ratio < 1) {
+        if (t < 1) {
           rafIdRef.current = requestAnimationFrame(tick);
         } else {
+          progressRef.current = targetProgress;
+          setProgress(targetProgress);
           rafIdRef.current = null;
-          setProgress(target);
-          onComplete?.();
         }
       };
 
       rafIdRef.current = requestAnimationFrame(tick);
     },
-    [progress]
+    []
   );
 
   /**
-   * Finish loading and prepare the ENTER screen.
+   * Complete loading once.
    */
   const finishLoading = useCallback(
-    (duration = 600) => {
-      if (!mountedRef.current || finishStartedRef.current) return;
+    (duration = 400, force = false) => {
+      if (
+        !mountedRef.current ||
+        stateRef.current !== "loading" ||
+        finishStartedRef.current
+      ) {
+        return;
+      }
+
+      if (
+        !force &&
+        (!assetsReadyRef.current || !minTimePassedRef.current)
+      ) {
+        return;
+      }
 
       finishStartedRef.current = true;
 
-      if (timeoutRef.current) {
+      if (timeoutRef.current !== null) {
         clearTimeout(timeoutRef.current);
         timeoutRef.current = null;
       }
 
-      if (maxTimeoutRef.current) {
+      if (maxTimeoutRef.current !== null) {
         clearTimeout(maxTimeoutRef.current);
         maxTimeoutRef.current = null;
       }
 
-      if (progressIntervalRef.current) {
-        clearInterval(progressIntervalRef.current);
-        progressIntervalRef.current = null;
+      animateProgress(100, duration);
+
+      if (animationTimeoutRef.current !== null) {
+        clearTimeout(animationTimeoutRef.current);
       }
 
-      animateProgress(100, duration, () => {
-        if (mountedRef.current) {
-          setState("readyToEnter");
-        }
-      });
+      animationTimeoutRef.current = setTimeout(() => {
+        if (!mountedRef.current || stateRef.current !== "loading") return;
+
+        progressRef.current = 100;
+        setProgress(100);
+
+        stateRef.current = "readyToEnter";
+        setState("readyToEnter");
+      }, duration);
     },
     [animateProgress]
   );
 
   /**
-   * Start loader and wait for Home page assets.
+   * Initialize the loader.
    */
   useEffect(() => {
     mountedRef.current = true;
     startTimeRef.current = Date.now();
 
-    const previousOverflow = document.body.style.overflow;
+    assetsReadyRef.current = false;
+    minTimePassedRef.current = false;
+    finishStartedRef.current = false;
+
+    progressRef.current = 0;
+    stateRef.current = "loading";
+
+    isExitingRef.current = false;
+    enteredRef.current = false;
+
+    setProgress(0);
+    setState("loading");
+
+    document.documentElement.classList.add("loader-active");
+
+    const previousBodyOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
     let disposed = false;
 
-    // Safety timeout: prevents an indefinitely stuck loader.
-    maxTimeoutRef.current = setTimeout(() => {
-      if (!disposed && mountedRef.current) {
-        finishLoading(600);
-      }
-    }, maxWaitTime);
-
     // Show progress while Home page assets are loading.
-    progressIntervalRef.current = setInterval(() => {
+    const progressInterval = setInterval(() => {
       if (disposed || finishStartedRef.current) return;
 
       setProgress((current) => {
         if (current >= 90) return current;
 
-        const increment = Math.max(0.15, (90 - current) * 0.025);
-        return Math.min(90, current + increment);
+        const next = Math.min(
+          90,
+          current + Math.max(0.15, (90 - current) * 0.025)
+        );
+
+        progressRef.current = next;
+        return next;
       });
     }, 100);
 
     const initLoader = async () => {
       try {
         await checkAssetsReady();
-      } catch (error) {
-        console.error("Error loading Home page assets:", error);
+      } catch {
+        // Asset failures should never permanently block entry.
       }
 
       if (disposed || !mountedRef.current) return;
 
       assetsReadyRef.current = true;
 
-      // Ensure the loader remains visible for at least minDisplayTime.
       const elapsed = Date.now() - startTimeRef.current;
-      const remaining = Math.max(0, minDisplayTime - elapsed);
+      const remainingMinTime = Math.max(0, minDisplayTime - elapsed);
 
-      timeoutRef.current = setTimeout(() => {
-        if (disposed || !mountedRef.current) return;
+      if (remainingMinTime > 0) {
+        timeoutRef.current = setTimeout(() => {
+          if (disposed || !mountedRef.current) return;
+
+          minTimePassedRef.current = true;
+          finishLoading(400);
+        }, remainingMinTime);
+      } else {
+        minTimePassedRef.current = true;
         finishLoading(600);
-      }, remaining);
+      }
     };
 
     void initLoader();
 
+    // Safety fallback if assets never finish loading.
+    maxTimeoutRef.current = setTimeout(() => {
+      if (!disposed && mountedRef.current) {
+        minTimePassedRef.current = true;
+        finishLoading(400, true);
+      }
+    }, maxWaitTime);
+
     return () => {
       disposed = true;
       mountedRef.current = false;
+
+      clearInterval(progressInterval);
 
       if (rafIdRef.current !== null) {
         cancelAnimationFrame(rafIdRef.current);
         rafIdRef.current = null;
       }
 
-      if (timeoutRef.current) {
+      if (timeoutRef.current !== null) {
         clearTimeout(timeoutRef.current);
         timeoutRef.current = null;
       }
 
-      if (maxTimeoutRef.current) {
+      if (maxTimeoutRef.current !== null) {
         clearTimeout(maxTimeoutRef.current);
         maxTimeoutRef.current = null;
       }
 
-      if (progressIntervalRef.current) {
-        clearInterval(progressIntervalRef.current);
-        progressIntervalRef.current = null;
+      if (animationTimeoutRef.current !== null) {
+        clearTimeout(animationTimeoutRef.current);
+        animationTimeoutRef.current = null;
       }
 
-      document.body.style.overflow = previousOverflow;
+      if (enterTimeoutRef.current !== null) {
+        clearTimeout(enterTimeoutRef.current);
+        enterTimeoutRef.current = null;
+      }
+
+      document.documentElement.classList.remove("loader-active");
+      document.body.style.overflow = previousBodyOverflow;
     };
-  }, [checkAssetsReady, finishLoading, maxWaitTime, minDisplayTime]);
+  }, [
+    minDisplayTime,
+    maxWaitTime,
+    animateProgress,
+    checkAssetsReady,
+    finishLoading,
+  ]);
 
   /**
-   * ENTER button.
+   * Handle ENTER click.
    */
   const handleEnter = useCallback(() => {
-    if (state !== "readyToEnter") return;
+    if (
+      isExitingRef.current ||
+      enteredRef.current ||
+      stateRef.current !== "readyToEnter"
+    ) {
+      return;
+    }
 
+    isExitingRef.current = true;
+    enteredRef.current = true;
+
+    stateRef.current = "exiting";
     setState("exiting");
 
-    timeoutRef.current = setTimeout(() => {
-      if (mountedRef.current) {
-        setState("hidden");
-        document.body.style.overflow = "";
-      }
+    enterTimeoutRef.current = setTimeout(() => {
+      if (!mountedRef.current) return;
+
+      stateRef.current = "hidden";
+      setState("hidden");
     }, 1200);
-  }, [state]);
+  }, []);
 
-  // Allow Enter key to continue.
-  useEffect(() => {
-    if (state !== "readyToEnter") return;
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Enter") {
+  /**
+   * Handle keyboard activation.
+   */
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLDivElement>) => {
+      if (
+        (event.key === "Enter" || event.key === " ") &&
+        stateRef.current === "readyToEnter" &&
+        event.target === event.currentTarget
+      ) {
+        event.preventDefault();
         handleEnter();
       }
-    };
+    },
+    [handleEnter]
+  );
 
-    window.addEventListener("keydown", handleKeyDown);
+  // Restore scrolling when the loader is hidden.
+  useEffect(() => {
+    if (state === "hidden") {
+      document.documentElement.classList.remove("loader-active");
+      document.body.style.overflow = "";
+    }
+  }, [state]);
 
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [state, handleEnter]);
-
-  if (state === "hidden") return null;
+  if (state === "hidden") {
+    return null;
+  }
 
   return (
     <div
-      className={`loader-overlay loader-state-${state}`}
+      className="loader-overlay"
+      data-state={state}
       style={
         {
           "--progress": `${progress}%`,
-          "--text-progress": `${progress}%`,
+          "--text-progress": `${textProgress}%`,
         } as React.CSSProperties
       }
-      aria-label="Loading Home page"
-      aria-busy={state === "loading"}
+      role="status"
+      aria-live={state === "loading" ? "polite" : "off"}
+      aria-label={
+        state === "loading"
+          ? `Loading Home page, ${displayProgress}%`
+          : state === "readyToEnter"
+            ? "Home page ready. Enter to continue."
+            : "Home page transition"
+      }
+      onKeyDown={handleKeyDown}
     >
-      <div className="loader-wipe" />
+      {/* Crimson wipe follows background progress. */}
+      <div className="loader-wipe" aria-hidden="true" />
 
       <div className="loader-content">
+        {/* Both visible text and data-value use whole-number percentages. */}
         <div
           className="loader-percentage"
-          data-value={`${Math.floor(progress)}%`}
-          aria-live="polite"
+          data-value={`${displayProgress}%`}
+          aria-hidden="true"
         >
-          {Math.floor(progress)}%
+          {displayProgress}%
         </div>
 
-        {state === "readyToEnter" && (
-          <button
-            type="button"
-            className="loader-enter"
-            onClick={handleEnter}
-          >
-            <span className="loader-enter-text">ENTER</span>
-            <span className="loader-enter-arrow" aria-hidden="true">
-              ↗
-            </span>
-          </button>
-        )}
+        <button
+          className="loader-enter"
+          type="button"
+          onClick={handleEnter}
+          aria-label="Enter portfolio"
+          disabled={state !== "readyToEnter"}
+          tabIndex={state === "readyToEnter" ? 0 : -1}
+        >
+          <span className="loader-enter-text">ENTER</span>
+
+          <span className="loader-enter-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </span>
+        </button>
       </div>
     </div>
   );

@@ -195,7 +195,7 @@ export default function About() {
                 "
               >
                <Image
-  src="/aboutIMG.png"
+  src="/aboutIMG.webp"
   alt="Avadhut Giri"
   fill
   sizes="(max-width: 1024px) 100vw, 290px"
