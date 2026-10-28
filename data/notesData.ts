@@ -26,6 +26,15 @@ export const NOTES: Note[] = [
   downloadUrl: "/notes/GitHub_Guide.pdf",
   date: "2026-10-25",
 },
+{
+  slug: "github-video-repos-guide",
+  tag: "Guide",
+  title: "3 GitHub Repos: Unlimited Videos in Any Style with Claude Code",
+  description:
+    "A step-by-step guide to generating unlimited videos using Claude Code and three open-source GitHub repositories: HyperFrames, onetake, and Lemo Opuscar, covering setup, prompts, and reel workflows.",
+  downloadUrl: "/notes/unlimited_videos_guide.pdf",
+  date: "2026-10-26",
+}
 ];
 
 export const notesSeries = {

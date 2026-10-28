@@ -1,239 +1,247 @@
+
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 type LoaderState = "loading" | "readyToEnter" | "exiting" | "hidden";
 
 interface LoaderProps {
-  /** Minimum time (ms) to show loader before allowing transition to readyToEnter */
   minDisplayTime?: number;
-  /** Maximum time (ms) before forcing completion even if assets aren't ready */
   maxWaitTime?: number;
 }
 
 export default function Loader({
   minDisplayTime = 900,
-  maxWaitTime = 10000,
+  maxWaitTime = 30000,
 }: LoaderProps) {
   const [state, setState] = useState<LoaderState>("loading");
   const [progress, setProgress] = useState(0);
 
-  // Text inversion has its own timeline. It starts when the red diagonal
-  // reaches the centered percentage, then sweeps across the text.
-  const textProgress = Math.max(0, Math.min(100, ((progress - 40) / 20) * 100));
-
-  const startTimeRef = useRef<number>(Date.now());
+  const startTimeRef = useRef<number>(0);
   const rafIdRef = useRef<number | null>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const maxTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const enterTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const animationTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
+  const progressIntervalRef = useRef<ReturnType<typeof setInterval> | null>(
     null
   );
 
-  const isExitingRef = useRef(false);
-  const enteredRef = useRef(false);
-  const progressRef = useRef(0);
-  const stateRef = useRef<LoaderState>("loading");
   const mountedRef = useRef(false);
   const assetsReadyRef = useRef(false);
+  const finishStartedRef = useRef(false);
 
-  // Keep state refs synchronized.
-  useEffect(() => {
-    stateRef.current = state;
-  }, [state]);
+  /**
+   * Wait for images inside the Home page only.
+   *
+   * The Home page must have:
+   * <main data-home-page>...</main>
+   */
+  const checkAssetsReady = useCallback(async (): Promise<void> => {
+    // Wait until the Home page container is mounted.
+    const waitForHomePage = async (): Promise<HTMLElement | null> => {
+      const existing = document.querySelector<HTMLElement>(
+        "[data-home-page]"
+      );
 
-  // Check whether the relevant assets are ready.
-  const checkAssetsReady = useCallback((): Promise<boolean> => {
-    const fontsReady = document.fonts?.ready
-      ? document.fonts.ready.then(() => true).catch(() => true)
-      : Promise.resolve(true);
+      if (existing) return existing;
 
-    const heroImg = document.querySelector(
-      'img[src="/profile.png"]'
-    ) as HTMLImageElement | null;
+      // Home content may not have mounted yet.
+      return new Promise<HTMLElement | null>((resolve) => {
+        let finished = false;
 
-    const heroImageReady = heroImg
-      ? new Promise<boolean>((resolve) => {
-          if (heroImg.complete) {
-            resolve(true);
-            return;
+        const observer = new MutationObserver(() => {
+          const homePage = document.querySelector<HTMLElement>(
+            "[data-home-page]"
+          );
+
+          if (homePage && !finished) {
+            finished = true;
+            observer.disconnect();
+            clearTimeout(fallbackTimer);
+            resolve(homePage);
           }
+        });
 
-          const cleanup = () => {
-            heroImg.removeEventListener("load", handleLoad);
-            heroImg.removeEventListener("error", handleError);
-          };
+        observer.observe(document.documentElement, {
+          childList: true,
+          subtree: true,
+        });
 
-          const handleLoad = () => {
-            cleanup();
-            resolve(true);
-          };
+        const fallbackTimer = setTimeout(() => {
+          if (!finished) {
+            finished = true;
+            observer.disconnect();
 
-          const handleError = () => {
-            cleanup();
-            resolve(true);
-          };
-
-          heroImg.addEventListener("load", handleLoad, { once: true });
-          heroImg.addEventListener("error", handleError, { once: true });
-
-          // Check again in case the image completed while listeners were added.
-          if (heroImg.complete) {
-            cleanup();
-            resolve(true);
+            resolve(
+              document.querySelector<HTMLElement>("[data-home-page]")
+            );
           }
-        })
-      : Promise.resolve(true);
+        }, maxWaitTime);
+      });
+    };
 
-    return Promise.all([fontsReady, heroImageReady]).then(() => true);
-  }, []);
+    const homePage = await waitForHomePage();
 
-  // Animate progress from its current value to the requested target.
-  // The React progress state controls both the red wipe and percentage split.
+    if (!homePage) {
+      // No Home page container was found.
+      return;
+    }
+
+    // Wait for fonts.
+    if (document.fonts?.ready) {
+      await document.fonts.ready;
+    }
+
+    // Collect only Home page images.
+    const waitForImage = (img: HTMLImageElement): Promise<void> => {
+      return new Promise((resolve) => {
+        if (img.complete) {
+          resolve();
+          return;
+        }
+
+        const handleComplete = () => {
+          img.removeEventListener("load", handleComplete);
+          img.removeEventListener("error", handleComplete);
+          resolve();
+        };
+
+        img.addEventListener("load", handleComplete, { once: true });
+        img.addEventListener("error", handleComplete, { once: true });
+      });
+    };
+
+    const images = Array.from(
+      homePage.querySelectorAll<HTMLImageElement>("img")
+    );
+
+    await Promise.all(images.map(waitForImage));
+  }, [maxWaitTime]);
+
+  /**
+   * Animate the progress number smoothly.
+   */
   const animateProgress = useCallback(
-    (targetProgress: number, duration: number) => {
+    (target: number, duration: number, onComplete?: () => void) => {
       if (rafIdRef.current !== null) {
         cancelAnimationFrame(rafIdRef.current);
-        rafIdRef.current = null;
       }
 
-      const startProgress = progressRef.current;
+      const startProgress = progress;
       const startTime = performance.now();
-      const safeDuration = Math.max(1, duration);
+      const difference = target - startProgress;
 
       const tick = (now: number) => {
         if (!mountedRef.current) return;
 
         const elapsed = now - startTime;
-        const t = Math.min(elapsed / safeDuration, 1);
-        const eased = 1 - Math.pow(1 - t, 3);
+        const ratio = Math.min(elapsed / duration, 1);
 
-        const nextProgress = Math.round(
-          startProgress + (targetProgress - startProgress) * eased
-        );
+        // Ease-out curve.
+        const eased = 1 - Math.pow(1 - ratio, 3);
+        const nextProgress = startProgress + difference * eased;
 
-        progressRef.current = nextProgress;
-        setProgress(nextProgress);
+        setProgress(Math.min(100, Math.max(0, nextProgress)));
 
-        if (t < 1) {
+        if (ratio < 1) {
           rafIdRef.current = requestAnimationFrame(tick);
         } else {
           rafIdRef.current = null;
+          setProgress(target);
+          onComplete?.();
         }
       };
 
       rafIdRef.current = requestAnimationFrame(tick);
     },
-    []
+    [progress]
   );
 
-  // Complete the loading sequence once.
+  /**
+   * Finish loading and prepare the ENTER screen.
+   */
   const finishLoading = useCallback(
-    (duration = 400) => {
-      if (!mountedRef.current || stateRef.current !== "loading") return;
+    (duration = 600) => {
+      if (!mountedRef.current || finishStartedRef.current) return;
 
-      if (timeoutRef.current !== null) {
+      finishStartedRef.current = true;
+
+      if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
         timeoutRef.current = null;
       }
 
-      if (maxTimeoutRef.current !== null) {
+      if (maxTimeoutRef.current) {
         clearTimeout(maxTimeoutRef.current);
         maxTimeoutRef.current = null;
       }
 
-      animateProgress(100, duration);
-
-      if (animationTimeoutRef.current !== null) {
-        clearTimeout(animationTimeoutRef.current);
+      if (progressIntervalRef.current) {
+        clearInterval(progressIntervalRef.current);
+        progressIntervalRef.current = null;
       }
 
-      animationTimeoutRef.current = setTimeout(() => {
-        if (!mountedRef.current || stateRef.current !== "loading") return;
-
-        progressRef.current = 100;
-        setProgress(100);
-        stateRef.current = "readyToEnter";
-        setState("readyToEnter");
-      }, duration);
+      animateProgress(100, duration, () => {
+        if (mountedRef.current) {
+          setState("readyToEnter");
+        }
+      });
     },
     [animateProgress]
   );
 
-  // Initialize loading sequence.
+  /**
+   * Start loader and wait for Home page assets.
+   */
   useEffect(() => {
     mountedRef.current = true;
     startTimeRef.current = Date.now();
-    assetsReadyRef.current = false;
-    progressRef.current = 0;
-    stateRef.current = "loading";
 
-    setProgress(0);
-    setState("loading");
-
-    document.documentElement.classList.add("loader-active");
-
-    const previousBodyOverflow = document.body.style.overflow;
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
     let disposed = false;
 
+    // Safety timeout: prevents an indefinitely stuck loader.
+    maxTimeoutRef.current = setTimeout(() => {
+      if (!disposed && mountedRef.current) {
+        finishLoading(600);
+      }
+    }, maxWaitTime);
+
+    // Show progress while Home page assets are loading.
+    progressIntervalRef.current = setInterval(() => {
+      if (disposed || finishStartedRef.current) return;
+
+      setProgress((current) => {
+        if (current >= 90) return current;
+
+        const increment = Math.max(0.15, (90 - current) * 0.025);
+        return Math.min(90, current + increment);
+      });
+    }, 100);
+
     const initLoader = async () => {
       try {
         await checkAssetsReady();
-      } catch {
-        // Asset failures should never prevent the user from entering.
+      } catch (error) {
+        console.error("Error loading Home page assets:", error);
       }
 
       if (disposed || !mountedRef.current) return;
 
       assetsReadyRef.current = true;
 
+      // Ensure the loader remains visible for at least minDisplayTime.
       const elapsed = Date.now() - startTimeRef.current;
-      const remainingMinTime = Math.max(0, minDisplayTime - elapsed);
+      const remaining = Math.max(0, minDisplayTime - elapsed);
 
-      if (remainingMinTime === 0) {
-        finishLoading(600);
-        return;
-      }
-
-      // Continue moving while the minimum display time elapses.
-      animateProgress(90, Math.max(remainingMinTime, 1200));
-
-      const checkReady = () => {
+      timeoutRef.current = setTimeout(() => {
         if (disposed || !mountedRef.current) return;
-
-        const elapsedNow = Date.now() - startTimeRef.current;
-        const minTimePassed = elapsedNow >= minDisplayTime;
-
-        if (assetsReadyRef.current && minTimePassed) {
-          finishLoading(400);
-          return;
-        }
-
-        if (elapsedNow >= maxWaitTime) {
-          finishLoading(400);
-          return;
-        }
-
-        timeoutRef.current = setTimeout(checkReady, 100);
-      };
-
-      timeoutRef.current = setTimeout(
-        checkReady,
-        Math.min(Math.max(remainingMinTime, 100), 1200)
-      );
+        finishLoading(600);
+      }, remaining);
     };
 
     void initLoader();
-
-    // Safety timeout: never leave the loader stuck indefinitely.
-    maxTimeoutRef.current = setTimeout(() => {
-      if (!disposed && mountedRef.current) {
-        finishLoading(400);
-      }
-    }, maxWaitTime);
 
     return () => {
       disposed = true;
@@ -244,147 +252,95 @@ export default function Loader({
         rafIdRef.current = null;
       }
 
-      if (timeoutRef.current !== null) {
+      if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
         timeoutRef.current = null;
       }
 
-      if (maxTimeoutRef.current !== null) {
+      if (maxTimeoutRef.current) {
         clearTimeout(maxTimeoutRef.current);
         maxTimeoutRef.current = null;
       }
 
-      if (animationTimeoutRef.current !== null) {
-        clearTimeout(animationTimeoutRef.current);
-        animationTimeoutRef.current = null;
+      if (progressIntervalRef.current) {
+        clearInterval(progressIntervalRef.current);
+        progressIntervalRef.current = null;
       }
 
-      if (enterTimeoutRef.current !== null) {
-        clearTimeout(enterTimeoutRef.current);
-        enterTimeoutRef.current = null;
-      }
-
-      document.documentElement.classList.remove("loader-active");
-      document.body.style.overflow = previousBodyOverflow;
+      document.body.style.overflow = previousOverflow;
     };
-  }, [
-    minDisplayTime,
-    maxWaitTime,
-    animateProgress,
-    checkAssetsReady,
-    finishLoading,
-  ]);
+  }, [checkAssetsReady, finishLoading, maxWaitTime, minDisplayTime]);
 
-  // Handle ENTER click.
+  /**
+   * ENTER button.
+   */
   const handleEnter = useCallback(() => {
-    if (
-      isExitingRef.current ||
-      enteredRef.current ||
-      stateRef.current !== "readyToEnter"
-    ) {
-      return;
-    }
+    if (state !== "readyToEnter") return;
 
-    isExitingRef.current = true;
-    enteredRef.current = true;
-    stateRef.current = "exiting";
     setState("exiting");
 
-    enterTimeoutRef.current = setTimeout(() => {
-      if (!mountedRef.current) return;
-
-      stateRef.current = "hidden";
-      setState("hidden");
-    }, 1200);
-  }, []);
-
-  // Handle keyboard activation.
-  const handleKeyDown = useCallback(
-    (event: React.KeyboardEvent<HTMLDivElement>) => {
-      if (
-        (event.key === "Enter" || event.key === " ") &&
-        stateRef.current === "readyToEnter" &&
-        event.target === event.currentTarget
-      ) {
-        event.preventDefault();
-        handleEnter();
+    timeoutRef.current = setTimeout(() => {
+      if (mountedRef.current) {
+        setState("hidden");
+        document.body.style.overflow = "";
       }
-    },
-    [handleEnter]
-  );
-
-  // Clean up scroll lock when loader becomes hidden.
-  // This effect runs when state changes to "hidden" and restores scrolling.
-  useEffect(() => {
-    if (state === "hidden") {
-      document.documentElement.classList.remove("loader-active");
-      document.body.style.overflow = "";
-    }
+    }, 1200);
   }, [state]);
 
-  // If hidden, render nothing.
-  if (state === "hidden") {
-    return null;
-  }
+  // Allow Enter key to continue.
+  useEffect(() => {
+    if (state !== "readyToEnter") return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Enter") {
+        handleEnter();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [state, handleEnter]);
+
+  if (state === "hidden") return null;
 
   return (
     <div
-      className="loader-overlay"
-      data-state={state}
+      className={`loader-overlay loader-state-${state}`}
       style={
         {
           "--progress": `${progress}%`,
-          "--text-progress": `${textProgress}%`,
+          "--text-progress": `${progress}%`,
         } as React.CSSProperties
       }
-      role="status"
-      aria-live={state === "loading" ? "polite" : "off"}
-      aria-label={
-        state === "loading"
-          ? `Loading portfolio, ${progress}%`
-          : state === "readyToEnter"
-            ? "Portfolio ready. Enter to continue."
-            : "Portfolio transition"
-      }
-      onKeyDown={handleKeyDown}
+      aria-label="Loading Home page"
+      aria-busy={state === "loading"}
     >
-      {/* Crimson wipe follows background progress; text inversion has a separate timeline. */}
-      <div className="loader-wipe" aria-hidden="true" />
+      <div className="loader-wipe" />
 
-      {/* Centered content. */}
       <div className="loader-content">
-        {/* CSS pseudo-elements split the text using --text-progress, not --progress. */}
         <div
           className="loader-percentage"
-          data-value={`${progress}%`}
-          aria-hidden="true"
+          data-value={`${Math.floor(progress)}%`}
+          aria-live="polite"
         >
-          {progress}%
+          {Math.floor(progress)}%
         </div>
 
-        {/* ENTER button appears when loading is complete. */}
-        <button
-          className="loader-enter"
-          type="button"
-          onClick={handleEnter}
-          aria-label="Enter portfolio"
-          disabled={state !== "readyToEnter"}
-          tabIndex={state === "readyToEnter" ? 0 : -1}
-        >
-          <span className="loader-enter-text">ENTER</span>
-
-          <span className="loader-enter-arrow" aria-hidden="true">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </span>
-        </button>
+        {state === "readyToEnter" && (
+          <button
+            type="button"
+            className="loader-enter"
+            onClick={handleEnter}
+          >
+            <span className="loader-enter-text">ENTER</span>
+            <span className="loader-enter-arrow" aria-hidden="true">
+              ↗
+            </span>
+          </button>
+        )}
       </div>
     </div>
   );
