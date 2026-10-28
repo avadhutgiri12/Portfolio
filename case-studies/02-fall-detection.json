@@ -1,0 +1,74 @@
+{
+  "id": "04",
+  "num": "04",
+  "title": "CareSight AI",
+  "subtitle": "REAL-TIME FALL DETECTION",
+  "category": "COMPUTER VISION & AUTOMATED ALERTS",
+  "sideText": "DETECT FALLS. SEND ALERTS. SUPPORT SAFETY.",
+  "year": "2025",
+  "role": "Machine Learning & Full-Stack Developer",
+  "tools": [
+    "Python",
+    "YOLOv8",
+    "PyTorch",
+    "OpenCV",
+    "FastAPI",
+    "WebSockets",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "SMTP Email"
+  ],
+  "description": "CareSight AI is a real-time fall detection system for elderly care and safety monitoring. Stream a live webcam or upload a video, and a YOLOv8 pose model tracks each person frame by frame, flags a fall the moment it happens, and emails an alert to a chosen contact. The Next.js dashboard runs on Vercel and talks to a FastAPI + YOLOv8 inference API on Render over HTTPS and secure WebSockets.",
+  "impact": "Shipped a full end-to-end product, from model inference to a live public demo: real-time webcam detection over WebSockets, batch video analysis with progress tracking, and rate-limited email alerts. Tuned the ML backend to run on Render's 512 MB free tier with CPU-only PyTorch, single-thread serialized inference, streamed uploads and automatic job cleanup.",
+  "tags": [
+    "Fall Detection",
+    "Computer Vision",
+    "YOLOv8 Pose",
+    "Real-Time Streaming",
+    "Email Alerts",
+    "Elderly Care"
+  ],
+  "videoUrl": "/videos/CareSightAI.mp4",
+  "liveSiteUrl": "https://caresightai.vercel.app",
+  "repositoryUrl": "https://github.com/avadhutgiri12/fall-detection",
+  "status": "Live",
+  "extra": {
+    "howItWorks": [
+      {
+        "title": "Capture",
+        "description": "The browser streams webcam frames to the API over a secure WebSocket (/ws/detect), or uploads a video in 1 MB chunks for batch analysis."
+      },
+      {
+        "title": "Detect People",
+        "description": "A YOLOv8n-pose model locates every person in the frame. Uploaded videos are resized to 640px and every 3rd frame is analyzed to keep inference fast on CPU."
+      },
+      {
+        "title": "Classify the Fall",
+        "description": "A person is flagged as fallen when detection confidence passes 0.6 and their bounding box turns horizontal (wider than tall). Fallen people are boxed in red on the live feed."
+      },
+      {
+        "title": "Alert",
+        "description": "On a fall, the backend emails the caregiver's address over Gmail SMTP with the confidence score and source, limited to one alert per minute per session to avoid spam."
+      }
+    ],
+    "metrics": [
+      {
+        "label": "Model",
+        "value": "YOLOv8n-pose"
+      },
+      {
+        "label": "Input Modes",
+        "value": "Live Webcam + Video Upload"
+      },
+      {
+        "label": "Alert Cooldown",
+        "value": "60s per Session"
+      },
+      {
+        "label": "Runs On",
+        "value": "512 MB Free Tier"
+      }
+    ]
+  }
+}

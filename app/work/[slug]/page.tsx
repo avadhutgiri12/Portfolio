@@ -9,17 +9,13 @@ import Link from "next/link";
 import Overlays from "@/components/Overlays";
 
 // Import case study JSON files for howItWorks data
-import storewayData from "@/case-studies/01-storeway.json";
-import housePriceData from "@/case-studies/02-house-price-prediction-system.json";
-import faceDetectionData from "@/case-studies/03-face-detection.json";
-import fallDetectionData from "@/case-studies/04-fall-detection.json";
+import housePriceData from "@/case-studies/01-house-price-prediction-system.json";
+import fallDetectionData from "@/case-studies/02-fall-detection.json";
 
 // Map of project IDs to their corresponding JSON data
 const caseStudyMap: Record<string, any> = {
-  "01": storewayData,
-  "02": housePriceData,
-  "03": faceDetectionData,
-  "04": fallDetectionData,
+  "01": housePriceData,
+  "02": fallDetectionData,
 };
 
 type PageProps = {
