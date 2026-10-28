@@ -1,0 +1,511 @@
+/* =========================================
+   WHAT I DO — EDITORIAL CARD MARQUEE
+========================================= */
+
+.whatido-section {
+    --whatido-bg: #f3f3ef;
+    --whatido-card-bg: #ffffff;
+    --whatido-ink: #171717;
+    --whatido-accent: #10b981;
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    padding: 112px 0 36px;
+    overflow: hidden;
+    background: var(--whatido-bg);
+    color: var(--whatido-ink);
+}
+
+.whatido-section,
+.whatido-section * {
+    box-sizing: border-box;
+}
+
+.whatido-container {
+    position: relative;
+    z-index: 2;
+    width: min(1440px, 100%);
+    margin-inline: auto;
+    padding-inline: clamp(20px, 5vw, 76px);
+}
+
+/* Background grid */
+
+.whatido-grid {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    opacity: 0.45;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+    background-size: 72px 72px;
+}
+
+.whatido-glow {
+    position: absolute;
+    z-index: -1;
+    top: 20%;
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.07);
+    filter: blur(130px);
+    pointer-events: none;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.whatido-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 52px;
+}
+
+.whatido-eyebrow {
+    margin: 0 0 26px;
+    font-family: monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--whatido-accent);
+}
+
+.whatido-eyebrow span {
+    color: #777;
+}
+
+.whatido-title {
+    margin: 0;
+    font-size: clamp(42px, 6.5vw, 88px);
+    font-weight: 650;
+    line-height: 0.96;
+    letter-spacing: -0.075em;
+}
+
+.whatido-title span {
+    color: var(--whatido-accent);
+}
+
+.whatido-intro {
+    width: min(320px, 100%);
+    padding-bottom: 5px;
+}
+
+.whatido-intro>p {
+    margin: 0 0 22px;
+    color: #a3a3a3;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.whatido-loop-label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-family: monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    color: #8a8a8a;
+}
+
+.whatido-status-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--whatido-accent);
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
+}
+
+/* =========================================
+   MARQUEE
+========================================= */
+
+.whatido-marquee {
+    width: 100%;
+    overflow: hidden;
+    padding: 8px 0 22px;
+    isolation: isolate;
+}
+
+.whatido-track {
+    display: flex;
+    align-items: stretch;
+    width: max-content;
+    animation: whatido-scroll 48s linear infinite;
+    will-change: transform;
+}
+
+.whatido-marquee:hover .whatido-track {
+    animation-play-state: paused;
+}
+
+.whatido-group {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    padding-right: 20px;
+}
+
+/* Each card */
+
+.whatido-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 360px;
+    width: 360px;
+    min-height: 390px;
+    overflow: hidden;
+    border: 2px solid #282828;
+    border-radius: 20px;
+    background: var(--whatido-card-bg);
+    color: var(--whatido-ink);
+
+    transition:
+        border-color 250ms ease,
+        transform 250ms ease,
+        box-shadow 250ms ease;
+}
+
+.whatido-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--whatido-accent);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+/* Card top */
+
+.whatido-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 52px;
+    padding: 0 20px;
+    border-bottom: 2px solid #282828;
+}
+
+.whatido-card-label {
+    font-family: monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: #6c6c6c;
+}
+
+.whatido-card-symbol {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid #d0d0ca;
+    border-radius: 50%;
+    font-size: 17px;
+    transition:
+        color 200ms ease,
+        background 200ms ease,
+        transform 200ms ease;
+}
+
+.whatido-card:hover .whatido-card-symbol {
+    color: #fff;
+    background: #111;
+    transform: rotate(45deg);
+}
+
+/* Main content */
+
+.whatido-card-main {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 22px 22px 28px;
+}
+
+.whatido-card-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.whatido-card-index {
+    font-family: monospace;
+    font-size: 12px;
+    color: #777;
+}
+
+.whatido-card-category {
+    padding: 7px 10px;
+    border: 1px solid #d3d3cd;
+    border-radius: 30px;
+    font-family: monospace;
+    font-size: 8px;
+    letter-spacing: 0.06em;
+    color: #555;
+}
+
+.whatido-card-copy h3 {
+    max-width: 290px;
+    margin: 0 0 14px;
+    font-size: clamp(27px, 3vw, 36px);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+}
+
+.whatido-card-copy p {
+    max-width: 290px;
+    margin: 0;
+    color: #70706c;
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+/* Bottom panel */
+
+.whatido-card-bottom {
+    display: grid;
+    grid-template-columns: 100px minmax(0, 1fr);
+    min-height: 96px;
+    border-top: 2px solid #282828;
+}
+
+.whatido-number-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--whatido-accent);
+    color: #071b13;
+}
+
+.whatido-number-panel>span:first-child {
+    font-family: monospace;
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: -0.08em;
+}
+
+.whatido-number-line {
+    width: 15px;
+    height: 2px;
+    background: #071b13;
+}
+
+.whatido-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 14px 16px;
+    border-left: 2px solid #282828;
+}
+
+.whatido-card-footer>span:first-child {
+    font-family: monospace;
+    font-size: 9px;
+    line-height: 1.5;
+    letter-spacing: 0.045em;
+    color: #565650;
+}
+
+.whatido-footer-arrow {
+    flex-shrink: 0;
+    font-size: 19px;
+    transition:
+        transform 200ms ease,
+        color 200ms ease;
+}
+
+.whatido-card:hover .whatido-footer-arrow {
+    color: #059669;
+    transform: translateX(4px);
+}
+
+/* =========================================
+   INFINITE RIGHT-TO-LEFT LOOP
+========================================= */
+
+@keyframes whatido-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.whatido-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 22px;
+    border-top: 1px solid #242424;
+    font-family: monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: #737373;
+}
+
+.whatido-footer-right {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    text-align: right;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+    .whatido-section {
+        padding-top: 90px;
+    }
+
+    .whatido-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 38px;
+    }
+
+    .whatido-intro {
+        width: min(450px, 100%);
+    }
+
+    .whatido-intro>p {
+        margin-bottom: 14px;
+    }
+
+    .whatido-card {
+        flex-basis: 320px;
+        width: 320px;
+        min-height: 370px;
+    }
+
+    .whatido-card-bottom {
+        grid-template-columns: 88px minmax(0, 1fr);
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+    .whatido-section {
+        padding: 76px 0 26px;
+    }
+
+    .whatido-container {
+        padding-inline: 18px;
+    }
+
+    .whatido-title {
+        font-size: clamp(42px, 12vw, 64px);
+    }
+
+    .whatido-eyebrow {
+        margin-bottom: 22px;
+    }
+
+    .whatido-header {
+        margin-bottom: 28px;
+    }
+
+    .whatido-intro>p {
+        font-size: 13px;
+    }
+
+    .whatido-marquee {
+        width: calc(100% + 18px);
+        padding-top: 4px;
+    }
+
+    .whatido-track {
+        animation-duration: 42s;
+    }
+
+    .whatido-group {
+        gap: 12px;
+        padding-right: 12px;
+    }
+
+    .whatido-card {
+        flex-basis: min(78vw, 310px);
+        width: min(78vw, 310px);
+        min-height: 360px;
+        border-radius: 16px;
+    }
+
+    .whatido-card-top {
+        min-height: 46px;
+        padding-inline: 14px;
+    }
+
+    .whatido-card-main {
+        gap: 24px;
+        padding: 18px 16px 22px;
+    }
+
+    .whatido-card-copy h3 {
+        font-size: 30px;
+    }
+
+    .whatido-card-copy p {
+        font-size: 12px;
+    }
+
+    .whatido-card-bottom {
+        grid-template-columns: 78px minmax(0, 1fr);
+        min-height: 82px;
+    }
+
+    .whatido-number-panel>span:first-child {
+        font-size: 28px;
+    }
+
+    .whatido-card-footer {
+        padding-inline: 12px;
+    }
+
+    .whatido-card-footer>span:first-child {
+        font-size: 8px;
+    }
+
+    .whatido-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        font-size: 8px;
+    }
+}
+
+/* Respect accessibility preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    .whatido-track {
+        animation: none;
+    }
+
+    .whatido-card,
+    .whatido-card-symbol,
+    .whatido-footer-arrow {
+        transition: none;
+    }
+}

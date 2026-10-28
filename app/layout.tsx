@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, JetBrains_Mono, Frijole, Roboto } from "next/font/google";
+import { Bebas_Neue, Lexend, Roboto } from "next/font/google";
 import "./globals.css";
 import "./loader.css";
 
@@ -9,16 +9,9 @@ const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
 });
 
-// JetBrains Mono font for footer text
-const jetBrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  weight: "400",
-  subsets: ["latin"],
-});
-
-// Frijole font for hero text
-const frijole = Frijole({
-  variable: "--font-frijole",
+// Xmind font for introduction text
+const xmind = Lexend({
+  variable: "--font-xmind",
   weight: "400",
   subsets: ["latin"],
 });
@@ -178,7 +171,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={`${bebasNeue.variable} ${jetBrainsMono.variable} ${frijole.variable} ${roboto.variable}`}>
+      <body className={`${bebasNeue.variable} ${xmind.variable} ${roboto.variable}`}>
         {/* Dark background */}
         <div className="relative bg-[#080808]">
 

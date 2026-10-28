@@ -22,34 +22,12 @@ export default function Hero() {
           decoding="async"
         />
 
-        {/* Dark Overlay */}
-        {/* <div className="absolute inset-0 bg-black/35" /> */}
-
         {/* Bottom Gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-black/20" />
 
         {/* Left Gradient for Text Readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-transparent to-transparent" />
       </div>
-
-      {/* Decorative Background Typography */}
-      {/* <div
-        className="pointer-events-none absolute inset-0 z-[1] overflow-hidden"
-        aria-hidden="true"
-      >
-        <span
-          className="absolute -top-8 left-4 whitespace-nowrap text-[16vw] font-black uppercase leading-none tracking-tighter text-white/[0.07]"
-          style={{
-            WebkitTextStroke: "1px rgba(255,255,255,0.08)",
-          }}
-        >
-          CREATIVE
-        </span>
-
-        <span className="absolute bottom-[18%] left-[8%] whitespace-nowrap text-[12vw] font-black uppercase leading-none tracking-tighter text-white/[0.06]">
-          DEVELOPER
-        </span>
-      </div> */}
 
       {/* Top Left Logo */}
       <div className="fixed left-5 top-5 z-50 sm:left-10 sm:top-6">
@@ -103,7 +81,7 @@ export default function Hero() {
               <React.Fragment key={specialty}>
                 <span
                   className={index === 0
-                    ? "text-sm font-semibold text-white"
+                    ? "text-sm  text-white/70"
                     : "text-sm text-white/70"
                   }
                 >

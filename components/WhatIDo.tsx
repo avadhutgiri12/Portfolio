@@ -1,176 +1,176 @@
 "use client";
-import VerticalCylinderCarousel from "@/components/VerticalCylinderCarousel";
+
+import "./WhatIDo.css";
 
 const SERVICES = [
   {
     id: "1",
     number: "01",
     title: "BUILDING WEBSITES",
+    heading: "Web Development",
     description:
       "I create modern, responsive and high-performance websites with clean interfaces and smooth user experiences.",
-    tags: ["WEB DEVELOPMENT"],
+    tags: ["WEB DEVELOPMENT", "01"],
   },
   {
     id: "2",
     number: "02",
     title: "UI / UX DESIGN",
+    heading: "Designing Experiences",
     description:
       "I design clean and intuitive interfaces focused on usability, visual hierarchy and engaging digital experiences.",
-    tags: ["UI / UX"],
+    tags: ["UI / UX DESIGN", "02"],
   },
   {
     id: "3",
     number: "03",
     title: "MODEL TRAINING",
+    heading: "Machine Learning",
     description:
       "I build and train machine learning models using real-world datasets, feature engineering and model evaluation.",
-    tags: ["MACHINE LEARNING"],
+    tags: ["MACHINE LEARNING", "03"],
   },
   {
     id: "4",
     number: "04",
     title: "MODEL DEVELOPMENT",
+    heading: "Intelligent Systems",
     description:
       "I develop practical ML solutions and transform trained models into usable applications and intelligent systems.",
-    tags: ["AI / ML"],
+    tags: ["AI / ML", "04"],
   },
   {
     id: "5",
     number: "05",
     title: "AI AUTOMATION",
+    heading: "Workflow Automation",
     description:
       "I create AI-powered automation workflows that reduce repetitive tasks and make digital processes more efficient.",
-    tags: ["AI AUTOMATION"],
+    tags: ["AI AUTOMATION", "05"],
   },
   {
     id: "6",
     number: "06",
     title: "DATA SOLUTIONS",
+    heading: "Data & Databases",
     description:
       "I work with data processing, visualization and databases to turn raw information into useful insights.",
-    tags: ["DATA & DATABASE"],
+    tags: ["DATA SOLUTIONS", "06"],
   },
 ];
 
 export default function WhatIDo() {
   return (
-    <section
-      id="what-i-do"
-      className="
-        relative
-        overflow-hidden
-        bg-[#080808]/[0.5]
-        px-6
-        py-28
-        text-white
-        md:px-12
-        lg:py-36
-      "
-    >
-      {/* ========================================= */}
-      {/* BACKGROUND */}
-      {/* ========================================= */}
+    <section id="what-i-do" className="whatido-section">
+      {/* Background */}
+      <div className="whatido-grid" aria-hidden="true" />
+      <div className="whatido-glow" aria-hidden="true" />
 
-      <div
-        className="
-          pointer-events-none
-          absolute
-          inset-0
-          opacity-[0.025]
-          [background-image:linear-gradient(rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.5)_1px,transparent_1px)]
-          [background-size:80px_80px]
-        "
-      />
-      {/* Center glow */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          left-1/2
-          top-1/2
-          h-[450px]
-          w-[450px]
-          -translate-x-1/2
-          -translate-y-1/2
-          rounded-full
-          bg-emerald-500/[0.045]
-          blur-[130px]
-        "
-      />
-      <div className="relative z-10 mx-auto max-w-7xl">
-        {/* ========================================= */}
-        {/* SECTION HEADER */}
-        {/* ========================================= */}
-
-        <div className="
-          mb-12
-          grid
-          gap-10
-          lg:mb-16
-          lg:grid-cols-[1fr_320px]
-        ">
+      <div className="whatido-container">
+        {/* Section header */}
+        <header className="whatido-header">
           <div>
-            <p className="
-              mb-6
-              font-mono
-              text-[10px]
-              tracking-[0.35em]
-              text-emerald-400
-            ">
-              WHAT I DO / 002
+            <p className="whatido-eyebrow">
+              WHAT I DO <span>/ 002</span>
             </p>
+
+            <h2 className="whatido-title">
+              Building ideas
+              <br />
+              into <span>reality.</span>
+            </h2>
           </div>
 
-          <div className="flex items-end">
-            <div className="
-              border-l
-              border-white/10
-              pl-6
-            ">
-              {/* Counter (hidden on mobile, visible on desktop) */}
-              <div className="hidden text-right sm:block">
-                <p className="font-mono text-xs text-neutral-500">
-                  01 / 06
-                </p>
+          <div className="whatido-intro">
+            <p>
+              A collection of capabilities that combine technology,
+              creativity, and problem-solving.
+            </p>
 
-                <p
-                  className="
-                    mt-2
-                    font-mono
-                    text-[8px]
-                    tracking-[0.2em]
-                    text-neutral-600
-                  "
-                >
-                  AUTO PLAY · 3 SEC
-                </p>
-              </div>
-            </div>
+            <span className="whatido-loop-label">
+              <span className="whatido-status-dot" />
+              SIX CAPABILITIES · INFINITE LOOP
+            </span>
           </div>
-        </div>
+        </header>
 
-        {/* Vertical Cylinder Carousel */}
-        <div className="mt-12">
-          <VerticalCylinderCarousel items={SERVICES} />
-        </div>
-
-        {/* ========================================= */}
-        {/* MOBILE INSTRUCTION */}
-        {/* ========================================= */}
-
-        <p
-          className="
-            mt-7
-            text-center
-            font-mono
-            text-[8px]
-            tracking-[0.25em]
-            text-neutral-600
-          "
+        {/* Animated service cards */}
+        <div
+          className="whatido-marquee"
+          aria-label="My services"
         >
-          SWIPE · CLICK · EXPLORE
-        </p>
+          <div className="whatido-track">
+            {[0, 1].map((group) => (
+              <div
+                className="whatido-group"
+                key={group}
+                aria-hidden={group === 1}
+              >
+                {SERVICES.map((service) => (
+                  <article
+                    className="whatido-card"
+                    key={`${group}-${service.id}`}
+                  >
+                    {/* Card top */}
+                    <div className="whatido-card-top">
+                      <span className="whatido-card-label">
+                        CAPABILITY / {service.number}
+                      </span>
+
+                      <span className="whatido-card-symbol">
+                        ↗
+                      </span>
+                    </div>
+
+                    {/* Main card content */}
+                    <div className="whatido-card-main">
+                      <div className="whatido-card-heading">
+                        <span className="whatido-card-index">
+                          {service.number}
+                        </span>
+
+                        <span className="whatido-card-category">
+                          {service.tags[0]}
+                        </span>
+                      </div>
+
+                      <div className="whatido-card-copy">
+                        <h3>{service.heading}</h3>
+
+                        <p>{service.description}</p>
+                      </div>
+                    </div>
+
+                    {/* Number panel */}
+                    <div className="whatido-card-bottom">
+                      <div className="whatido-number-panel">
+                        <span>{service.number}</span>
+                        <span className="whatido-number-line" />
+                      </div>
+
+                      <div className="whatido-card-footer">
+                        <span>{service.title}</span>
+                        <span className="whatido-footer-arrow">
+                          →
+                        </span>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer */}
+        <footer className="whatido-footer">
+          <span>DESIGN. ENGINEER. INNOVATE.</span>
+
+          <span className="whatido-footer-right">
+            <span className="whatido-status-dot" />
+            ALWAYS MOVING FORWARD
+          </span>
+        </footer>
       </div>
     </section>
   );
