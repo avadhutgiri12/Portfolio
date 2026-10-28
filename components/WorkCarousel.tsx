@@ -442,6 +442,8 @@ export default function WorkCarousel() {
                     src={project.image}
                     alt={`${project.title} website preview`}
                     draggable={false}
+                    loading="lazy"
+                    decoding="async"
                     className="
                         absolute
                         inset-0

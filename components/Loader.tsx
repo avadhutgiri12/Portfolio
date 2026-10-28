@@ -13,7 +13,7 @@ interface LoaderProps {
 
 export default function Loader({
   minDisplayTime = 900,
-  maxWaitTime = 10000,
+  maxWaitTime = 3500,
 }: LoaderProps) {
   const [state, setState] = useState<LoaderState>("loading");
   const [progress, setProgress] = useState(0);
@@ -45,12 +45,16 @@ export default function Loader({
 
   // Check whether the relevant assets are ready.
   const checkAssetsReady = useCallback((): Promise<boolean> => {
+    // Cap the font wait so a slow webfont never holds the loader.
     const fontsReady = document.fonts?.ready
-      ? document.fonts.ready.then(() => true).catch(() => true)
+      ? Promise.race([
+          document.fonts.ready.then(() => true).catch(() => true),
+          new Promise<boolean>((r) => setTimeout(() => r(true), 1200)),
+        ])
       : Promise.resolve(true);
 
     const heroImg = document.querySelector(
-      'img[src="/profile.png"]'
+      'img[src="/profile.webp"]'
     ) as HTMLImageElement | null;
 
     const heroImageReady = heroImg

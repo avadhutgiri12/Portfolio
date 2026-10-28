@@ -30,8 +30,12 @@ export default function Hero() {
         {/* Image on Top (Mobile) / Right Side (Desktop) */}
         <div className="flex-1 min-h-40 md:w-2/5 md:min-h-full  flex md:flex-col">
           <img
-            src="/profile.png"
+            src="/profile.webp"
             alt="Avadhut Giri"
+            width={1000}
+            height={928}
+            fetchPriority="high"
+            decoding="async"
             className="w-[450px] usernone max-w-[140vw] h-[450px] md:h-full md:w-[50vw] md:max-w-none -translate-x-15 md:-translate-x-[-850px] md:-translate-y-[-20px]"
           />
         </div>

@@ -94,7 +94,7 @@ export const PROJECT_DATA: Project[] = [
       "Tesseract OCR",
       "Tailwind CSS",
     ],
-    image: "images/storeway.png",
+    image: "/images/storeway.webp",
     description:
       "StoreWay is a hyperlocal digital commerce platform designed to empower neighborhood retailers by bridging the gap between local brick-and-mortar stores and modern online shoppers. Built with Next.js, Firebase, and the Google Maps API, it creates a distributed retail network where customers can seamlessly discover nearby shops, browse localized inventories, and place orders for on-demand pickup or rapid local delivery without routing through centralized warehouses.",
     impact:
@@ -127,7 +127,7 @@ export const PROJECT_DATA: Project[] = [
       "Streamlit",
       "Joblib",
     ],
-    image: "images/house-price-prediction.jpeg",
+    image: "/images/house-price-prediction.jpeg",
     description:
       "A machine learning-based house price prediction system that analyzes housing data and applies predictive modeling to estimate property values. The project explores data preprocessing, feature engineering, model training, and evaluation to build a complete predictive analytics workflow.",
     impact:
@@ -157,7 +157,7 @@ export const PROJECT_DATA: Project[] = [
       "OpenCV",
       "Computer Vision",
     ],
-    image: "images/ai-face-detection.jpeg",
+    image: "/images/ai-face-detection.jpeg",
     description:
       "An AI-powered face detection system built using the YOLO object detection model. The system analyzes visual input, identifies faces, and draws bounding boxes around detected faces, demonstrating the practical application of deep learning and computer vision.",
     impact:
@@ -188,7 +188,7 @@ export const PROJECT_DATA: Project[] = [
       "Computer Vision",
       "Email Automation",
     ],
-    image: "images/fall-detection.jpeg",
+    image: "/images/fall-detection.jpeg",
     description:
       "An AI-powered fall detection system designed to identify when a person falls and automatically send an email alert. By combining computer vision with automated notifications, the system demonstrates how AI can support safety monitoring and help communicate potential emergencies.",
     impact:
