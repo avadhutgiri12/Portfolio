@@ -7,12 +7,12 @@ import KineticContact from "@/components/KineticContact";
 import SmoothScroll from "@/components/SmoothScroll";
 import WhatIDo from "@/components/WhatIDo";
 import Footer from "@/components/Footer";
-import LoaderWrapper from "@/components/LoaderWrapper";
+// import LoaderWrapper from "@/components/LoaderWrapper";
 
 export default function Home() {
   return (
     <>
-      <LoaderWrapper />
+      {/* <LoaderWrapper /> */}
       <Navbar />
     <SmoothScroll />
       <Hero />

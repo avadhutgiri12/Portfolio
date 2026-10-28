@@ -9,7 +9,7 @@ export default function HeroButtton(){
         <Link href="/business">
 
         <button className="herobutton mt-6">
-        <div><span>Bussiness</span></div>
+        <div><span>Business</span></div>
         </button>
         </Link>
 

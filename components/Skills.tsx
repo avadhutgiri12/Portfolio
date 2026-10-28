@@ -13,7 +13,7 @@ import { motionOn } from "@/lib/motion";
 
 const STEP_MS = 2200;
 
-const TINTS = ["#34d399", "#6ee7b7", "#10b981"];
+const TINTS = ["#ffbe38", "#ffcc55", "#ffdb88"];
 
 const SKILL_GROUPS = [
   {
