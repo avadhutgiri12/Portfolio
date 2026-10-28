@@ -333,3 +333,56 @@ introduction: {
     },
   },
 };
+
+// What I Do Section Data
+export interface Service {
+  id: string;
+  number: string;
+  title: string;
+  heading: string;
+  description: string;
+  tags: string[];
+}
+
+export const SERVICES_DATA: Service[] = [
+  {
+    id: "1",
+    number: "01",
+    title: "WEB DEVELOPMENT",
+    heading: "Web Development",
+    description: "I create modern, responsive and high-performance websites with clean interfaces and smooth user experiences.",
+    tags: ["WEB DEVELOPMENT", "01"],
+  },
+  {
+    id: "2",
+    number: "02",
+    title: "FULL STACK DEVELOPMENT",
+    heading: "Full Stack Development",
+    description: "End-to-end development from database design to frontend deployment, building scalable full-stack applications.",
+    tags: ["FULL STACK", "02"],
+  },
+  {
+    id: "3",
+    number: "03",
+    title: "MACHINE LEARNING",
+    heading: "Machine Learning",
+    description: "I build and train machine learning models using real-world datasets, feature engineering and model evaluation.",
+    tags: ["MACHINE LEARNING", "03"],
+  },
+  {
+    id: "4",
+    number: "04",
+    title: "INTELLIGENT SYSTEMS",
+    heading: "Intelligent Systems",
+    description: "I develop practical ML solutions and transform trained models into usable applications and intelligent systems.",
+    tags: ["INTELLIGENT SYSTEMS", "04"],
+  },
+  {
+    id: "5",
+    number: "05",
+    title: "DATA & DATABASE",
+    heading: "Data & Database",
+    description: "I work with data processing, visualization and databases to turn raw information into useful insights.",
+    tags: ["DATA & DATABASE", "05"],
+  },
+];

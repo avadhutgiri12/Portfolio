@@ -1,18 +1,17 @@
 {
   "communities": {
     "0": [
+      "app_academics_page",
+      "app_academics_page_academicspage",
       "app_contact_page",
       "app_contact_page_contactpage",
-      "app_globals",
-      "app_layout",
-      "app_layout_bebasneue",
-      "app_layout_frijole",
-      "app_layout_jetbrainsmono",
-      "app_layout_metadata",
-      "app_layout_roboto",
-      "app_layout_rootlayout",
-      "components_contactform",
-      "components_contactform_state",
+      "app_hire_page",
+      "app_hire_page_hirepage",
+      "app_work_page",
+      "app_work_page_workpage",
+      "components_academic",
+      "components_academic_academic",
+      "components_academic_education",
       "components_footer",
       "components_footer_footer",
       "components_kineticcontact",
@@ -21,56 +20,99 @@
       "components_kineticcontact_kineticform_onsubmit",
       "components_kineticcontact_openmail",
       "components_kineticcontact_state",
-      "components_mousegrid",
-      "components_mousegrid_mousegrid",
       "components_navbar",
       "components_navbar_mobilenavitems",
       "components_navbar_navbar",
       "components_reveal",
       "components_reveal_reveal",
+      "components_skills_skills",
+      "components_smoothscroll",
+      "components_smoothscroll_smoothscroll",
       "components_visitors",
       "components_visitors_visitors",
-      "components_wordmark",
-      "components_wordmark_wordmark",
-      "lib_content",
-      "lib_content_hire",
-      "lib_content_profile",
-      "lib_content_visitors",
       "lib_motion",
       "lib_motion_motion_key",
       "lib_motion_motionon",
       "lib_motion_setmotion",
-      "ref_react"
-    ],
-    "1": [
-      "app_academics_page",
-      "app_academics_page_academicspage",
-      "app_hire_page",
-      "app_hire_page_hirepage",
-      "components_about",
-      "components_about_highlights",
-      "components_about_technologies",
-      "components_academic",
-      "components_academic_academic",
-      "components_academic_education",
-      "components_experience",
-      "components_experience_contributionday",
-      "components_experience_contributionweek",
-      "components_experience_emptygithubdata",
-      "components_experience_experience",
-      "components_experience_experience_fetchgithubdata",
-      "components_experience_githubdata",
-      "components_experience_pastwork",
-      "components_smoothscroll",
-      "components_smoothscroll_smoothscroll",
       "lib_smooth",
       "lib_smooth_scrolltoid",
       "lib_smooth_scrolltotop",
       "lib_smooth_setlenis",
-      "ref_gsap",
-      "ref_lenis"
+      "ref_lenis",
+      "ref_react"
+    ],
+    "1": [
+      "app_business_biz_module",
+      "app_business_floatingsocial",
+      "app_business_floatingsocial_floatingsocial",
+      "app_business_floatingsocial_floatingsocialprops",
+      "app_business_floatingsocial_sociallink",
+      "app_business_page",
+      "app_business_page_anton",
+      "app_business_page_businesspage",
+      "app_business_page_metadata",
+      "app_notes_notes_module",
+      "app_notes_page",
+      "app_notes_page_anton",
+      "app_notes_page_metadata",
+      "app_notes_page_notespage",
+      "components_biznav",
+      "components_biznav_biznav",
+      "components_contactform",
+      "components_contactform_contactform",
+      "components_contactform_contactform_onsubmit",
+      "components_contactform_state",
+      "data_notesdata",
+      "data_notesdata_note",
+      "data_notesdata_notes",
+      "data_notesdata_notesseries",
+      "data_portfolio_sociallinks",
+      "data_socialicons_sociallinks",
+      "lib_content",
+      "lib_content_hire",
+      "lib_content_profile",
+      "lib_content_visitors",
+      "lib_notes_config",
+      "lib_notes_config_instagram_handle",
+      "lib_notes_config_instagram_url",
+      "lib_notes_config_notes",
+      "lib_notes_config_series",
+      "lib_notes_config_youtube_handle",
+      "lib_notes_config_youtube_url"
     ],
     "2": [
+      "app_api_github_route",
+      "app_api_github_route_get",
+      "app_kinetic",
+      "app_page",
+      "app_page_home",
+      "components_about",
+      "components_about_about",
+      "components_button",
+      "components_button_button",
+      "components_contact",
+      "components_contact_contact",
+      "components_hero",
+      "components_hero_hero",
+      "components_pickupbutton",
+      "components_pickupbutton_pickupbutton",
+      "components_pickupbutton_pickupbuttonprops",
+      "components_pilllogo",
+      "components_pilllogo_pilllogo",
+      "components_pilllogo_pilllogoprops",
+      "components_ui_herobutton",
+      "components_ui_herobutton_herobuttton",
+      "components_whatido_whatido",
+      "components_workcarousel",
+      "components_workcarousel_workcarousel",
+      "components_workcoursel",
+      "data_portfolio_hero_data",
+      "next_config",
+      "next_config_nextconfig",
+      "ref_lucide_react",
+      "ref_next"
+    ],
+    "3": [
       "eslint_config",
       "eslint_config_eslintconfig",
       "lib_utils",
@@ -88,6 +130,7 @@
       "ref_clsx",
       "ref_eslint",
       "ref_eslint_config_next",
+      "ref_gsap",
       "ref_motion",
       "ref_react_dom",
       "ref_tailwind_merge",
@@ -98,7 +141,31 @@
       "ref_types_react_dom",
       "ref_typescript"
     ],
-    "3": [
+    "4": [
+      "components_metrics",
+      "components_metrics_metrics",
+      "components_ui_socialicons",
+      "components_ui_socialicons_instagramicon",
+      "components_whatido",
+      "data_portfolio",
+      "data_portfolio_about_data",
+      "data_portfolio_aboutdata",
+      "data_portfolio_herodata",
+      "data_portfolio_metrics_data",
+      "data_portfolio_project",
+      "data_portfolio_service",
+      "data_portfolio_services_data",
+      "data_portfolio_skill",
+      "data_portfolio_skills_data",
+      "data_socialicons",
+      "data_socialicons_createiconcomponent",
+      "data_socialicons_skill_icons",
+      "data_socialicons_skillicon",
+      "data_socialicons_social_icons",
+      "data_socialicons_socialicon",
+      "ref_simple_icons"
+    ],
+    "5": [
       "claude_plans_i_want_to_build_fluttering_sundae",
       "claude_plans_i_want_to_build_fluttering_sundae_1_component_structure",
       "claude_plans_i_want_to_build_fluttering_sundae_2_key_features_to_implement",
@@ -120,28 +187,7 @@
       "claude_plans_i_want_to_build_fluttering_sundae_plan_create_workcarousel_component",
       "claude_plans_i_want_to_build_fluttering_sundae_specific_implementation_notes"
     ],
-    "4": [
-      "app_work_slug_page",
-      "app_work_slug_page_casestudymap",
-      "app_work_slug_page_createslug",
-      "app_work_slug_page_generatemetadata",
-      "app_work_slug_page_generatestaticparams",
-      "app_work_slug_page_pageprops",
-      "app_work_slug_page_workcasestudy",
-      "case_studies_01_storeway",
-      "case_studies_02_house_price_prediction_system",
-      "case_studies_03_face_detection",
-      "case_studies_04_fall_detection",
-      "components_contact",
-      "components_contact_contact",
-      "components_overlays",
-      "components_overlays_overlays",
-      "data_projectdata",
-      "data_projectdata_project",
-      "data_projectdata_project_data",
-      "ref_lucide_react"
-    ],
-    "5": [
+    "6": [
       "tsconfig",
       "tsconfig_compileroptions",
       "tsconfig_compileroptions_allowjs",
@@ -161,26 +207,6 @@
       "tsconfig_compileroptions_target",
       "tsconfig_exclude",
       "tsconfig_include"
-    ],
-    "6": [
-      "app_carousel",
-      "app_kinetic",
-      "app_page",
-      "app_page_home",
-      "components_about_about",
-      "components_button",
-      "components_button_button",
-      "components_hero",
-      "components_hero_hero",
-      "components_ui_herobutton",
-      "components_ui_herobutton_herobuttton",
-      "components_verticalcylindercarousel",
-      "components_verticalcylindercarousel_carouselitem",
-      "components_verticalcylindercarousel_verticalcylindercarousel",
-      "components_verticalcylindercarousel_verticalcylindercarouselprops",
-      "components_whatido",
-      "components_whatido_services",
-      "components_whatido_whatido"
     ],
     "7": [
       "memory_skills_update_plan",
@@ -203,42 +229,25 @@
       "memory_skills_update_plan_verification"
     ],
     "8": [
-      "app_api_github_route",
-      "app_api_github_route_get",
-      "app_bussiness_biz_module",
-      "app_bussiness_page",
-      "app_bussiness_page_anton",
-      "app_bussiness_page_businesspage",
-      "app_bussiness_page_metadata",
-      "components_biznav",
-      "components_biznav_biznav",
-      "components_contactform_contactform",
-      "components_contactform_contactform_onsubmit",
-      "next_config",
-      "next_config_nextconfig",
-      "ref_app_business_biz_module_css",
-      "ref_lib_notes_config",
-      "ref_next"
+      "app_work_slug_page",
+      "app_work_slug_page_casestudymap",
+      "app_work_slug_page_createslug",
+      "app_work_slug_page_generatemetadata",
+      "app_work_slug_page_generatestaticparams",
+      "app_work_slug_page_pageprops",
+      "app_work_slug_page_workcasestudy",
+      "case_studies_01_house_price_prediction_system",
+      "case_studies_02_fall_detection",
+      "components_overlays",
+      "components_overlays_overlays",
+      "data_projectdata",
+      "data_projectdata_metrics_data",
+      "data_projectdata_project",
+      "data_projectdata_project_data",
+      "data_projectdata_skill",
+      "data_projectdata_skills_data"
     ],
     "9": [
-      "app_work_page",
-      "app_work_page_workpage",
-      "components_skills",
-      "components_skills_skill_groups",
-      "components_skills_skills",
-      "components_skills_skillwheel",
-      "components_skills_tints",
-      "components_workcarousel",
-      "components_workcarousel_motionon",
-      "components_workcarousel_workcarousel",
-      "data_skills",
-      "data_skills_backend_skills",
-      "data_skills_frontend_skills",
-      "data_skills_skill",
-      "data_skills_skillcategory",
-      "data_skills_tooling_skills"
-    ],
-    "10": [
       "claude",
       "claude_app_router_next_js_13",
       "claude_best_practices_for_this_codebase",
@@ -254,7 +263,7 @@
       "claude_recent_changes",
       "claude_styling_approach"
     ],
-    "11": [
+    "10": [
       "package_dependencies",
       "package_dependencies_class_variance_authority",
       "package_dependencies_clsx",
@@ -265,7 +274,20 @@
       "package_dependencies_next",
       "package_dependencies_react",
       "package_dependencies_react_dom",
+      "package_dependencies_simple_icons",
       "package_dependencies_tailwind_merge"
+    ],
+    "11": [
+      "components_skills",
+      "components_skills_skill_groups",
+      "components_skills_skillwheel",
+      "components_skills_tints",
+      "data_skills",
+      "data_skills_backend_skills",
+      "data_skills_frontend_skills",
+      "data_skills_skill",
+      "data_skills_skillcategory",
+      "data_skills_tooling_skills"
     ],
     "12": [
       "package_devdependencies",
@@ -279,73 +301,95 @@
       "package_devdependencies_typescript"
     ],
     "13": [
-      "components_metrics",
-      "components_metrics_metrics",
-      "data_portfolio",
-      "data_portfolio_metrics_data",
-      "data_portfolio_project",
-      "data_portfolio_skill",
-      "data_portfolio_skills_data"
+      "app_globals",
+      "app_layout",
+      "app_layout_bebasneue",
+      "app_layout_metadata",
+      "app_layout_roboto",
+      "app_layout_rootlayout",
+      "app_layout_xmind",
+      "app_loader"
     ],
     "14": [
+      "components_experience",
+      "components_experience_contributionday",
+      "components_experience_contributionweek",
+      "components_experience_emptygithubdata",
+      "components_experience_experience",
+      "components_experience_experience_fetchgithubdata",
+      "components_experience_githubdata",
+      "components_experience_pastwork"
+    ],
+    "15": [
+      "components_loader",
+      "components_loader_loader",
+      "components_loader_loaderprops",
+      "components_loader_loaderstate",
+      "components_loaderwrapper",
+      "components_loaderwrapper_loader",
+      "components_loaderwrapper_loaderwrapper"
+    ],
+    "16": [
       "readme",
       "readme_deploy_on_vercel",
       "readme_getting_started",
       "readme_learn_more"
     ],
-    "15": [
+    "17": [
       "agents",
       "agents_this_is_not_the_next_js_you_know"
     ],
-    "16": [
+    "18": [
       "postcss_config",
       "postcss_config_config"
     ]
   },
   "cohesion": {
-    "0": 0.0858974358974359,
-    "1": 0.1076923076923077,
-    "2": 0.08307692307692308,
-    "3": 0.1,
-    "4": 0.14619883040935672,
-    "5": 0.10526315789473684,
-    "6": 0.1830065359477124,
+    "0": 0.11470985155195682,
+    "1": 0.0945945945945946,
+    "2": 0.09885057471264368,
+    "3": 0.07977207977207977,
+    "4": 0.11255411255411256,
+    "5": 0.1,
+    "6": 0.10526315789473684,
     "7": 0.1111111111111111,
-    "8": 0.15833333333333333,
-    "9": 0.2,
-    "10": 0.14285714285714285,
-    "11": 0.18181818181818182,
+    "8": 0.15441176470588236,
+    "9": 0.14285714285714285,
+    "10": 0.16666666666666666,
+    "11": 0.26666666666666666,
     "12": 0.2222222222222222,
-    "13": 0.3333333333333333,
-    "14": 0.5,
-    "15": 1.0,
-    "16": 1.0
+    "13": 0.25,
+    "14": 0.25,
+    "15": 0.38095238095238093,
+    "16": 0.5,
+    "17": 1.0,
+    "18": 1.0
   },
   "gods": [
+    {
+      "id": "ref_react",
+      "label": "react",
+      "degree": 16
+    },
     {
       "id": "tsconfig_compileroptions",
       "label": "compilerOptions",
       "degree": 16
     },
     {
-      "id": "ref_react",
-      "label": "react",
-      "degree": 15
-    },
-    {
-      "id": "components_smoothscroll_smoothscroll",
-      "label": "SmoothScroll()",
-      "degree": 14
-    },
-    {
       "id": "ref_next",
       "label": "next",
-      "degree": 13
+      "degree": 15
     },
     {
       "id": "ref_lucide_react",
       "label": "lucide-react",
-      "degree": 10
+      "degree": 12
+    },
+    {
+      "id": "app_page_home",
+      "label": "Home()",
+      "degree": 9
     },
     {
       "id": "claude_plans_i_want_to_build_fluttering_sundae_implementation_approach",
@@ -353,70 +397,70 @@
       "degree": 9
     },
     {
+      "id": "components_smoothscroll_smoothscroll",
+      "label": "SmoothScroll()",
+      "degree": 8
+    },
+    {
       "id": "memory_skills_update_plan_skills_section_update_plan",
       "label": "Skills Section Update Plan",
       "degree": 8
     },
     {
+      "id": "components_footer_footer",
+      "label": "Footer()",
+      "degree": 7
+    },
+    {
       "id": "components_kineticcontact_kineticcontact",
       "label": "KineticContact()",
-      "degree": 7
-    },
-    {
-      "id": "lib_motion_motionon",
-      "label": "motionOn()",
-      "degree": 7
-    },
-    {
-      "id": "claude_code_structure",
-      "label": "Code Structure",
       "degree": 7
     }
   ],
   "surprises": [
     {
-      "source": "RootLayout()",
-      "target": "MouseGrid()",
+      "source": "Home()",
+      "target": "Footer()",
       "source_files": [
-        "app/layout.tsx",
-        "components/MouseGrid.tsx"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "connects across different repos/directories; peripheral node `MouseGrid()` unexpectedly reaches hub `RootLayout()`"
-    },
-    {
-      "source": "ContactPage()",
-      "target": "SmoothScroll()",
-      "source_files": [
-        "app/contact/page.tsx",
-        "components/SmoothScroll.tsx"
+        "app/page.tsx",
+        "components/Footer.tsx"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "connects across different repos/directories; bridges separate communities"
     },
     {
-      "source": "Skills()",
-      "target": "motionOn()",
+      "source": "Home()",
+      "target": "KineticContact()",
       "source_files": [
-        "components/Skills.tsx",
-        "lib/motion.ts"
+        "app/page.tsx",
+        "components/KineticContact.tsx"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "connects across different repos/directories; bridges separate communities"
     },
     {
-      "source": "SmoothScroll()",
-      "target": "motionOn()",
+      "source": "Home()",
+      "target": "Navbar()",
       "source_files": [
-        "components/SmoothScroll.tsx",
-        "lib/motion.ts"
+        "app/page.tsx",
+        "components/Navbar.tsx"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "AcademicsPage()",
+      "target": "Academic()",
+      "source_files": [
+        "app/academics/page.tsx",
+        "components/Academic.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; peripheral node `Academic()` unexpectedly reaches hub `AcademicsPage()`"
     },
     {
       "source": "Home()",
@@ -433,8 +477,8 @@
   "questions": [
     {
       "type": "bridge_node",
-      "question": "Why does `react` connect `KineticContact.tsx` to `SmoothScroll.tsx`, `package.json`, `app/page.tsx`, `Skills.tsx`?",
-      "why": "High betweenness centrality (0.155) - this node is a cross-community bridge."
+      "question": "Why does `next` connect `next` to `KineticContact.tsx`, `business/page.tsx`, `package.json`, `[slug]/page.tsx`, `layout.tsx`, `Loader.tsx`?",
+      "why": "High betweenness centrality (0.170) - this node is a cross-community bridge."
     },
     {
       "type": "isolated_nodes",
@@ -444,27 +488,27 @@
     {
       "type": "low_cohesion",
       "question": "Should `KineticContact.tsx` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.0858974358974359 - nodes in this community are weakly interconnected."
+      "why": "Cohesion score 0.11470985155195682 - nodes in this community are weakly interconnected."
     },
     {
       "type": "bridge_node",
-      "question": "Why does `next` connect `bussiness/page.tsx` to `KineticContact.tsx`, `SmoothScroll.tsx`, `package.json`, `[slug]/page.tsx`, `app/page.tsx`, `Skills.tsx`?",
-      "why": "High betweenness centrality (0.132) - this node is a cross-community bridge."
+      "question": "Why does `react` connect `KineticContact.tsx` to `business/page.tsx`, `next`, `package.json`, `portfolio.ts`, `Skills.tsx`, `Experience.tsx`, `Loader.tsx`?",
+      "why": "High betweenness centrality (0.134) - this node is a cross-community bridge."
     },
     {
       "type": "low_cohesion",
-      "question": "Should `SmoothScroll.tsx` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.1076923076923077 - nodes in this community are weakly interconnected."
+      "question": "Should `business/page.tsx` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.0945945945945946 - nodes in this community are weakly interconnected."
     },
     {
       "type": "bridge_node",
-      "question": "Why does `lucide-react` connect `[slug]/page.tsx` to `KineticContact.tsx`, `SmoothScroll.tsx`, `package.json`, `app/page.tsx`, `Skills.tsx`, `portfolio.ts`?",
-      "why": "High betweenness centrality (0.089) - this node is a cross-community bridge."
+      "question": "Why does `lucide-react` connect `next` to `KineticContact.tsx`, `package.json`, `portfolio.ts`, `[slug]/page.tsx`, `Experience.tsx`?",
+      "why": "High betweenness centrality (0.093) - this node is a cross-community bridge."
     },
     {
       "type": "low_cohesion",
-      "question": "Should `package.json` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.08307692307692308 - nodes in this community are weakly interconnected."
+      "question": "Should `next` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.09885057471264368 - nodes in this community are weakly interconnected."
     }
   ]
 }

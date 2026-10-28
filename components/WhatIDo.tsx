@@ -1,63 +1,7 @@
 "use client";
 
+import { SERVICES_DATA } from "@/data/portfolio";
 import "./WhatIDo.css";
-
-const SERVICES = [
-  {
-    id: "1",
-    number: "01",
-    title: "BUILDING WEBSITES",
-    heading: "Web Development",
-    description:
-      "I create modern, responsive and high-performance websites with clean interfaces and smooth user experiences.",
-    tags: ["WEB DEVELOPMENT", "01"],
-  },
-  {
-    id: "2",
-    number: "02",
-    title: "UI / UX DESIGN",
-    heading: "Designing Experiences",
-    description:
-      "I design clean and intuitive interfaces focused on usability, visual hierarchy and engaging digital experiences.",
-    tags: ["UI / UX DESIGN", "02"],
-  },
-  {
-    id: "3",
-    number: "03",
-    title: "MODEL TRAINING",
-    heading: "Machine Learning",
-    description:
-      "I build and train machine learning models using real-world datasets, feature engineering and model evaluation.",
-    tags: ["MACHINE LEARNING", "03"],
-  },
-  {
-    id: "4",
-    number: "04",
-    title: "MODEL DEVELOPMENT",
-    heading: "Intelligent Systems",
-    description:
-      "I develop practical ML solutions and transform trained models into usable applications and intelligent systems.",
-    tags: ["AI / ML", "04"],
-  },
-  {
-    id: "5",
-    number: "05",
-    title: "AI AUTOMATION",
-    heading: "Workflow Automation",
-    description:
-      "I create AI-powered automation workflows that reduce repetitive tasks and make digital processes more efficient.",
-    tags: ["AI AUTOMATION", "05"],
-  },
-  {
-    id: "6",
-    number: "06",
-    title: "DATA SOLUTIONS",
-    heading: "Data & Databases",
-    description:
-      "I work with data processing, visualization and databases to turn raw information into useful insights.",
-    tags: ["DATA SOLUTIONS", "06"],
-  },
-];
 
 export default function WhatIDo() {
   return (
@@ -89,7 +33,7 @@ export default function WhatIDo() {
 
             <span className="whatido-loop-label">
               <span className="whatido-status-dot" />
-              SIX CAPABILITIES · INFINITE LOOP
+              FIVE CAPABILITIES · INFINITE LOOP
             </span>
           </div>
         </header>
@@ -106,7 +50,7 @@ export default function WhatIDo() {
                 key={group}
                 aria-hidden={group === 1}
               >
-                {SERVICES.map((service) => (
+                {SERVICES_DATA.map((service) => (
                   <article
                     className="whatido-card"
                     key={`${group}-${service.id}`}

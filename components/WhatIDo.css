@@ -6,7 +6,7 @@
     --whatido-bg: #f3f3ef;
     --whatido-card-bg: #ffffff;
     --whatido-ink: #171717;
-    --whatido-accent: #10b981;
+    --whatido-accent: #ffbe38;
     position: relative;
     isolation: isolate;
     width: 100%;
@@ -50,7 +50,7 @@
     height: 500px;
     transform: translateX(-50%);
     border-radius: 50%;
-    background: rgba(16, 185, 129, 0.07);
+    background: rgba(255, 190, 56, 0.07);
     filter: blur(130px);
     pointer-events: none;
 }
@@ -120,7 +120,7 @@
     flex-shrink: 0;
     border-radius: 50%;
     background: var(--whatido-accent);
-    box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
+    box-shadow: 0 0 12px rgba(255, 190, 56, 0.5);
 }
 
 /* =========================================
@@ -167,6 +167,7 @@
     border-radius: 20px;
     background: var(--whatido-card-bg);
     color: var(--whatido-ink);
+    cursor: pointer;
 
     transition:
         border-color 250ms ease,
@@ -285,7 +286,7 @@
     justify-content: center;
     gap: 8px;
     background: var(--whatido-accent);
-    color: #071b13;
+    color: #1a1300;
 }
 
 .whatido-number-panel>span:first-child {
@@ -298,7 +299,7 @@
 .whatido-number-line {
     width: 15px;
     height: 2px;
-    background: #071b13;
+    background: #1a1300;
 }
 
 .whatido-card-footer {
@@ -327,7 +328,7 @@
 }
 
 .whatido-card:hover .whatido-footer-arrow {
-    color: #059669;
+    color: #cc9900;
     transform: translateX(4px);
 }
 
