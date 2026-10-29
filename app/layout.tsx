@@ -3,6 +3,7 @@ import { Bebas_Neue, Lexend, Roboto } from "next/font/google";
 import "./globals.css";
 import "./loader.css";
 
+
 const bebasNeue = Bebas_Neue({
   variable: "--font-bebas-neue",
   weight: "400",
@@ -106,6 +107,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   // JSON-LD structured data for Person/Portfolio
   const structuredData = {
     "@context": "https://schema.org",
@@ -175,10 +177,9 @@ export default function RootLayout({
         {/* Dark background */}
         <div className="relative bg-[#080808]">
 
-          {/* Navigation */}
 
           {/* Page content */}
-          <main className="relative min-h-[100svh] z-10">
+          <main className="relative min-h-svh z-10">
             {children}
           </main>
         </div>

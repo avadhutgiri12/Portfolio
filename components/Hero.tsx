@@ -2,11 +2,18 @@
 
 import React from "react";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 import PickUpButton from "./PickUpButton";
 import PillLogo from "./PillLogo";
 import { HERO_DATA } from "@/data/portfolio";
 
 export default function Hero() {
+  const router = useRouter();
+
+  const handleContactClick = () => {
+    router.push("/contact");
+  };
+
   return (
     <section
       id="home"
@@ -40,7 +47,7 @@ export default function Hero() {
 
       {/* Top Right Contact Button */}
       <div className="fixed right-5 top-5 z-50 sm:right-10 sm:top-6">
-        <PickUpButton>
+        <PickUpButton onClick={handleContactClick}>
           <>
             {HERO_DATA.contactButton.text}
             <ArrowUpRight size={18} className="ml-2" />

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent, type MouseEvent, type ReactNode } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { profile, hire } from "@/lib/content";
 import Visitors from "./Visitors";
@@ -12,9 +13,16 @@ import "@/app/kinetic.css";
  * it opens Gmail's compose window with the same address filled in.
  */
 export function openMail(e: MouseEvent) {
-  if (window.matchMedia("(pointer: coarse)").matches) return;
   e.preventDefault();
   const to = encodeURIComponent(profile.email);
+
+  // On mobile, use mailto: to let the OS handle it
+  if (window.matchMedia("(pointer: coarse)").matches) {
+    window.location.href = `mailto:${profile.email}`;
+    return;
+  }
+
+  // On desktop, try to open Gmail compose window
   const win = window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${to}`, "_blank", "noopener");
   /* a blocked pop-up returns null: fall back to the plain mailto link */
   if (!win) window.location.href = `mailto:${profile.email}`;
@@ -31,7 +39,13 @@ export default function KineticContact({
   liveLabel?: string;
   extra?: ReactNode;
 }) {
+  const router = useRouter();
   const lines = lead.split("|");
+
+  const handleGetStarted = () => {
+    router.push("/contact");
+  };
+
   return (
       <section className="kin kin-light" id="contact">
         <div className="kin-wrap kin-cta">
@@ -45,10 +59,10 @@ export default function KineticContact({
               {lines[1]}
             </h2>
             <p>I build the whole thing, from the first sketch to the live site. Tell me what you need.</p>
-            <a className="kin-pill kin-pill-line" href="#kin-form">
+            <button className="kin-pill kin-pill-line" onClick={handleGetStarted}>
               Get started
               <span className="kin-dot" aria-hidden />
-            </a>
+            </button>
           </div>
 
           <KineticForm />
