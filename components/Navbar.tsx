@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import {
+  Briefcase,
   FolderKanban,
-  GraduationCap,
   Home,
   Mail,
 } from "lucide-react";
@@ -23,10 +23,10 @@ const mobileNavItems = [
     icon: FolderKanban,
   },
   {
-    id: "academic",
-    label: "Academic",
-    href: "/academics",
-    icon: GraduationCap,
+    id: "services",
+    label: "Services",
+    href: "/services",
+    icon: Briefcase,
   },
   {
     id: "contact",
@@ -85,7 +85,7 @@ export default function Navbar() {
     const pathToSection: Record<string, string> = {
       "/": "home",
       "/work": "projects",
-      "/academics": "academic",
+      "/services": "services",
       "/contact": "contact",
     };
 

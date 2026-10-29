@@ -1,1 +1,18 @@
-{"0": "KineticContact.tsx", "1": "business/page.tsx", "2": "next", "3": "package.json", "4": "portfolio.ts", "5": "Implementation Approach", "6": "compilerOptions", "7": "Skills Section Update Plan", "8": "[slug]/page.tsx", "9": "CLAUDE.md", "10": "dependencies", "11": "Skills.tsx", "12": "devDependencies", "13": "layout.tsx", "14": "Experience.tsx", "15": "Loader.tsx", "16": "README.md", "17": "AGENTS.md", "18": "postcss.config.mjs"}
+{
+  "0": "KineticContact.tsx",
+  "1": "business/page.tsx",
+  "3": "package.json",
+  "4": "portfolio.ts",
+  "5": "Implementation Approach",
+  "6": "compilerOptions",
+  "7": "Skills Section Update Plan",
+  "8": "[slug]/page.tsx",
+  "10": "dependencies",
+  "11": "Skills.tsx",
+  "12": "devDependencies",
+  "13": "layout.tsx",
+  "15": "Loader.tsx",
+  "16": "README.md",
+  "17": "AGENTS.md",
+  "18": "postcss.config.mjs"
+}
