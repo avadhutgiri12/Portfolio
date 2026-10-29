@@ -1,14 +1,6 @@
-import React from "react";
+import { ArrowUpRight } from "lucide-react";
 import styles from "./service.module.css";
-
-export type Service = {
-  number: string;
-  category: string;
-  title: string;
-  description: string;
-  tags: string[];
-  tone: "peach" | "blue" | "lilac" | "green";
-};
+import type { Service } from "@/data/serviceData";
 
 type ServiceCardProps = {
   service: Service;
@@ -29,7 +21,9 @@ export default function ServiceCard({ service, className = "" }: ServiceCardProp
         <div className={styles.cardTags}>
           {service.tags.map((tag) => <span key={tag}>{tag}</span>)}
         </div>
-        <a className={styles.cardArrow} href="#contact" aria-label={`Discuss ${service.title}`}>↗</a>
+        <a className={styles.cardArrow} href="#contact" aria-label={`Discuss ${service.title}`}>
+          <ArrowUpRight size={18} strokeWidth={2} />
+        </a>
       </div>
     </article>
   );

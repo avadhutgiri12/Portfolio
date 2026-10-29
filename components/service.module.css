@@ -5,8 +5,10 @@
   --ink: #171916;
   --muted: #747870;
   --line: rgba(23, 25, 22, .14);
-  --green: #299b32;
-  --green-dark: #147a24;
+  --green: #ffbe38;
+  --green-dark: #e6a92e;
+  --emerald: #299b32;
+  --emerald-dark: #147a24;
   --paper: #f7f8f4;
   color: var(--ink);
   background: #fff;
@@ -50,6 +52,7 @@
 .heroRole i { display: inline-block; width: 4px; height: 4px; margin: 0 8px 3px; border-radius: 50%; background: var(--green); }
 .followLink { font-size: 11px; letter-spacing: .09em; white-space: nowrap; }
 .followLink span { margin-left: 9px; color: var(--green); font-size: 18px; }
+.emeraldArrow { color: var(--emerald); }
 .heroMicroLeft, .heroMicroRight {
   position: absolute; top: 23%; color: #858981; font-size: 11px; line-height: 1.25; letter-spacing: .03em;
 }
@@ -66,17 +69,17 @@
 .liveDot { width: 7px; height: 7px; display: inline-block; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgba(41,155,50,.10); }
 .heroCopy h1 { margin: 0; font-size: clamp(58px, 7.2vw, 112px); line-height: .91; letter-spacing: -.085em; font-weight: 760; }
 .headlineSecond { display: inline-block; margin-top: 10px; }
-.heroCopy h1 em, .sectionIntro h2 em, .contactRow h2 em { color: var(--green); font-style: normal; }
+.heroCopy h1 em, .sectionIntro h2 em, .contactRow h2 em { color: var(--emerald); font-style: normal; }
 .heroDescription { max-width: 440px; margin: 28px 0 0; color: #6b7068; font-size: 15px; line-height: 1.75; }
 .heroActions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 30px; }
 .primaryButton {
   display: inline-flex; align-items: center; gap: 25px; justify-content: space-between;
-  padding: 14px 17px 14px 21px; background: var(--green); color: #fff !important;
-  border: 1px solid var(--green); border-radius: 99px; font-size: 12px; font-weight: 600;
+  padding: 14px 17px 14px 21px; background: var(--emerald); color: #fff !important;
+  border: 1px solid var(--emerald); border-radius: 99px; font-size: 12px; font-weight: 600;
   transition: background .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease;
 }
 .primaryButton span { font-size: 18px; line-height: 1; transition: transform .25s ease; }
-.primaryButton:hover { background: var(--green-dark); transform: translateY(-3px); box-shadow: 0 12px 24px rgba(41,155,50,.18); }
+.primaryButton:hover { background: var(--emerald-dark); transform: translateY(-3px); box-shadow: 0 12px 24px rgba(41,155,50,.18); }
 .primaryButton:hover span { transform: translate(2px,-2px); }
 .textButton { color: #5d625a !important; font-size: 12px; }
 .textButton span { margin-left: 8px; color: var(--green); }
@@ -115,9 +118,9 @@
 }
 .coreSmall { font-size: 8px; letter-spacing: .2em; color: #858b80; margin-bottom: 8px; }
 .wheelCore strong { font-size: clamp(24px, 3vw, 39px); letter-spacing: -.08em; }
-.wheelCore strong span { color: var(--green); }
-.coreArrow { display: grid; place-items: center; margin-top: 12px; width: 32px; height: 32px; border-radius: 50%; color: #fff; background: var(--green); font-size: 18px; }
-.wheelPointer { position: absolute; z-index: 3; top: 3%; right: 22%; display: grid; place-items: center; width: 43px; height: 43px; border-radius: 50%; color: #fff; background: var(--green); box-shadow: 0 7px 20px rgba(41,155,50,.25); font-size: 21px; }
+.wheelCore strong span { color: var(--emerald); }
+.coreArrow { display: grid; place-items: center; margin-top: 12px; width: 32px; height: 32px; border-radius: 50%; color: #fff; background: var(--emerald); font-size: 18px; }
+.wheelPointer { position: absolute; z-index: 3; top: 3%; right: 22%; display: grid; place-items: center; width: 43px; height: 43px; border-radius: 50%; color: #fff; background: var(--emerald); box-shadow: 0 7px 20px rgba(41,155,50,.25); font-size: 21px; }
 .wheelNumber { position: absolute; left: 4%; bottom: 10%; font-size: 9px; letter-spacing: .14em; color: #8b9086; }
 @keyframes wheelSpin { to { transform: rotate(360deg); } }
 
@@ -208,4 +211,18 @@
 @media (prefers-reduced-motion: reduce) {
   .wheelOrbit, .wheelOrbitTwo { animation: none; }
   .serviceCard, .primaryButton, .primaryButton span, .cardArrow { transition: none; }
+}
+
+.discoverLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.discoverLink span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
