@@ -1,39 +1,59 @@
 import Link from "next/link";
-import styles from "@/app/business/biz.module.css";
+import styles from "./BizNav.module.css";
 
-/**
- * The business side's own top bar, on /business and /notes. It is a plain
- * server component: links only, with a way back to the portfolio.
- */
-export default function BizNav({ current }: { current?: "home" | "notes" }) {
+export default function BizNav({
+  current,
+}: {
+  current?: "home" | "notes";
+}) {
   return (
-    <header className={styles.nav}>
-      <nav className={styles.navRow} aria-label="techie.addy">
-        <Link href="/business" className={styles.logo}>
+    <header className={styles.header}>
+      <nav className={styles.navbar} aria-label="Main navigation">
+
+        {/* Brand */}
+        <Link href="/business" className={styles.brand}>
           techie.addy
         </Link>
+
+        {/* Navigation Links */}
         <ul className={styles.links}>
           <li>
-            <Link href="/business#about">About</Link>
-          </li>
-          <li>
-            <Link href="/business#services">Services</Link>
-          </li>
-          <li>
-            <Link href="/notes" aria-current={current === "notes" ? "page" : undefined}>
-              Free notes
+            <Link href="/business#about">
+              About
             </Link>
           </li>
+
           <li>
-            <Link href="/business#follow">Follow</Link>
+            <Link href="/business#services">
+              Services
+            </Link>
           </li>
+
           <li>
-            <Link href="/business#contact">Contact</Link>
+            <Link
+              href="/notes"
+              aria-current={current === "notes" ? "page" : undefined}
+            >
+              Free Notes
+            </Link>
+          </li>
+
+          <li>
+            <Link href="/business#follow">
+              Follow
+            </Link>
           </li>
         </ul>
-        <Link href="/" className={styles.back}>
-          ← Portfolio
+
+        {/* CTA */}
+        <Link
+          href="/business#contact"
+          className={styles.cta}
+        >
+          Start a Project
+          <span className={styles.arrow}>↗</span>
         </Link>
+
       </nav>
     </header>
   );

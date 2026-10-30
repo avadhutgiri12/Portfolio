@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Anton } from "next/font/google";
-import BizNav from "@/components/BizNav";
-import ContactForm from "@/components/ContactForm";
-import { hire, profile } from "@/lib/content";
+
 import {
   INSTAGRAM_HANDLE,
   INSTAGRAM_URL,
@@ -12,9 +10,8 @@ import {
   notes,
   series,
 } from "@/lib/notes.config";
-import { socialLinks } from "@/data/portfolio";
-import FloatingSocial from "./FloatingSocial";
-import styles from "./biz.module.css";
+import BizHero from "@/components/BizHero";
+import BizNav from "@/components/BizNav";
 
 const anton = Anton({
   variable: "--font-anton",
@@ -40,126 +37,10 @@ export default function BusinessPage() {
   const latest = notes.slice(0, 4);
 
   return (
-    <div className={`${styles.page} ${anton.variable}`}>
-      <BizNav current="home" />
-
-      <main>
-        {/* ── hero ── */}
-        <section className={`${styles.wrap} ${styles.hero}`}>
-          <p className={styles.tag}>techie.addy</p>
-          <h1 className={styles.h1}>
-            Web apps <mark>built</mark> for your business.
-          </h1>
-          <p className={styles.lead}>{hire.intro}</p>
-          <div className={styles.actions}>
-            <a href="#contact" className={styles.btn}>
-              Start a project →
-            </a>
-            <Link href="/notes" className={`${styles.btn} ${styles.btnGhost}`}>
-              Free notes
-            </Link>
-          </div>
-        </section>
-
-        {/* ── about the business ── */}
-        <section id="about" className={`${styles.wrap} ${styles.section}`}>
-          <p className={styles.kicker}>About</p>
-          <h2 className={styles.h2}>What techie.addy is</h2>
-          <p className={styles.copy}>
-            techie.addy is the business side of {profile.name}. It builds websites, web apps and AI tools for
-            businesses, institutions and small teams, from the first conversation to the day it goes live. It
-            also shares free PDF notes on building with AI, ready to download.
-          </p>
-        </section>
-
-        {/* ── services ── */}
-        <section id="services" className={`${styles.wrap} ${styles.section}`}>
-          <p className={styles.kicker}>Services</p>
-          <h2 className={styles.h2}>What I can build for you</h2>
-          <ul className={styles.grid}>
-            {(hire.services ?? []).map((s) => (
-
-  <li key={s.title}>
-    <Link href={s.proof?.href ?? "/contact"} className={styles.card}>
-      <h3>{s.title}</h3>
-      <p>{s.body}</p>
-      {s.proof ? (
-        <span className={styles.proof}>
-          Proof: {s.proof.label} →
-        </span>
-      ) : null}
-    </Link>
-  </li>
-))}
-
-          </ul>
-        </section>
-
-        {/* ── follow ── */}
-        <section id="follow" className={`${styles.wrap} ${styles.section}`}>
-          <p className={styles.kicker}>Follow</p>
-          <h2 className={styles.h2}>Watch, follow, learn</h2>
-          <div className={styles.follow}>
-            {youtubeSet ? (
-              <a href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer" className={styles.followCard}>
-                <small>YouTube</small>
-                <strong>Subscribe</strong>
-                <span>{YOUTUBE_HANDLE}</span>
-              </a>
-            ) : (
-              <span className={`${styles.followCard} ${styles.followOff}`} aria-disabled="true">
-                <small>YouTube</small>
-                <strong>Subscribe</strong>
-                <span>Channel link coming soon</span>
-              </span>
-            )}
-            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className={styles.followCard}>
-              <small>Instagram</small>
-              <strong>Follow</strong>
-              <span>{INSTAGRAM_HANDLE}</span>
-            </a>
-          </div>
-        </section>
-
-        {/* ── free notes ── */}
-        <section id="notes" className={`${styles.wrap} ${styles.section}`}>
-          <p className={styles.kicker}>Free notes</p>
-          <h2 className={styles.h2}>{series.title}</h2>
-          <p className={styles.copy}>{series.line}</p>
-          <ol className={styles.eps}>
-            {latest.map((n) => (
-              <li key={n.slug} className={styles.ep}>
-                <span className={styles.epNum}>{n.tag}</span>
-                <span className={styles.epTitle}>{n.title}</span>
-              </li>
-            ))}
-          </ol>
-          <div className={styles.actions}>
-            <Link href="/notes" className={styles.btn}>
-              All notes and downloads →
-            </Link>
-          </div>
-        </section>
-
-        {/* ── contact ── */}
-        <section id="contact" className={`${styles.wrap} ${styles.section}`}>
-          <p className={styles.kicker}>Contact</p>
-          <h2 className={styles.h2}>Tell me what you need</h2>
-          <a className={styles.mail} href={`mailto:${profile.email}`}>
-            {profile.email}
-          </a>
-          <div className={styles.formBox}>
-            <ContactForm />
-          </div>
-        </section>
-      </main>
-
-      <footer className={`${styles.wrap} ${styles.footer}`}>
-        <span>© techie.addy 2026</span>
-        <Link href="/">← Back to portfolio</Link>
-      </footer>
-
-      <FloatingSocial socialLinks={socialLinks} />
-    </div>
+   <>
+   <BizNav />
+   <BizHero />
+   
+   </>
   );
 }

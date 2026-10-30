@@ -114,6 +114,10 @@ export interface HeroData {
     hoverBgColor: string;
     iconBgColor: string;
   };
+  businessCta: {
+    text: string;
+    href: string;
+  };
   description: string;
   scrollIndicator: {
     text: string;
@@ -164,6 +168,12 @@ export const HERO_DATA: HeroData = {
     href: "#about",
     hoverBgColor: "rgb(258, 190, 56)",
     iconBgColor: "rgb(258, 190, 56)",
+  },
+
+  // Business CTA Button
+  businessCta: {
+    text: "Business",
+    href: "/business",
   },
 
   // Supporting text

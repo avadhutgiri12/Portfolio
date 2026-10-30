@@ -1,0 +1,326 @@
+/* =========================================
+   FLOATING NAVBAR
+========================================= */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 1000;
+
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 24px 20px;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   NAVBAR CONTAINER
+========================================= */
+
+.navbar {
+  width:70vw;
+  max-width: 90%;
+
+  min-height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 48px;
+
+  padding: 6px 12px 6px 12px;
+
+  background: #111111;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 100px;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.13),
+    0 2px 5px rgba(0, 0, 0, 0.08);
+
+  pointer-events: auto;
+
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.navbar:hover {
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.16),
+    0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================
+   BRAND
+========================================= */
+
+.brand {
+  flex-shrink: 0;
+
+  color: #111111;
+
+  font-family: var(--font-body), sans-serif;
+
+  font-size: 14px;
+  font-weight: 750;
+
+  letter-spacing: -0.04em;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  background: #ffffff;
+
+  border-radius: 100px;
+
+  padding: 8px 20px;
+
+  transition:
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+.brand:hover {
+  opacity: 0.75;
+  background: #f0efeb;
+}
+
+/* =========================================
+   NAVIGATION LINKS
+========================================= */
+
+.links {
+  display: flex;
+  align-items: center;
+
+  gap: 24px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.links a {
+  position: relative;
+
+  display: inline-block;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  font-family: var(--font-body), sans-serif;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.links a:hover {
+  color: #ffffff;
+}
+
+.links a[aria-current="page"] {
+  color: #ff704f;
+}
+
+/* =========================================
+   CTA BUTTON
+========================================= */
+
+.cta {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 11px 15px;
+
+  border-radius: 100px;
+
+  background: #ffffff;
+
+  color: #111111;
+
+  font-family: var(--font-body), sans-serif;
+
+  font-size: 12px;
+  font-weight: 650;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.cta:hover {
+  background: #ff603c;
+
+  color: #ffffff;
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 4px 12px rgba(255, 96, 60, 0.25);
+}
+
+/* =========================================
+   CTA ARROW
+========================================= */
+
+.arrow {
+  display: inline-block;
+
+  font-size: 15px;
+
+  transition: transform 0.25s ease;
+}
+
+.cta:hover .arrow {
+  transform: translate(2px, -2px);
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 760px) {
+  .header {
+    padding: 18px 14px;
+  }
+
+  .navbar {
+    gap: 18px;
+
+    padding-left: 17px;
+  }
+
+  .links {
+    gap: 15px;
+  }
+
+  .links a {
+    font-size: 11px;
+  }
+
+  .brand {
+    font-size: 13px;
+  }
+
+  .cta {
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 540px) {
+  .header {
+    padding: 14px 12px;
+  }
+
+  .navbar {
+    width: 100%;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    min-height: 54px;
+
+    padding: 6px 7px 6px 15px;
+  }
+
+  .brand {
+    font-size: 12px;
+  }
+
+  .links {
+    gap: 12px;
+  }
+
+  .links li:nth-child(n + 3) {
+    display: none;
+  }
+
+  .links a {
+    font-size: 10px;
+  }
+
+  .cta {
+    gap: 5px;
+
+    padding: 10px 11px;
+
+    font-size: 10px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+  .navbar {
+    gap: 7px;
+    padding-left: 11px;
+  }
+
+  .links {
+    gap: 9px;
+  }
+
+  .brand {
+    font-size: 11px;
+  }
+
+  .cta {
+    padding: 9px;
+    font-size: 9px;
+  }
+
+  .arrow {
+    font-size: 12px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .brand,
+  .links a,
+  .cta,
+  .arrow {
+    transition: none;
+  }
+}

@@ -10,7 +10,7 @@ export default function ServiceHero() {
     <section className={styles.hero} id="services">
       <div className={styles.heroTopbar}>
         <a className={styles.brand} href="/" aria-label="Go to homepage">
-          <PillLogo size={12} />
+          <PillLogo size={14} />
         </a>
         <p className={styles.heroRole}>{data.heroRole}</p>
         <a className={`${styles.followLink} ${styles.discoverLink}`} href={data.followLink.href}>

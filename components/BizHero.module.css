@@ -1,0 +1,434 @@
+
+/* =========================================
+   BIZ HERO
+========================================= */
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 120px 24px 100px;
+
+  overflow: hidden;
+
+  background: #f0efeb;
+}
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  animation: heroReveal 1s
+    cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* =========================================
+   EYEBROW
+========================================= */
+
+.eyebrow {
+  margin: 0 0 16px;
+
+  color: #111;
+
+  font-family: var(--font-body), sans-serif;
+
+  font-size: clamp(13px, 1.3vw, 18px);
+  font-weight: 700;
+
+  letter-spacing: -0.035em;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0;
+
+  font-family: var(--font-anton), Impact, sans-serif;
+
+  font-size: clamp(4.5rem, 11vw, 9.5rem);
+  font-weight: 700;
+
+  line-height: 0.87;
+  letter-spacing: -0.045em;
+
+  text-transform: none;
+
+  color: #111;
+}
+
+.headingGradient {
+  display: block;
+
+  background: linear-gradient(
+    180deg,
+    #515151 0%,
+    #a5a49f 100%
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  padding-bottom: 8px;
+}
+
+/* =========================================
+   BRAND BADGE
+========================================= */
+
+.badge {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 18px;
+
+  padding: 14px 34px;
+
+  border-radius: 50px;
+
+  background: linear-gradient(
+    145deg,
+    #414141,
+    #090909 75%
+  );
+
+  color: #fff;
+
+  font-family: var(--font-body), sans-serif;
+
+  font-size: 21px;
+  font-weight: 750;
+
+  letter-spacing: -0.035em;
+
+  transform: rotate(-3deg);
+
+  box-shadow:
+    0 12px 25px rgba(0, 0, 0, 0.16),
+    0 4px 8px rgba(0, 0, 0, 0.08);
+
+  user-select: none;
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.description {
+  width: 100%;
+  max-width: 590px;
+
+  margin: 32px 0 0;
+
+  color: #85837f;
+
+  font-family: var(--font-body), sans-serif;
+
+  font-size: clamp(14px, 1.3vw, 18px);
+  font-weight: 400;
+
+  line-height: 1.65;
+  letter-spacing: -0.02em;
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+  gap: 14px;
+
+  margin-top: 32px;
+}
+
+/* Primary Button */
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 4px 16px 4px 6px;
+
+  min-height: 52px;
+
+  border: 1px solid #111;
+  border-radius: 17px;
+
+  background: #101010;
+
+  color: #fff;
+
+  font-family: var(--font-body), sans-serif;
+
+  font-size: 14px;
+  font-weight: 650;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.primaryIcon {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #ff603c;
+
+  color: #fff;
+
+  font-size: 22px;
+  line-height: 1;
+
+  transition: transform 0.25s ease;
+}
+
+.primaryButton:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.primaryButton:hover .primaryIcon {
+  transform: translateX(3px);
+}
+
+/* Secondary Button */
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 4px 16px 4px 6px;
+
+  min-height: 52px;
+
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 17px;
+
+  background: #fafaf9;
+
+  color: #111;
+
+  font-family: var(--font-body), sans-serif;
+
+  font-size: 14px;
+  font-weight: 650;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.secondaryIcon {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #111;
+
+  color: #fff;
+
+  font-size: 22px;
+
+  transition: transform 0.25s ease;
+}
+
+.secondaryButton:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.secondaryButton:hover .secondaryIcon {
+  transform: translateY(3px);
+}
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: 680px;
+    padding: 90px 24px;
+  }
+
+  .heading {
+    font-size: clamp(5rem, 13vw, 8rem);
+  }
+
+  .description {
+    max-width: 550px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 620px;
+    padding: 90px 18px;
+  }
+
+  .eyebrow {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+
+  .heading {
+    font-size: clamp(3.8rem, 14vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+  }
+
+  .badge {
+    margin-top: 22px;
+
+    padding: 11px 27px;
+
+    font-size: 17px;
+  }
+
+  .description {
+    max-width: 450px;
+
+    margin-top: 28px;
+
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .actions {
+    width: 100%;
+    gap: 10px;
+
+    margin-top: 28px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    min-height: 58px;
+
+    gap: 9px;
+    padding-right: 13px;
+
+    font-size: 13px;
+
+    border-radius: 17px;
+  }
+
+  .primaryIcon,
+  .secondaryIcon {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .heading {
+    font-size: 3.35rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    justify-content: flex-start;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .content {
+    animation: none;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .primaryIcon,
+  .secondaryIcon {
+    transition: none;
+  }
+}

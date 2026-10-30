@@ -5,6 +5,7 @@ import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import PickUpButton from "./PickUpButton";
 import PillLogo from "./PillLogo";
+import LiquidButton from "./ui/LiquidButton";
 import { HERO_DATA } from "@/data/portfolio";
 
 export default function Hero() {
@@ -12,6 +13,10 @@ export default function Hero() {
 
   const handleContactClick = () => {
     router.push("/contact");
+  };
+
+  const handleBusinessClick = () => {
+    router.push("/business");
   };
 
   return (
@@ -101,8 +106,8 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="mt-8 sm:mt-10">
+          {/* CTA Buttons */}
+          <div className="mt-8 sm:mt-10 flex items-center gap-4">
             <a
               href={HERO_DATA.cta.href}
               className="group inline-flex items-center gap-4 rounded-full bg-white py-1.5 pl-6 pr-1.5 text-sm font-semibold text-black transition-all duration-300"
@@ -123,6 +128,10 @@ export default function Hero() {
                 <ArrowDown size={19} />
               </span>
             </a>
+
+            <LiquidButton onClick={handleBusinessClick}>
+              {HERO_DATA.businessCta.text}
+            </LiquidButton>
           </div>
 
           {/* Supporting Text */}

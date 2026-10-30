@@ -185,6 +185,24 @@ export const SERVICES_DATA: Service[] = [
     tags: ["Pandas", "SQL", "Dashboards"],
     tone: "green",
   },
+  {
+    number: "05",
+    category: "VIDEO / MARKETING",
+    title: "Promo Videos",
+    description:
+      "I Create Promo videos using AI for small businesses covering their offers, events and product promotion.",
+    tags: ["AI Video", "Marketing", "Content Creation"],
+    tone: "peach",
+  },
+  {
+    number: "06",
+    category: "SYSTEMS / MANAGEMENT",
+    title: "Management Systems",
+    description:
+      "web applications that replace manual records converting it into digital records for easier findings.",
+    tags: ["Web Apps", "Database", "Automation"],
+    tone: "blue",
+  },
 ];
 
 // Service Hero Wheel Data
