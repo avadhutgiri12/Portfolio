@@ -129,17 +129,75 @@
 
   white-space: nowrap;
 
+  padding: 8px 4px;
+
   transition:
     color 0.25s ease,
     opacity 0.25s ease;
+}
+
+/* Hover underline animation */
+.links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #ff603c;
+  border-radius: 1px;
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .links a:hover {
   color: #ffffff;
 }
 
+.links a:hover::after {
+  width: 100%;
+}
+
+/* Active state */
 .links a[aria-current="page"] {
-  color: #ff704f;
+  color: #ff603c;
+  font-weight: 600;
+}
+
+.links a[aria-current="page"]::after {
+  width: 100%;
+  background: #ff603c;
+}
+
+/* Active indicator dot */
+.links a[aria-current="page"]::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  width: 6px;
+  height: 6px;
+  background: #ff603c;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.links li:has(a[aria-current="page"]) {
+  position: relative;
+}
+
+.links li:has(a[aria-current="page"])::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: #ff603c;
+  border-radius: 1px;
+  transform: translateX(-50%);
 }
 
 /* =========================================
