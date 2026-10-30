@@ -3,7 +3,6 @@ import { Bebas_Neue, Lexend, Roboto } from "next/font/google";
 import "./globals.css";
 import "./loader.css";
 
-
 const bebasNeue = Bebas_Neue({
   variable: "--font-bebas-neue",
   weight: "400",
@@ -55,6 +54,12 @@ export const metadata: Metadata = {
   authors: [{ name: "Avadhut Giri", url: siteUrl }],
   creator: "Avadhut Giri",
   publisher: "Avadhut Giri",
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+    ]
+  },
   formatDetection: {
     email: false,
     address: false,
@@ -107,7 +112,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   // JSON-LD structured data for Person/Portfolio
   const structuredData = {
     "@context": "https://schema.org",
@@ -163,7 +167,11 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=assignment_ind,commit,linked_camera&display=block"
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -173,17 +181,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={`${bebasNeue.variable} ${xmind.variable} ${roboto.variable}`}>
+      <body
+        className={`${bebasNeue.variable} ${xmind.variable} ${roboto.variable}`}
+      >
         {/* Dark background */}
         <div className="relative bg-[#080808]">
-
-
           {/* Page content */}
-          <main className="relative min-h-svh z-10">
-            {children}
-          </main>
+          <main className="relative min-h-svh z-10">{children}</main>
         </div>
-
       </body>
     </html>
   );
