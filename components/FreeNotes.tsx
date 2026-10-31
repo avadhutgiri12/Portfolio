@@ -1,89 +1,111 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState } from "react";
 import BizCard from "./BizCard";
-import "./freeNotes.css";
-
-import { ArrowUpRight } from "lucide-react";
-
-const notesData = [
-  {
-    image: "/notes/python-notes.jpg",
-    title: "Python Programming",
-    description:
-      "A collection of Python programming concepts, examples and practical notes.",
-    category: "PROGRAMMING",
-    pages: 45,
-    fileType: "PDF",
-    downloadLink: "/notes/python-notes.pdf",
-  },
-  {
-    image: "/notes/machine-learning.jpg",
-    title: "Machine Learning",
-    description:
-      "Understand ML fundamentals, algorithms and essential implementation concepts.",
-    category: "MACHINE LEARNING",
-    pages: 38,
-    fileType: "PDF",
-    downloadLink: "/notes/machine-learning.pdf",
-  },
-  {
-    image: "/notes/web-development.jpg",
-    title: "Web Development",
-    description:
-      "Explore web development fundamentals, frontend concepts and useful examples.",
-    category: "WEB DEVELOPMENT",
-    pages: 32,
-    fileType: "PDF",
-    downloadLink: "/notes/web-development.pdf",
-  },
-];
+import styles from "./FreeNotes.module.css";
+import { NOTES } from "@/data/notesData";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const FreeNotes = () => {
-  return (
-    <section className="free-notes" id="free-notes">
+  const gridRef = useRef<HTMLDivElement>(null);
+  const [showPrev, setShowPrev] = useState(false);
+  const [showNext, setShowNext] = useState(true);
 
-      <div className="free-notes-container">
+  const scrollLeft = () => {
+    if (gridRef.current) {
+      const cardWidth = 340 + 22; // card width + gap
+      gridRef.current.scrollBy({ left: -cardWidth, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (gridRef.current) {
+      const cardWidth = 340 + 22; // card width + gap
+      gridRef.current.scrollBy({ left: cardWidth, behavior: "smooth" });
+    }
+  };
+
+  const handleScroll = () => {
+    if (gridRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = gridRef.current;
+      setShowPrev(scrollLeft > 10);
+      setShowNext(scrollLeft + clientWidth < scrollWidth - 10);
+    }
+  };
+
+  return (
+    <section className={styles.notes} id="free-notes">
+
+      <div className={styles.container}>
 
         {/* Header */}
-        <div className="free-notes-header">
+        <div className={styles.header}>
 
-          <span className="free-notes-label">
-            <span className="free-notes-dot" />
-            FREE NOTES
-          </span>
+          <div className={styles.labelRow}>
+            <span className={styles.label}>
+              <span className={styles.dot} />
+              FREE NOTES
+            </span>
 
-          <div className="free-notes-heading-row">
+            <div className={styles.headingRow}>
+              <h2>
+                Knowledge worth
+                <br />
+                <span>sharing.</span>
+              </h2>
 
-            <h2>
-              Knowledge worth
-              <br />
-              <span>sharing.</span>
-            </h2>
-
-            <p>
-              Useful notes, resources and learning materials
-              to help you explore, understand and build
-              something new.
-            </p>
-
+              <p>
+                Useful notes, resources and learning materials
+                to help you explore, understand and build
+                something new.
+              </p>
+            </div>
           </div>
+
+          {/* Carousel Navigation Buttons */}
+          <div className={styles.carouselNav}>
+            <button
+              className={styles.navButton}
+              onClick={scrollLeft}
+              disabled={!showPrev}
+              aria-label="Previous notes"
+            >
+              <ArrowLeft size={20} />
+            </button>
+            <button
+              className={styles.navButton}
+              onClick={scrollRight}
+              disabled={!showNext}
+              aria-label="Next notes"
+            >
+              <ArrowRight size={20} />
+            </button>
+          </div>
+
         </div>
 
-        {/* Notes Grid */}
-        <div className="free-notes-grid">
-
-          {notesData.map((note, index) => (
+        {/* Notes Carousel */}
+        <div
+          className={styles.grid}
+          ref={gridRef}
+          onScroll={handleScroll}
+        >
+          {NOTES.map((note) => (
             <BizCard
-              key={index}
-              {...note}
+              key={note.slug}
+              image={`/notes/${note.slug}.jpg`}
+              title={note.title}
+              description={note.description}
+              category={note.tag}
+              downloadLink={note.downloadUrl}
             />
           ))}
 
+          {/* Add a few duplicate cards for seamless loop feel (optional) */}
         </div>
 
         {/* Footer */}
-        <div className="free-notes-footer">
+        <div className={styles.footer}>
 
           <p>
             Learn something new.
@@ -91,13 +113,13 @@ const FreeNotes = () => {
           </p>
 
           <a
-            href="/notes"
-            className="free-notes-button"
+            href="/business/notes"
+            className={styles.button}
           >
             Explore all notes
 
             <span>
-              <ArrowUpRight size={17} />
+              <ArrowRight size={17} />
             </span>
           </a>
 

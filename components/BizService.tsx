@@ -1,65 +1,31 @@
 "use client";
 
 import React from "react";
-import "./bizService.css";
+import styles from "./BizService.module.css";
 
 import { ArrowUpRight } from "lucide-react";
-
-const services = [
-  {
-    number: "01",
-    title: "Web Apps",
-    description:
-      "Building modern, responsive web applications that solve real business problems.",
-    link: "#projects",
-    linkText: "Explore projects",
-  },
-  {
-    number: "02",
-    title: "Mobile Apps",
-    description:
-      "Creating intuitive mobile experiences designed for performance and usability.",
-    link: "#projects",
-    linkText: "Explore projects",
-  },
-  {
-    number: "03",
-    title: "Video Editing",
-    description:
-      "Transforming raw footage into engaging visual stories with creative direction.",
-    link: "#projects",
-    linkText: "Explore projects",
-  },
-  {
-    number: "04",
-    title: "UI/UX Design",
-    description:
-      "Designing clean, thoughtful interfaces focused on user experience and clarity.",
-    link: "#projects",
-    linkText: "Explore projects",
-  },
-];
+import { BIZ_SERVICES, type BizService as BizServiceType } from "@/data/Business";
 
 const BizService = () => {
   return (
-    <section className="biz-service" id="services">
-      <div className="biz-service-container">
+    <section className={styles.service} id="services">
+      <div className={styles.container}>
 
         {/* Section Header */}
-        <div className="biz-service-header">
-          <span className="biz-service-label">
-            <span className="biz-service-label-dot" />
+        <div className={styles.header}>
+          <span className={styles.label}>
+            <span className={styles.labelDot} />
             SERVICE
           </span>
 
-          <div className="biz-service-heading-wrap">
-            <h2 className="biz-service-heading">
+          <div className={styles.headingWrap}>
+            <h2 className={styles.heading}>
               What I can build
               <br />
               <span>for you.</span>
             </h2>
 
-            <p className="biz-service-subtitle">
+            <p className={styles.subtitle}>
               From ideas to impactful digital experiences.
               I build things that help businesses move forward.
             </p>
@@ -67,34 +33,34 @@ const BizService = () => {
         </div>
 
         {/* Service Cards */}
-        <div className="biz-service-grid">
-          {services.map((service) => (
+        <div className={styles.grid}>
+          {BIZ_SERVICES.map((service: BizServiceType) => (
             <article
-              className="biz-service-card"
+              className={styles.card}
               key={service.number}
             >
-              <div className="biz-service-card-top">
-                <span className="biz-service-number">
+              <div className={styles.cardTop}>
+                <span className={styles.number}>
                   / {service.number}
                 </span>
 
-                <span className="biz-service-card-icon">
+                <span className={styles.cardIcon}>
                   <ArrowUpRight size={19} strokeWidth={1.5} />
                 </span>
               </div>
 
-              <div className="biz-service-card-content">
+              <div className={styles.cardContent}>
                 <h3>{service.title}</h3>
 
                 <p>{service.description}</p>
               </div>
 
-              <div className="biz-service-card-bottom">
+              <div className={styles.cardBottom}>
                 <a
                   href={service.link}
-                  className="biz-service-proof"
+                  className={styles.proof}
                 >
-                  <span className="proof-line" />
+                  <span className={styles.proofLine} />
                   {service.linkText}
                   <ArrowUpRight size={14} />
                 </a>
@@ -104,15 +70,15 @@ const BizService = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="biz-service-footer">
+        <div className={styles.footer}>
           <p>
             Have something in mind?
-            <span> Let's build it together.</span>
+            <span> Let&apos;s build it together.</span>
           </p>
 
-          <a href="/business#services" className="biz-service-cta">
+          <a href="/business#services" className={styles.cta}>
             All services
-            <span className="biz-service-cta-icon">
+            <span className={styles.ctaIcon}>
               <ArrowUpRight size={17} />
             </span>
           </a>

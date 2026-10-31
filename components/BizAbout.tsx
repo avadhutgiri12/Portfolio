@@ -1,36 +1,6 @@
 import Image from "next/image";
 import styles from "./BizAbout.module.css";
-
-const techStack = [
-  {
-    number: "01",
-    title: "Frontend",
-    technologies: [
-      "NEXT.JS",
-      "REACT",
-      "TYPESCRIPT",
-      "TAILWIND CSS",
-    ],
-  },
-  {
-    number: "02",
-    title: "Backend & APIs",
-    technologies: [
-      "PYTHON",
-      "FASTAPI",
-      "REST APIs",
-    ],
-  },
-  {
-    number: "03",
-    title: "Database & Cloud",
-    technologies: [
-      "SUPABASE",
-      "FIREBASE",
-      "FIRESTORE",
-    ],
-  },
-];
+import { BIZ_ABOUT_TECH_STACK, type TechStackGroup } from "@/data/Business";
 
 export default function BizAbout() {
   return (
@@ -171,7 +141,7 @@ export default function BizAbout() {
 
           <div className={styles.techGrid}>
 
-            {techStack.map((group) => (
+            {BIZ_ABOUT_TECH_STACK.map((group: TechStackGroup) => (
               <div
                 key={group.number}
                 className={styles.techCard}

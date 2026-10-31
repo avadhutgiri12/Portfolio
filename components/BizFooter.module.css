@@ -1,0 +1,161 @@
+/* =========================================
+   BIZ FOOTER
+========================================= */
+
+.footer {
+  width: 100%;
+  padding: 32px 6%;
+
+  background: #f0efeb;
+  color: #111;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.container {
+  max-width: 1450px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+/* Left: Copyright */
+.left {
+  flex: 1;
+  min-width: 0;
+}
+
+.copyright {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: #777;
+  letter-spacing: -0.02em;
+}
+
+/* Center: Visitors */
+.center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+/* Right: Social Icons */
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+
+  color: #111;
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.socialLink:hover {
+  background: #111;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  .footer {
+    padding: 28px 5%;
+  }
+
+  .container {
+    gap: 24px;
+  }
+
+  .copyright {
+    font-size: 12px;
+  }
+
+  .socialLink {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 24px 5%;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .left,
+  .center,
+  .right {
+    flex: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .copyright {
+    font-size: 12px;
+  }
+
+  .socialIcons {
+    gap: 14px;
+  }
+
+  .socialLink {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .socialLink {
+    transition: none;
+  }
+
+  .socialLink:hover {
+    transform: none;
+  }
+}

@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { Download, FileText, ArrowUpRight } from "lucide-react";
-import "./bizCard.css";
+import { Download, FileText } from "lucide-react";
+import styles from "./BizCard.module.css";
 
 export interface BizCardProps {
   image: string;
@@ -24,40 +24,40 @@ const BizCard: React.FC<BizCardProps> = ({
   downloadLink,
 }) => {
   return (
-    <article className="biz-note-card">
+    <article className={styles.card}>
 
       {/* Cover Image */}
-      <div className="biz-note-image-wrapper">
+      <div className={styles.imageWrapper}>
         <img
           src={image}
           alt={title}
-          className="biz-note-image"
+          className={styles.image}
         />
 
-        <span className="biz-note-category">
+        <span className={styles.category}>
           {category}
         </span>
       </div>
 
       {/* Card Information */}
-      <div className="biz-note-content">
+      <div className={styles.content}>
 
-        <div className="biz-note-title-row">
+        <div className={styles.titleRow}>
           <h3>{title}</h3>
 
-          <span className="biz-note-file-icon">
+          <span className={styles.fileIcon}>
             <FileText size={17} />
           </span>
         </div>
 
-        <p className="biz-note-description">
+        <p className={styles.description}>
           {description}
         </p>
 
         {/* Card Footer */}
-        <div className="biz-note-footer">
+        <div className={styles.footer}>
 
-          <div className="biz-note-stats">
+          <div className={styles.stats}>
 
             <span>
               <FileText size={15} />
@@ -75,7 +75,7 @@ const BizCard: React.FC<BizCardProps> = ({
           <a
             href={downloadLink}
             download
-            className="biz-note-download"
+            className={styles.download}
             aria-label={`Download ${title}`}
           >
             <Download size={16} />
