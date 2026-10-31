@@ -1,6 +1,8 @@
 "use client";
 
 import Visitors from "./Visitors";
+import { socialLinks } from "@/data/portfolio";
+import styles from "./BizFooter.module.css";
 
 // Custom GitHub icon (official brand icon)
 const GitHubIcon = ({ size = 24, color = "currentColor", className: _className, ...props }: { size?: number; color?: string; className?: string }) => (
@@ -53,19 +55,11 @@ const InstagramIcon = ({ size = 24, color = "currentColor", className: _classNam
   </svg>
 );
 
-import styles from "./BizFooter.module.css";
-
 const iconMap: Record<string, React.ComponentType<{ size?: number; color?: string; className?: string }>> = {
   github: GitHubIcon,
   linkedin: LinkedInIcon,
   instagram: InstagramIcon,
 };
-
-const socialLinks = [
-  { key: "github", url: "https://github.com/avadhutgiri12", name: "GitHub", color: "#fff" },
-  { key: "instagram", url: "https://instagram.com/techie.addy", name: "Instagram", color: "#fff" },
-  { key: "linkedin", url: "https://linkedin.com/in/avadhutgiri12", name: "LinkedIn", color: "#fff" },
-];
 
 export default function BizFooter() {
   return (
@@ -87,18 +81,18 @@ export default function BizFooter() {
         {/* Right: Social Icons */}
         <div className={styles.right}>
           <div className={styles.socialIcons} aria-label="Social links">
-            {socialLinks.map(({ key, url, name, color }) => {
+            {Object.entries(socialLinks).map(([key, link]) => {
               const IconComponent = iconMap[key];
               if (!IconComponent) return null;
               return (
                 <a
-                  key={name}
-                  href={url}
+                  key={link.name}
+                  href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={name}
+                  aria-label={link.name}
                   className={styles.socialLink}
-                  style={{ color }}
+                  style={{ color: link.color }}
                 >
                   <IconComponent size={20} />
                 </a>

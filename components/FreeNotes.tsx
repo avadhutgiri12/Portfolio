@@ -13,14 +13,14 @@ const FreeNotes = () => {
 
   const scrollLeft = () => {
     if (gridRef.current) {
-      const cardWidth = 340 + 22; // card width + gap
+      const cardWidth = 300 + 22; // card width + gap
       gridRef.current.scrollBy({ left: -cardWidth, behavior: "smooth" });
     }
   };
 
   const scrollRight = () => {
     if (gridRef.current) {
-      const cardWidth = 340 + 22; // card width + gap
+      const cardWidth = 300 + 22; // card width + gap
       gridRef.current.scrollBy({ left: cardWidth, behavior: "smooth" });
     }
   };
@@ -43,7 +43,7 @@ const FreeNotes = () => {
 
           <div className={styles.labelRow}>
             <span className={styles.label}>
-              <span className={styles.dot} />
+              <span className={styles.labelDot} />
               FREE NOTES
             </span>
 
@@ -62,26 +62,26 @@ const FreeNotes = () => {
             </div>
           </div>
 
-          {/* Carousel Navigation Buttons */}
-          <div className={styles.carouselNav}>
-            <button
-              className={styles.navButton}
-              onClick={scrollLeft}
-              disabled={!showPrev}
-              aria-label="Previous notes"
-            >
-              <ArrowLeft size={20} />
-            </button>
-            <button
-              className={styles.navButton}
-              onClick={scrollRight}
-              disabled={!showNext}
-              aria-label="Next notes"
-            >
-              <ArrowRight size={20} />
-            </button>
-          </div>
+        </div>
 
+        {/* Carousel Navigation Buttons - moved between heading and grid */}
+        <div className={styles.carouselNav}>
+          <button
+            className={styles.navButton}
+            onClick={scrollLeft}
+            disabled={!showPrev}
+            aria-label="Previous notes"
+          >
+            <ArrowLeft size={20} />
+          </button>
+          <button
+            className={styles.navButton}
+            onClick={scrollRight}
+            disabled={!showNext}
+            aria-label="Next notes"
+          >
+            <ArrowRight size={20} />
+          </button>
         </div>
 
         {/* Notes Carousel */}

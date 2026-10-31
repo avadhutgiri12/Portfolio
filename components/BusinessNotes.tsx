@@ -1,38 +1,11 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React from "react";
 import BizCard from "./BizCard";
-import styles from "./FreeNotes.module.css";
+import styles from "./BusinessNotes.module.css";
 import { NOTES } from "@/data/notesData";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const BusinessNotes = () => {
-  const gridRef = useRef<HTMLDivElement>(null);
-  const [showPrev, setShowPrev] = useState(false);
-  const [showNext, setShowNext] = useState(true);
-
-  const scrollLeft = () => {
-    if (gridRef.current) {
-      const cardWidth = 340 + 22; // card width + gap
-      gridRef.current.scrollBy({ left: -cardWidth, behavior: "smooth" });
-    }
-  };
-
-  const scrollRight = () => {
-    if (gridRef.current) {
-      const cardWidth = 340 + 22; // card width + gap
-      gridRef.current.scrollBy({ left: cardWidth, behavior: "smooth" });
-    }
-  };
-
-  const handleScroll = () => {
-    if (gridRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = gridRef.current;
-      setShowPrev(scrollLeft > 10);
-      setShowNext(scrollLeft + clientWidth < scrollWidth - 10);
-    }
-  };
-
   return (
     <section className={styles.notes} id="free-notes">
 
@@ -43,7 +16,7 @@ const BusinessNotes = () => {
 
           <div className={styles.labelRow}>
             <span className={styles.label}>
-              <span className={styles.dot} />
+              <span className={styles.labelDot} />
               FREE NOTES
             </span>
 
@@ -61,34 +34,10 @@ const BusinessNotes = () => {
             </div>
           </div>
 
-          {/* Carousel Navigation Buttons */}
-          <div className={styles.carouselNav}>
-            <button
-              className={styles.navButton}
-              onClick={scrollLeft}
-              disabled={!showPrev}
-              aria-label="Previous notes"
-            >
-              <ArrowLeft size={20} />
-            </button>
-            <button
-              className={styles.navButton}
-              onClick={scrollRight}
-              disabled={!showNext}
-              aria-label="Next notes"
-            >
-              <ArrowRight size={20} />
-            </button>
-          </div>
-
         </div>
 
-        {/* Notes Carousel */}
-        <div
-          className={styles.grid}
-          ref={gridRef}
-          onScroll={handleScroll}
-        >
+        {/* Notes Grid */}
+        <div className={styles.grid}>
           {NOTES.map((note) => (
             <BizCard
               key={note.slug}

@@ -3,8 +3,8 @@
 ========================================= */
 
 .card {
-  width: 340px; /* Fixed width - independent of parent grid */
-  flex: 0 0 340px; /* No shrink, no grow, fixed basis */
+  width: 300px; /* Fixed width - independent of parent grid */
+  flex: 0 0 300px; /* No shrink, no grow, fixed basis */
   padding: 12px;
   background: #fff;
   border: 1px solid #ededeb;
