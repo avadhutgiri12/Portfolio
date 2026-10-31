@@ -1,0 +1,372 @@
+/* ==============================
+   BIZ SERVICE SECTION
+================================ */
+
+.biz-service {
+  width: 100%;
+  padding: 130px 6%;
+  background: #f8f8f6;
+  color: #111;
+  overflow: hidden;
+}
+
+.biz-service-container {
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+/* ==============================
+   HEADER
+================================ */
+
+.biz-service-header {
+  margin-bottom: 65px;
+}
+
+.biz-service-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #777;
+  margin-bottom: 30px;
+}
+
+.biz-service-label-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff704f;
+}
+
+.biz-service-heading-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.biz-service-heading {
+  font-size: clamp(48px, 7vw, 100px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -5px;
+  margin: 0;
+}
+
+.biz-service-heading span {
+  color: #999;
+}
+
+.biz-service-subtitle {
+  max-width: 300px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #777;
+  margin: 0 0 8px;
+}
+
+/* ==============================
+   SERVICE GRID
+================================ */
+
+.biz-service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+/* ==============================
+   SERVICE CARD
+================================ */
+
+.biz-service-card {
+  position: relative;
+  min-height: 340px;
+  padding: 25px;
+  background: #fff;
+  border: 1px solid #eaeae7;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background 0.4s ease,
+    border-color 0.4s ease;
+
+  overflow: hidden;
+}
+
+.biz-service-card:hover {
+  transform: translateY(-8px);
+  background: #111;
+  border-color: #111;
+  color: #fff;
+}
+
+/* Card Top */
+
+.biz-service-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.biz-service-number {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #999;
+}
+
+.biz-service-card-icon {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #e8e8e8;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.4s ease;
+}
+
+.biz-service-card:hover .biz-service-card-icon {
+  background: #ff704f;
+  border-color: #ff704f;
+  color: #111;
+  transform: rotate(45deg);
+}
+
+/* Card Content */
+
+.biz-service-card-content {
+  margin-top: auto;
+  margin-bottom: 35px;
+}
+
+.biz-service-card-content h3 {
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 500;
+  letter-spacing: -1px;
+  margin: 0 0 14px;
+  transition: color 0.3s ease;
+}
+
+.biz-service-card-content p {
+  max-width: 260px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #888;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.biz-service-card:hover .biz-service-card-content p {
+  color: #aaa;
+}
+
+/* Card Bottom / Proof */
+
+.biz-service-card-bottom {
+  border-top: 1px solid #ededeb;
+  padding-top: 18px;
+  transition: border-color 0.3s ease;
+}
+
+.biz-service-card:hover .biz-service-card-bottom {
+  border-color: #333;
+}
+
+.biz-service-proof {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  font-size: 11px;
+  font-weight: 500;
+  color: #777;
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+}
+
+.biz-service-proof:hover {
+  color: #ff704f;
+}
+
+.proof-line {
+  width: 18px;
+  height: 1px;
+  background: #ff704f;
+}
+
+.biz-service-proof svg {
+  transition: transform 0.3s ease;
+}
+
+.biz-service-proof:hover svg {
+  transform: translate(3px, -3px);
+}
+
+.biz-service-card:hover .biz-service-proof {
+  color: #ddd;
+}
+
+/* ==============================
+   BOTTOM CTA
+================================ */
+
+.biz-service-footer {
+  margin-top: 65px;
+  padding-top: 25px;
+  border-top: 1px solid #e5e5e2;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.biz-service-footer p {
+  font-size: 14px;
+  color: #777;
+}
+
+.biz-service-footer p span {
+  color: #111;
+}
+
+/* CTA Button */
+
+.biz-service-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+
+  padding: 7px 8px 7px 22px;
+
+  background: #111;
+  color: #fff;
+
+  border-radius: 50px;
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.biz-service-cta:hover {
+  background: #ff603c;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.biz-service-cta-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #fff;
+  color: #111;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.3s ease;
+}
+
+.biz-service-cta:hover .biz-service-cta-icon {
+  transform: rotate(45deg);
+}
+
+/* ==============================
+   TABLET
+================================ */
+
+@media (max-width: 1024px) {
+  .biz-service {
+    padding: 100px 5%;
+  }
+
+  .biz-service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .biz-service-card {
+    min-height: 310px;
+  }
+
+  .biz-service-heading {
+    letter-spacing: -3px;
+  }
+}
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+  .biz-service {
+    padding: 80px 5%;
+  }
+
+  .biz-service-header {
+    margin-bottom: 40px;
+  }
+
+  .biz-service-label {
+    margin-bottom: 23px;
+  }
+
+  .biz-service-heading-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .biz-service-heading {
+    font-size: clamp(48px, 12vw, 68px);
+    letter-spacing: -3px;
+  }
+
+  .biz-service-subtitle {
+    font-size: 13px;
+    max-width: 320px;
+  }
+
+  .biz-service-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .biz-service-card {
+    min-height: 275px;
+    padding: 23px;
+  }
+
+  .biz-service-card-content h3 {
+    font-size: 27px;
+  }
+
+  .biz-service-footer {
+    margin-top: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .biz-service-footer p {
+    font-size: 13px;
+  }
+}

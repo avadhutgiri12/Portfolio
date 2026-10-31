@@ -131,7 +131,7 @@
 .imageFrame {
   position: relative;
 
-  width: min(100%, 440px);
+  width: min(100%, 540px);
   aspect-ratio: 1;
 
   display: flex;
@@ -149,21 +149,10 @@
     0 3px 10px rgba(0, 0, 0, 0.025);
 }
 
-.imageFrame::before {
-  content: "";
-
-  position: absolute;
-  inset: 8px;
-
-  border: 1px dashed rgba(0, 0, 0, 0.13);
-
-  border-radius: 2.5rem;
-}
-
 .imageCircle {
   position: relative;
 
-  width: 92%;
+  width: 95%;
   height: 92%;
 
   overflow: hidden;
@@ -180,91 +169,39 @@
 
 
 /* =========================================
-   NAME BADGE (inside image frame)
+   NAME ON FRAME BORDER
 ========================================= */
 
-.nameBadge {
+.frameName {
   position: absolute;
-
-  left: 50%;
-  bottom: 4%;
-
-  width: max-content;
-  max-width: 90%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 2px;
-
-  padding: 10px 18px;
-
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 50px;
-
-  background: rgba(255, 255, 255, 0.7);
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-
+  left: 30%;
+  bottom: -1;
+  margin-top: 10;
   transform: translateX(-50%);
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  pointer-events: none;
 }
 
-.name {
+.frameNameText {
   font-family: var(--font-body), sans-serif;
-
   font-size: 17px;
-  font-weight: 750;
-
+  /* font-weight: 750; */
   letter-spacing: -0.04em;
+  color: #777;
 }
 
-.role {
+.frameRole {
   font-family: var(--font-body), sans-serif;
-
   font-size: 9px;
   font-weight: 500;
-
+  margin-left: 15;
   color: #777;
-
   white-space: nowrap;
 }
-
-
-/* =========================================
-   AVAILABILITY
-========================================= */
-
-.availability {
-  display: flex;
-  align-items: center;
-
-  gap: 9px;
-
-  margin-top: 27px;
-
-  font-family: var(--font-body), sans-serif;
-
-  font-size: 12px;
-  font-weight: 500;
-
-  color: #555;
-}
-
-.statusDot {
-  width: 8px;
-  height: 8px;
-
-  border-radius: 50%;
-
-  background: #85c95b;
-
-  box-shadow: 0 0 0 4px rgba(133, 201, 91, 0.15);
-}
-
 
 /* =========================================
    PROFILE CONTENT
@@ -655,12 +592,12 @@
 
 @media (max-width: 380px) {
 
-  .role {
+  .frameRole {
     font-size: 8px;
   }
 
-  .nameBadge {
-    padding: 11px 16px;
+  .frameNameText {
+    font-size: 15px;
   }
 
   .techPill {

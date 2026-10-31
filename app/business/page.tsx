@@ -13,6 +13,8 @@ import {
 import BizHero from "@/components/BizHero";
 import BizNav from "@/components/BizNav";
 import BizAbout from "@/components/BizAbout";
+import BizService from "@/components/BizService";
+import FreeNotes from "@/components/FreeNotes";
 
 const anton = Anton({
   variable: "--font-anton",
@@ -42,6 +44,8 @@ export default function BusinessPage() {
    <BizNav />
    <BizHero />
    <BizAbout />
+   <BizService />
+   <FreeNotes />
    
    </>
   );

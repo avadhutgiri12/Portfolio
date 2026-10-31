@@ -78,7 +78,7 @@ export default function BizAbout() {
 
               <div className={styles.imageCircle}>
                 <Image
-                  src="/images/avadhut.jpg"
+                  src="/about-img.webp"
                   alt="Avadhut - Founder of techie.addy"
                   fill
                   priority
@@ -87,23 +87,19 @@ export default function BizAbout() {
                 />
               </div>
 
-              {/* NAME INSIDE FRAME */}
-              <div className={styles.nameBadge}>
-                <span className={styles.name}>
+              {/* NAME ON FRAME BORDER */}
+              <div className={styles.frameName}>
+                <span className={styles.frameNameText}>
                   Avadhut
                 </span>
-
-                <span className={styles.role}>
+                <span className={styles.frameRole}>
                   Websites, Web Apps & AI for Business
                 </span>
               </div>
 
             </div>
 
-            <div className={styles.availability}>
-              <span className={styles.statusDot} />
-              Available for new projects
-            </div>
+           
 
           </div>
 
