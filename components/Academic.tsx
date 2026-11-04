@@ -29,15 +29,15 @@ const education = [
     academicProjects: [
       {
         title: "StoreWay",
-        category: "WEB / SOFTWARE",
+        category: "Web / software",
       },
       {
         title: "House Price Prediction",
-        category: "MACHINE LEARNING",
+        category: "Machine learning",
       },
       {
         title: "Weather Forecasting",
-        category: "MACHINE LEARNING",
+        category: "Machine learning",
       },
     ],
 
@@ -229,12 +229,12 @@ export default function Academic() {
         <div className="mb-20">
 
           <div className="mb-8 flex items-center justify-between">
-            <span className="text-xs tracking-[0.25em] text-neutral-500">
-              ACADEMICS / 004
+            <span className="text-xs tracking-[0.01em] text-neutral-500">
+              Academics / 004
             </span>
 
-            <span className="text-xs tracking-[0.2em] text-neutral-700">
-              EDUCATION
+            <span className="text-xs tracking-[0.01em] text-neutral-700">
+              Education
             </span>
           </div>
 
@@ -258,13 +258,13 @@ export default function Academic() {
 
           <div className="mb-10 flex items-center justify-between border-b border-white/10 pb-5">
 
-            <span className="text-xs tracking-[0.2em] text-neutral-600">
+            <span className="text-xs tracking-[0.01em] text-neutral-600">
               EDUCATION {String(activeIndex + 1).padStart(2, "0")}
               {" / "}
               {String(education.length).padStart(2, "0")}
             </span>
 
-            <span className="text-xs tracking-[0.2em] text-neutral-600">
+            <span className="text-xs tracking-[0.01em] text-neutral-600">
               {activeEducation.period}
             </span>
 
@@ -276,7 +276,7 @@ export default function Academic() {
 
           <div
             className={`
-              transition-all
+              transition-[color,background-color,border-color,opacity,transform]
               duration-500
               ease-out
               ${
@@ -300,8 +300,8 @@ export default function Academic() {
                     className="text-emerald-400"
                   />
 
-                  <span className="text-xs tracking-[0.2em] text-neutral-500">
-                    EDUCATION
+                  <span className="text-xs tracking-[0.01em] text-neutral-500">
+                    Education
                   </span>
 
                 </div>
@@ -347,8 +347,8 @@ export default function Academic() {
 
                 <div className="mt-12 grid gap-5 border-t border-white/10 pt-7 lg:grid-cols-[180px_1fr]">
 
-                  <span className="text-xs tracking-[0.2em] text-neutral-600">
-                    FOCUS AREAS
+                  <span className="text-xs tracking-[0.01em] text-neutral-600">
+                    Focus areas
                   </span>
 
                   <div className="flex flex-wrap gap-x-8 gap-y-3">
@@ -360,7 +360,7 @@ export default function Academic() {
                           className="group flex items-center gap-2"
                         >
 
-                          <span className="text-[9px] text-neutral-700">
+                          <span className="text-xs text-neutral-700">
                             {String(index + 1).padStart(2, "0")}
                           </span>
 
@@ -382,8 +382,8 @@ export default function Academic() {
 
                 <div className="mt-7 grid gap-5 border-t border-white/10 pt-7 lg:grid-cols-[180px_1fr]">
 
-                  <span className="text-xs tracking-[0.2em] text-neutral-600">
-                    PROJECTS
+                  <span className="text-xs tracking-[0.01em] text-neutral-600">
+                    Projects
                   </span>
 
                   <div className="flex flex-wrap gap-x-8 gap-y-3">
@@ -395,7 +395,7 @@ export default function Academic() {
                           className="group flex items-center gap-3"
                         >
 
-                          <span className="text-[9px] text-neutral-700">
+                          <span className="text-xs text-neutral-700">
                             {String(index + 1).padStart(2, "0")}
                           </span>
 
@@ -403,7 +403,7 @@ export default function Academic() {
                             {project.title}
                           </span>
 
-                          <span className="text-[9px] tracking-[0.15em] text-neutral-700">
+                          <span className="text-xs tracking-[0.01em] text-neutral-700">
                             {project.category}
                           </span>
 
@@ -421,8 +421,8 @@ export default function Academic() {
 
                 <div className="mt-7 grid gap-5 border-t border-white/10 pt-7 lg:grid-cols-[180px_1fr]">
 
-                  <span className="text-xs tracking-[0.2em] text-neutral-600">
-                    DEVELOPMENT
+                  <span className="text-xs tracking-[0.01em] text-neutral-600">
+                    Development
                   </span>
 
                   <div className="flex flex-wrap gap-x-8 gap-y-3">
@@ -434,7 +434,7 @@ export default function Academic() {
                           className="group flex items-center gap-2"
                         >
 
-                          <span className="text-[9px] text-neutral-700">
+                          <span className="text-xs text-neutral-700">
                             {String(index + 1).padStart(2, "0")}
                           </span>
 
@@ -456,8 +456,8 @@ export default function Academic() {
 
                 <div className="mt-7 grid gap-5 border-t border-white/10 pt-7 lg:grid-cols-[180px_1fr]">
 
-                  <span className="text-xs tracking-[0.2em] text-neutral-600">
-                    CERTIFICATIONS
+                  <span className="text-xs tracking-[0.01em] text-neutral-600">
+                    Certifications
                   </span>
 
                   <div className="space-y-3">
@@ -482,7 +482,7 @@ export default function Academic() {
 
                           <div className="flex items-center gap-3">
 
-                            <span className="text-[9px] text-neutral-700">
+                            <span className="text-xs text-neutral-700">
                               {String(index + 1).padStart(2, "0")}
                             </span>
 
@@ -492,7 +492,7 @@ export default function Academic() {
                                 {certificate.name}
                               </p>
 
-                              <p className="mt-1 text-[10px] tracking-[0.15em] text-neutral-700">
+                              <p className="mt-1 text-xs tracking-[0.01em] text-neutral-700">
                                 {certificate.issuer} ·{" "}
                                 {certificate.year}
                               </p>
@@ -511,15 +511,15 @@ export default function Academic() {
                               w-fit
                               items-center
                               gap-2
-                              text-[10px]
-                              tracking-[0.15em]
+                              text-xs
+                              tracking-[0.01em]
                               text-neutral-500
                               transition-colors
                               duration-300
                               hover:text-emerald-400
                             "
                           >
-                            DOWNLOAD
+                            Download
                             <ArrowDownToLine
                               size={14}
                               strokeWidth={1.5}
@@ -558,7 +558,7 @@ export default function Academic() {
                   aria-label={`Show education ${index + 1}`}
                   className={`
                     h-[2px]
-                    transition-all
+                    transition-[width,background-color]
                     duration-500
                     ${
                       activeIndex === index
@@ -573,10 +573,10 @@ export default function Academic() {
 
             {/* Current Education */}
 
-            <span className="hidden text-[10px] tracking-[0.2em] text-neutral-700 sm:block">
+            <span className="hidden text-xs tracking-[0.01em] text-neutral-700 sm:block">
               {isPaused
-                ? "PAUSED"
-                : "AUTO ROTATING · 3 SEC"}
+                ? "Paused"
+                : "Auto rotating · 3 sec"}
             </span>
 
           </div>

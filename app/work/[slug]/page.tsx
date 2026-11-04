@@ -148,7 +148,7 @@ export default async function WorkCaseStudy({ params }: PageProps) {
                 href={project.liveSiteUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-full border border-transparent bg-[#fd4b16] px-6 py-3 text-white transition-all duration-200 hover:-translate-y-0.5"
+                className="flex items-center gap-2 rounded-full border border-transparent bg-[#fd4b16] px-6 py-3 text-white transition-[color,background-color,border-color,opacity,transform] duration-200 hover:-translate-y-0.5"
               >
                 Visit Live
                 <ArrowUpRight size={20} />
@@ -160,7 +160,7 @@ export default async function WorkCaseStudy({ params }: PageProps) {
                 href={project.repositoryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-full border border-transparent bg-white px-6 py-3 text-black transition-all duration-200"
+                className="flex items-center gap-2 rounded-full border border-transparent bg-white px-6 py-3 text-black transition-[color,background-color,border-color,opacity,transform] duration-200"
               >
                 Code
                 <ArrowUpRight size={20} />
@@ -184,7 +184,7 @@ export default async function WorkCaseStudy({ params }: PageProps) {
                 <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
                 <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
               </div>
-              <div className="ml-3 truncate font-mono text-[9px] tracking-[0.15em] text-[#817967] sm:text-[10px]">
+              <div className="ml-3 truncate font-mono text-xs tracking-[0.01em] text-[#817967] ">
                 WWW.{project.title.toUpperCase().replace(/\s+/g, "")}.COM
               </div>
             </div>
@@ -214,7 +214,7 @@ export default async function WorkCaseStudy({ params }: PageProps) {
             </div>
 
             {/* Website Address */}
-            <div className="ml-3 truncate font-mono text-[9px] tracking-[0.15em] text-[#817967] sm:text-[10px]">
+            <div className="ml-3 truncate font-mono text-xs tracking-[0.01em] text-[#817967] ">
               WWW.{project.title.toUpperCase().replace(/\s+/g, "")}.COM
             </div>
           </div>

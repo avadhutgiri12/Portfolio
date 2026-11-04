@@ -184,9 +184,8 @@ export default function Navbar() {
                 items-center
                 justify-center
                 rounded-full
-                transition-all
+                transition-colors
                 duration-300
-                hover:scale-110
                 cursor-pointer
               "
             >
@@ -196,7 +195,7 @@ export default function Navbar() {
                   absolute
                   inset-0
                   rounded-full
-                  transition-all
+                  transition-[transform,opacity]
                   duration-500
                   ease-[cubic-bezier(0.22,1,0.36,1)]
                   ${isActive ? "scale-100 bg-white opacity-100" : "scale-50 bg-white opacity-0"}
@@ -210,7 +209,7 @@ export default function Navbar() {
                 className={`
                   relative
                   z-10
-                  transition-all
+                  transition-colors
                   duration-300
                   ${isActive ? "text-[#151515]" : "text-white/80"}
                   hover:text-white
@@ -226,13 +225,12 @@ export default function Navbar() {
                 px-3
                 py-1
                 text-xs
-                font-mono
-                tracking-widest
+                tracking-[0.01em]
                 bg-white/90
                 text-[#151515]
                 rounded-full
                 opacity-0
-                transition-all
+                transition-[transform,opacity]
                 duration-300
                 pointer-events-none
                 whitespace-nowrap
@@ -303,7 +301,7 @@ export default function Navbar() {
                 items-center
                 justify-center
                 rounded-full
-                transition-all
+                transition-colors
                 duration-300
               "
             >
@@ -317,7 +315,7 @@ export default function Navbar() {
                   absolute
                   inset-0
                   rounded-full
-                  transition-all
+                  transition-[transform,opacity]
                   duration-500
                   ease-[cubic-bezier(0.22,1,0.36,1)]
                   ${
@@ -338,7 +336,7 @@ export default function Navbar() {
                 className={`
                   relative
                   z-10
-                  transition-all
+                  transition-colors
                   duration-300
                   ${
                     isActive

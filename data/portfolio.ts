@@ -71,15 +71,15 @@ export const SKILLS_DATA: Skill[] = [
 export const METRICS_DATA = [
   {
     num: "5+",
-    label: "YEARS OF INDUSTRY EXP",
+    label: "Years of industry exp",
   },
   {
     num: "42+",
-    label: "COMPLETED SHIPMENTS",
+    label: "Completed shipments",
   },
   {
     num: "28+",
-    label: "CLIENTS & VENTURES",
+    label: "Clients & ventures",
   },
 ];
 
@@ -144,30 +144,30 @@ export const HERO_DATA: HeroData = {
   intro: {
     name: "Avadhut Giri",
     title: "Developer & ML Enthusiast",
-    accentColor: "rgb(258, 190, 56)",
+    accentColor: "#ffbe38",
   },
 
   // Main headline
   headline: {
-    line1: "I BUILD DIGITAL",
-    line2: "EXPERIENCES",
-    line2Color: "rgb(258, 190, 56)",
-    line3: "THAT STAND OUT.",
+    line1: "I BUILD WEB APPS",
+    line2: "AND ML THAT",
+    line2Color: "#ffbe38",
+    line3: "ACTUALLY SHIP.",
   },
 
   // Status tags
   specialties: [
-    "WEB DEVELOPMENT",
-    "MACHINE LEARNING",
-    "CREATIVE DESIGN",
+    "Web development",
+    "Machine learning",
+    "Creative design",
   ],
 
   // CTA Button
   cta: {
     text: "Portfolio",
     href: "#about",
-    hoverBgColor: "rgb(258, 190, 56)",
-    iconBgColor: "rgb(258, 190, 56)",
+    hoverBgColor: "#ffbe38",
+    iconBgColor: "#ffbe38",
   },
 
   // Business CTA Button
@@ -177,7 +177,7 @@ export const HERO_DATA: HeroData = {
   },
 
   // Supporting text
-  description: "Turning ideas into interactive digital experiences through development, design, and intelligent technology.",
+  description: "CS student shipping full-stack apps and ML projects, like CareSight AI fall detection and the HomeWorth house-price model.",
 
   // Scroll indicator
   scrollIndicator: {
@@ -256,11 +256,11 @@ export const ABOUT_DATA: AboutData = {
     image: "/about-img.webp",
     alt: "Portrait of Avadhut Giri",
     caption: {
-      label: "COMPUTER SCIENCE",
+      label: "Computer science",
       name: "Avadhut Giri",
     },
     footer: {
-      figureLabel: "FIG. 001 — PROFILE",
+      figureLabel: "Fig. 01 — Profile",
       role: "Developer & ML Enthusiast",
     },
   },
@@ -303,8 +303,8 @@ introduction: {
     },
   ],
   skills: {
-    title: "SKILLS",
-    countLabel: "06 ITEMS",
+    title: "Skills",
+    countLabel: "6 items",
     technologies: [
       { name: "React", short: "Re", icon: SKILL_ICONS[0].icon, color: "#ffbe38" },
       { name: "Next.js", short: "N", icon: SKILL_ICONS[1].icon, color: "#ffbe38" },
@@ -315,7 +315,7 @@ introduction: {
     ],
   },
   focus: {
-    title: "MY FOCUS",
+    title: "My focus",
     icon: Globe,
     description: "Exploring the intersection of software engineering, intelligent systems, and creative problem-solving.",
     items: [
@@ -331,13 +331,13 @@ introduction: {
     icon: Sparkles,
     iconColor: "#ffbe38",
     headline: "Always learning.\nAlways building.",
-    subtext: "Turning curiosity into projects and ideas into reality.",
+    subtext: "Completed the IIT Guwahati Data Science course. Building freelance sites for small businesses.",
   },
   footer: {
-    copyright: "AVADHUT GIRI © 2026",
-    tagline: "DESIGN · DEVELOPMENT · INTELLIGENCE",
+    copyright: "Avadhut Giri © 2026",
+    tagline: "Design · Development · ML",
     backToTop: {
-      text: "BACK TO TOP",
+      text: "Back to top",
       hoverColor: "#ffbe38",
       buttonHoverColor: "#ffbe38",
     },
@@ -358,41 +358,41 @@ export const SERVICES_DATA: Service[] = [
   {
     id: "1",
     number: "01",
-    title: "WEB DEVELOPMENT",
+    title: "Web development",
     heading: "Web Development",
     description: "I create modern, responsive and high-performance websites with clean interfaces and smooth user experiences.",
-    tags: ["WEB DEVELOPMENT", "01"],
+    tags: ["Web development", "01"],
   },
   {
     id: "2",
     number: "02",
-    title: "FULL STACK DEVELOPMENT",
+    title: "Full stack development",
     heading: "Full Stack Development",
     description: "End-to-end development from database design to frontend deployment, building scalable full-stack applications.",
-    tags: ["FULL STACK", "02"],
+    tags: ["Full stack", "02"],
   },
   {
     id: "3",
     number: "03",
-    title: "MACHINE LEARNING",
+    title: "Machine learning",
     heading: "Machine Learning",
     description: "I build and train machine learning models using real-world datasets, feature engineering and model evaluation.",
-    tags: ["MACHINE LEARNING", "03"],
+    tags: ["Machine learning", "03"],
   },
   {
     id: "4",
     number: "04",
-    title: "INTELLIGENT SYSTEMS",
+    title: "Intelligent systems",
     heading: "Intelligent Systems",
     description: "I develop practical ML solutions and transform trained models into usable applications and intelligent systems.",
-    tags: ["INTELLIGENT SYSTEMS", "04"],
+    tags: ["Intelligent systems", "04"],
   },
   {
     id: "5",
     number: "05",
-    title: "DATA & DATABASE",
+    title: "Data & database",
     heading: "Data & Database",
     description: "I work with data processing, visualization and databases to turn raw information into useful insights.",
-    tags: ["DATA & DATABASE", "05"],
+    tags: ["Data & database", "05"],
   },
 ];

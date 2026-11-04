@@ -2,10 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import {
-  ArrowUpRight,
-  Sparkles,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { ABOUT_DATA } from "@/data/portfolio";
 
 export default function About() {
@@ -19,13 +16,12 @@ export default function About() {
 
         {/* Section label */}
         <div className="mb-10 flex items-center justify-between border-b border-black/10 pb-4">
-          <span className="font-mono text-[10px] tracking-[0.25em] text-neutral-500 sm:text-xs">
-            ABOUT / 001
+          <span className="text-[13px] tracking-[0.01em] text-neutral-500">
+            <span className="font-mono">01</span> / About
           </span>
 
-          <span className="flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.18em] text-neutral-500 sm:text-xs">
-            <span className="h-2 w-2 rounded-full bg-emerald-500" />
-            A LITTLE ABOUT ME
+          <span className="text-[13px] font-medium text-neutral-500">
+            A little about me
           </span>
         </div>
 
@@ -49,7 +45,7 @@ export default function About() {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
               {/* Image caption */}
-              <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between text-white sm:bottom-7 sm:left-7 sm:right-7">
+              <div className="absolute bottom-5 left-5 right-5 flex items-end text-white sm:bottom-7 sm:left-7 sm:right-7">
                 <div>
                   <p className="text-xs font-medium text-white/70">
                     {portrait.caption.label}
@@ -59,16 +55,12 @@ export default function About() {
                     {portrait.caption.name}
                   </h3>
                 </div>
-
-                <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-white/10 backdrop-blur-md">
-                  <Sparkles size={19} />
-                </div>
               </div>
             </div>
 
             {/* Image footer */}
             <div className="mt-4 flex items-center justify-between px-1">
-              <span className="font-mono text-[10px] tracking-[0.15em] text-neutral-500">
+              <span className="text-xs text-neutral-500">
                 {portrait.footer.figureLabel}
               </span>
 
@@ -83,7 +75,7 @@ export default function About() {
 
             {/* Heading */}
             <div className="flex items-center justify-between gap-4">
-              <h2 className="text-[clamp(4.5rem,9vw,7rem)] font-black leading-[0.85] tracking-[-0.085em] sm:text-[7rem] lg:text-[6rem] xl:text-[7rem]">
+              <h2 className="text-[clamp(4.5rem,9vw,7rem)] font-bold leading-[0.85] tracking-[-0.06em] sm:text-[7rem] lg:text-[6rem] xl:text-[7rem]">
                 {greeting.text}
               </h2>
 
@@ -109,12 +101,12 @@ export default function About() {
             {/* Areas of interest */}
             <div>
               <div className="mb-6 flex items-center justify-between">
-                <h3 className="text-xl font-extrabold tracking-tight sm:text-2xl">
-                  WHAT I DO
+                <h3 className="text-xl font-bold tracking-tight sm:text-2xl">
+                  What I do
                 </h3>
 
-                <span className="font-mono text-[10px] tracking-widest text-neutral-400">
-                  001 — 003
+                <span className="font-mono text-xs text-neutral-400">
+                  01–03
                 </span>
               </div>
 
@@ -125,9 +117,9 @@ export default function About() {
                   return (
                     <div
                       key={item.number}
-                      className="group flex items-center gap-4 border-b border-black/10 pb-5 transition-all duration-300 cursor-pointer"
+                      className="group flex items-center gap-4 border-b border-black/10 pb-5 transition-colors duration-300 cursor-pointer"
                     >
-                      <span className="font-mono text-[10px] text-neutral-400">
+                      <span className="font-mono text-xs text-neutral-400">
                         {item.number}
                       </span>
 
@@ -147,7 +139,7 @@ export default function About() {
 
                       <ArrowUpRight
                         size={18}
-                        className="shrink-0 text-neutral-400 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[#ffbe38]"
+                        className="shrink-0 text-neutral-400 transition-[transform,color] duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[#ffbe38]"
                       />
                     </div>
                   );
@@ -162,11 +154,11 @@ export default function About() {
             {/* Technology grid */}
             <div>
               <div className="mb-6 flex items-center justify-between">
-                <h3 className="text-2xl font-black tracking-tight">
+                <h3 className="text-2xl font-bold tracking-tight">
                   {skills.title}
                 </h3>
 
-                <span className="font-mono text-[10px] text-neutral-400">
+                <span className="text-xs text-neutral-400">
                   {skills.countLabel}
                 </span>
               </div>
@@ -178,12 +170,12 @@ export default function About() {
                     <div
                       key={tech.name}
                       title={tech.name}
-                      className="group flex aspect-square flex-col items-center justify-center rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer bg-[#252630] text-white"
+                      className="group flex aspect-square flex-col items-center justify-center rounded-2xl transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer bg-[#252630] text-white"
                     >
                       <div className="mb-2" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                         <SkillIcon size={32} color="#ffbe38" />
                       </div>
-                      <span className="mt-2 px-1 text-center text-[9px] font-medium opacity-75 sm:text-[10px]">
+                      <span className="mt-1 px-1 text-center text-xs leading-tight font-medium opacity-75">
                         {tech.name}
                       </span>
                     </div>
@@ -195,7 +187,7 @@ export default function About() {
             {/* Focus */}
             <div>
               <div className="mb-6 flex items-center justify-between">
-                <h3 className="text-2xl font-black tracking-tight">
+                <h3 className="text-2xl font-bold tracking-tight">
                   {focus.title}
                 </h3>
 
@@ -212,7 +204,7 @@ export default function About() {
                     key={item.label}
                     className="flex items-center gap-3 border-b border-black/10 pb-3"
                   >
-                    <span className="font-mono text-[10px]" style={{ color: "#ffbe38" }}>
+                    <span className="font-mono text-xs" style={{ color: "#ffbe38" }}>
                       {item.number}
                     </span>
 
@@ -247,11 +239,11 @@ export default function About() {
 
         {/* BOTTOM FOOTER */}
         <div className="mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-black/10 pt-5 sm:mt-20">
-          <span className="font-mono text-[10px] tracking-[0.18em] text-neutral-500">
+          <span className="text-xs text-neutral-500">
             {footer.copyright}
           </span>
 
-          <span className="hidden text-[10px] tracking-[0.2em] text-neutral-400 sm:block">
+          <span className="hidden text-xs text-neutral-400 sm:block">
             {footer.tagline}
           </span>
 
@@ -268,7 +260,7 @@ export default function About() {
             {footer.backToTop.text}
 
             <span
-              className="flex h-7 w-7 items-center justify-center rounded-full border border-black/10 transition-all"
+              className="flex h-7 w-7 items-center justify-center rounded-full border border-black/10 transition-colors"
               style={{ borderColor: "rgba(0,0,0,0.1)" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = footer.backToTop.buttonHoverColor;

@@ -86,7 +86,7 @@ export default function WorkCarousel() {
         <header className="wc-header">
           <div>
             <span className="wc-eyebrow">
-              SELECTED WORK / 003
+              02 / Selected work
             </span>
 
             <h2 className="wc-heading">
@@ -95,13 +95,13 @@ export default function WorkCarousel() {
             </h2>
 
             <p className="wc-description">
-              A collection of ideas turned into real-world
-              digital experiences.
+              Two projects built end to end: a fall-detection
+              system and a house-price model.
             </p>
           </div>
 
           <span className="wc-project-count">
-            {String(projects.length).padStart(2, "0")} PROJECTS
+            {projects.length} projects
           </span>
         </header>
 
@@ -169,11 +169,6 @@ export default function WorkCarousel() {
 
               <div className="wc-image-overlay" />
 
-              <span className="wc-image-number">
-                PROJECT{" "}
-                {String(activeIndex + 1).padStart(2, "0")}
-              </span>
-
               <span className="wc-image-status">
                 <span
                   className={`wc-status-dot ${
@@ -195,7 +190,7 @@ export default function WorkCarousel() {
               <div className="wc-details-top">
                 <div className="wc-details-heading">
                   <span className="wc-details-eyebrow">
-                    ABOUT THE PROJECT
+                    About the project
                   </span>
 
                   <h3 className="wc-details-title">
@@ -263,7 +258,7 @@ export default function WorkCarousel() {
         {projects.length > 1 && (
           <footer className="wc-footer">
             <span className="wc-footer-label">
-              EXPLORE MY WORK
+              Explore my work
             </span>
 
             <div className="wc-pagination">

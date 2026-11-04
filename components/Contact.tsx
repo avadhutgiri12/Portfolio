@@ -49,19 +49,19 @@ export default function Contact() {
       <div className="relative mx-auto max-w-7xl">
         {/* Section label */}
         <div className="mb-20 flex items-center justify-between">
-          <p className="font-mono text-[10px] tracking-[0.35em] text-emerald-400">
-            CONTACT / 004
+          <p className="font-mono text-xs tracking-[0.01em] text-emerald-400">
+            Contact / 004
           </p>
 
-          <p className="hidden font-mono text-[9px] tracking-[0.25em] text-neutral-700 md:block">
-            AVAILABLE FOR SELECTED PROJECTS
+          <p className="hidden font-mono text-xs tracking-[0.01em] text-neutral-700 md:block">
+            Available for selected projects
           </p>
         </div>
 
         {/* Main contact layout */}
         <div className="grid gap-20 lg:grid-cols-[1.05fr_1fr] lg:gap-24">
           {/* =================================================
-              LEFT — BIG TITLE
+              Left — big title
           ================================================= */}
 
           <div className="flex flex-col justify-between">
@@ -72,7 +72,6 @@ export default function Contact() {
                   font-serif
                   text-[4.5rem]
                   font-medium
-                  uppercase
                   leading-[0.82]
                   tracking-[-0.055em]
                   text-white
@@ -118,8 +117,8 @@ export default function Contact() {
 
                 <div className="h-px w-16 bg-white/10" />
 
-                <span className="font-mono text-[9px] tracking-[0.25em] text-neutral-700">
-                  SAY HELLO
+                <span className="font-mono text-xs tracking-[0.01em] text-neutral-700">
+                  Say hello
                 </span>
               </div>
             </div>
@@ -134,8 +133,8 @@ export default function Contact() {
                     className="text-neutral-600"
                   />
 
-                  <p className="font-mono text-[8px] tracking-[0.2em] text-neutral-600">
-                    EMAIL
+                  <p className="font-mono text-xs tracking-[0.01em] text-neutral-600">
+                    Email
                   </p>
                 </div>
 
@@ -162,8 +161,8 @@ export default function Contact() {
                     className="text-neutral-600"
                   />
 
-                  <p className="font-mono text-[8px] tracking-[0.2em] text-neutral-600">
-                    LOCATION
+                  <p className="font-mono text-xs tracking-[0.01em] text-neutral-600">
+                    Location
                   </p>
                 </div>
 
@@ -175,7 +174,7 @@ export default function Contact() {
           </div>
 
           {/* =================================================
-              RIGHT — FORM
+              Right — form
           ================================================= */}
 
           <div className="lg:pt-12">
@@ -187,9 +186,8 @@ export default function Contact() {
                   className="
                     block
                     font-mono
-                    text-[8px]
-                    uppercase
-                    tracking-[0.25em]
+                    text-xs
+                    tracking-[0.01em]
                     text-neutral-600
                     transition-colors
                     group-focus-within:text-emerald-400
@@ -223,9 +221,8 @@ export default function Contact() {
                     className="
                       block
                       font-mono
-                      text-[8px]
-                      uppercase
-                      tracking-[0.25em]
+                      text-xs
+                      tracking-[0.01em]
                       text-neutral-600
                       transition-colors
                       group-focus-within:text-emerald-400
@@ -257,9 +254,8 @@ export default function Contact() {
                     className="
                       block
                       font-mono
-                      text-[8px]
-                      uppercase
-                      tracking-[0.25em]
+                      text-xs
+                      tracking-[0.01em]
                       text-neutral-600
                       transition-colors
                       group-focus-within:text-emerald-400
@@ -293,9 +289,8 @@ export default function Contact() {
                   className="
                     block
                     font-mono
-                    text-[8px]
-                    uppercase
-                    tracking-[0.25em]
+                    text-xs
+                    tracking-[0.01em]
                     text-neutral-600
                     transition-colors
                     group-focus-within:text-emerald-400
@@ -338,7 +333,7 @@ export default function Contact() {
                     border
                     border-white/15
                     text-white
-                    transition-all
+                    transition-[color,background-color,border-color,opacity,transform]
                     duration-500
                     hover:border-emerald-400/60
                     hover:bg-emerald-400/[0.05]
@@ -363,8 +358,8 @@ export default function Contact() {
             {/* Social links */}
             <div className="mt-20 border-t border-white/10 pt-6">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[8px] tracking-[0.25em] text-neutral-700">
-                  ELSEWHERE
+                <span className="font-mono text-xs tracking-[0.01em] text-neutral-700">
+                  Elsewhere
                 </span>
 
                 <div className="flex items-center gap-5">
@@ -402,17 +397,17 @@ export default function Contact() {
         </div>
 
         {/* =================================================
-            FOOTER LINE
+            Footer line
         ================================================= */}
 
         <div className="mt-28 border-t border-white/10 pt-6">
           <div className="flex flex-col justify-between gap-3 md:flex-row">
-            <p className="font-mono text-[8px] tracking-[0.2em] text-neutral-700">
-              HAVE AN IDEA? LET&apos;S BUILD IT.
+            <p className="font-mono text-xs tracking-[0.01em] text-neutral-700">
+              Have an idea? Let&apos;s build it.
             </p>
 
-            <p className="font-mono text-[8px] tracking-[0.2em] text-neutral-700">
-              © 2026 AVADHUT GIRI
+            <p className="font-mono text-xs tracking-[0.01em] text-neutral-700">
+              © 2026 Avadhut Giri
             </p>
           </div>
         </div>

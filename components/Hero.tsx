@@ -62,7 +62,7 @@ export default function Hero() {
 
       {/* Main Hero Content */}
       <div className="relative z-10 flex h-full items-center">
-        <div className="w-full px-6 pb-8 pt-24 sm:px-12 lg:px-[9%]">
+        <div className="w-full px-6 pb-8 pt-24 sm:px-12 md:pl-28 lg:px-[9%]">
 
           {/* Intro Label */}
           <div className="mb-5 flex items-center gap-3 sm:mb-6">
@@ -110,7 +110,7 @@ export default function Hero() {
           <div className="mt-8 sm:mt-10 flex items-center gap-4">
             <a
               href={HERO_DATA.cta.href}
-              className="group inline-flex items-center gap-4 rounded-full bg-white py-1.5 pl-6 pr-1.5 text-sm font-semibold text-black transition-all duration-300"
+              className="group inline-flex items-center gap-4 rounded-full bg-white py-1.5 pl-6 pr-1.5 text-sm font-semibold text-black transition-colors duration-300"
               style={{ backgroundColor: "white" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = HERO_DATA.cta.hoverBgColor;
@@ -142,9 +142,9 @@ export default function Hero() {
       </div>
 
       {/* Bottom Scroll Indicator */}
-      <div className="absolute bottom-6 right-6 z-10 hidden items-center gap-3 text-[10px] uppercase tracking-[0.25em] text-white/60 sm:flex sm:right-10">
+      <div className="absolute bottom-6 right-6 z-10 hidden items-center gap-3 text-xs tracking-[0.01em] text-white/60 sm:flex sm:right-10">
         <span>{HERO_DATA.scrollIndicator.text}</span>
-        <span className="h-px w-10 bg-emerald-400/70" />
+        <span className="h-px w-10 bg-[#ffbe38]/70" />
       </div>
     </section>
   );

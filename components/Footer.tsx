@@ -108,7 +108,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.name}
-                className="flex h-9 w-9 items-center justify-center rounded-full transition-all duration-300 hover:border-white/20 hover:bg-white/10"
+                className="flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-300 hover:border-white/20 hover:bg-white/10"
                 style={{ color: link.color }}
               >
                 <IconComponent size={24} />

@@ -1,10 +1,10 @@
-/* The oruim.tech business side: paper, ink and one orange, the same look as
+/* The oruim.tech business side: paper, ink and one yellow, the same look as
    the episode-notes page so the two read as one brand. */
 
 .page {
   --paper: #f4f1ea;
   --ink: #111;
-  --accent: #ff4d1f;
+  --accent: #ffbe38;
   --soft: rgba(17, 17, 17, 0.62);
   min-height: 100svh;
   color: var(--ink);
@@ -44,8 +44,7 @@
   flex: none;
   font-family: var(--font-anton), Impact, sans-serif;
   font-size: 1.15rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
   background: var(--ink);
   color: var(--paper);
   padding: 5px 12px 4px;
@@ -69,8 +68,7 @@
   padding: 8px 12px;
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 12px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
   white-space: nowrap;
   color: var(--ink);
   text-decoration: none;
@@ -86,8 +84,7 @@
   border: 2px solid var(--ink);
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 12px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
   white-space: nowrap;
   color: var(--ink);
   text-decoration: none;
@@ -125,9 +122,7 @@
   color: var(--paper);
   font-family: var(--font-anton), Impact, sans-serif;
   font-size: 1.05rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  transform: rotate(-1.5deg);
+  letter-spacing: 0.01em;
 }
 .h1 {
   margin: 0;
@@ -165,8 +160,7 @@
   color: #fff;
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 13px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
   text-decoration: none;
   box-shadow: 4px 4px 0 var(--ink);
   transition: transform 0.15s, box-shadow 0.15s;
@@ -199,8 +193,7 @@
   margin: 0 0 10px;
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
   color: var(--accent);
 }
 .h2 {
@@ -260,8 +253,7 @@
   margin-top: auto;
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 12px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
   color: var(--accent);
 }
 
@@ -295,9 +287,8 @@
 }
 .followCard small {
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.01em;
   opacity: 0.7;
 }
 .followCard strong {
@@ -376,8 +367,7 @@
   justify-content: space-between;
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 12px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 .footer a {
   color: var(--ink);

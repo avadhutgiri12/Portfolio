@@ -73,7 +73,7 @@
   font-family: var(--font-body), sans-serif;
 
   font-size: 14px;
-  font-weight: 750;
+  font-weight: 700;
 
   letter-spacing: -0.04em;
 
@@ -139,7 +139,7 @@
 }
 
 .links a[aria-current="page"] {
-  color: #ff704f;
+  color: #ffbe38;
 }
 
 /* =========================================
@@ -179,13 +179,13 @@
 }
 
 .cta:hover {
-  background: #ff603c;
+  background: #ffbe38;
 
-  color: #ffffff;
+  color: #111111;
 
   transform: translateY(-1px);
 
-  box-shadow: 0 4px 12px rgba(255, 96, 60, 0.25);
+  box-shadow: 0 4px 12px rgba(255, 190, 56, 0.3);
 }
 
 /* =========================================
@@ -224,7 +224,7 @@
   }
 
   .links a {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .brand {
@@ -233,7 +233,7 @@
 
   .cta {
     padding: 10px 12px;
-    font-size: 11px;
+    font-size: 12px;
   }
 }
 
@@ -271,7 +271,7 @@
   }
 
   .links a {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .cta {
@@ -279,7 +279,7 @@
 
     padding: 10px 11px;
 
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 
@@ -298,12 +298,12 @@
   }
 
   .brand {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .cta {
     padding: 9px;
-    font-size: 9px;
+    font-size: 12px;
   }
 
   .arrow {

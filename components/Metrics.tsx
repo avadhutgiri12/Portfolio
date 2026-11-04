@@ -7,12 +7,12 @@ export default function Metrics() {
       <div className="mx-auto max-w-6xl">
 
         <div className="mb-16">
-          <p className="font-mono text-[10px] tracking-[0.3em] text-emerald-400">
-            05 / BENCHMARKS
+          <p className="text-[13px] text-[#ffbe38]">
+            <span className="font-mono">05</span> / Benchmarks
           </p>
 
-          <h2 className="mt-4 text-4xl font-black tracking-tight text-white md:text-6xl">
-            IMPACT & EXPERIENCE
+          <h2 className="mt-4 text-4xl font-bold tracking-tight text-white md:text-6xl">
+            Impact & experience
           </h2>
         </div>
 
@@ -23,11 +23,11 @@ export default function Metrics() {
               key={metric.label}
               className="px-6 py-10 md:px-10"
             >
-              <p className="text-6xl font-black tracking-tighter text-white">
+              <p className="text-6xl font-bold tracking-tight text-white">
                 {metric.num}
               </p>
 
-              <p className="mt-4 font-mono text-[10px] tracking-widest text-neutral-500">
+              <p className="mt-4 text-[13px] text-neutral-500">
                 {metric.label}
               </p>
             </div>
@@ -42,12 +42,12 @@ export default function Metrics() {
           </p>
 
           <div className="mt-6">
-            <p className="font-mono text-xs tracking-widest text-white">
-              STEVE JOBS
+            <p className="text-sm text-white">
+              Steve Jobs
             </p>
 
-            <p className="mt-1 font-mono text-[10px] tracking-widest text-neutral-600">
-              APPLE INC.
+            <p className="mt-1 text-xs text-neutral-600">
+              Apple Inc.
             </p>
           </div>
         </div>

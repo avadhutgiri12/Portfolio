@@ -25,7 +25,7 @@ const TOTAL_PROJECTS = 20;
 // Example:
 // {
 //   year: "2026",
-//   type: "INTERNSHIP",
+//   type: "Internship",
 //   title: "Machine Learning Intern",
 //   company: "Company Name",
 //   description: "Worked on machine learning models...",
@@ -36,7 +36,7 @@ const TOTAL_PROJECTS = 20;
 const pastWork = [
   {
     year: "2025",
-    type: "FREELANCE",
+    type: "Freelance",
     title: "Tech Head",
     company: "TEDx Assam University, Silchar",
     description:
@@ -47,7 +47,7 @@ const pastWork = [
 
   {
     year: "2025",
-    type: "WEB DEVELOPMENT",
+    type: "Web development",
     title: "Frontend Developer",
     company: "Your Company / Organization",
     description:
@@ -58,7 +58,7 @@ const pastWork = [
 
   {
     year: "2025",
-    type: "COLLEGE PROJECT",
+    type: "College project",
     title: "StoreWay",
     company: "Academic Project",
     description:
@@ -158,13 +158,13 @@ export default function Experience() {
       value: loading
         ? "—"
         : githubData.commits.toLocaleString(),
-      label: "GITHUB COMMITS",
+      label: "GitHub commits",
       icon: GitCommitHorizontal,
     },
 
     {
       value: `${TOTAL_PROJECTS}+`,
-      label: "PROJECTS",
+      label: "Projects",
       icon: Code2,
     },
 
@@ -172,7 +172,7 @@ export default function Experience() {
       value: loading
         ? "—"
         : githubData.repositories.toLocaleString(),
-      label: "REPOSITORIES",
+      label: "Repositories",
       icon: Code2,
     },
 
@@ -180,7 +180,7 @@ export default function Experience() {
       value: loading
         ? "—"
         : githubData.totalContributions.toLocaleString(),
-      label: "CONTRIBUTIONS",
+      label: "Contributions",
       icon: Star,
     },
   ];
@@ -249,13 +249,13 @@ export default function Experience() {
         <div className="mb-20">
 
           <div className="mb-6 flex items-center gap-4">
-            <span className="text-xs tracking-[0.3em] text-emerald-400">
-              EXPERIENCE
+            <span className="text-xs tracking-[0.01em] text-emerald-400">
+              Experience
             </span>
 
             <span className="h-px w-16 bg-white/15" />
 
-            <span className="text-xs tracking-[0.2em] text-neutral-600">
+            <span className="text-xs tracking-[0.01em] text-neutral-600">
               / 005
             </span>
           </div>
@@ -265,7 +265,6 @@ export default function Experience() {
               max-w-5xl
               text-5xl
               font-medium
-              uppercase
               leading-[0.9]
               tracking-[-0.04em]
               text-white
@@ -370,8 +369,8 @@ export default function Experience() {
                     absolute
                     bottom-6
                     left-6
-                    text-[10px]
-                    tracking-[0.25em]
+                    text-xs
+                    tracking-[0.01em]
                     text-neutral-600
                     md:bottom-8
                     md:left-8
@@ -390,7 +389,7 @@ export default function Experience() {
                     h-px
                     w-0
                     bg-emerald-400
-                    transition-all
+                    transition-[width]
                     duration-500
                     group-hover:w-full
                   "
@@ -427,23 +426,22 @@ export default function Experience() {
               <p
                 className="
                   mb-2
-                  text-[10px]
-                  tracking-[0.3em]
+                  text-xs
+                  tracking-[0.01em]
                   text-emerald-400
                 "
               >
-                GITHUB ACTIVITY
+                GitHub activity
               </p>
 
               <h3
                 className="
                   text-3xl
-                  uppercase
                   tracking-[-0.03em]
                   md:text-4xl
                 "
               >
-                CODE / EVERY DAY
+                Code / every day
               </h3>
 
             </div>
@@ -501,7 +499,7 @@ export default function Experience() {
                   Contribution activity
                 </span>
 
-                <p className="mt-1 text-[10px] text-neutral-700">
+                <p className="mt-1 text-xs text-neutral-700">
                   github.com/avadhutgiri12
                 </p>
               </div>
@@ -513,7 +511,7 @@ export default function Experience() {
                   flex
                   items-center
                   gap-2
-                  text-[9px]
+                  text-xs
                   text-neutral-600
                 "
               >
@@ -547,11 +545,11 @@ export default function Experience() {
                   items-center
                   justify-center
                   text-xs
-                  tracking-[0.15em]
+                  tracking-[0.01em]
                   text-neutral-600
                 "
               >
-                LOADING GITHUB ACTIVITY...
+                Loading GitHub activity...
               </div>
 
             ) : githubData.weeks.length > 0 ? (
@@ -588,7 +586,7 @@ export default function Experience() {
                                 h-[11px]
                                 w-[11px]
                                 rounded-[2px]
-                                transition-all
+                                transition-[color,background-color,border-color,opacity,transform]
                                 duration-200
                                 hover:scale-125
                                 hover:ring-1
@@ -648,7 +646,7 @@ export default function Experience() {
               "
             >
 
-              <span className="text-[10px] text-neutral-600">
+              <span className="text-xs text-neutral-600">
                 {loading
                   ? "Loading..."
                   : `${githubData.totalContributions.toLocaleString()} contributions`}
@@ -662,14 +660,14 @@ export default function Experience() {
                   flex
                   items-center
                   gap-2
-                  text-[10px]
-                  tracking-[0.15em]
+                  text-xs
+                  tracking-[0.01em]
                   text-neutral-500
                   transition-colors
                   hover:text-emerald-400
                 "
               >
-                VIEW GITHUB
+                View GitHub
 
                 <ArrowUpRight size={14} />
               </a>
@@ -692,12 +690,12 @@ export default function Experience() {
             <p
               className="
                 mb-3
-                text-[10px]
-                tracking-[0.3em]
+                text-xs
+                tracking-[0.01em]
                 text-emerald-400
               "
             >
-              PAST WORK
+              Past work
             </p>
 
             <div
@@ -717,7 +715,6 @@ export default function Experience() {
               <h3
                 className="
                   text-4xl
-                  uppercase
                   tracking-[-0.04em]
                   md:text-6xl
                 "
@@ -823,7 +820,7 @@ export default function Experience() {
                       <span
                         className="
                           text-sm
-                          tracking-[0.15em]
+                          tracking-[0.01em]
                           text-neutral-600
                         "
                       >
@@ -847,8 +844,8 @@ export default function Experience() {
 
                         <span
                           className="
-                            text-[9px]
-                            tracking-[0.25em]
+                            text-xs
+                            tracking-[0.01em]
                             text-emerald-400
                           "
                         >
@@ -857,7 +854,7 @@ export default function Experience() {
 
                         <span className="h-px w-6 bg-white/10" />
 
-                        <span className="text-[10px] text-neutral-600">
+                        <span className="text-xs text-neutral-600">
                           {work.company}
                         </span>
 
@@ -866,7 +863,6 @@ export default function Experience() {
                       <h4
                         className="
                           text-2xl
-                          uppercase
                           tracking-[-0.02em]
                           transition-colors
                           duration-300
@@ -903,8 +899,8 @@ export default function Experience() {
                                 border-white/10
                                 px-3
                                 py-1.5
-                                text-[9px]
-                                tracking-[0.12em]
+                                text-xs
+                                tracking-[0.01em]
                                 text-neutral-500
                                 transition-colors
                                 duration-300
@@ -941,14 +937,14 @@ export default function Experience() {
                             flex
                             items-center
                             gap-2
-                            text-[10px]
-                            tracking-[0.15em]
+                            text-xs
+                            tracking-[0.01em]
                             text-neutral-600
                             transition-colors
                             hover:text-emerald-400
                           "
                         >
-                          VIEW WORK
+                          View work
 
                           <ArrowUpRight size={14} />
                         </a>
@@ -993,7 +989,6 @@ export default function Experience() {
                 className="
                   h-2
                   w-2
-                  animate-pulse
                   rounded-full
                   bg-emerald-400
                 "
@@ -1001,12 +996,12 @@ export default function Experience() {
 
               <span
                 className="
-                  text-[10px]
-                  tracking-[0.25em]
+                  text-xs
+                  tracking-[0.01em]
                   text-emerald-400
                 "
               >
-                CURRENTLY
+                Currently
               </span>
 
             </div>
