@@ -147,8 +147,9 @@ export default function WorkCarousel() {
             </h2>
 
             <p className="wc-description">
-              Two projects built end to end: a fall-detection
-              system and a house-price model.
+              Three projects built end to end: a fall-detection
+              system, a house-price model and a library
+              management app.
             </p>
           </div>
 
@@ -310,6 +311,19 @@ export default function WorkCarousel() {
                     <ExternalLink size={15} />
                   </a>
                 )}
+
+                {!activeProject.liveSiteUrl &&
+                  activeProject.repositoryUrl && (
+                    <a
+                      href={activeProject.repositoryUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="wc-live-link"
+                    >
+                      View source on GitHub
+                      <ExternalLink size={15} />
+                    </a>
+                  )}
               </div>
             </div>
           </div>

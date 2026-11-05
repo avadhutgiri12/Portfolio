@@ -1,9 +1,15 @@
 "use client";
 
 import { SERVICES_DATA } from "@/data/portfolio";
+import { MARQUEE_COPIES, useMarqueeScroll } from "./useMarqueeScroll";
 import "./WhatIDo.css";
 
 export default function WhatIDo() {
+  const { scrollerRef, groupRef } = useMarqueeScroll<
+    HTMLDivElement,
+    HTMLDivElement
+  >();
+
   return (
     <section id="what-i-do" className="whatido-section">
       {/* Background */}
@@ -32,22 +38,27 @@ export default function WhatIDo() {
             </p>
 
             <span className="whatido-loop-label">
-              Five areas I work in
+              Six areas I work in
             </span>
           </div>
         </header>
 
-        {/* Animated service cards */}
+        {/* Service cards: auto-scrolling, and scrollable by hand */}
         <div
+          ref={scrollerRef}
           className="whatido-marquee"
-          aria-label="My services"
+          role="region"
+          aria-label="What I do. Scroll sideways or use the arrow keys."
+          tabIndex={0}
+          data-lenis-prevent-horizontal
         >
           <div className="whatido-track">
-            {[0, 1].map((group) => (
+            {Array.from({ length: MARQUEE_COPIES }, (_, group) => (
               <div
                 className="whatido-group"
                 key={group}
-                aria-hidden={group === 1}
+                ref={group === 0 ? groupRef : undefined}
+                aria-hidden={group > 0}
               >
                 {SERVICES_DATA.map((service) => (
                   <article
@@ -107,7 +118,7 @@ export default function WhatIDo() {
 
         {/* Footer */}
         <footer className="whatido-footer">
-          <span>Web, full stack, ML, data</span>
+          <span>Web, UI, full stack, ML, data</span>
 
           <span className="whatido-footer-right">
             Open to freelance and project work

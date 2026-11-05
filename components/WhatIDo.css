@@ -126,21 +126,42 @@
 
 .whatido-marquee {
     width: 100%;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     padding: 8px 0 22px;
     isolation: isolate;
+    /* the strip is a real scroller: hide the bar, keep native scrolling */
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    /* horizontal swipes move the strip, vertical swipes still scroll the page */
+    touch-action: pan-x pan-y;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.whatido-marquee::-webkit-scrollbar {
+    display: none;
+}
+
+.whatido-marquee.is-dragging {
+    cursor: grabbing;
+}
+
+.whatido-marquee.is-dragging .whatido-card {
+    pointer-events: none;
+}
+
+.whatido-marquee:focus-visible {
+    outline: 2px solid var(--whatido-accent);
+    outline-offset: 4px;
+    border-radius: 20px;
 }
 
 .whatido-track {
     display: flex;
     align-items: stretch;
     width: max-content;
-    animation: whatido-scroll 48s linear infinite;
-    will-change: transform;
-}
-
-.whatido-marquee:hover .whatido-track {
-    animation-play-state: paused;
 }
 
 .whatido-group {
@@ -164,7 +185,6 @@
     border-radius: 20px;
     background: var(--whatido-card-bg);
     color: var(--whatido-ink);
-    cursor: pointer;
 
     transition:
         border-color 250ms ease,
@@ -326,20 +346,6 @@
 }
 
 /* =========================================
-   INFINITE RIGHT-TO-LEFT LOOP
-========================================= */
-
-@keyframes whatido-scroll {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
-}
-
-/* =========================================
    FOOTER
 ========================================= */
 
@@ -430,10 +436,6 @@
         padding-top: 4px;
     }
 
-    .whatido-track {
-        animation-duration: 42s;
-    }
-
     .whatido-group {
         gap: 12px;
         padding-right: 12px;
@@ -491,10 +493,6 @@
 /* Respect accessibility preferences */
 
 @media (prefers-reduced-motion: reduce) {
-    .whatido-track {
-        animation: none;
-    }
-
     .whatido-card,
     .whatido-card-symbol,
     .whatido-footer-arrow {
