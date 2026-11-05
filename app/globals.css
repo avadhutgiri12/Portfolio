@@ -43,6 +43,10 @@ html {
 }
 
 body {
+  /* Named families for components that ask for a role, not a typeface.
+     Declared on body because next/font sets --font-xmind on <body>. */
+  --font-sans: var(--font-xmind), "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-sans);
   margin: 0;
   background: var(--background);
   color: var(--foreground);

@@ -9,7 +9,7 @@
   --k-grey: #d6d6d6;
   --k-ink: #0b0b0b;
   --k-dim: #8b8b8b;
-  font-family: var(--font-body);
+  font-family: var(--font-body, "Helvetica Neue", Arial, sans-serif);
   color: var(--k-white);
 }
 
@@ -68,7 +68,7 @@
 }
 .kin-h1 {
   margin: 10px 0 0;
-  font-family: var(--font-body);
+  font-family: var(--font-body, "Helvetica Neue", Arial, sans-serif);
   font-weight: 500;
   font-size: clamp(3.2rem, 13vw, 9rem);
   line-height: 0.92;
