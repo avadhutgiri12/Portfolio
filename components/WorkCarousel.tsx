@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import {
   ArrowUpRight,
@@ -10,11 +11,61 @@ import {
 import { PROJECT_DATA } from "@/data/ProjectData";
 import "./workCoursel.css";
 
+// WebGL card: client-only, its own chunk, fetched once the section is near.
+const ProjectCard3D = dynamic(() => import("./ProjectCard3D"), {
+  ssr: false,
+  loading: () => null,
+});
+
+/** 3D only on >=768px viewports without prefers-reduced-motion. */
+function useCan3D() {
+  const [can3D, setCan3D] = useState(false);
+
+  useEffect(() => {
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const widthQuery = window.matchMedia("(min-width: 768px)");
+    const update = () =>
+      setCan3D(!motionQuery.matches && widthQuery.matches);
+
+    update();
+    motionQuery.addEventListener("change", update);
+    widthQuery.addEventListener("change", update);
+    return () => {
+      motionQuery.removeEventListener("change", update);
+      widthQuery.removeEventListener("change", update);
+    };
+  }, []);
+
+  return can3D;
+}
+
 export default function WorkCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const router = useRouter();
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const can3D = useCan3D();
+  // hasEntered: mount the WebGL card the first time the section nears the
+  // viewport; inView: pause its render loop while it is scrolled away.
+  const [hasEntered, setHasEntered] = useState(false);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+        if (entry.isIntersecting) setHasEntered(true);
+      },
+      { rootMargin: "200px 0px" }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   const projects = PROJECT_DATA;
   const activeProject = projects[activeIndex];
@@ -75,6 +126,7 @@ export default function WorkCarousel() {
   return (
     <section
       id="work-carousel"
+      ref={sectionRef}
       className="wc-section"
       aria-label="Selected projects"
       onMouseEnter={handleMouseEnter}
@@ -153,34 +205,43 @@ export default function WorkCarousel() {
           {/* Right: Active project */}
           <div className="wc-project-content">
 
-            {/* Project image */}
-            <div
-              key={activeProject.id}
-              className="wc-image-wrapper"
-            >
-              <img
-                src={activeProject.image}
-                alt={`${activeProject.title} project preview`}
-                className="wc-project-image"
-                loading="lazy"
-                decoding="async"
-                draggable={false}
+            {/* Project image: WebGL card on desktop, flat card otherwise */}
+            {can3D && hasEntered ? (
+              <ProjectCard3D
+                projects={projects}
+                activeIndex={activeIndex}
+                onOpen={openCaseStudy}
+                active={inView}
               />
-
-              <div className="wc-image-overlay" />
-
-              <span className="wc-image-status">
-                <span
-                  className={`wc-status-dot ${
-                    activeProject.status === "Live"
-                      ? "wc-status-live"
-                      : ""
-                  }`}
+            ) : (
+              <div
+                key={activeProject.id}
+                className="wc-image-wrapper"
+              >
+                <img
+                  src={activeProject.image}
+                  alt={`${activeProject.title} project preview`}
+                  className="wc-project-image"
+                  loading="lazy"
+                  decoding="async"
+                  draggable={false}
                 />
 
-                {activeProject.status}
-              </span>
-            </div>
+                <div className="wc-image-overlay" />
+
+                <span className="wc-image-status">
+                  <span
+                    className={`wc-status-dot ${
+                      activeProject.status === "Live"
+                        ? "wc-status-live"
+                        : ""
+                    }`}
+                  />
+
+                  {activeProject.status}
+                </span>
+              </div>
+            )}
 
             {/* Project information */}
             <div
