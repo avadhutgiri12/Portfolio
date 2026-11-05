@@ -50,15 +50,12 @@ export default function KineticContact({
       <section className="kin kin-light" id="contact">
         <div className="kin-wrap kin-cta">
           <div className="kin-cta-copy">
-            <span className="kin-mark" aria-hidden>
-              {profile.logo.split("/")[0]}
-            </span>
             <h2>
               {lines[0]}
               <br />
               {lines[1]}
             </h2>
-            <p>I build the whole thing, from the first sketch to the live site. Tell me what you need.</p>
+            <p>I build sites for small businesses and full-stack or ML projects, from the first sketch to the live site. Tell me what you need.</p>
             <button className="kin-pill kin-pill-line" onClick={handleGetStarted}>
               Get started
               <span className="kin-dot" aria-hidden />
@@ -127,9 +124,9 @@ function KineticForm() {
   return (
     <form className="kin-form text-black" id="kin-form" onSubmit={onSubmit}>
       <h2>
-        <em>Let&rsquo;s build</em>
+        <em>Tell me about</em>
         <br />
-        something bold
+        your project
       </h2>
       <input name="name" required minLength={2} maxLength={80} autoComplete="name" placeholder="Your name" aria-label="Your name" />
       <input

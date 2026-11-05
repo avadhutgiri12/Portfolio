@@ -15,25 +15,24 @@ export default function WhatIDo() {
         <header className="whatido-header">
           <div>
             <p className="whatido-eyebrow">
-              WHAT I DO <span>/ 002</span>
+              03 <span>/ What I do</span>
             </p>
 
             <h2 className="whatido-title">
-              Building ideas
+              Websites, apps
               <br />
-              into <span>reality.</span>
+              and <span>ML models.</span>
             </h2>
           </div>
 
           <div className="whatido-intro">
             <p>
-              A collection of capabilities that combine technology,
-              creativity, and problem-solving.
+              Full-stack web work and machine learning, from the
+              dataset to the deployed app.
             </p>
 
             <span className="whatido-loop-label">
-              <span className="whatido-status-dot" />
-              FIVE CAPABILITIES · INFINITE LOOP
+              Five areas I work in
             </span>
           </div>
         </header>
@@ -58,7 +57,7 @@ export default function WhatIDo() {
                     {/* Card top */}
                     <div className="whatido-card-top">
                       <span className="whatido-card-label">
-                        CAPABILITY / {service.number}
+                        Capability {service.number}
                       </span>
 
                       <span className="whatido-card-symbol">
@@ -108,11 +107,10 @@ export default function WhatIDo() {
 
         {/* Footer */}
         <footer className="whatido-footer">
-          <span>DESIGN. ENGINEER. INNOVATE.</span>
+          <span>Web, full stack, ML, data</span>
 
           <span className="whatido-footer-right">
-            <span className="whatido-status-dot" />
-            ALWAYS MOVING FORWARD
+            Open to freelance and project work
           </span>
         </footer>
       </div>

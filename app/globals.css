@@ -247,20 +247,20 @@ body {
   }
 }
 .work-tab {
-  @apply flex items-center gap-3 px-4 py-3 rounded-lg border border-neutral-700/50 cursor-pointer transition-all duration-200;
+  @apply flex items-center gap-3 px-4 py-3 rounded-lg border border-neutral-700/50 cursor-pointer transition-colors duration-200;
 }
 
 
 .work-tab {
-  @apply flex items-center gap-3 px-4 py-3 rounded-lg border border-neutral-700/50 cursor-pointer transition-all duration-200;
+  @apply flex items-center gap-3 px-4 py-3 rounded-lg border border-neutral-700/50 cursor-pointer transition-colors duration-200;
 }
 
 .work-tab-n {
-  @apply font-mono text-[9px] tracking-[0.2em];
+  @apply font-mono text-xs;
 }
 
 .work-tab-t {
-  @apply font-mono text-[9px] tracking-[0.2em];
+  @apply text-xs tracking-[0.01em];
 }
 
 /* ================================
@@ -356,4 +356,24 @@ body {
     transparent 45%,
     rgba(24,20,15, 0.04) 100%
   );
+}
+
+/* ================================
+   CLEAR THE FIXED LEFT NAV DOCK (md+)
+   The dock sits at left:20px and is ~66px wide, so section content
+   starts at least 112px from the left edge on desktop.
+================================ */
+@media (min-width: 768px) {
+  #about {
+    padding-left: 112px;
+  }
+  #work-carousel.wc-section {
+    padding-left: 112px;
+  }
+  #what-i-do .whatido-container {
+    padding-left: 112px;
+  }
+  #contact .kin-wrap {
+    width: min(1040px, 100% - 224px);
+  }
 }

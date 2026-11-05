@@ -84,17 +84,7 @@
 .headingGradient {
   display: block;
 
-  background: linear-gradient(
-    180deg,
-    #515151 0%,
-    #a5a49f 100%
-  );
-
-  background-clip: text;
-  -webkit-background-clip: text;
-
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: #6f6e69;
 
   padding-bottom: 8px;
 }
@@ -112,30 +102,19 @@
 
   margin-top: 18px;
 
-  padding: 14px 34px;
+  padding: 8px 16px;
 
+  border: 1px solid rgba(17, 17, 17, 0.12);
   border-radius: 50px;
 
-  background: linear-gradient(
-    145deg,
-    #414141,
-    #090909 75%
-  );
+  background: transparent;
 
-  color: #fff;
+  color: #3d3c39;
 
   font-family: var(--font-body), sans-serif;
 
-  font-size: 21px;
-  font-weight: 750;
-
-  letter-spacing: -0.035em;
-
-  transform: rotate(-3deg);
-
-  box-shadow:
-    0 12px 25px rgba(0, 0, 0, 0.16),
-    0 4px 8px rgba(0, 0, 0, 0.08);
+  font-size: 14px;
+  font-weight: 500;
 
   user-select: none;
 }
@@ -217,9 +196,9 @@
 
   border-radius: 12px;
 
-  background: #ff603c;
+  background: #ffbe38;
 
-  color: #fff;
+  color: #111;
 
   font-size: 22px;
   line-height: 1;

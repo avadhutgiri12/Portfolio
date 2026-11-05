@@ -82,13 +82,13 @@ function SkillWheel({
     >
       <div className=" items-center justify-between gap-1">
         <span
-          className="font-mono text-[10px] tracking-[0.3em]"
+          className="font-mono text-xs tracking-[0.01em]"
           style={{ color: tint }}
         >
           {group.n}
         </span>
 
-        <span className="font-mono text-[10px] tracking-[0.2em] pl-2">
+        <span className="font-mono text-xs tracking-[0.01em] pl-2">
           {group.group}
         </span>
       </div>
@@ -178,7 +178,7 @@ function SkillWheel({
                   />
 
                   <span
-                    className="text-center font-medium tracking-tight text-white transition-all duration-500"
+                    className="text-center font-medium tracking-tight text-white transition-[font-size,color] duration-500"
                     style={{
                       fontSize:
                         distance === 0
@@ -290,8 +290,8 @@ export default function Skills() {
         {/* Header */}
         <div className="mb-16 mt-12 flex flex-col justify-between gap-8 md:mb-20 md:flex-row md:items-end">
           <div>
-            <p className="mb-6 font-mono text-[10px] tracking-[0.35em] text-emerald-400">
-              CAPABILITIES / 003
+            <p className="mb-6 font-mono text-xs tracking-[0.01em] text-emerald-400">
+              Capabilities / 003
             </p>
 
             <h2 className="text-6xl font-bold leading-[0.82] tracking-[-0.06em] text-white md:text-4xl lg:text-[6rem]">
@@ -302,8 +302,8 @@ export default function Skills() {
           </div>
 
           <div className="max-w-sm border-l border-white/10 pl-6">
-            <p className="font-mono text-[9px] uppercase tracking-[0.25em] text-neutral-600">
-              TECHNICAL STACK
+            <p className="font-mono text-xs tracking-[0.01em] text-neutral-600">
+              Technical stack
             </p>
 
             <p className="mt-4 text-sm leading-7 text-neutral-500">
