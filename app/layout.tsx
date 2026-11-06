@@ -10,9 +10,10 @@ const bebasNeue = Bebas_Neue({
 });
 
 // Xmind font for introduction text
+// Lexend ships as a variable font: loading the axis (no fixed weight) keeps
+// 400 everywhere it was used and adds the 500/600 the Services page needs.
 const xmind = Lexend({
   variable: "--font-xmind",
-  weight: "400",
   subsets: ["latin"],
 });
 
