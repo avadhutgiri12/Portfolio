@@ -11,11 +11,13 @@ import Overlays from "@/components/Overlays";
 // Import case study JSON files for howItWorks data
 import housePriceData from "@/case-studies/01-house-price-prediction-system.json";
 import fallDetectionData from "@/case-studies/02-fall-detection.json";
+import libraryHubData from "@/case-studies/03-libraryhub.json";
 
 // Map of project IDs to their corresponding JSON data
 const caseStudyMap: Record<string, any> = {
   "01": housePriceData,
   "02": fallDetectionData,
+  "03": libraryHubData,
 };
 
 type PageProps = {
@@ -162,7 +164,7 @@ export default async function WorkCaseStudy({ params }: PageProps) {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 rounded-full border border-transparent bg-white px-6 py-3 text-black transition-[color,background-color,border-color,opacity,transform] duration-200"
               >
-                Code
+                {project.liveSiteUrl ? "Code" : "View source on GitHub"}
                 <ArrowUpRight size={20} />
               </a>
             )}
@@ -185,13 +187,23 @@ export default async function WorkCaseStudy({ params }: PageProps) {
                 <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
               </div>
               <div className="ml-3 truncate font-mono text-xs tracking-[0.01em] text-[#817967] ">
-                WWW.{project.title.toUpperCase().replace(/\s+/g, "")}.COM
+                {project.liveSiteUrl
+                  ? `WWW.${project.title.toUpperCase().replace(/\s+/g, "")}.COM`
+                  : "Local demo, not deployed"}
               </div>
             </div>
             <div className="relative aspect-16/10 overflow-hidden bg-white sm:aspect-video">
-              <div className="flex h-full w-full items-center justify-center bg-neutral-900 text-neutral-400">
-                Project preview unavailable
-              </div>
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={`${project.title} screenshot`}
+                  className="h-full w-full object-cover object-top"
+                />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center bg-neutral-900 text-neutral-400">
+                  Project preview unavailable
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -215,7 +227,9 @@ export default async function WorkCaseStudy({ params }: PageProps) {
 
             {/* Website Address */}
             <div className="ml-3 truncate font-mono text-xs tracking-[0.01em] text-[#817967] ">
-              WWW.{project.title.toUpperCase().replace(/\s+/g, "")}.COM
+              {project.liveSiteUrl
+                ? `WWW.${project.title.toUpperCase().replace(/\s+/g, "")}.COM`
+                : "Local demo, not deployed"}
             </div>
           </div>
 
