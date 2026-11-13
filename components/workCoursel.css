@@ -646,6 +646,106 @@
 }
 
 /* =========================================
+   3D PROJECT CARD (ProjectCard3D, desktop only)
+========================================= */
+
+.wc-image-wrapper.wc-3d-card {
+    overflow: visible;
+    border-color: transparent;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+.wc-3d-card:focus-visible {
+    box-shadow: 0 0 0 2px var(--wc-accent);
+}
+
+/* flat image shows until the WebGL textures are ready */
+.wc-3d-card .wc-3d-placeholder {
+    border-radius: 18px;
+    transition: opacity 300ms ease;
+}
+
+.wc-3d-card.wc-3d-ready .wc-3d-placeholder {
+    opacity: 0;
+}
+
+.wc-3d-card:hover .wc-project-image {
+    transform: none;
+}
+
+.wc-3d-canvas {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.wc-3d-canvas canvas {
+    display: block;
+}
+
+/* front layer: same tilt as the image, translated toward the viewer */
+.wc-3d-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    transform-origin: 50% 50%;
+    will-change: transform;
+}
+
+.wc-3d-title {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+
+    color: #fff;
+    font-size: clamp(18px, 1.7vw, 24px);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+
+    animation: wc-content-enter 500ms ease both;
+}
+
+.wc-3d-open {
+    position: absolute;
+    right: 20px;
+    bottom: 66px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 9px 13px;
+
+    border: 1px solid var(--wc-accent);
+    border-radius: 30px;
+
+    background: var(--wc-accent);
+    color: #171717;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    opacity: 0;
+    transform: translateY(6px);
+
+    transition:
+        opacity 300ms ease,
+        transform 300ms ease;
+}
+
+.wc-3d-card:hover .wc-3d-open,
+.wc-3d-card:focus-visible .wc-3d-open {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
    TABLET
 ========================================= */
 

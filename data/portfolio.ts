@@ -395,4 +395,12 @@ export const SERVICES_DATA: Service[] = [
     description: "I work with data processing, visualization and databases to turn raw information into useful insights.",
     tags: ["Data & database", "05"],
   },
+  {
+    id: "6",
+    number: "06",
+    title: "User interface",
+    heading: "User Interface",
+    description: "I design and build clean, accessible interfaces in React, Next.js and Tailwind CSS, with clear layouts and readable type.",
+    tags: ["User interface", "06"],
+  },
 ];

@@ -147,4 +147,39 @@ export const PROJECT_DATA: Project[] = [
     repositoryUrl: "https://github.com/avadhutgiri12/fall-detection",
     status: "Live",
   },
+  {
+    id: "03",
+    num: "03",
+    title: "LibraryHub",
+    subtitle: "Library management system",
+    category: "Web application & admin dashboard",
+    sideText: "Keep a library catalogue in one place",
+    year: "2026",
+    role: "Front-End Developer",
+    tools: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "SheetJS",
+      "lucide-react",
+      "localStorage",
+    ],
+    image: "/images/libraryhub-dashboard.png",
+    description:
+      "A library management app built as a demo for a presentation. An admin signs in, sees the total book count on a dashboard, and adds, edits, views and deletes books from the catalogue. Books can also be bulk-imported from an Excel or CSV file. Everything is stored in the browser's localStorage, so it runs with no backend.",
+    impact:
+      "A working admin flow from sign-in to catalogue: search by title or author, filter by category and availability, and a bulk importer that reads messy spreadsheets. It works out which column is which from the headers and the data itself, then shows the mapping before anything is imported.",
+    tags: [
+      "Admin login with demo credentials",
+      "Add, edit, view and delete books",
+      "Search by title or author",
+      "Filter by category and availability",
+      "Excel / CSV bulk import",
+      "No backend (localStorage)",
+    ],
+    repositoryUrl:
+      "https://github.com/avadhutgiri12/library-management-system",
+    status: "Demo",
+  },
 ];
