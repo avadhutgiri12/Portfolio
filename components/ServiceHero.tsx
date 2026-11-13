@@ -1,54 +1,56 @@
+import Link from "next/link";
 import styles from "./service.module.css";
-import ServiceHeroWheel from "./ServiceHeroWheel";
+import ServiceDial from "./ServiceDial";
 import PillLogo from "./PillLogo";
-import { ArrowUpRight, ArrowDownRight, ArrowDown } from "lucide-react";
-import { SERVICE_HERO_DATA } from "@/data/serviceData";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { SERVICE_HERO_DATA, SERVICES_DATA } from "@/data/serviceData";
 
 export default function ServiceHero() {
   const data = SERVICE_HERO_DATA;
   return (
-    <section className={styles.hero} id="services">
+    <section className={styles.hero} id="services" aria-labelledby="services-heading">
       <div className={styles.heroTopbar}>
-        <a className={styles.brand} href="/" aria-label="Go to homepage">
+        <Link className={styles.brand} href="/" aria-label="Go to homepage">
           <PillLogo size={14} />
-        </a>
+        </Link>
         <p className={styles.heroRole}>{data.heroRole}</p>
-        <a className={`${styles.followLink} ${styles.discoverLink}`} href={data.followLink.href}>
-          {data.followLink.text} <span className={styles.emeraldArrow}><ArrowUpRight size={14} strokeWidth={2.5} /></span>
+        <a className={styles.inlineLink} href={data.followLink.href}>
+          {data.followLink.text}
+          <ArrowUpRight size={16} strokeWidth={1.75} aria-hidden="true" />
         </a>
       </div>
 
-      <div className={styles.heroMicroLeft}><span><ArrowUpRight size={14} strokeWidth={2.5} /></span> {data.heroMicroLeft.text}</div>
-      <div className={styles.heroMicroRight}>{data.heroMicroRight.line1}<br />{data.heroMicroRight.line2}</div>
-
       <div className={styles.heroMain}>
         <div className={styles.heroCopy}>
-          <p className={styles.eyebrow}><span className={styles.liveDot} /> {data.eyebrow.label} / {data.eyebrow.number}</p>
-          <h1>
-            {data.headline.line1}<br />
-            <span className={styles.headlineSecond}>digital <em>reality.</em></span>
+          <p className={styles.eyebrow}>{data.eyebrow}</p>
+          <h1 id="services-heading">
+            {data.headline.line1}
+            <br />
+            <span className={styles.headlineMuted}>{data.headline.line2}</span>
           </h1>
           <p className={styles.heroDescription}>{data.heroDescription}</p>
           <div className={styles.heroActions}>
-            <a className={styles.primaryButton} href={data.heroActions.primaryButton.href}>{data.heroActions.primaryButton.text} <span><ArrowDownRight size={16} strokeWidth={2.5} /></span></a>
-            <a className={styles.discoverLink} href={data.heroActions.secondaryButton.href}> {data.heroActions.secondaryButton.text} <span> <ArrowUpRight size={14} strokeWidth={2.5} /> </span> </a>
+            <a className={styles.primaryButton} href={data.heroActions.primaryButton.href}>
+              {data.heroActions.primaryButton.text}
+              <ArrowDown size={16} strokeWidth={1.75} aria-hidden="true" />
+            </a>
+            <a className={styles.inlineLink} href={data.heroActions.secondaryLink.href}>
+              {data.heroActions.secondaryLink.text}
+              <ArrowUpRight size={16} strokeWidth={1.75} aria-hidden="true" />
+            </a>
           </div>
         </div>
-        <div className={styles.heroWheelWrap}>
-          <ServiceHeroWheel />
-          <span className={styles.wheelCaption}>{data.wheelCaption.line1}<br />{data.wheelCaption.line2}</span>
+        <div className={styles.heroDialWrap}>
+          <ServiceDial
+            items={SERVICES_DATA.map((s) => ({ id: s.id, label: s.dialLabel, number: s.number, title: s.title }))}
+          />
+          <p className={styles.dialCaption}>{data.dialCaption}</p>
         </div>
       </div>
 
       <div className={styles.heroFooter}>
         <span>{data.heroFooter.left}</span>
-        <span className={styles.footerCenter}>{data.heroFooter.center}</span>
-        <a href={data.heroFooter.right.href} className={styles.discoverLink}>
-          {data.heroFooter.right.text}
-          <span>
-            <ArrowDown size={16} strokeWidth={2.5} />
-          </span>
-        </a>
+        <span>{data.heroFooter.right}</span>
       </div>
     </section>
   );

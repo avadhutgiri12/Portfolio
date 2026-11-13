@@ -1,58 +1,58 @@
-
+/* Pill button (homepage hero "Contact"). Solid fills only: white at rest,
+   a yellow #ffbe38 sweep on hover, ink text throughout. */
 .pickup-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 10em;
   height: 3em;
-  border-radius: 30em;
+  border-radius: 999px;
   font-size: 15px;
+  font-weight: 500;
   font-family: inherit;
-  border: none;
+  border: 1px solid rgba(23, 25, 22, 0.12);
   position: relative;
   overflow: hidden;
   z-index: 1;
   cursor: pointer;
   white-space: nowrap;
-
-  box-shadow:
-    6px 6px 12px #c5c5c5,
-    -6px -6px 12px #ffffff;
-
-  background: #e8e8e8;
-  color: #000;
-  transition: color 0.3s ease;
+  background: #ffffff;
+  color: #171916;
+  transition: transform 150ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .pickup-button::before {
   content: "";
   width: 0;
-  height: 3em;
-  border-radius: 30em;
+  height: 100%;
+  border-radius: 999px;
   position: absolute;
   top: 0;
   left: 0;
-
-  background-image: linear-gradient(
-    to right,
-    #0fd850 0%,
-    #f9f047 100%
-  );
-
-  transition: width 0.5s ease;
+  background: #ffbe38;
+  transition: width 300ms cubic-bezier(0.22, 1, 0.36, 1);
   display: block;
   z-index: -1;
 }
 
 .pickup-button:hover::before {
-  width: 14em;
+  width: 100%;
 }
 
+/* Yellow ring with a dark gap: visible on the dark hero photo and on white. */
 .pickup-button:focus-visible {
-  outline: 2px solid #0fd850;
-  outline-offset: 4px;
+  outline: 2px solid #ffbe38;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #171916;
 }
 
 .pickup-button:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pickup-button,
+  .pickup-button::before {
+    transition: none;
+  }
 }

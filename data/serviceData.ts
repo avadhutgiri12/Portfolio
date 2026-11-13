@@ -1,13 +1,16 @@
-// Centralized data for Services page and its components
-// Following the pattern of data/portfolio.ts
+// Centralized data for the Services page and its components.
+// Copy is built only from facts already on the site (portfolio.ts, KineticContact).
 
 export interface Service {
+  /** Stable anchor id for the card, used by the hero dial. */
+  id: string;
   number: string;
   category: string;
   title: string;
+  /** Short name shown on the hero dial. */
+  dialLabel: string;
   description: string;
   tags: string[];
-  tone: "peach" | "blue" | "lilac" | "green";
 }
 
 export interface ServiceHeroData {
@@ -16,17 +19,7 @@ export interface ServiceHeroData {
     text: string;
     href: string;
   };
-  heroMicroLeft: {
-    text: string;
-  };
-  heroMicroRight: {
-    line1: string;
-    line2: string;
-  };
-  eyebrow: {
-    label: string;
-    number: string;
-  };
+  eyebrow: string;
   headline: {
     line1: string;
     line2: string;
@@ -37,42 +30,20 @@ export interface ServiceHeroData {
       text: string;
       href: string;
     };
-    secondaryButton: {
+    secondaryLink: {
       text: string;
       href: string;
     };
   };
-  wheelCaption: {
-    line1: string;
-    line2: string;
-  };
+  dialCaption: string;
   heroFooter: {
     left: string;
-    center: string;
-    right: {
-      text: string;
-      href: string;
-    };
+    right: string;
   };
-}
-
-export interface ServiceWheelData {
-  outerOrbit: string[];
-  innerOrbit: string[];
-  core: {
-    smallText: string;
-    mainText: string;
-    coreArrow: string;
-  };
-  wheelPointer: string;
-  wheelNumber: string;
 }
 
 export interface ServiceSectionData {
-  eyebrow: {
-    label: string;
-    number: string;
-  };
+  eyebrow: string;
   heading: {
     line1: string;
     line2: string;
@@ -87,167 +58,115 @@ export interface ServiceSectionData {
   };
 }
 
-export interface ServiceContactData {
-  eyebrow: string;
-  heading: {
-    line1: string;
-    line2: string;
-  };
-  button: {
-    text: string;
-    href: string;
-  };
-}
-
 // Service Hero Data
 export const SERVICE_HERO_DATA: ServiceHeroData = {
-  heroRole: "Web Developer · Machine Learning",
+  heroRole: "Web developer · Machine learning",
   followLink: {
-    text: "LET'S CONNECT",
+    text: "Contact",
     href: "#contact",
   },
-  heroMicroLeft: {
-    text: "Scroll to explore",
-  },
-  heroMicroRight: {
-    line1: "THOUGHTFUL CODE",
-    line2: "MEANINGFUL PRODUCTS",
-  },
-  eyebrow: {
-    label: "SERVICES",
-    number: "001",
-  },
+  eyebrow: "Services",
   headline: {
-    line1: "Ideas into",
-    line2: "digital reality.",
+    line1: "Websites, ML models",
+    line2: "and promo videos",
   },
   heroDescription:
-    "I build thoughtful digital experiences, intelligent machine-learning solutions, and tools that turn complex problems into useful products.",
+    "For small businesses and teams who need something built, from the first sketch to the live site.",
   heroActions: {
     primaryButton: {
-      text: "Explore services",
+      text: "See services",
       href: "#service-list",
     },
-    secondaryButton: {
-      text: "Have a project?",
+    secondaryLink: {
+      text: "Start a project",
       href: "#contact",
     },
   },
-  wheelCaption: {
-    line1: "A little logic.",
-    line2: "A lot of intention.",
-  },
+  dialCaption: "Scroll to turn the dial, or pick a service",
   heroFooter: {
-    left: "DESIGN-MINDED DEVELOPMENT",
-    center: "BUILD · LEARN · ITERATE",
-    right: {
-      text: "DISCOVER WHAT I DO",
-      href: "#service-list",
-    },
+    left: "Next.js · Python · scikit-learn · SQL",
+    right: "Six services below",
   },
 };
 
-// Services Data (replaces the array in ServicesPage.tsx)
+// Services Data
 export const SERVICES_DATA: Service[] = [
   {
+    id: "service-web",
     number: "01",
-    category: "WEB / DEVELOPMENT",
-    title: "Web Development",
+    category: "Web development",
+    title: "Web development",
+    dialLabel: "Web",
     description:
-      "Responsive websites and web applications that feel considered, work smoothly, and make complex things easier to use.",
-    tags: ["React", "Next.js", "UI Development"],
-    tone: "peach",
+      "Responsive websites and web apps in React and Next.js, built for small businesses and full-stack projects.",
+    tags: ["React", "Next.js", "UI development"],
   },
   {
+    id: "service-ml",
     number: "02",
-    category: "ML / INTELLIGENCE",
-    title: "Machine Learning",
+    category: "Machine learning",
+    title: "Machine learning",
+    dialLabel: "ML",
     description:
-      "Practical ML workflows that transform data into predictions, patterns, and useful decision-making tools.",
+      "Models in Python and scikit-learn that turn data into predictions, like property price estimates or real-time fall detection.",
     tags: ["Python", "Scikit-learn", "Modeling"],
-    tone: "blue",
   },
   {
+    id: "service-automation",
     number: "03",
-    category: "AI / AUTOMATION",
-    title: "AI & Automation",
+    category: "AI and automation",
+    title: "AI and automation",
+    dialLabel: "Automation",
     description:
-      "Connected tools and streamlined workflows that reduce repetitive work and help digital processes run smarter.",
+      "Python scripts and API connections that take repetitive steps off your plate.",
     tags: ["APIs", "Python", "Workflow"],
-    tone: "lilac",
   },
   {
+    id: "service-data",
     number: "04",
-    category: "DATA / INSIGHTS",
-    title: "Data Solutions",
+    category: "Data and dashboards",
+    title: "Data solutions",
+    dialLabel: "Data",
     description:
-      "Clean, clear data analysis and dashboards that make trends easier to understand and communicate.",
+      "Cleaning, analysis and dashboards in Pandas and SQL, so trends are easy to read and share.",
     tags: ["Pandas", "SQL", "Dashboards"],
-    tone: "green",
   },
   {
+    id: "service-video",
     number: "05",
-    category: "VIDEO / MARKETING",
-    title: "Promo Videos",
+    category: "Video and marketing",
+    title: "Promo videos",
+    dialLabel: "Video",
     description:
-      "I Create Promo videos using AI for small businesses covering their offers, events and product promotion.",
-    tags: ["AI Video", "Marketing", "Content Creation"],
-    tone: "peach",
+      "Promo videos for small businesses: offers, events and product launches, made with AI tools.",
+    tags: ["AI video", "Marketing", "Content creation"],
   },
   {
+    id: "service-records",
     number: "06",
-    category: "SYSTEMS / MANAGEMENT",
-    title: "Management Systems",
+    category: "Management systems",
+    title: "Management systems",
+    dialLabel: "Records",
     description:
-      "web applications that replace manual records converting it into digital records for easier findings.",
-    tags: ["Web Apps", "Database", "Automation"],
-    tone: "blue",
+      "Web apps that replace paper records with a searchable database.",
+    tags: ["Web apps", "Database", "Automation"],
   },
 ];
 
-// Service Hero Wheel Data
-export const SERVICE_WHEEL_DATA: ServiceWheelData = {
-  outerOrbit: ["STRATEGY", "DESIGN", "INTELLIGENCE", "DEVELOPMENT", "AUTOMATION", "IMPACT"],
-  innerOrbit: ["IDEAS", "SYSTEMS", "SOLUTIONS", "EXPERIENCE", "DATA", "DETAIL"],
-  core: {
-    smallText: "MADE WITH",
-    mainText: "purpose.",
-    coreArrow: "↗",
-  },
-  wheelPointer: "↗",
-  wheelNumber: "SW / 01",
-};
-
 // Services Section Data
 export const SERVICE_SECTION_DATA: ServiceSectionData = {
-  eyebrow: {
-    label: "WHAT I CAN HELP WITH",
-    number: "002",
-  },
+  eyebrow: "What I can help with",
   heading: {
-    line1: "Thoughtful work.",
-    line2: "Useful outcomes.",
+    line1: "Six ways",
+    line2: "I can help",
   },
   description:
-    "From the first sketch to the final implementation, I bring design thinking and engineering together to solve real problems.",
+    "Pick the one closest to your project. If it spans a few, that is normal. Tell me what you need and we will scope it together.",
   sectionBottom: {
-    text: "FOUR CAPABILITIES. ONE CURIOUS MIND.",
+    text: "Not sure which one fits?",
     link: {
-      text: "Have something in mind?",
+      text: "Tell me about your project",
       href: "#contact",
     },
-  },
-};
-
-// Service Contact Strip Data
-export const SERVICE_CONTACT_DATA: ServiceContactData = {
-  eyebrow: "HAVE A GOOD PROBLEM?",
-  heading: {
-    line1: "Let's make it",
-    line2: "meaningful.",
-  },
-  button: {
-    text: "Start a conversation",
-    href: "mailto:hello@example.com",
   },
 };

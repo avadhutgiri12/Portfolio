@@ -7,22 +7,25 @@ type ServiceCardProps = {
   className?: string;
 };
 
+/* One plain card style. The arrow link is stretched over the whole card
+   (::after), so the pointer cursor only shows where a click really goes. */
 export default function ServiceCard({ service, className = "" }: ServiceCardProps) {
   return (
-    <article className={`${styles.serviceCard} ${styles[service.tone]} ${className}`}>
-      <span className={styles.cardPin} aria-hidden="true" />
-      <div className={styles.cardInner}>
-        <div className={styles.cardTopline}>
-          <span className={styles.cardNumber}>{service.number}</span>
-          <span className={styles.cardCategory}>{service.category}</span>
-        </div>
-        <h3>{service.title}</h3>
-        <p>{service.description}</p>
-        <div className={styles.cardTags}>
-          {service.tags.map((tag) => <span key={tag}>{tag}</span>)}
-        </div>
-        <a className={styles.cardArrow} href="#contact" aria-label={`Discuss ${service.title}`}>
-          <ArrowUpRight size={18} strokeWidth={2} />
+    <article className={`${styles.serviceCard} ${className}`} id={service.id}>
+      <div className={styles.cardTopline}>
+        <span className={styles.cardNumber}>{service.number}</span>
+        <span className={styles.cardCategory}>{service.category}</span>
+      </div>
+      <h3>{service.title}</h3>
+      <p>{service.description}</p>
+      <div className={styles.cardFooter}>
+        <ul className={styles.cardTags} aria-label="Tools">
+          {service.tags.map((tag) => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
+        <a className={styles.cardArrow} href="#contact" aria-label={`Ask about ${service.title.toLowerCase()}`}>
+          <ArrowUpRight size={18} strokeWidth={1.75} aria-hidden="true" />
         </a>
       </div>
     </article>
