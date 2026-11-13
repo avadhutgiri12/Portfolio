@@ -199,92 +199,80 @@
 .noteCard {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 18px;
   height: 100%;
-  padding: 22px;
+  min-height: 300px;
+  padding: 24px;
   border: 2px solid var(--ink);
-  background: var(--paper);
-  box-shadow: 5px 5px 0 var(--ink);
+  border-radius: 24px;
+  background: #fffdf8;
+  box-shadow: 0 10px 28px rgba(17, 17, 17, 0.1);
   color: var(--ink);
   text-decoration: none;
-  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.noteCard:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 3px 3px 0 var(--ink);
-  background: var(--accent);
-  color: #fff;
+.noteCard:hover,
+.noteCard:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(17, 17, 17, 0.16);
 }
-.noteCard:hover .noteTag,
-.noteCard:hover .noteTitle,
-.noteCard:hover .noteDesc,
-.noteCard:hover .noteDate,
-.noteCard:hover .downloadBtn {
-  color: #fff;
-}
-.noteCard:hover .downloadBtn {
-  border-color: #fff;
-  background: transparent;
-}
-.noteCard:hover .downloadBtn::after {
-  filter: brightness(0) invert(1);
+.noteCard:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
 }
 
-.noteTag {
-  flex: none;
-  min-width: 3.2em;
-  font-family: var(--font-anton), Impact, sans-serif;
-  font-size: 1.1rem;
+.noteChip {
+  align-self: flex-start;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(255, 77, 31, 0.12);
   color: var(--accent);
-  text-transform: uppercase;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
 }
 .noteTitle {
   margin: 0;
   font-family: var(--font-anton), Impact, sans-serif;
   font-weight: 400;
-  font-size: 1.4rem;
+  font-size: 1.55rem;
   text-transform: uppercase;
-  line-height: 1.1;
-}
-.noteDesc {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--soft);
-}
-.noteMeta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: auto;
-  padding-top: 8px;
-}
-.noteDate {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--soft);
+  line-height: 1.2;
 }
 .downloadBtn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 14px;
-  border: 2px solid var(--ink);
+  justify-content: center;
+  gap: 10px;
+  margin-top: auto;
+  padding: 15px 20px;
+  border-radius: 999px;
   background: var(--accent);
   color: #fff;
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 11px;
-  letter-spacing: 0.04em;
+  font-size: 13px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  text-decoration: none;
-  box-shadow: 3px 3px 0 var(--ink);
-  transition: transform 0.15s, box-shadow 0.15s;
+  transition: background 0.25s ease;
 }
-.downloadBtn:hover {
-  transform: translate(1px, 1px);
-  box-shadow: 2px 2px 0 var(--ink);
+.noteCard:hover .downloadBtn,
+.noteCard:focus-visible .downloadBtn {
+  background: var(--ink);
+}
+.downloadIcon {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .noteCard {
+    transition: none;
+  }
+  .noteCard:hover,
+  .noteCard:focus-visible {
+    transform: none;
+  }
 }
 
 /* ───────── footer ───────── */

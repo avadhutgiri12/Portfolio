@@ -52,19 +52,14 @@ export default function NotesPage() {
             {NOTES.map((note) => (
               <li key={note.slug}>
                 <a href={note.downloadUrl} className={styles.noteCard} download>
-                  <span className={styles.noteTag}>{note.tag}</span>
+                  <span className={styles.noteChip}>PDF</span>
                   <h3 className={styles.noteTitle}>{note.title}</h3>
-                  <p className={styles.noteDesc}>{note.description}</p>
-                  <div className={styles.noteMeta}>
-                    <time className={styles.noteDate} dateTime={note.date}>
-                      {new Date(note.date).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                      })}
-                    </time>
-                    <span className={styles.downloadBtn}>Download PDF</span>
-                  </div>
+                  <span className={styles.downloadBtn}>
+                    Download PDF
+                    <svg className={styles.downloadIcon} viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12 4v14M6 12l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
                 </a>
               </li>
             ))}
