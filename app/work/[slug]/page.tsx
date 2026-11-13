@@ -3,7 +3,8 @@ import { PROJECT_DATA } from "@/data/ProjectData";
 import {
   ChevronLeft,
   ChevronRight,
-  ArrowUpRight,
+  ExternalLink,
+  GitBranch,
 } from "lucide-react";
 import Link from "next/link";
 import Overlays from "@/components/Overlays";
@@ -90,232 +91,196 @@ export default async function WorkCaseStudy({ params }: PageProps) {
   const prevSlug = createSlug(prevProject.title);
   const nextSlug = createSlug(nextProject.title);
 
-  return (
-    <section className="relative min-h-screen overflow-hidden bg-black text-white">
-      <Overlays />
-      {/* Background glow */}{/* Cinematic black background with orange ambient glow */}
-<div
-  className="pointer-events-none absolute inset-0 z-0"
-  style={{
-    background: `
-      radial-gradient(
-        ellipse 70% 45% at 85% 18%,
-        rgba(201, 85, 46, 0.65) 0%,
-        rgba(150, 55, 25, 0.35) 25%,
-        rgba(65, 27, 15, 0.18) 50%,
-        transparent 75%
-      ),
-      linear-gradient(
-        180deg,
-        #0a0807 0%,
-        #050505 55%,
-        #000000 100%
-      )
-    `,
-  }}
-/>
+  const videoSrc = caseStudyMap[project.id]?.videoUrl;
+  const howItWorks = caseStudyMap[project.id]?.extra?.howItWorks;
+  const metrics = caseStudyMap[project.id]?.extra?.metrics;
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 py-12">
+  return (
+    <section className="relative min-h-screen overflow-hidden bg-[#080808] text-white font-sans antialiased">
+      <Overlays />
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 md:py-24">
         {/* Header */}
-        <div className="mb-25">
-          {/* Back to work and project number on same line */}
-          <div className="flex items-center justify-between mb-4">
+        <div className="mb-16 md:mb-20">
+          <div className="flex items-center justify-between mb-6">
             <Link
               href="/#work"
-              className="flex items-center gap-2 text-sm text-white transition-colors hover:text-[#fe4c12]"
+              className="flex items-center gap-2 text-sm text-white/70 transition-colors hover:text-white"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={18} />
               All work
             </Link>
-            <div className="text-sm font-bold text-white/50">
+            <span className="text-sm font-mono text-white/40 tabular-nums">
               {project.num} / {PROJECT_DATA.length.toString().padStart(2, '0')}
-            </div>
+            </span>
           </div>
 
-          {/* Project name on next line with Roboto font */}
-        </div>
-
-        {/* Project introduction */}
-          <h1 className="md:text-8xl font-light text-6xl mb-4 font-bold tracking-tight roboto">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-light tracking-tight roboto leading-[1.05]">
             {project.title}
           </h1>
-        <div className="mb-8 md:w-2xl w-vw">
-          <p className="mb-4 leading-relaxed text-white/70">
-            {project.description}
-          </p>
-
-          <div className="flex flex-wrap gap-4">
-            {project.liveSiteUrl && (
-              <a
-                href={project.liveSiteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-full border border-transparent bg-[#fd4b16] px-6 py-3 text-white transition-[color,background-color,border-color,opacity,transform] duration-200 hover:-translate-y-0.5"
-              >
-                Visit Live
-                <ArrowUpRight size={20} />
-              </a>
-            )}
-
-            {project.repositoryUrl && (
-              <a
-                href={project.repositoryUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-full border border-transparent bg-white px-6 py-3 text-black transition-[color,background-color,border-color,opacity,transform] duration-200"
-              >
-                {project.liveSiteUrl ? "Code" : "View source on GitHub"}
-                <ArrowUpRight size={20} />
-              </a>
-            )}
-          </div>
         </div>
 
-        {/* Project video */}
-        {/* Project UI Showcase */}
-{(() => {
-    const videoSrc = caseStudyMap[project.id]?.videoUrl;
-
-    if (!videoSrc) {
-      return (
-        <div className="mb-16 mt-12">
-          <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#e9e4d6] shadow-[0_25px_100px_rgba(0,0,0,0.4)]">
-            <div className="flex h-8 items-center gap-2 bg-[#e9e4d6] px-4 sm:h-10 sm:px-6">
-              <div className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
-                <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
-                <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
-              </div>
-              <div className="ml-3 truncate font-mono text-xs tracking-[0.01em] text-[#817967] ">
-                {project.liveSiteUrl
-                  ? `WWW.${project.title.toUpperCase().replace(/\s+/g, "")}.COM`
-                  : "Local demo, not deployed"}
-              </div>
-            </div>
-            <div className="relative aspect-16/10 overflow-hidden bg-white sm:aspect-video">
-              {project.image ? (
-                <img
-                  src={project.image}
-                  alt={`${project.title} screenshot`}
-                  className="h-full w-full object-cover object-top"
+        {/* Hero: Video left, intro right */}
+        <div className="mb-20 md:mb-24">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+            {/* Video/Preview — 7/12 */}
+            <div className="lg:col-span-7">
+              {videoSrc ? (
+                <video
+                  src={videoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full aspect-video rounded-xl bg-[#111] object-cover"
                 />
+              ) : project.image ? (
+                <div className="relative aspect-video rounded-xl overflow-hidden bg-[#111]">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} screenshot`}
+                    className="h-full w-full object-cover object-top"
+                  />
+                </div>
               ) : (
-                <div className="flex h-full w-full items-center justify-center bg-neutral-900 text-neutral-400">
-                  Project preview unavailable
+                <div className="aspect-video rounded-xl bg-[#111] flex items-center justify-center text-white/40 font-mono text-sm">
+                  Preview unavailable
                 </div>
               )}
             </div>
+
+            {/* Intro — 5/12 */}
+            <div className="lg:col-span-5 flex flex-col justify-start pt-2 lg:pt-0">
+              <p className="mb-8 text-white/70 leading-relaxed text-base md:text-lg">
+                {project.description}
+              </p>
+
+              <div className="flex flex-wrap items-center gap-3">
+                {project.liveSiteUrl && (
+                  <a
+                    href={project.liveSiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-lg bg-[#fe4c12] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#e84510] active:scale-[0.98]"
+                  >
+                    <ExternalLink size={16} />
+                    Live
+                  </a>
+                )}
+
+                {project.repositoryUrl && (
+                  <a
+                    href={project.repositoryUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-lg border border-white/15 bg-transparent px-5 py-2.5 text-sm font-medium text-white/90 transition-colors hover:border-white/30 hover:bg-white/5 active:scale-[0.98]"
+                  >
+                    <GitBranch size={16} />
+                    Source
+                  </a>
+                )}
+              </div>
+
+              {/* Subtitle/meta */}
+              <div className="mt-8 flex flex-wrap items-center gap-4 text-sm text-white/50 font-mono">
+                <span>{project.year}</span>
+                <span className="text-white/20">·</span>
+                <span>{project.role}</span>
+              </div>
+            </div>
           </div>
         </div>
-      );
-    }
 
-    return (
-      <div className="mb-16 mt-12">
-        {/* Browser Window */}
-        <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#e9e4d6] shadow-[0_25px_100px_rgba(0,0,0,0.4)]">
-
-          {/* Browser Header */}
-          <div className="flex h-8 items-center gap-2 bg-[#e9e4d6] px-4 sm:h-10 sm:px-6">
-
-            {/* Browser Controls */}
-            <div className="flex items-center gap-1.5">
-              <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
-              <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
-              <span className="h-2 w-2 rounded-full bg-[#c9c2b1]" />
-            </div>
-
-            {/* Website Address */}
-            <div className="ml-3 truncate font-mono text-xs tracking-[0.01em] text-[#817967] ">
-              {project.liveSiteUrl
-                ? `WWW.${project.title.toUpperCase().replace(/\s+/g, "")}.COM`
-                : "Local demo, not deployed"}
-            </div>
-          </div>
-
-          {/* Video Preview */}
-          <div className="relative aspect-16/10 overflow-hidden bg-black sm:aspect-video">
-            <video
-              key={videoSrc}
-              src={videoSrc}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
-            />
-          </div>
-        </div>
-      </div>
-    );
-  })()}
-
-        {/* Project impact */}
-        <div className="mb-10">
-          <h2 className="mb-4 text-3xl font-semibold text-white roboto w-4xl">
-            What it does
+        {/* Impact */}
+        <div className="mb-20 md:mb-24">
+          <h2 className="mb-6 text-3xl md:text-4xl font-light tracking-tight roboto">
+            How {project.title} works
           </h2>
-
-          <p className="leading-relaxed text-white/70">
+          <p className="max-w-3xl leading-relaxed text-white/70 text-base md:text-lg">
             {project.impact}
           </p>
         </div>
 
-          <div className="flex gap-2">
-          {/* Key features */}
-          <div className="w-[40%]">
-            <h2 className="mb-2 text-[14px] font-semibold text-[#fe4c12] roboto leading-tight">
-              Key Features
-            </h2>
+        {/* Key Features + How it works */}
+        <div className="mb-20 md:mb-24">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+            {/* Key Features — 5/12 */}
+            <div className="lg:col-span-5">
+              <h3 className="mb-4 text-sm font-semibold text-white/60 uppercase tracking-wider font-mono">
+                Key features
+              </h3>
+              <ul className="space-y-3" role="list">
+                {project.tags.map((tag, index) => (
+                  <li key={index} className="flex items-center gap-3 text-white/80">
+                    <span className="flex h-6 w-6 items-center justify-center rounded bg-white/10 font-mono text-[10px] text-white/40">
+                      {index + 1}
+                    </span>
+                    <code className="text-sm font-mono bg-white/5 px-2 py-0.5 rounded text-white/90">
+                      {tag}
+                    </code>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-            <div className="space-y-2">
-              {project.tags.map((tag, index) => (
-                <div key={index} className="border-b border-white/10 pb-2 last:border-b-0 last:pb-0">
-                  <span className="text-gray-300 leading-tight">{tag}</span>
-                </div>
-              ))}
+            {/* How it works — 7/12 */}
+            <div className="lg:col-span-7">
+              <h3 className="mb-4 text-sm font-semibold text-white/60 uppercase tracking-wider font-mono">
+                How it works
+              </h3>
+              {howItWorks && howItWorks.length > 0 ? (
+                <ol className="space-y-5" role="list">
+                  {howItWorks.map((item: any, index: number) => (
+                    <li key={index} className="relative pl-8 md:pl-10">
+                      <span className="absolute left-0 top-1 font-mono text-lg font-medium text-white/30 tabular-nums">
+                        {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <h4 className="mb-1.5 font-medium text-white roboto">
+                        {item.title}
+                      </h4>
+                      <p className="text-white/60 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </li>
+                  ))}
+                </ol>
+              ) : (
+                <p className="text-white/50 font-mono text-sm">No technical breakdown available.</p>
+              )}
             </div>
           </div>
+        </div>
 
-        {/* How it works */}
-        <div className="w-[60%]">
-          <h2 className="mb-2 text-[14px] font-semibold text-[#fe4c12] roboto leading-tight">
-            How it works
-          </h2>
-
-          <div className="space-y-2">
-            {caseStudyMap[project.id]?.extra?.howItWorks?.map((item: any, index: number) => (
-              <div key={index} className="flex items-start gap-2 border-b border-white/10 pb-2 last:border-b-0 last:pb-0">
-                <div className="mt-0.5 shrink-0">
-                  {index + 1}.
+        {/* Metrics */}
+        {metrics && metrics.length > 0 && (
+          <div className="mb-20 md:mb-24">
+            <h3 className="mb-6 text-sm font-semibold text-white/60 uppercase tracking-wider font-mono">
+              Metrics
+            </h3>
+            <dl className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6" role="list">
+              {metrics.map((metric: any, index: number) => (
+                <div key={index} className="rounded-lg border border-white/10 p-4 md:p-6 bg-white/2">
+                  <dt className="mb-1.5 text-xs font-semibold text-white/50 uppercase tracking-wider font-mono">
+                    {metric.label}
+                  </dt>
+                  <dd className="text-xl md:text-2xl font-medium text-white roboto tabular-nums">
+                    {metric.value}
+                  </dd>
                 </div>
-
-                <div>
-                  <h3 className="mb-1 font-semibold text-gray-100 roboto">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-sm text-gray-400 leading-tight">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </dl>
           </div>
-        </div>
-        </div>
+        )}
 
-        {/* Tools */}
-        <div className="mb-12">
-          <h2 className="mb-4 text-2xl font-semibold text-[#fe4c12] roboto">
-            Tools Used
-          </h2>
-
-          <div className="flex flex-wrap gap-2">
+        {/* Stack */}
+        <div className="mb-20 md:mb-24">
+          <h3 className="mb-4 text-sm font-semibold text-white/60 uppercase tracking-wider font-mono">
+            Stack
+          </h3>
+          <div className="flex flex-wrap gap-2" role="list">
             {project.tools.map((tool) => (
               <span
                 key={tool}
-                className="rounded-full border border-[#fe4c12]/50 bg-[#fe4c12]/20 px-3 py-1 text-xs font-medium"
+                className="inline-flex items-center px-3 py-1.5 rounded bg-white/5 text-sm font-mono text-white/80 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-colors"
               >
                 {tool}
               </span>
@@ -324,51 +289,47 @@ export default async function WorkCaseStudy({ params }: PageProps) {
         </div>
 
         {/* Project navigation */}
-        <div className="mt-12 border-t border-[#fe4c12]/20 pt-8">
-          <div className="flex items-center justify-between gap-4">
-            {/* Previous project */}
+        <nav className="pt-8 border-t border-white/10" aria-label="Project navigation">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <Link
               href={`/work/${prevSlug}`}
-              className="flex max-w-[48%] items-center gap-3 transition-opacity hover:opacity-70"
+              className="flex items-center gap-3 w-full md:w-auto text-left transition-opacity hover:opacity-70 group"
             >
               <ChevronLeft
-                size={24}
-                className="shrink-0 text-[#fe4c12]"
+                size={20}
+                className="shrink-0 text-white/50 group-hover:text-white transition-colors"
+                aria-hidden="true"
               />
-
               <div className="min-w-0">
-                <p className="text-sm text-gray-400">
-                  Previous Project
+                <p className="text-xs font-semibold text-white/40 uppercase tracking-wider font-mono">
+                  Previous
                 </p>
-
-                <h3 className="wrap-break-word font-semibold text-white roboto">
+                <h3 className="mt-0.5 font-medium text-white roboto truncate">
                   {prevProject.title}
                 </h3>
               </div>
             </Link>
 
-            {/* Next project */}
             <Link
               href={`/work/${nextSlug}`}
-              className="flex max-w-[48%] items-center gap-3 text-right transition-opacity hover:opacity-70"
+              className="flex items-center gap-3 w-full md:w-auto text-right transition-opacity hover:opacity-70 group"
             >
-              <div className="min-w-0">
-                <p className="text-sm text-gray-400">
-                  Next Project
+              <div className="min-w-0 text-right">
+                <p className="text-xs font-semibold text-white/40 uppercase tracking-wider font-mono">
+                  Next
                 </p>
-
-                <h3 className="wrap-break-word font-semibold text-white roboto">
+                <h3 className="mt-0.5 font-medium text-white roboto truncate">
                   {nextProject.title}
                 </h3>
               </div>
-
               <ChevronRight
-                size={24}
-                className="shrink-0 text-[#fe4c12]"
+                size={20}
+                className="shrink-0 text-white/50 group-hover:text-white transition-colors"
+                aria-hidden="true"
               />
             </Link>
           </div>
-        </div>
+        </nav>
       </div>
     </section>
   );
