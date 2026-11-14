@@ -249,6 +249,15 @@ body {
     transition-duration: 0ms !important;
     animation: none !important;
   }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
 .work-tab {
   @apply flex items-center gap-3 px-4 py-3 rounded-lg border border-neutral-700/50 cursor-pointer transition-colors duration-200;

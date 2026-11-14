@@ -22,7 +22,13 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/notes" },
-  openGraph: { title, description, url: "/notes", siteName: "techie.addy", type: "website" },
+  openGraph: {
+    title,
+    description,
+    url: "/notes",
+    siteName: "techie.addy",
+    type: "website",
+  },
   twitter: { card: "summary_large_image", title, description },
 };
 
@@ -32,60 +38,91 @@ export default function NotesPage() {
       <BizNav current="notes" />
 
       <main>
-        {/* ── hero ── */}
-        <section className={styles.hero}>
-          <div className={styles.content}>
-            {/* Eyebrow */}
-            <p className={styles.eyebrow}>techie.addy</p>
-
-            {/* Main Heading */}
-            <h1 className={styles.heading}>
-              Free <mark>Notes</mark>
-            </h1>
-
-            {/* Brand Badge */}
-            <div className={styles.badge}>Download & Learn</div>
-
-            {/* Description */}
-            <p className={styles.lead}>{notesSeries.line}</p>
-
-            {/* Actions */}
-            <div className={styles.actions}>
-              <Link href="/business#contact" className={styles.primaryButton}>
-                <span className={styles.primaryIcon}>→</span>
-                <span>Start a Project</span>
-              </Link>
-
-              <a href="#notes-grid" className={styles.secondaryButton}>
-                <span className={styles.secondaryIcon}>↓</span>
-                <span>Free Notes</span>
+        <section className={styles.hero} aria-labelledby="notes-heading">
+          <div className={styles.heroPanel}>
+            <div className={styles.heroContent}>
+              <p className={styles.brand}>techie.addy</p>
+              <h1 id="notes-heading" className={styles.heading}>
+                One Stop Digital Library
+                <br />
+                <span>for Builders.</span>
+              </h1>
+              <p className={styles.lead}>{notesSeries.line}</p>
+              <a href="#notes-grid" className={styles.primaryButton}>
+                View Collections
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M4 10h11M10 5l5 5-5 5" />
+                </svg>
               </a>
+            </div>
+
+            <div className={styles.bookStage} aria-hidden="true">
+              <div className={`${styles.book} ${styles.bookBackLeft}`}>
+                <span className={styles.bookMark}>01</span>
+                <span className={styles.bookTitle}>BUILD<br />BETTER</span>
+                <span className={styles.bookLines} />
+                <span className={styles.bookOrb} />
+              </div>
+              <div className={`${styles.book} ${styles.bookBackRight}`}>
+                <span className={styles.bookMark}>03</span>
+                <span className={styles.bookTitle}>THINK<br />IN SYSTEMS</span>
+                <span className={styles.bookLines} />
+                <span className={styles.bookFlower}>✳</span>
+              </div>
+              <div className={`${styles.book} ${styles.bookFront}`}>
+                <span className={styles.bookMark}>TECHIE.ADDY · FIELD NOTES</span>
+                <span className={styles.bookFrontArt}>
+                  <span />
+                  <span />
+                  <span />
+                </span>
+                <span className={styles.bookFrontTitle}>Ideas into<br />practice.</span>
+                <span className={styles.bookFrontFoot}>A LIBRARY FOR BUILDERS</span>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ── notes grid ── */}
-        <section id="notes-grid" className={styles.section}>
+        <section id="notes-grid" className={styles.section} aria-labelledby="collection-heading">
           <div className={styles.wrap}>
-            <p className={styles.kicker}>{notesSeries.title}</p>
-            <h2 className={styles.h2}>Practical Guides for Builders</h2>
-            <p className={styles.copy}>
-              Each note is a focused, practical resource — no fluff, just patterns that work in production.
-            </p>
+            <div className={styles.sectionIntro}>
+              <p className={styles.kicker}>{notesSeries.title}</p>
+              <h2 id="collection-heading" className={styles.h2}>Practical Guides for Builders</h2>
+              <p className={styles.copy}>
+                Each note is a focused, practical resource — no fluff, just patterns that work in production.
+              </p>
+            </div>
+
             <ul className={styles.notesGrid}>
-              {NOTES.map((note) => (
+              {NOTES.map((note, index) => (
                 <li key={note.slug}>
-                  <a href={note.downloadUrl} className={styles.noteCard} download>
-                    <span className={styles.noteChip}>{note.tag}</span>
+                  <article className={styles.noteCard}>
+                    <div className={styles.cardTop}>
+                      <span className={styles.identityIcon} aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                          <path d="M5 5.5A2.5 2.5 0 0 1 7.5 3H20v16H7.5A2.5 2.5 0 0 0 5 21.5v-16Z" />
+                          <path d="M5 18.5A2.5 2.5 0 0 1 7.5 16H20M9 7h7M9 10h7" />
+                        </svg>
+                      </span>
+                      <span className={styles.noteNumber}>{String(index + 1).padStart(2, "0")}</span>
+                    </div>
+                    <p className={styles.noteEyebrow}>Builder resource</p>
                     <h3 className={styles.noteTitle}>{note.title}</h3>
+                    <div className={styles.tags} aria-label="Resource details">
+                      <span className={styles.tag}>{note.tag}</span>
+                      <span className={styles.tag}>PDF guide</span>
+                    </div>
                     <p className={styles.noteDesc}>{note.description}</p>
-                    <span className={styles.downloadBtn}>
-                      Download PDF
-                      <svg className={styles.downloadIcon} viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12 4v14M6 12l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </span>
-                  </a>
+                    <div className={styles.cardFooter}>
+                      <span className={styles.fileType}>PDF · FREE RESOURCE</span>
+                      <a href={note.downloadUrl} className={styles.downloadBtn} download>
+                        Download PDF
+                        <svg className={styles.downloadIcon} viewBox="0 0 20 20" aria-hidden="true">
+                          <path d="M10 2.5v10m-4-4 4 4 4-4M3.5 14v3h13v-3" />
+                        </svg>
+                      </a>
+                    </div>
+                  </article>
                 </li>
               ))}
             </ul>
