@@ -11,8 +11,9 @@ export default function BizNav({
       <nav className={styles.navbar} aria-label="Main navigation">
 
         {/* Brand */}
-        <Link href="/business" className={styles.brand}>
-          techie.addy
+        <Link href="/business" className={styles.brand} aria-label="techie.addy home">
+          <span className={styles.brandMark}>t.</span>
+          <span>techie.addy</span>
         </Link>
 
         {/* Navigation Links */}
@@ -50,8 +51,7 @@ export default function BizNav({
           href="/business#contact"
           className={styles.cta}
         >
-          Start a Project
-          <span className={styles.arrow}>↗</span>
+          Let&apos;s talk <span className={styles.arrow}>↗</span>
         </Link>
 
       </nav>

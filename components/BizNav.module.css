@@ -1,5 +1,5 @@
 /* =========================================
-   FLOATING NAVBAR
+   FLOATING NAVBAR — glassmorphism style
 ========================================= */
 
 .header {
@@ -25,40 +25,21 @@
 ========================================= */
 
 .navbar {
-  width:70vw;
-  max-width: 90%;
-
-  min-height: 58px;
-
+  position: relative;
+  z-index: 3;
+  width: min(100%, 760px);
+  min-height: 42px;
+  padding: 5px 7px 5px 11px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  gap: 48px;
-
-  padding: 6px 12px 6px 12px;
-
-  background: #111111;
-
-  border: 1px solid rgba(255, 255, 255, 0.12);
-
-  border-radius: 100px;
-
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.13),
-    0 2px 5px rgba(0, 0, 0, 0.08);
-
+  gap: 18px;
+  border: 1px solid rgba(25,25,22,.08);
+  border-radius: 999px;
+  background: rgba(255,255,255,.72);
+  box-shadow: 0 5px 18px rgba(31,28,20,.035);
+  backdrop-filter: blur(14px);
   pointer-events: auto;
-
-  transition:
-    box-shadow 0.3s ease,
-    transform 0.3s ease;
-}
-
-.navbar:hover {
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.16),
-    0 3px 8px rgba(0, 0, 0, 0.08);
 }
 
 /* =========================================
@@ -66,35 +47,24 @@
 ========================================= */
 
 .brand {
-  flex-shrink: 0;
-
-  color: #111111;
-
-  font-family: var(--font-body), sans-serif;
-
-  font-size: 14px;
-  font-weight: 700;
-
-  letter-spacing: -0.04em;
-
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #171715;
   text-decoration: none;
-
+  font: 700 12px/1 var(--font-body), sans-serif;
   white-space: nowrap;
-
-  background: #ffffff;
-
-  border-radius: 100px;
-
-  padding: 8px 20px;
-
-  transition:
-    opacity 0.2s ease,
-    background 0.2s ease;
 }
 
-.brand:hover {
-  opacity: 0.75;
-  background: #f0efeb;
+.brandMark {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #191918;
+  color: #fff;
+  font: 700 15px/1 var(--font-body), sans-serif;
 }
 
 /* =========================================
@@ -104,39 +74,21 @@
 .links {
   display: flex;
   align-items: center;
-
-  gap: 24px;
-
+  justify-content: center;
+  gap: clamp(12px, 2.4vw, 30px);
   margin: 0;
   padding: 0;
-
   list-style: none;
 }
 
 .links a {
-  position: relative;
-
-  display: inline-block;
-
-  color: rgba(255, 255, 255, 0.85);
-
-  font-family: var(--font-body), sans-serif;
-
-  font-size: 12px;
-  font-weight: 500;
-
+  color: #68675f;
   text-decoration: none;
-
-  white-space: nowrap;
-
-  transition:
-    color 0.25s ease,
-    opacity 0.25s ease;
+  font: 500 10px/1 var(--font-body), sans-serif;
+  transition: color .2s ease;
 }
 
-.links a:hover {
-  color: #ffffff;
-}
+.links a:hover { color: #111; }
 
 .links a[aria-current="page"] {
   color: #ffbe38;
@@ -147,62 +99,22 @@
 ========================================= */
 
 .cta {
-  flex-shrink: 0;
-
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-
   gap: 10px;
-
-  padding: 11px 15px;
-
-  border-radius: 100px;
-
-  background: #ffffff;
-
-  color: #111111;
-
-  font-family: var(--font-body), sans-serif;
-
-  font-size: 12px;
-  font-weight: 650;
-
+  padding: 9px 13px;
+  border-radius: 999px;
+  background: #171715;
+  color: white;
   text-decoration: none;
-
+  font: 600 10px/1 var(--font-body), sans-serif;
   white-space: nowrap;
-
-  transition:
-    background 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: transform .2s ease, background .2s ease;
 }
 
-.cta:hover {
-  background: #ffbe38;
+.cta:hover { transform: translateY(-2px); background: #35342f; }
 
-  color: #111111;
-
-  transform: translateY(-1px);
-
-  box-shadow: 0 4px 12px rgba(255, 190, 56, 0.3);
-}
-
-/* =========================================
-   CTA ARROW
-========================================= */
-
-.arrow {
-  display: inline-block;
-
-  font-size: 15px;
-
-  transition: transform 0.25s ease;
-}
-
-.cta:hover .arrow {
-  transform: translate(2px, -2px);
-}
+.cta span { color: #ffc443; font-size: 13px; }
 
 /* =========================================
    TABLET
@@ -214,26 +126,31 @@
   }
 
   .navbar {
-    gap: 18px;
-
-    padding-left: 17px;
+    min-height: 40px;
+    gap: 8px;
   }
 
   .links {
-    gap: 15px;
+    gap: 12px;
   }
 
   .links a {
-    font-size: 12px;
+    font-size: 9px;
   }
 
   .brand {
-    font-size: 13px;
+    gap: 5px;
+    font-size: 10px;
+  }
+
+  .brandMark {
+    width: 23px;
+    height: 23px;
   }
 
   .cta {
-    padding: 10px 12px;
-    font-size: 12px;
+    padding: 9px 10px;
+    font-size: 10px;
   }
 }
 
@@ -248,18 +165,19 @@
 
   .navbar {
     width: 100%;
-
     justify-content: space-between;
-
     gap: 10px;
-
-    min-height: 54px;
-
-    padding: 6px 7px 6px 15px;
+    min-height: 40px;
+    padding: 5px 7px 5px 11px;
   }
 
   .brand {
-    font-size: 12px;
+    font-size: 10px;
+  }
+
+  .brandMark {
+    width: 23px;
+    height: 23px;
   }
 
   .links {
@@ -271,14 +189,16 @@
   }
 
   .links a {
-    font-size: 12px;
+    font-size: 9px;
   }
 
   .cta {
     gap: 5px;
+    padding: 9px 11px;
+    font-size: 10px;
+  }
 
-    padding: 10px 11px;
-
+  .arrow {
     font-size: 12px;
   }
 }
@@ -298,12 +218,12 @@
   }
 
   .brand {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .cta {
     padding: 9px;
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .arrow {
