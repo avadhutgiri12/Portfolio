@@ -4,7 +4,7 @@ import styles from "./BizNav.module.css";
 export default function BizNav({
   current,
 }: {
-  current?: "home" | "notes";
+  current?: "home" | "notes" | "services";
 }) {
   return (
     <header className={styles.header}>

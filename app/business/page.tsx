@@ -12,6 +12,8 @@ import {
 } from "@/lib/notes.config";
 import BizHero from "@/components/BizHero";
 import BizNav from "@/components/BizNav";
+import BizService from "@/components/BizService";
+import Footer from "@/components/Footer";
 
 const anton = Anton({
   variable: "--font-anton",
@@ -37,10 +39,11 @@ export default function BusinessPage() {
   const latest = notes.slice(0, 4);
 
   return (
-   <>
-   <BizNav />
-   <BizHero />
-   
-   </>
+    <>
+      <BizNav />
+      <BizHero />
+      <BizService />
+      <Footer />
+    </>
   );
 }
