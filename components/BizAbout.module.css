@@ -131,8 +131,8 @@
 .imageFrame {
   position: relative;
 
-  width: min(100%, 540px);
-  aspect-ratio: 1;
+  width: min(100%, 400px);
+  aspect-ratio: 0.8;
 
   display: flex;
   align-items: center;
@@ -174,8 +174,8 @@
 
 .frameName {
   position: absolute;
-  left: 30%;
-  bottom: -1;
+  left: 40%;
+  bottom: -2;
   margin-top: 10;
   transform: translateX(-50%);
   display: flex;
