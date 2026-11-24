@@ -90,6 +90,11 @@
 
 .links a:hover { color: #111; }
 
+.links a:hover::after {
+  width: 100%;
+}
+
+/* Active state */
 .links a[aria-current="page"] {
   color: #ffbe38;
 }

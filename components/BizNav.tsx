@@ -32,7 +32,7 @@ export default function BizNav({
 
           <li>
             <Link
-              href="/notes"
+              href="/business/notes"
               aria-current={current === "notes" ? "page" : undefined}
             >
               Free Notes

@@ -1,0 +1,185 @@
+/* =========================================
+   BUSINESS NOTES SECTION (Full Page Grid)
+========================================= */
+
+.notes {
+  width: 100%;
+  padding: 100px 6%;
+
+  background: #f0efeb;
+  color: #111;
+
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+  margin-bottom: 60px;
+}
+
+.labelRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 30px;
+  padding: 6px 14px;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  background: #111;
+  border-radius: 50px;
+}
+
+.labelDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff704f;
+}
+
+.headingRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+
+  flex: 1;
+}
+
+.headingRow h2 {
+  margin: 0;
+
+  font-size: clamp(48px, 7vw, 95px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -5px;
+}
+
+.headingRow h2 span {
+  color: #999;
+}
+
+.headingRow p {
+  max-width: 300px;
+
+  margin: 0 0 8px;
+
+  font-size: 14px;
+  line-height: 1.8;
+  color: #777;
+}
+
+/* =========================================
+   NOTES GRID
+========================================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  .notes {
+    padding: 80px 5%;
+  }
+
+  .headingRow h2 {
+    letter-spacing: -3px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .notes {
+    padding: 60px 5%;
+  }
+
+  .labelRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+
+    margin-bottom: 35px;
+  }
+
+  .label {
+    margin-bottom: 23px;
+  }
+
+  .headingRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .headingRow h2 {
+    font-size: clamp(48px, 12vw, 68px);
+    letter-spacing: -3px;
+  }
+
+  .headingRow p {
+    font-size: 13px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .image,
+  .download {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  .card:hover .image {
+    transform: none;
+  }
+
+  .download:hover {
+    transform: none;
+  }
+}

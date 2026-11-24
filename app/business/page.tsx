@@ -1,19 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Anton } from "next/font/google";
 
-import {
-  INSTAGRAM_HANDLE,
-  INSTAGRAM_URL,
-  YOUTUBE_HANDLE,
-  YOUTUBE_URL,
-  notes,
-  series,
-} from "@/lib/notes.config";
 import BizHero from "@/components/BizHero";
 import BizNav from "@/components/BizNav";
+import BizAbout from "@/components/BizAbout";
 import BizService from "@/components/BizService";
-import Footer from "@/components/Footer";
+import FreeNotes from "@/components/FreeNotes";
+import BizFooter from "@/components/BizFooter";
 
 const anton = Anton({
   variable: "--font-anton",
@@ -35,15 +28,14 @@ export const metadata: Metadata = {
 };
 
 export default function BusinessPage() {
-  const youtubeSet = YOUTUBE_URL.length > 0;
-  const latest = notes.slice(0, 4);
-
   return (
-    <>
-      <BizNav />
-      <BizHero />
-      <BizService />
-      <Footer />
-    </>
+   <>
+   <BizNav />
+   <BizHero />
+   <BizAbout />
+   <BizService />
+   <FreeNotes />
+   <BizFooter />
+   </>
   );
 }

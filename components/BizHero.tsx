@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./BizHero.module.css";
+import { BIZ_HERO_DATA } from "@/data/Business";
 
 const showcaseCards = [
   { number: "01", label: "WEBSITES", title: "Make your first\nimpression count.", tone: "blue", symbol: "↗" },
@@ -8,6 +9,8 @@ const showcaseCards = [
 ];
 
 export default function BizHero() {
+  const { eyebrow, heading, badge, description, actions } = BIZ_HERO_DATA;
+
   return (
     <section className={styles.hero}>
       <div className={styles.glow} aria-hidden="true" />
