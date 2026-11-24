@@ -178,6 +178,7 @@ export const PROJECT_DATA: Project[] = [
       "Excel / CSV bulk import",
       "No backend (localStorage)",
     ],
+    liveSiteUrl: "https://libraryhub-beryl.vercel.app/",
     repositoryUrl:
       "https://github.com/avadhutgiri12/library-management-system",
     status: "Demo",
