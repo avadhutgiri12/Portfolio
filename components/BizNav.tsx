@@ -40,7 +40,7 @@ export default function BizNav({
           </li>
 
           <li>
-            <Link href="/business#follow">
+            <Link href="/business#footer">
               Follow
             </Link>
           </li>

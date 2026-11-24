@@ -63,7 +63,7 @@ const iconMap: Record<string, React.ComponentType<{ size?: number; color?: strin
 
 export default function BizFooter() {
   return (
-    <footer className={styles.footer} role="contentinfo">
+    <footer className={styles.footer} role="contentinfo" id="footer">
       <div className={styles.container}>
 
         {/* Left: Copyright */}

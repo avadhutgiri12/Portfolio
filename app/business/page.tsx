@@ -34,7 +34,7 @@ export default function BusinessPage() {
    <BizHero />
    <BizAbout />
    <BizService />
-   <FreeNotes />
+   {/* <FreeNotes /> */}
    <BizFooter />
    </>
   );

@@ -88,9 +88,9 @@ export default function BizAbout() {
             </h3>
 
             <p className={styles.profileDescription}>
-              My name is techie.addy, and I build websites,
+              My name is Avadhut, and I build websites,
               web apps and AI tools for businesses and
-              organisations. Full-stack by training — a
+              organisations. Full-stack by training a
               complete bootcamp end to end, then competitive
               programming to sharpen the parts a bootcamp
               doesn't reach.
